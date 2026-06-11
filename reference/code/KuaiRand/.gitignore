@@ -1,0 +1,6 @@
+data/
+.ipynb_checkpoints/
+get_statistcs_bak.ipynb
+.idea/
+download-link.md
+.DS_Store

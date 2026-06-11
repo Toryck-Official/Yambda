@@ -1,0 +1,96 @@
+---
+---
+
+// Headers
+$header-heading-color: #fff !default;
+$header-bg-color: #23a3ee !default;
+$header-bg-color-secondary: #040c5e !default;
+
+@import 'jekyll-theme-cayman';
+
+
+.page-header {
+  color: $header-heading-color;
+  text-align: center;
+  background-color: $header-bg-color;
+  background-image: linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color);
+
+  @include large {
+    padding: 5rem 6rem;
+  }
+
+  @include medium {
+    padding: 3rem 4rem;
+  }
+
+  @include small {
+    padding: 2rem 1rem;
+  }
+}
+
+.project-name {
+  margin-top: 0;
+  margin-bottom: 0.1rem;
+  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+
+  @include large {
+    font-size: 3.25rem;
+  }
+
+  @include medium {
+    font-size: 2.25rem;
+  }
+
+  @include small {
+    font-size: 1.75rem;
+  }
+}
+
+h1 {
+    display: none !important;
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+h0 {
+  font-weight: bold;
+  font-size: 3em;
+  margin: 0.67em 0;
+}
+
+.dice {
+  width: 200px;
+  height: 150px;
+  position: absolute;
+  background: url(../../figs/dice.png) no-repeat center center;
+
+  @include large {
+    right: 25%;
+    top: 230pt;
+    background-size: 200px;
+    background-position: 70% 30%;
+  }
+  @include medium {
+    right: 15%;
+    top: 180pt;
+    background-size: 200px;
+    background-position: 80% 25%;
+  }
+  @include small {
+    right: 5%;
+    top: 150pt;
+    background-size: 150px;
+    background-position: 95% 25%;
+  }
+}
+
+.main-content h5, .main-content h6 {
+  color: #1e4f8a;
+  font-weight: bold;
+}
+
+.main-content h2, .main-content h3, .main-content h4{
+  font-weight: bold;
+  color: #17ad9d;
+}
+

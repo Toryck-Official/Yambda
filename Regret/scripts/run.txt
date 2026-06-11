@@ -1,0 +1,226 @@
+主线与消融实验命令清单
+====================
+
+所有命令都在 /root/autodl-tmp/0408Yambda/Regret 下执行。
+长任务统一用 screen；如果 screen -r 找不到，说明任务已经退出，直接看对应 artifacts/logs/*.log。
+
+0. 常用监控
+----------
+
+查看 screen：
+screen -ls
+
+进入某个 screen：
+screen -r split_timehour
+screen -r policy_main
+screen -r eval_main
+
+如果 screen 已经退出，看日志：
+tail -f /root/autodl-tmp/0408Yambda/Regret/artifacts/logs/main_v1_timehour_r1_split.log
+tail -f /root/autodl-tmp/0408Yambda/Regret/artifacts/logs/main_v1_timehour_r1_policy_train.log
+tail -f /root/autodl-tmp/0408Yambda/Regret/artifacts/logs/main_v1_timehour_r1_eta010_test_1000.log
+
+检查是否 OOM：
+dmesg | tail -80
+
+注意：如果一个 split screen 一启动就消失，通常是进程报错或被 kill。先看 split log 和 dmesg，不要直接以为它在后台跑。
+
+
+1. 数据切分：主线 time_hour B_rev
+-------------------------------
+
+说明：
+原始 timestamp 单位为 5 秒。
+相邻事件间隔 > 720 ticks，即 > 3600 秒，切成新 session。
+session 内连续同 item 事件聚合成一个 RL step。
+step_time 取连续同 item run 的最后一个原始事件 timestamp。
+公式 8 的 Delta_tr 使用 time_hour：
+Delta_tr = (current_step_time - failed_step_time) * 5 / 3600。
+
+为避免混入刚才可能留下的半成品，当前建议使用新路径 main_v1_data_timehour_r1。
+
+启动：
+screen -dmS split_timehour bash -lc 'cd /root/autodl-tmp/0408Yambda/Regret && FORCE_SPLIT=1 OUT_ROOT=artifacts/transitions/main_v1_data_timehour_r1 MAIN_ID=main_v1_timehour_r1 ./scripts/01_split_data.sh'
+
+看进度：
+screen -r split_timehour
+
+如果 screen 已退出，看日志：
+tail -f /root/autodl-tmp/0408Yambda/Regret/artifacts/logs/main_v1_timehour_r1_split.log
+
+切分完成后检查 meta：
+sed -n '1,160p' /root/autodl-tmp/0408Yambda/Regret/artifacts/transitions/main_v1_data_timehour_r1/split.meta.json
+
+
+2. Simulator 训练
+----------------
+
+说明：
+严格来说，time_hour 只改变预计算 B_rev 的 phi，不改变 simulator 的监督目标；如果赶进度，可以继续用 artifacts/current/simulator。
+如果要整套主线完全重新跑，则执行本段。
+
+启动：
+screen -dmS sim_timehour bash -lc 'cd /root/autodl-tmp/0408Yambda/Regret && TRANSITION_ROOT=artifacts/transitions/main_v1_data_timehour_r1 SIM_TRAIN_OUT_DIR=artifacts/user_response/main_v1_timehour_r1_sim MAIN_ID=main_v1_timehour_r1 ./scripts/02_train_simulator.sh'
+
+看进度：
+screen -r sim_timehour
+
+日志：
+tail -f /root/autodl-tmp/0408Yambda/Regret/artifacts/logs/main_v1_timehour_r1_simulator_train.log
+
+如果不重训 simulator，后续命令不用设置 SIMULATOR_CHECKPOINT，默认使用 artifacts/current/simulator。
+如果重训了 simulator，后续命令加：
+SIMULATOR_CHECKPOINT=artifacts/user_response/main_v1_timehour_r1_sim/regret_user_response.pt
+
+
+3. 主线策略训练：固定权重 + RAPI + current RRCA
+---------------------------------------------
+
+含义：
+omega/lambda 固定为 1。
+RRCA_APPLY_TO=effective_reward。
+RRCA_CALLBACK_TARGET=current，即只修正当前五元组 reward。
+TRAIN_USE_RAPI=1，即训练 rollout 中使用失败记忆池。
+GATE_REVISION_BY_HISTORY=1，即 unlike 必须有同 item 历史 like，undislike 必须有同 item 历史 dislike，才算有效撤销信号。
+
+启动，使用默认 current simulator：
+screen -dmS policy_main bash -lc 'cd /root/autodl-tmp/0408Yambda/Regret && TRANSITION_ROOT=artifacts/transitions/main_v1_data_timehour_r1 MAIN_ID=main_v1_timehour_r1 POLICY_SAVE_PREFIX=artifacts/models/policy_hsac_main_timehour_r1 ./scripts/03_train_policy.sh'
+
+如果使用本轮重训 simulator：
+screen -dmS policy_main bash -lc 'cd /root/autodl-tmp/0408Yambda/Regret && TRANSITION_ROOT=artifacts/transitions/main_v1_data_timehour_r1 SIMULATOR_CHECKPOINT=artifacts/user_response/main_v1_timehour_r1_sim/regret_user_response.pt MAIN_ID=main_v1_timehour_r1 POLICY_SAVE_PREFIX=artifacts/models/policy_hsac_main_timehour_r1 ./scripts/03_train_policy.sh'
+
+看进度：
+screen -r policy_main
+
+日志：
+tail -f /root/autodl-tmp/0408Yambda/Regret/artifacts/logs/main_v1_timehour_r1_policy_train.log
+
+
+4. 主线评估：base vs RAPI
+------------------------
+
+说明：
+04_eval_policy.sh 会自动跑同一个 actor 的 base 和 RAPI 两套 rollout。
+这个已经是推理期 RAPI 消融。
+
+启动：
+screen -dmS eval_main bash -lc 'cd /root/autodl-tmp/0408Yambda/Regret && TRANSITION_ROOT=artifacts/transitions/main_v1_data_timehour_r1 MAIN_ID=main_v1_timehour_r1 ACTOR_CHECKPOINT=artifacts/models/policy_hsac_main_timehour_r1_actor ROLLOUT_EPISODES=1000 ./scripts/04_eval_policy.sh'
+
+看进度：
+screen -r eval_main
+
+日志：
+tail -f /root/autodl-tmp/0408Yambda/Regret/artifacts/logs/main_v1_timehour_r1_eta010_test_1000.log
+
+
+5. 主线 eta sweep
+-----------------
+
+说明：
+扫描 RAPI 介入强度 eta，判断是不是 eta=0.10 最稳。
+
+启动：
+screen -dmS sweep_main bash -lc 'cd /root/autodl-tmp/0408Yambda/Regret && TRANSITION_ROOT=artifacts/transitions/main_v1_data_timehour_r1 MAIN_ID=main_v1_timehour_r1 ACTOR_CHECKPOINT=artifacts/models/policy_hsac_main_timehour_r1_actor ROLLOUT_EPISODES=500 ./scripts/05_sweep_eta.sh'
+
+看进度：
+screen -r sweep_main
+
+日志：
+tail -f /root/autodl-tmp/0408Yambda/Regret/artifacts/logs/main_v1_timehour_r1_eta_sweep_test_500.log
+
+
+6. 消融 A：训练期 no-RAPI
+-----------------------
+
+含义：
+训练 rollout 中完全不使用 RAPI 失败记忆池。
+注意这不同于 04_eval_policy.sh 的 base vs RAPI；这是重新训练一个 actor。
+
+训练：
+screen -dmS policy_no_rapi bash -lc 'cd /root/autodl-tmp/0408Yambda/Regret && TRANSITION_ROOT=artifacts/transitions/main_v1_data_timehour_r1 TRAIN_USE_RAPI=0 MAIN_ID=main_v1_no_rapi POLICY_SAVE_PREFIX=artifacts/models/policy_hsac_no_rapi_timehour_r1 ./scripts/03_train_policy.sh'
+
+看进度：
+screen -r policy_no_rapi
+
+评估：
+screen -dmS eval_no_rapi bash -lc 'cd /root/autodl-tmp/0408Yambda/Regret && TRANSITION_ROOT=artifacts/transitions/main_v1_data_timehour_r1 MAIN_ID=main_v1_no_rapi ACTOR_CHECKPOINT=artifacts/models/policy_hsac_no_rapi_timehour_r1_actor ROLLOUT_EPISODES=1000 ./scripts/04_eval_policy.sh'
+
+看评估：
+screen -r eval_no_rapi
+
+
+7. 消融 B：RRCA 回溯到最近同 item 历史 step
+-----------------------------------------
+
+含义：
+默认主线 RRCA_CALLBACK_TARGET=current，只修正当前五元组。
+这个消融把 unlike / undislike 的 psi 回写到当前 rollout 中最近一次相同 item 的历史 step。
+
+训练：
+screen -dmS policy_backtrack bash -lc 'cd /root/autodl-tmp/0408Yambda/Regret && TRANSITION_ROOT=artifacts/transitions/main_v1_data_timehour_r1 RRCA_CALLBACK_TARGET=latest_same_item MAIN_ID=main_v1_backtrack POLICY_SAVE_PREFIX=artifacts/models/policy_hsac_backtrack_timehour_r1 ./scripts/03_train_policy.sh'
+
+看进度：
+screen -r policy_backtrack
+
+评估：
+screen -dmS eval_backtrack bash -lc 'cd /root/autodl-tmp/0408Yambda/Regret && TRANSITION_ROOT=artifacts/transitions/main_v1_data_timehour_r1 MAIN_ID=main_v1_backtrack ACTOR_CHECKPOINT=artifacts/models/policy_hsac_backtrack_timehour_r1_actor ROLLOUT_EPISODES=1000 ./scripts/04_eval_policy.sh'
+
+看评估：
+screen -r eval_backtrack
+
+
+8. 消融 C：可学习 reward 权重
+---------------------------
+
+含义：
+固定主线 omega/lambda=1。
+本消融使用 0.2 + 0.8 * sigmoid(raw_weight) 学习：
+omega_listen / omega_like / omega_dislike / lambda_unlike / lambda_undislike。
+
+训练：
+screen -dmS policy_learnw bash -lc 'cd /root/autodl-tmp/0408Yambda/Regret && TRANSITION_ROOT=artifacts/transitions/main_v1_data_timehour_r1 LEARN_REWARD_WEIGHTS=1 LEARN_REWARD_INIT=0.6 MAIN_ID=main_v1_learnw POLICY_SAVE_PREFIX=artifacts/models/policy_hsac_learnw_timehour_r1 ./scripts/03_train_policy.sh'
+
+看进度：
+screen -r policy_learnw
+
+评估：
+screen -dmS eval_learnw bash -lc 'cd /root/autodl-tmp/0408Yambda/Regret && TRANSITION_ROOT=artifacts/transitions/main_v1_data_timehour_r1 MAIN_ID=main_v1_learnw ACTOR_CHECKPOINT=artifacts/models/policy_hsac_learnw_timehour_r1_actor ROLLOUT_EPISODES=1000 ./scripts/04_eval_policy.sh'
+
+看评估：
+screen -r eval_learnw
+
+
+9. 可选消融 D：B_rev Delta_tr 使用 step index
+-------------------------------------------
+
+含义：
+对照公式 8 的时间差实现。
+主线是 time_hour；这个消融退回旧的 step index 差。
+需要重新切数据和重训策略。
+
+切分：
+screen -dmS split_stepdelta bash -lc 'cd /root/autodl-tmp/0408Yambda/Regret && FORCE_SPLIT=1 REGRET_MEMORY_DELTA_MODE=step OUT_ROOT=artifacts/transitions/main_v1_data_stepdelta_r1 MAIN_ID=main_v1_stepdelta ./scripts/01_split_data.sh'
+
+训练：
+screen -dmS policy_stepdelta bash -lc 'cd /root/autodl-tmp/0408Yambda/Regret && TRANSITION_ROOT=artifacts/transitions/main_v1_data_stepdelta_r1 MAIN_ID=main_v1_stepdelta POLICY_SAVE_PREFIX=artifacts/models/policy_hsac_stepdelta_r1 ./scripts/03_train_policy.sh'
+
+评估：
+screen -dmS eval_stepdelta bash -lc 'cd /root/autodl-tmp/0408Yambda/Regret && TRANSITION_ROOT=artifacts/transitions/main_v1_data_stepdelta_r1 MAIN_ID=main_v1_stepdelta ACTOR_CHECKPOINT=artifacts/models/policy_hsac_stepdelta_r1_actor ROLLOUT_EPISODES=1000 ./scripts/04_eval_policy.sh'
+
+
+10. 推荐执行顺序
+---------------
+
+第一轮只跑这些：
+1. split_timehour
+2. policy_main
+3. eval_main
+4. sweep_main
+
+如果主线结果能跑通，再跑消融：
+5. policy_no_rapi + eval_no_rapi
+6. policy_backtrack + eval_backtrack
+7. policy_learnw + eval_learnw
+
+如果还需要论文里专门证明 Delta_tr 设计，再跑：
+8. split_stepdelta + policy_stepdelta + eval_stepdelta

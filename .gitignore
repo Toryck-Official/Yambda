@@ -1,0 +1,22 @@
+artifacts/
+preprocess/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+Regret/artifacts/
+**/__pycache__/
+# Large/generated experiment and dataset files.
+reference/tmp/
+reference/tmp_pip/
+reference/code/**/dataset/
+reference/code/**/*.zip
+*.npy
+*.npz
+*.parquet
+*.csv
+*.checkpoint
+*.pt
+*.pth
+*.model
+*.log
