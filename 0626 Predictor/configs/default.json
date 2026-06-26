@@ -1,0 +1,42 @@
+{
+  "data": {
+    "multi_event_parquet": "/Users/Toryck/Coding/DATASET/Yambda/sequential/50m/multi_event.parquet",
+    "embeddings_parquet": "/Users/Toryck/Coding/DATASET/Yambda/embeddings.parquet",
+    "work_dir": "/Users/Toryck/Coding/Yambda/Yambda/0626 Predictor/artifacts",
+    "history_len": 50,
+    "future_horizon": 5,
+    "gamma": 0.9
+  },
+  "reward": {
+    "version": "v2",
+    "positive_play_threshold": 0.8,
+    "low_play_regret_threshold": 0.2,
+    "undo_grace_seconds": 10,
+    "timestamp_unit_seconds": 5.0,
+    "v2_like": 0.8,
+    "v2_dislike": 1.2,
+    "v2_unlike": 0.6,
+    "v2_undislike": 0.2,
+    "v2_clip_min": -2.0,
+    "v2_clip_max": 2.0
+  },
+  "model": {
+    "item_dim": 128,
+    "d_model": 128,
+    "n_head": 4,
+    "n_layer": 2,
+    "dropout": 0.1,
+    "max_seq_len": 50,
+    "candidate_k": 8,
+    "sample_m": 1
+  },
+  "train": {
+    "device": "auto",
+    "batch_size": 64,
+    "epochs": 3,
+    "lr": 0.0003,
+    "num_workers": 0,
+    "max_train_rows": 5000,
+    "max_val_rows": 1000
+  }
+}
