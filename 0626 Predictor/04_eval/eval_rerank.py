@@ -7,11 +7,13 @@ from pathlib import Path
 
 import torch
 from torch.utils.data import DataLoader
+from tqdm import tqdm
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.extend([str(ROOT / "01_data"), str(ROOT / "02_model")])
 
 from future_dataset import EmbedStore, FutureIterableDataset, collate_future
+from progress_utils import estimate_total_batches, format_float
 from predictor import FuturePredictor
 from soft_state import SoftStateBuilder
 from value import CandidateScorer, ValueHead
@@ -63,8 +65,11 @@ def main() -> None:
         n_layer=int(pred_cfg.get("n_layer", 2)),
         n_head=int(pred_cfg.get("n_head", 4)),
         dropout=float(pred_cfg.get("dropout", 0.1)),
+        state_pooling=str(pred_cfg.get("state_pooling", "last")),
+        sid_levels=int(pred_cfg.get("sid_levels", 4)),
+        sid_vocab_size=int(pred_cfg.get("sid_vocab_size", 256)),
     ).to(device)
-    predictor.load_state_dict(pred_ckpt["model_state"])
+    predictor.load_state_dict(pred_ckpt["model_state"], strict=False)
     predictor.eval()
 
     value_ckpt = torch.load(args.value_ckpt, map_location="cpu")
@@ -77,15 +82,17 @@ def main() -> None:
     value_head.eval()
     scorer = CandidateScorer(gamma=args.gamma).to(device)
 
-    dataset = FutureIterableDataset(args.data_dir, split=args.split, max_rows=args.max_rows)
+    dataset = FutureIterableDataset(args.data_dir, split=args.split, max_rows=args.max_rows, mapping_root=store.root)
     loader = DataLoader(dataset, batch_size=args.batch_size, num_workers=0, collate_fn=lambda rows: collate_future(rows, store))
 
     logged_top1 = 0
     logged_rank_sum = 0.0
     n_examples = 0
     future_score_mean = 0.0
+    total_batches = estimate_total_batches(args.data_dir, args.split, args.batch_size, args.max_rows)
+    pbar = tqdm(loader, total=total_batches, desc=f"[eval inbatch-rerank {args.split}]", unit="batch", dynamic_ncols=True)
     with torch.no_grad():
-        for batch in loader:
+        for batch in pbar:
             batch = {key: value.to(device) for key, value in batch.items()}
             candidates = make_inbatch_candidates(batch["action_features"], args.candidate_k)
             pred = predictor(batch, candidates)
@@ -99,6 +106,12 @@ def main() -> None:
             logged_rank_sum += float(ranks.float().sum().cpu())
             future_score_mean += float(scored["future_score"].mean().cpu()) * int(ranks.numel())
             n_examples += int(ranks.numel())
+            pbar.set_postfix(
+                top1=format_float(logged_top1 / max(n_examples, 1)),
+                mean_rank=format_float(logged_rank_sum / max(n_examples, 1)),
+                examples=n_examples,
+                refresh=False,
+            )
 
     metrics = {
         "logged_action_top1_rate": logged_top1 / max(n_examples, 1),

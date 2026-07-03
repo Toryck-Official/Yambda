@@ -17,6 +17,7 @@ class FutureHPNPolicy(nn.Module):
         sid_vocab_size: int = 256,
         event_vocab_size: int = 6,
         sid_temp: float = 1.0,
+        state_pooling: str = "last",
     ) -> None:
         super().__init__()
         self.item_dim = int(item_dim)
@@ -25,6 +26,9 @@ class FutureHPNPolicy(nn.Module):
         self.sid_levels = int(sid_levels)
         self.sid_vocab_size = int(sid_vocab_size)
         self.sid_temp = float(sid_temp)
+        self.state_pooling = str(state_pooling)
+        if self.state_pooling not in {"last", "mean", "last_mean"}:
+            raise ValueError("state_pooling must be one of: last, mean, last_mean")
 
         self.item_map = nn.Linear(self.item_dim, self.d_model)
         self.feedback_map = nn.Linear(1, self.d_model, bias=False)
@@ -46,9 +50,34 @@ class FutureHPNPolicy(nn.Module):
         causal = torch.tril(torch.ones((self.max_seq_len, self.max_seq_len), dtype=torch.bool))
         self.register_buffer("attn_mask_full", ~causal, persistent=False)
 
+        if self.state_pooling == "last_mean":
+            self.state_fuse = nn.Sequential(
+                nn.Linear(self.d_model * 2, self.d_model),
+                nn.LayerNorm(self.d_model),
+                nn.GELU(),
+            )
+
         self.sid_heads = nn.ModuleList([nn.Linear(self.d_model, self.sid_vocab_size) for _ in range(self.sid_levels)])
         self.sid_token_embeds = nn.ModuleList([nn.Embedding(self.sid_vocab_size, self.d_model) for _ in range(self.sid_levels)])
         self.sid_res_norms = nn.ModuleList([nn.LayerNorm(self.d_model) for _ in range(self.sid_levels)])
+
+    def _masked_mean_state(self, seq: torch.Tensor, batch: dict[str, torch.Tensor]) -> torch.Tensor:
+        mask = batch.get("history_mask")
+        if mask is None:
+            valid = torch.ones(seq.shape[:2], dtype=seq.dtype, device=seq.device)
+        else:
+            valid = mask.to(seq.device, dtype=seq.dtype)
+        denom = valid.sum(dim=1, keepdim=True).clamp_min(1.0)
+        return (seq * valid.unsqueeze(-1)).sum(dim=1) / denom
+
+    def _pool_state(self, seq: torch.Tensor, batch: dict[str, torch.Tensor]) -> torch.Tensor:
+        last = seq[:, -1, :]
+        if self.state_pooling == "last":
+            return last
+        mean = self._masked_mean_state(seq, batch)
+        if self.state_pooling == "mean":
+            return mean
+        return self.state_fuse(torch.cat([last, mean], dim=-1))
 
     def encode_history(self, batch: dict[str, torch.Tensor]) -> dict[str, torch.Tensor]:
         hist = batch["history_features"]
@@ -68,7 +97,7 @@ class FutureHPNPolicy(nn.Module):
         x = self.input_norm(self.drop(x))
         attn_mask = self.attn_mask_full[:hist_len, :hist_len]
         seq = self.encoder(x, mask=attn_mask)
-        return {"seq_emb": seq, "state_emb": seq[:, -1, :]}
+        return {"seq_emb": seq, "state_emb": self._pool_state(seq, batch)}
 
     def forward(self, batch: dict[str, torch.Tensor]) -> dict[str, torch.Tensor | list[torch.Tensor]]:
         enc = self.encode_history(batch)
@@ -88,16 +117,20 @@ def hpn_loss(out: dict[str, torch.Tensor | list[torch.Tensor]], target_sid: torc
     logits_list = out["sid_logits"]
     if not isinstance(logits_list, list):
         raise TypeError("sid_logits must be a list of tensors.")
+    levels = min(len(logits_list), int(target_sid.shape[1]))
     losses = []
     token_correct = []
     full = torch.ones(target_sid.shape[0], dtype=torch.bool, device=target_sid.device)
-    for level, logits in enumerate(logits_list):
-        target_l = target_sid[:, level].long()
+    for level in range(levels):
+        logits = logits_list[level]
+        target_l = target_sid[:, level].long().clamp(min=0, max=logits.shape[-1] - 1)
         losses.append(torch.nn.functional.cross_entropy(logits, target_l))
         pred_l = logits.argmax(dim=-1)
         correct = pred_l == target_l
         token_correct.append(correct.float().mean())
         full &= correct
+    if not losses:
+        raise RuntimeError("target_sid has no usable semantic levels.")
     loss = sum(losses) / max(len(losses), 1)
     metrics = {"loss": loss, "full_path_acc": full.float().mean().detach()}
     for idx, acc in enumerate(token_correct):
