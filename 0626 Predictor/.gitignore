@@ -1,6 +1,7 @@
 __pycache__/
 *.pyc
 artifacts/
+06_rl/artifacts/
 01_data/processed/
 01_data/logs/
 Temporary/

@@ -393,4 +393,41 @@ cd "/root/autodl-tmp/0626/0626 Predictor" && git status --short
 5. 看 artifacts/predictor_hardneg_1m 和 artifacts/predictor_actionfix_1m 的结果。
 6. 不要继续直接放大 candidate CE 训练；先诊断反事实 action 标签是否可靠。
 7. predictor 可以先作为 outcome model 保留，后续接策略网络时用它预测 reward / future_return / future_regret。
-8. 只有 action scorer 的标签定义清楚后，再考虑 HPN rerank 或策略候选重排。```
+8. 只有 action scorer 的标签定义清楚后，再考虑 HPN rerank 或策略候选重排。
+```
+
+## 10. 2026-07-03 独立项目化更新
+
+当前已经把 0408 Regret 中正式主实验需要的最小 RL 代码闭包复制到本项目：
+
+```text
+06_rl/
+  configs/main.env
+  regret_core/
+  scripts/01_split_data.sh
+  scripts/02_train_simulator.sh
+  scripts/03_train_policy.sh
+  scripts/04_eval_policy.sh
+  scripts/05_sweep_eta.sh
+  scripts/02_split_transitions.py
+  scripts/08_train_yambda_simulator.py
+  scripts/09_eval_simulator_rollout.py
+  scripts/10_train_hsac_simulator_rollout.py
+```
+
+`06_rl` 的默认数据入口已经改成本项目内部路径：
+
+```text
+01_data/processed/raw_rqkmeans
+01_data/processed/regret_current_data
+```
+
+RL 训练产物默认写入：
+
+```text
+06_rl/artifacts/
+```
+
+这意味着后续主实验可以只在 `/root/autodl-tmp/0626/0626 Predictor` 内执行，不需要再跳回 `/root/autodl-tmp/0408Yambda/Regret` 找训练脚本。0408 只作为历史来源和对照实现。
+
+本次没有把 0408 的诊断脚本、事件分布分析脚本、旧 SID 离线训练脚本全部复制过来。原因是这些不是 base 主实验闭环必要部分，继续混进主线目录会重新制造混乱。需要时再按具体问题补到 `04_eval/` 或 `06_rl/scripts/`。

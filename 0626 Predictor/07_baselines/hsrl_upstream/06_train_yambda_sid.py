@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 from types import SimpleNamespace
@@ -27,8 +28,10 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 
 
-PROJECT_ROOT = Path(__file__).resolve().parent
-WORKSPACE_ROOT = PROJECT_ROOT.parent
+BASELINE_DIR = Path(__file__).resolve().parents[1]
+PREDICTOR_ROOT = BASELINE_DIR.parent
+WORKSPACE_ROOT = PREDICTOR_ROOT.parent
+PROJECT_ROOT = Path(os.environ.get("HSRL_PROJECT_ROOT", str(WORKSPACE_ROOT / "HSRL")))
 REGRET_ROOT = WORKSPACE_ROOT / "Regret"
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))

@@ -153,6 +153,12 @@ def parse_args() -> argparse.Namespace:
         help="Number of embeddings sampled for codebook fitting",
     )
     parser.add_argument(
+        "--max_sample_rows",
+        type=int,
+        default=0,
+        help="Optional cap on rows scanned during reservoir sampling. 0 means scan all rows.",
+    )
+    parser.add_argument(
         "--batch_size",
         type=int,
         default=4096,
@@ -229,6 +235,7 @@ def reservoir_sample_embeddings(
     sample_size: int,
     batch_size: int,
     seed: int,
+    max_sample_rows: int = 0,
 ) -> tuple[np.ndarray, dict]:
     """
     输入：
@@ -246,7 +253,14 @@ def reservoir_sample_embeddings(
     total_seen = 0
     dim = None
 
+    max_sample_rows = int(max_sample_rows)
     for batch_idx, arr in enumerate(iter_embedding_batches(parquet_path, column, batch_size), start=1):
+        if max_sample_rows > 0:
+            remaining = max_sample_rows - total_seen
+            if remaining <= 0:
+                break
+            if arr.shape[0] > remaining:
+                arr = arr[:remaining]
         if arr.ndim != 2:
             raise ValueError(f"Expected 2D embedding batch, got shape={arr.shape}")
         if dim is None:
@@ -267,6 +281,8 @@ def reservoir_sample_embeddings(
 
         if batch_idx % 50 == 0:
             print(f"[sample] processed {total_seen:,} rows")
+        if max_sample_rows > 0 and total_seen >= max_sample_rows:
+            break
 
     if sample is None:
         raise RuntimeError(f"No embeddings found in {parquet_path}")
@@ -278,6 +294,7 @@ def reservoir_sample_embeddings(
         "rows_seen": int(total_seen),
         "sample_size_effective": int(sample.shape[0]),
         "embedding_dim": int(sample.shape[1]),
+        "max_sample_rows": int(max_sample_rows),
     }
 
 
@@ -308,6 +325,7 @@ def main() -> None:
         sample_size=args.sample_size,
         batch_size=args.batch_size,
         seed=args.seed,
+        max_sample_rows=args.max_sample_rows,
     )
     sample_stats = compute_sample_stats(sample)
     print(
