@@ -181,7 +181,7 @@ def load_hpn_checkpoint(actor: SIDPolicy_credit, ckpt_path: Path, device: torch.
         ckpt = torch.load(ckpt_path, map_location=device, weights_only=False)
     except TypeError:
         ckpt = torch.load(ckpt_path, map_location=device)
-    state_dict = ckpt.get("model_state_dict", ckpt)
+    state_dict = ckpt.get("model_state_dict", ckpt.get("model_state", ckpt))
     actor_state = actor.state_dict()
     compatible_state = {}
     skipped = []

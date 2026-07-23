@@ -13,6 +13,8 @@ RESPONSE_TO_INDEX = {name: idx for idx, name in enumerate(RAW_EVENTS)}
 INDEX_TO_RESPONSE = {idx: name for name, idx in RESPONSE_TO_INDEX.items()}
 
 REGRET_TYPES = ["none", "low_play", "dislike", "unlike"]
+# low_play is kept for checkpoint compatibility, but the current predictor
+# reward policy treats any listen as non-negative positive feedback.
 REGRET_TO_ID = {name: idx for idx, name in enumerate(REGRET_TYPES)}
 ID_TO_REGRET = {idx: name for name, idx in REGRET_TO_ID.items()}
 
@@ -120,7 +122,10 @@ def summarize_events(events: list[dict], cfg: RewardConfig) -> dict:
     feedback = effective_feedback(events, cfg)
 
     play = float(np.clip(max_play_ratio, 0.0, 1.0))
-    play_reward = 2.0 * play - 1.0 if n_listen > 0 else 0.0
+    # Predictor-side reward policy: any observed play is positive evidence.
+    # Low play may be weak positive feedback, but it is no longer a negative
+    # reward or a regret label by itself.
+    play_reward = play if n_listen > 0 else 0.0
     reward_raw = (
         play_reward
         + cfg.v2_like * feedback["effective_like"]
@@ -136,15 +141,12 @@ def summarize_events(events: list[dict], cfg: RewardConfig) -> dict:
     elif feedback["effective_unlike"]:
         regret_type = "unlike"
         regret_strength = float(cfg.v2_unlike)
-    elif n_listen > 0 and max_play_ratio < cfg.low_play_regret_threshold and not feedback["effective_like"]:
-        regret_type = "low_play"
-        regret_strength = float(cfg.low_play_regret_threshold - max_play_ratio)
     else:
         regret_type = "none"
         regret_strength = 0.0
 
     feedback_label = int(
-        (feedback["effective_like"] or max_play_ratio >= cfg.positive_play_threshold)
+        (feedback["effective_like"] or n_listen > 0)
         and not feedback["effective_dislike"]
         and not feedback["effective_unlike"]
     )

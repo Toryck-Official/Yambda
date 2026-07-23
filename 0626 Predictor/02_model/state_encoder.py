@@ -21,6 +21,10 @@ class StateEncoder(nn.Module):
         self.max_seq_len = int(max_seq_len)
         self.item_map = nn.Linear(int(item_dim), int(d_model))
         self.response_map = nn.Linear(int(response_dim), int(d_model), bias=False)
+        # Formal transition data predates the five-label history schema. Keep a
+        # gated legacy path so those rows retain their observed feedback signal.
+        self.legacy_feedback_map = nn.Linear(1, int(d_model), bias=False)
+        self.legacy_event_emb = nn.Embedding(6, int(d_model), padding_idx=0)
         self.play_map = nn.Linear(2, int(d_model), bias=False)
         self.time_map = nn.Linear(1, int(d_model), bias=False)
         self.source_emb = nn.Embedding(2, int(d_model))
@@ -69,12 +73,24 @@ class StateEncoder(nn.Module):
         source = batch.get(f"{prefix}_is_organic", torch.zeros_like(mask, dtype=torch.long)).long().clamp(0, 1)
         same_session = batch.get(f"{prefix}_same_session", mask.long()).long().clamp(0, 1)
         gaps = batch.get(f"{prefix}_time_gap_seconds", features.new_zeros(batch_size, seq_len))
+        has_rich = batch.get(f"{prefix}_has_rich_features")
+        if has_rich is None:
+            has_rich = torch.ones(batch_size, device=features.device, dtype=features.dtype)
+        else:
+            has_rich = has_rich.to(device=features.device, dtype=features.dtype)
+        legacy_gate = (1.0 - has_rich).view(batch_size, 1, 1)
+        legacy_feedbacks = batch.get(f"{prefix}_feedbacks")
+        legacy_events = batch.get(f"{prefix}_event_type_ids")
 
         positions = torch.arange(1, seq_len + 1, device=features.device).unsqueeze(0)
         x = self.item_map(features)
         x = x + self.response_map(responses.to(features.dtype))
         x = x + self.play_map(torch.stack([play_ratio, play_excess], dim=-1).to(features.dtype))
         x = x + self.time_map(torch.log1p(gaps.clamp_min(0.0)).unsqueeze(-1).to(features.dtype))
+        if legacy_feedbacks is not None:
+            x = x + legacy_gate * self.legacy_feedback_map(legacy_feedbacks.to(features.dtype).unsqueeze(-1))
+        if legacy_events is not None:
+            x = x + legacy_gate * self.legacy_event_emb(legacy_events.long().clamp(0, 5))
         x = x + self.source_emb(source) + self.session_emb(same_session) + self.pos_emb(positions)
         x = self.input_norm(self.drop(x))
 

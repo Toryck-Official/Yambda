@@ -12,6 +12,7 @@ SAMPLE_SIZE="${SAMPLE_SIZE:-200000}"
 CODEBOOK_SIZE="${CODEBOOK_SIZE:-256}"
 SID_LEVELS="${SID_LEVELS:-4}"
 MAX_ITER="${MAX_ITER:-30}"
+CODEBOOK_MAX_ROWS="${CODEBOOK_MAX_ROWS:-0}"
 DEVICE="${DEVICE:-cuda}"
 
 HISTORY_LEN="${HISTORY_LEN:-50}"
@@ -30,6 +31,7 @@ python3 "$REPO_ROOT/01_build_codebook.py" \
   --embeddings_parquet "$EMBEDDINGS_PARQUET" \
   --embedding_column normalized_embed \
   --sample_size "$SAMPLE_SIZE" \
+  --max_sample_rows "$CODEBOOK_MAX_ROWS" \
   --n_levels "$SID_LEVELS" \
   --codebook_size "$CODEBOOK_SIZE" \
   --max_iter "$MAX_ITER" \

@@ -17,7 +17,9 @@ class FutureHPNPolicy(nn.Module):
         dropout: float = 0.1,
         sid_levels: int = 4,
         sid_vocab_size: int = 256,
+        event_vocab_size: int = 6,
         sid_temp: float = 1.0,
+        state_pooling: str = "last",
     ) -> None:
         super().__init__()
         self.item_dim = int(item_dim)
@@ -26,6 +28,9 @@ class FutureHPNPolicy(nn.Module):
         self.sid_levels = int(sid_levels)
         self.sid_vocab_size = int(sid_vocab_size)
         self.sid_temp = float(sid_temp)
+        self.state_pooling = str(state_pooling)
+        if self.state_pooling not in {"last", "mean", "last_mean"}:
+            raise ValueError("state_pooling must be one of: last, mean, last_mean")
 
         self.state_encoder = StateEncoder(
             item_dim=self.item_dim,
@@ -62,16 +67,20 @@ def hpn_loss(out: dict[str, torch.Tensor | list[torch.Tensor]], target_sid: torc
     logits_list = out["sid_logits"]
     if not isinstance(logits_list, list):
         raise TypeError("sid_logits must be a list of tensors.")
+    levels = min(len(logits_list), int(target_sid.shape[1]))
     losses = []
     token_correct = []
     full = torch.ones(target_sid.shape[0], dtype=torch.bool, device=target_sid.device)
-    for level, logits in enumerate(logits_list):
-        target_l = target_sid[:, level].long()
+    for level in range(levels):
+        logits = logits_list[level]
+        target_l = target_sid[:, level].long().clamp(min=0, max=logits.shape[-1] - 1)
         losses.append(torch.nn.functional.cross_entropy(logits, target_l))
         pred_l = logits.argmax(dim=-1)
         correct = pred_l == target_l
         token_correct.append(correct.float().mean())
         full &= correct
+    if not losses:
+        raise RuntimeError("target_sid has no usable semantic levels.")
     loss = sum(losses) / max(len(losses), 1)
     metrics = {"loss": loss, "full_path_acc": full.float().mean().detach()}
     for idx, acc in enumerate(token_correct):
