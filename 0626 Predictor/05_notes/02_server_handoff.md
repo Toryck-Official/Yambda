@@ -8,6 +8,8 @@
 
 本文只保留接手时最需要知道的：当前实现状态、文件位置、运行顺序、检查指标、已知风险。
 
+> 2026-07-17 更新：predictor 数据入口已经改为 `session_run` 聚合时间步；共享状态编码器已经加入当前会话短期状态和历史会话长期状态；主要目标已经改为五维非互斥反馈概率。旧段落若仍写“原始事件级 builder”，均已失效。
+
 ## 1. 当前目标
 
 本工作区要在原 HSRL / HPN 推荐框架前后加入一个 `future-aware predictor`，让推荐不只看当前候选 item 的原始打分，还额外考虑：
@@ -55,7 +57,7 @@ undislike
 
 `recommend` 不是 Yambda 原始字段，不能作为新 predictor 的真实标签来源。
 
-`listen` 不是 0/1 变量，`played_ratio_pct` 是连续播放比例。超过 100% 通常表示回拉或重复听，因此 predictor 要预测连续播放比例；reward 中是否裁剪是另一个问题。
+`listen` 是否发生是一个二值响应标签；发生播放后，`played_ratio_pct` 另外表示连续播放完成度。超过 100% 通常表示回拉或重复听，因此不能在状态数据中直接丢弃；reward 中是否裁剪是另一个问题。
 
 ## 3. 当前实现状态
 
@@ -94,7 +96,7 @@ git@github.com:Toryck-Official/Yambda.git
 ```text
 1. 没有在服务器上跑过全量训练。
 2. 还没有验证全量指标是否提升。
-3. 当前 future data 仍以原始事件位置构造样本，不是最严格的 item-level episode 聚合。
+3. 当前 future data 已复用 `session_run` 的同会话连续同物品聚合，但仍需在全量数据上审计窗口长度和显式反馈稀疏度。
 4. 当前 value 训练是 Bellman-Jensen-inspired，不应直接宣称已经完整复现 Bellman-Jensen。
 5. HPN 候选生成有 prefix fallback / root fallback，是工程近似。
 ```
@@ -246,7 +248,7 @@ predictor 的 reward/play/response 是否不是随机水平。
 
 ## 8. 需要特别小心的地方
 
-第一，`response_probs` 当前已经改为 sigmoid 多标签头，因为一个 item 后续可能同时出现 `listen` 和 `like`。但是数据 builder 仍然偏事件级，不是最严格的 item-level 聚合版本。
+第一，`response_probs` 使用 sigmoid 多标签头，因为一个物品响应窗口可以同时出现 `listen` 和 `like`。主要损失权重为 1.0，播放、奖励、后悔三个辅助目标默认各为 0.1。
 
 第二，`soft_next_state` 是候选打分和 value target 里的临时预测状态，不是线上真实状态。线上真实状态只能由用户实际反馈更新。
 
@@ -286,7 +288,7 @@ model-based offline RL inspired reranking
 3. 如果内存或速度出问题，先降低 max_events、batch_size、top_k、sample_m。
 4. 检查 HPN 候选召回。如果召回很低，rerank 不可能救回来。
 5. 检查 predictor 指标。如果预测接近随机，value head 也没有可靠输入。
-6. 再考虑把 build_future_data.py 从事件级样本升级为 item-level episode 聚合。
+6. 审计不同 `history_len` 下，先前会话长期状态的有效覆盖比例。
 7. 最后再调 alpha、gamma、regret_weight、uncertainty_weight 等 rerank 权重。
 ```
 

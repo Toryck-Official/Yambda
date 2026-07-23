@@ -3,6 +3,8 @@ from __future__ import annotations
 import torch
 import torch.nn as nn
 
+from state_encoder import StateEncoder
+
 
 class FutureHPNPolicy(nn.Module):
     def __init__(
@@ -15,7 +17,6 @@ class FutureHPNPolicy(nn.Module):
         dropout: float = 0.1,
         sid_levels: int = 4,
         sid_vocab_size: int = 256,
-        event_vocab_size: int = 6,
         sid_temp: float = 1.0,
     ) -> None:
         super().__init__()
@@ -26,49 +27,22 @@ class FutureHPNPolicy(nn.Module):
         self.sid_vocab_size = int(sid_vocab_size)
         self.sid_temp = float(sid_temp)
 
-        self.item_map = nn.Linear(self.item_dim, self.d_model)
-        self.feedback_map = nn.Linear(1, self.d_model, bias=False)
-        self.event_emb = nn.Embedding(int(event_vocab_size), self.d_model, padding_idx=0)
-        self.pos_emb = nn.Embedding(self.max_seq_len, self.d_model)
-        self.input_norm = nn.LayerNorm(self.d_model)
-        self.drop = nn.Dropout(float(dropout))
-
-        enc_layer = nn.TransformerEncoderLayer(
+        self.state_encoder = StateEncoder(
+            item_dim=self.item_dim,
             d_model=self.d_model,
-            nhead=int(n_head),
-            dim_feedforward=self.d_model * 4,
+            max_seq_len=self.max_seq_len,
+            n_layer=int(n_layer),
+            n_head=int(n_head),
             dropout=float(dropout),
-            batch_first=True,
-            activation="gelu",
+            response_dim=5,
         )
-        self.encoder = nn.TransformerEncoder(enc_layer, num_layers=int(n_layer))
-        self.register_buffer("pos_idx", torch.arange(self.max_seq_len, dtype=torch.long), persistent=False)
-        causal = torch.tril(torch.ones((self.max_seq_len, self.max_seq_len), dtype=torch.bool))
-        self.register_buffer("attn_mask_full", ~causal, persistent=False)
 
         self.sid_heads = nn.ModuleList([nn.Linear(self.d_model, self.sid_vocab_size) for _ in range(self.sid_levels)])
         self.sid_token_embeds = nn.ModuleList([nn.Embedding(self.sid_vocab_size, self.d_model) for _ in range(self.sid_levels)])
         self.sid_res_norms = nn.ModuleList([nn.LayerNorm(self.d_model) for _ in range(self.sid_levels)])
 
     def encode_history(self, batch: dict[str, torch.Tensor]) -> dict[str, torch.Tensor]:
-        hist = batch["history_features"]
-        batch_size, hist_len, _ = hist.shape
-        pos = self.pos_emb(self.pos_idx[:hist_len]).unsqueeze(0).expand(batch_size, hist_len, -1)
-        x = self.item_map(hist) + pos
-
-        feedback = batch.get("history_feedbacks")
-        if feedback is not None:
-            x = x + self.feedback_map(feedback.to(hist.device, dtype=hist.dtype).unsqueeze(-1))
-
-        event_ids = batch.get("history_event_type_ids")
-        if event_ids is not None:
-            event_ids = event_ids.to(hist.device).long().clamp(min=0, max=self.event_emb.num_embeddings - 1)
-            x = x + self.event_emb(event_ids)
-
-        x = self.input_norm(self.drop(x))
-        attn_mask = self.attn_mask_full[:hist_len, :hist_len]
-        seq = self.encoder(x, mask=attn_mask)
-        return {"seq_emb": seq, "state_emb": seq[:, -1, :]}
+        return self.state_encoder(batch)
 
     def forward(self, batch: dict[str, torch.Tensor]) -> dict[str, torch.Tensor | list[torch.Tensor]]:
         enc = self.encode_history(batch)

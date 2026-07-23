@@ -2,17 +2,18 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
+PREPROCESS_ROOT="${PREPROCESS_ROOT:-$ROOT/artifacts/preprocess}"
 
 python3 "$ROOT/01_data/build_future_data.py" \
+  --transition_root "$PREPROCESS_ROOT/session_run" \
   --out_dir "$ROOT/artifacts/smoke_future_data" \
+  --dense2orig_npy "$PREPROCESS_ROOT/mappings/yambda_dense2orig_item_id.npy" \
+  --dense_item2sid_npy "$PREPROCESS_ROOT/mappings/yambda_dense_item2sid.npy" \
   --history_len 50 \
   --future_horizon 3 \
-  --gamma 0.9 \
-  --max_users 3 \
   --max_rows 240 \
   --shard_rows 200 \
-  --write_needed_items \
-  --split_mode row
+  --write_needed_items
 
 python3 "$ROOT/01_data/build_embed_store.py" \
   --out_dir "$ROOT/artifacts/smoke_embed_store" \
@@ -29,6 +30,7 @@ python3 "$ROOT/03_train/train_predictor.py" \
   --d_model 64 \
   --n_layer 1 \
   --n_head 4 \
+  --max_seq_len 50 \
   --dropout 0.1 \
   --device cpu
 

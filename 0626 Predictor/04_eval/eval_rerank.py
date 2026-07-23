@@ -59,7 +59,7 @@ def main() -> None:
     predictor = FuturePredictor(
         item_dim=int(pred_ckpt.get("item_dim", store.dim)),
         d_model=int(pred_cfg.get("d_model", 128)),
-        max_seq_len=50,
+        max_seq_len=int(pred_cfg.get("max_seq_len", 50)),
         n_layer=int(pred_cfg.get("n_layer", 2)),
         n_head=int(pred_cfg.get("n_head", 4)),
         dropout=float(pred_cfg.get("dropout", 0.1)),

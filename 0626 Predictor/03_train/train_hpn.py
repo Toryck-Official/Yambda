@@ -29,6 +29,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--n_layer", type=int, default=2)
     parser.add_argument("--n_head", type=int, default=4)
     parser.add_argument("--dropout", type=float, default=0.1)
+    parser.add_argument("--max_seq_len", type=int, default=50)
     parser.add_argument("--sid_levels", type=int, default=4)
     parser.add_argument("--sid_vocab_size", type=int, default=256)
     parser.add_argument("--device", default="auto")
@@ -85,7 +86,7 @@ def main() -> None:
     model = FutureHPNPolicy(
         item_dim=store.dim,
         d_model=args.d_model,
-        max_seq_len=50,
+        max_seq_len=args.max_seq_len,
         n_layer=args.n_layer,
         n_head=args.n_head,
         dropout=args.dropout,

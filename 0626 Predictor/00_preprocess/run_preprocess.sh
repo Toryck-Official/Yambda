@@ -19,9 +19,12 @@ FUTURE_HORIZON="${FUTURE_HORIZON:-5}"
 GAMMA="${GAMMA:-0.9}"
 MAX_USERS="${MAX_USERS:-0}"
 MAX_ROWS="${MAX_ROWS:-0}"
-SPLIT_MODE="${SPLIT_MODE:-user}"
+SESSION_GAP_SECONDS="${SESSION_GAP_SECONDS:-3600}"
+MAX_SESSION_SPAN_SECONDS="${MAX_SESSION_SPAN_SECONDS:-21600}"
+MAX_RUN_EVENTS="${MAX_RUN_EVENTS:-100}"
+TIMESTAMP_UNIT_SECONDS="${TIMESTAMP_UNIT_SECONDS:-5}"
 
-mkdir -p "$OUT_ROOT/codebook" "$OUT_ROOT/mappings" "$OUT_ROOT/future_data" "$OUT_ROOT/embed_store"
+mkdir -p "$OUT_ROOT/codebook" "$OUT_ROOT/mappings" "$OUT_ROOT/session_run" "$OUT_ROOT/future_data" "$OUT_ROOT/embed_store"
 
 python3 "$REPO_ROOT/01_build_codebook.py" \
   --embeddings_parquet "$EMBEDDINGS_PARQUET" \
@@ -41,19 +44,32 @@ python3 "$REPO_ROOT/02_build_item_sid.py" \
   --output_dir "$OUT_ROOT/mappings" \
   --output_prefix yambda
 
-python3 "$ROOT/01_data/build_future_data.py" \
-  --multi_event "$MULTI_EVENT_PARQUET" \
-  --out_dir "$OUT_ROOT/future_data" \
+python3 "$REPO_ROOT/Regret/scripts/02_split_transitions.py" \
+  --multi_event_parquet "$MULTI_EVENT_PARQUET" \
+  --orig2dense_npy "$OUT_ROOT/mappings/yambda_orig2dense_item_id.npy" \
+  --out_root "$OUT_ROOT/session_run" \
   --history_len "$HISTORY_LEN" \
   --future_horizon "$FUTURE_HORIZON" \
   --gamma "$GAMMA" \
+  --trajectory_mode session_run \
+  --session_gap_seconds "$SESSION_GAP_SECONDS" \
+  --max_session_span_seconds "$MAX_SESSION_SPAN_SECONDS" \
+  --max_run_events "$MAX_RUN_EVENTS" \
+  --timestamp_unit_seconds "$TIMESTAMP_UNIT_SECONDS" \
+  --anchor_policy first_visible \
   --max_users "$MAX_USERS" \
+  --reward_version v2
+
+python3 "$ROOT/01_data/build_future_data.py" \
+  --transition_root "$OUT_ROOT/session_run" \
+  --out_dir "$OUT_ROOT/future_data" \
+  --dense2orig_npy "$OUT_ROOT/mappings/yambda_dense2orig_item_id.npy" \
+  --dense_item2sid_npy "$OUT_ROOT/mappings/yambda_dense_item2sid.npy" \
+  --history_len "$HISTORY_LEN" \
+  --future_horizon "$FUTURE_HORIZON" \
   --max_rows "$MAX_ROWS" \
   --shard_rows 50000 \
-  --write_needed_items \
-  --split_mode "$SPLIT_MODE" \
-  --orig2dense_npy "$OUT_ROOT/mappings/yambda_orig2dense_item_id.npy" \
-  --dense_item2sid_npy "$OUT_ROOT/mappings/yambda_dense_item2sid.npy"
+  --write_needed_items
 
 python3 "$ROOT/01_data/build_embed_store.py" \
   --embeddings "$EMBEDDINGS_PARQUET" \

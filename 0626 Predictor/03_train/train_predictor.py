@@ -29,6 +29,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--n_layer", type=int, default=2)
     parser.add_argument("--n_head", type=int, default=4)
     parser.add_argument("--dropout", type=float, default=0.1)
+    parser.add_argument("--max_seq_len", type=int, default=50)
+    parser.add_argument("--response_loss_weight", type=float, default=1.0)
+    parser.add_argument("--play_loss_weight", type=float, default=0.1)
+    parser.add_argument("--reward_loss_weight", type=float, default=0.1)
+    parser.add_argument("--regret_loss_weight", type=float, default=0.1)
+    parser.add_argument("--response_pos_weight_cap", type=float, default=50.0)
     parser.add_argument("--device", default="auto")
     return parser.parse_args()
 
@@ -57,17 +63,28 @@ def make_loader(data_dir: str, split: str, store: EmbedStore, batch_size: int, m
     )
 
 
-def run_epoch(model, loader, optimizer, device: torch.device, train: bool) -> dict[str, float]:
+def run_epoch(model, loader, optimizer, device: torch.device, args, train: bool, response_pos_weight) -> dict[str, float]:
     model.train(train)
     totals: dict[str, float] = {}
     n_batches = 0
-    correct_response = 0
+    exact_response = 0
+    response_tp = 0.0
+    response_fp = 0.0
+    response_fn = 0.0
     n_examples = 0
     for batch in loader:
         batch = move_batch(batch, device)
         with torch.set_grad_enabled(train):
             out = model(batch)
-            losses = predictor_loss(out, batch)
+            losses = predictor_loss(
+                out,
+                batch,
+                response_weight=args.response_loss_weight,
+                play_weight=args.play_loss_weight,
+                reward_weight=args.reward_loss_weight,
+                regret_weight=args.regret_loss_weight,
+                response_pos_weight=response_pos_weight,
+            )
             if train:
                 optimizer.zero_grad(set_to_none=True)
                 losses["loss"].backward()
@@ -76,14 +93,34 @@ def run_epoch(model, loader, optimizer, device: torch.device, train: bool) -> di
         n_batches += 1
         for key, value in losses.items():
             totals[key] = totals.get(key, 0.0) + float(value.detach().cpu())
-        pred = out["response_logits"].argmax(dim=-1)
-        correct_response += int((pred == batch["response_target"]).sum().detach().cpu())
-        n_examples += int(pred.numel())
+        pred = (out["response_probs"] >= 0.5).float()
+        target = batch["response_targets"].float()
+        exact_response += int((pred == target).all(dim=1).sum().detach().cpu())
+        response_tp += float((pred * target).sum().detach().cpu())
+        response_fp += float((pred * (1.0 - target)).sum().detach().cpu())
+        response_fn += float(((1.0 - pred) * target).sum().detach().cpu())
+        n_examples += int(pred.shape[0])
     if n_batches == 0:
         return {"loss": 0.0}
     metrics = {key: value / n_batches for key, value in totals.items()}
-    metrics["response_acc"] = correct_response / max(n_examples, 1)
+    precision = response_tp / max(response_tp + response_fp, 1e-8)
+    recall = response_tp / max(response_tp + response_fn, 1e-8)
+    metrics["response_exact_match"] = exact_response / max(n_examples, 1)
+    metrics["response_micro_f1"] = 2.0 * precision * recall / max(precision + recall, 1e-8)
     return metrics
+
+
+def load_response_pos_weight(data_dir: str, device: torch.device, cap: float) -> torch.Tensor | None:
+    meta_path = Path(data_dir) / "meta.json"
+    if not meta_path.exists():
+        return None
+    meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    positives = meta.get("response_positive_counts", {}).get("train")
+    train_rows = int(meta.get("counts", {}).get("train", 0))
+    if not positives or train_rows <= 0:
+        return None
+    values = torch.tensor(positives, dtype=torch.float32, device=device)
+    return ((train_rows - values) / values.clamp_min(1.0)).clamp(1.0, float(cap))
 
 
 def main() -> None:
@@ -95,19 +132,24 @@ def main() -> None:
     model = FuturePredictor(
         item_dim=store.dim,
         d_model=args.d_model,
-        max_seq_len=50,
+        max_seq_len=args.max_seq_len,
         n_layer=args.n_layer,
         n_head=args.n_head,
         dropout=args.dropout,
     ).to(device)
+    response_pos_weight = load_response_pos_weight(args.data_dir, device, args.response_pos_weight_cap)
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=1e-4)
 
     history = []
     for epoch in range(1, args.epochs + 1):
         train_loader = make_loader(args.data_dir, "train", store, args.batch_size, args.max_train_rows)
         val_loader = make_loader(args.data_dir, "val", store, args.batch_size, args.max_val_rows)
-        train_metrics = run_epoch(model, train_loader, optimizer, device, train=True)
-        val_metrics = run_epoch(model, val_loader, optimizer, device, train=False)
+        train_metrics = run_epoch(
+            model, train_loader, optimizer, device, args, train=True, response_pos_weight=response_pos_weight
+        )
+        val_metrics = run_epoch(
+            model, val_loader, optimizer, device, args, train=False, response_pos_weight=response_pos_weight
+        )
         row = {"epoch": epoch, "train": train_metrics, "val": val_metrics}
         history.append(row)
         print(json.dumps(row, ensure_ascii=False))

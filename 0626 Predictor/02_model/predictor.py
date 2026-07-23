@@ -4,6 +4,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+from state_encoder import StateEncoder
+
 
 class FuturePredictor(nn.Module):
     def __init__(
@@ -14,7 +16,6 @@ class FuturePredictor(nn.Module):
         n_layer: int = 2,
         n_head: int = 4,
         dropout: float = 0.1,
-        event_vocab_size: int = 6,
         response_classes: int = 5,
         regret_classes: int = 4,
     ) -> None:
@@ -25,26 +26,16 @@ class FuturePredictor(nn.Module):
         self.response_classes = int(response_classes)
         self.regret_classes = int(regret_classes)
 
-        self.item_proj = nn.Linear(self.item_dim, self.d_model)
-        self.action_proj = nn.Linear(self.item_dim, self.d_model)
-        self.feedback_proj = nn.Linear(1, self.d_model, bias=False)
-        self.event_emb = nn.Embedding(int(event_vocab_size), self.d_model, padding_idx=0)
-        self.pos_emb = nn.Embedding(self.max_seq_len, self.d_model)
-        self.input_norm = nn.LayerNorm(self.d_model)
-        self.drop = nn.Dropout(dropout)
-
-        enc_layer = nn.TransformerEncoderLayer(
+        self.state_encoder = StateEncoder(
+            item_dim=self.item_dim,
             d_model=self.d_model,
-            nhead=int(n_head),
-            dim_feedforward=self.d_model * 4,
+            max_seq_len=self.max_seq_len,
+            n_layer=int(n_layer),
+            n_head=int(n_head),
             dropout=float(dropout),
-            batch_first=True,
-            activation="gelu",
+            response_dim=self.response_classes,
         )
-        self.encoder = nn.TransformerEncoder(enc_layer, num_layers=int(n_layer))
-        self.register_buffer("pos_idx", torch.arange(self.max_seq_len, dtype=torch.long), persistent=False)
-        causal = torch.tril(torch.ones((self.max_seq_len, self.max_seq_len), dtype=torch.bool))
-        self.register_buffer("attn_mask_full", ~causal, persistent=False)
+        self.action_proj = nn.Linear(self.item_dim, self.d_model)
 
         joint_dim = self.d_model * 4
         self.joint = nn.Sequential(
@@ -60,27 +51,9 @@ class FuturePredictor(nn.Module):
         self.play_head = nn.Linear(self.d_model, 1)
         self.reward_head = nn.Linear(self.d_model, 1)
         self.regret_head = nn.Linear(self.d_model, self.regret_classes)
-        self.soft_token_head = nn.Linear(self.d_model, self.d_model)
 
     def encode_history(self, batch: dict[str, torch.Tensor]) -> dict[str, torch.Tensor]:
-        hist = batch["history_features"]
-        batch_size, hist_len, _ = hist.shape
-        pos = self.pos_emb(self.pos_idx[:hist_len]).unsqueeze(0).expand(batch_size, hist_len, -1)
-        x = self.item_proj(hist) + pos
-
-        feedback = batch.get("history_feedbacks")
-        if feedback is not None:
-            x = x + self.feedback_proj(feedback.to(hist.device, dtype=hist.dtype).unsqueeze(-1))
-
-        event_ids = batch.get("history_event_type_ids")
-        if event_ids is not None:
-            event_ids = event_ids.to(hist.device).long().clamp(min=0, max=self.event_emb.num_embeddings - 1)
-            x = x + self.event_emb(event_ids)
-
-        x = self.input_norm(self.drop(x))
-        attn_mask = self.attn_mask_full[:hist_len, :hist_len]
-        seq = self.encoder(x, mask=attn_mask)
-        return {"seq_emb": seq, "state_emb": seq[:, -1, :]}
+        return self.state_encoder(batch)
 
     def _predict_flat(self, state_emb: torch.Tensor, action_features: torch.Tensor) -> dict[str, torch.Tensor]:
         action_emb = self.action_proj(action_features)
@@ -97,17 +70,16 @@ class FuturePredictor(nn.Module):
         response_logits = self.response_head(hidden)
         regret_logits = self.regret_head(hidden)
         play_ratio = F.softplus(self.play_head(hidden).squeeze(-1))
-        predicted_reward = self.reward_head(hidden).squeeze(-1)
-        soft_next_token = self.soft_token_head(hidden)
+        response_probs = torch.sigmoid(response_logits)
+        predicted_reward = 2.0 * torch.tanh(self.reward_head(hidden).squeeze(-1))
         return {
             "hidden": hidden,
             "response_logits": response_logits,
-            "response_probs": torch.sigmoid(response_logits),
+            "response_probs": response_probs,
             "predicted_play_ratio": play_ratio,
             "predicted_reward": predicted_reward,
             "regret_logits": regret_logits,
             "regret_probs": torch.softmax(regret_logits, dim=-1),
-            "soft_next_token": soft_next_token,
         }
 
     def forward(self, batch: dict[str, torch.Tensor], action_features: torch.Tensor | None = None) -> dict[str, torch.Tensor]:
@@ -140,15 +112,25 @@ def predictor_loss(
     out: dict[str, torch.Tensor],
     batch: dict[str, torch.Tensor],
     response_weight: float = 1.0,
-    play_weight: float = 1.0,
-    reward_weight: float = 1.0,
-    regret_weight: float = 1.0,
+    play_weight: float = 0.1,
+    reward_weight: float = 0.1,
+    regret_weight: float = 0.1,
+    response_pos_weight: torch.Tensor | None = None,
 ) -> dict[str, torch.Tensor]:
-    if "response_targets" in batch:
-        response_loss = F.binary_cross_entropy_with_logits(out["response_logits"], batch["response_targets"].float())
+    targets = batch["response_targets"].float()
+    response_loss = F.binary_cross_entropy_with_logits(
+        out["response_logits"],
+        targets,
+        pos_weight=response_pos_weight,
+    )
+    listen_mask = targets[:, 0] > 0.5
+    if listen_mask.any():
+        play_loss = F.smooth_l1_loss(
+            out["predicted_play_ratio"][listen_mask],
+            batch["played_ratio"][listen_mask].float(),
+        )
     else:
-        response_loss = F.cross_entropy(out["response_logits"], batch["response_target"].long())
-    play_loss = F.smooth_l1_loss(out["predicted_play_ratio"], batch["played_ratio"].float())
+        play_loss = out["predicted_play_ratio"].sum() * 0.0
     reward_loss = F.mse_loss(out["predicted_reward"], batch["reward"].float())
     regret_loss = F.cross_entropy(out["regret_logits"], batch["regret_type_id"].long())
     total = (

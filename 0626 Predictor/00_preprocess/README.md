@@ -25,7 +25,6 @@ MAX_ITER=3 \
 DEVICE=cpu \
 MAX_USERS=5 \
 MAX_ROWS=1000 \
-SPLIT_MODE=row \
 ./00_preprocess/run_preprocess.sh
 ```
 
@@ -39,7 +38,6 @@ MAX_ITER=30 \
 DEVICE=cuda \
 MAX_USERS=0 \
 MAX_ROWS=0 \
-SPLIT_MODE=user \
 ./00_preprocess/run_preprocess.sh
 ```
 
@@ -54,3 +52,7 @@ artifacts/preprocess/
 ```text
 artifacts/ 已被 .gitignore 排除，不会推到 GitHub。
 ```
+
+数据时间步采用 `Regret/scripts/02_split_transitions.py` 的 `session_run` 口径：先切会话，再聚合同一会话内连续的同一物品响应。`build_future_data.py` 只负责把这些时间步适配为 predictor 所需的固定长度状态，不再直接读取原始事件构造另一套时间步。
+
+五维反馈概率是主要监督目标；播放完成度、即时奖励和后悔类型是辅助目标。训练集多步回报不会跨越验证或测试边界。

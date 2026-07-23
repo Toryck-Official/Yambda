@@ -5,7 +5,10 @@
     "work_dir": "/Users/Toryck/Coding/Yambda/Yambda/0626 Predictor/artifacts",
     "history_len": 50,
     "future_horizon": 5,
-    "gamma": 0.9
+    "gamma": 0.9,
+    "session_gap_seconds": 3600,
+    "max_session_span_seconds": 21600,
+    "max_run_events": 100
   },
   "reward": {
     "version": "v2",
@@ -29,6 +32,16 @@
     "max_seq_len": 50,
     "candidate_k": 8,
     "sample_m": 1
+  },
+  "objective": {
+    "response_loss_weight": 1.0,
+    "play_loss_weight": 0.1,
+    "reward_loss_weight": 0.1,
+    "regret_loss_weight": 0.1,
+    "response_pos_weight_cap": 50.0,
+    "state_loss_weight": 1.0,
+    "candidate_loss_weight": 0.1,
+    "target_tau": 0.01
   },
   "train": {
     "device": "auto",

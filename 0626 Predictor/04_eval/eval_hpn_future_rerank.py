@@ -102,7 +102,7 @@ def load_hpn(path: str, item_dim: int, device: torch.device) -> FutureHPNPolicy:
     model = FutureHPNPolicy(
         item_dim=item_dim,
         d_model=int(cfg.get("d_model", 128)),
-        max_seq_len=50,
+        max_seq_len=int(cfg.get("max_seq_len", 50)),
         n_layer=int(cfg.get("n_layer", 2)),
         n_head=int(cfg.get("n_head", 4)),
         dropout=float(cfg.get("dropout", 0.1)),
@@ -120,7 +120,7 @@ def load_predictor(path: str, item_dim: int, device: torch.device) -> FuturePred
     model = FuturePredictor(
         item_dim=item_dim,
         d_model=int(cfg.get("d_model", 128)),
-        max_seq_len=50,
+        max_seq_len=int(cfg.get("max_seq_len", 50)),
         n_layer=int(cfg.get("n_layer", 2)),
         n_head=int(cfg.get("n_head", 4)),
         dropout=float(cfg.get("dropout", 0.1)),

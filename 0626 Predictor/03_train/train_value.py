@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import sys
 from pathlib import Path
@@ -41,6 +42,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max_items_per_sid", type=int, default=4)
     parser.add_argument("--max_index_items", type=int, default=0)
     parser.add_argument("--gamma", type=float, default=0.9)
+    parser.add_argument("--state_loss_weight", type=float, default=1.0)
+    parser.add_argument("--candidate_loss_weight", type=float, default=0.1)
+    parser.add_argument("--target_tau", type=float, default=0.01)
     parser.add_argument("--max_train_rows", type=int, default=5000)
     parser.add_argument("--max_val_rows", type=int, default=1000)
     parser.add_argument("--device", default="auto")
@@ -85,7 +89,7 @@ def load_hpn(path: str, item_dim: int, device: torch.device) -> FutureHPNPolicy:
     model = FutureHPNPolicy(
         item_dim=item_dim,
         d_model=int(cfg.get("d_model", 128)),
-        max_seq_len=50,
+        max_seq_len=int(cfg.get("max_seq_len", 50)),
         n_layer=int(cfg.get("n_layer", 2)),
         n_head=int(cfg.get("n_head", 4)),
         dropout=float(cfg.get("dropout", 0.1)),
@@ -148,6 +152,7 @@ def sampled_bellman_loss(
     candidate_mask: torch.Tensor | None,
     soft_state,
     value_head,
+    target_value_head,
     gamma: float,
     sample_m: int,
 ) -> dict[str, torch.Tensor]:
@@ -155,10 +160,16 @@ def sampled_bellman_loss(
     state_value = value_head(pred["state_emb"])
     if sample_m == 1:
         soft = soft_state(pred["state_emb"], candidate_features, pred)
-        next_value = value_head(soft["next_state_emb"].reshape(-1, soft["next_state_emb"].shape[-1])).view(
-            candidate_features.shape[0], candidate_features.shape[1]
+        next_value = target_value_head(
+            soft["next_state_emb"].reshape(-1, soft["next_state_emb"].shape[-1])
+        ).view(candidate_features.shape[0], candidate_features.shape[1])
+        return bellman_value_loss(
+            state_value,
+            pred["predicted_reward"],
+            next_value,
+            gamma=gamma,
+            candidate_mask=candidate_mask,
         )
-        return bellman_value_loss(state_value, pred["predicted_reward"], next_value, gamma=gamma, candidate_mask=candidate_mask)
 
     batch_size, candidate_k, item_dim = candidate_features.shape
     state_rep = pred["state_emb"].unsqueeze(1).expand(batch_size, sample_m, -1).reshape(batch_size * sample_m, -1)
@@ -172,9 +183,9 @@ def sampled_bellman_loss(
         "predicted_reward": repeat_candidate_tensor(pred["predicted_reward"], sample_m),
     }
     soft = soft_state(state_rep, candidate_rep, pred_sampled)
-    next_value = value_head(soft["next_state_emb"].reshape(-1, soft["next_state_emb"].shape[-1])).view(
-        batch_size, sample_m, candidate_k
-    )
+    next_value = target_value_head(
+        soft["next_state_emb"].reshape(-1, soft["next_state_emb"].shape[-1])
+    ).view(batch_size, sample_m, candidate_k)
     reward_rep = pred_sampled["predicted_reward"].view(batch_size, sample_m, candidate_k)
     target_q = reward_rep + float(gamma) * next_value
     if candidate_mask is not None:
@@ -185,34 +196,81 @@ def sampled_bellman_loss(
     return {"loss": loss, "target_value": target}
 
 
-def run_epoch(predictor, soft_state, value_head, loader, optimizer, device: torch.device, args, train: bool, hpn_pack, store) -> dict[str, float]:
+def update_target(source, target, tau: float) -> None:
+    with torch.no_grad():
+        for source_param, target_param in zip(source.parameters(), target.parameters()):
+            target_param.mul_(1.0 - float(tau)).add_(source_param, alpha=float(tau))
+
+
+def run_epoch(
+    predictor,
+    soft_state,
+    value_head,
+    target_value_head,
+    loader,
+    optimizer,
+    device: torch.device,
+    args,
+    train: bool,
+    hpn_pack,
+    store,
+) -> dict[str, float]:
     soft_state.train(train)
     value_head.train(train)
-    totals = {"loss": 0.0, "target_mean": 0.0, "state_value_mean": 0.0, "empty_candidate_rows": 0.0}
+    totals = {
+        "loss": 0.0,
+        "value_loss": 0.0,
+        "state_loss": 0.0,
+        "candidate_loss": 0.0,
+        "target_mean": 0.0,
+        "state_value_mean": 0.0,
+        "empty_candidate_rows": 0.0,
+    }
     n_batches = 0
     for batch in loader:
         batch = move_batch(batch, device)
         candidate_features, candidate_mask, empty_rows = make_candidates(batch, args, hpn_pack, store, device)
         with torch.no_grad():
             pred = predictor(batch, candidate_features)
-        losses = sampled_bellman_loss(
+            logged_pred = predictor(batch)
+            next_state = predictor.state_encoder(batch, prefix="next_history")["state_emb"]
+            next_target_value = target_value_head(next_state)
+        candidate_losses = sampled_bellman_loss(
             pred,
             batch,
             candidate_features,
             candidate_mask,
             soft_state,
             value_head,
+            target_value_head,
             gamma=args.gamma,
             sample_m=args.sample_m,
         )
-        state_value = value_head(pred["state_emb"])
+        soft_logged = soft_state(logged_pred["state_emb"], batch["action_features"], logged_pred)
+        state_loss = F.mse_loss(soft_logged["next_state_emb"], next_state.detach())
+        state_value = value_head(logged_pred["state_emb"])
+        td_target = (
+            batch["reward"]
+            + float(args.gamma) * batch["bootstrap_mask"] * next_target_value
+        ).detach()
+        mc_target = batch["future_return"].detach()
+        value_loss = 0.5 * F.mse_loss(state_value, td_target) + 0.5 * F.mse_loss(state_value, mc_target)
+        loss = (
+            value_loss
+            + float(args.state_loss_weight) * state_loss
+            + float(args.candidate_loss_weight) * candidate_losses["loss"]
+        )
         if train:
             optimizer.zero_grad(set_to_none=True)
-            losses["loss"].backward()
+            loss.backward()
             torch.nn.utils.clip_grad_norm_(list(soft_state.parameters()) + list(value_head.parameters()), 1.0)
             optimizer.step()
-        totals["loss"] += float(losses["loss"].detach().cpu())
-        totals["target_mean"] += float(losses["target_value"].mean().detach().cpu())
+            update_target(value_head, target_value_head, args.target_tau)
+        totals["loss"] += float(loss.detach().cpu())
+        totals["value_loss"] += float(value_loss.detach().cpu())
+        totals["state_loss"] += float(state_loss.detach().cpu())
+        totals["candidate_loss"] += float(candidate_losses["loss"].detach().cpu())
+        totals["target_mean"] += float(td_target.mean().detach().cpu())
         totals["state_value_mean"] += float(state_value.mean().detach().cpu())
         totals["empty_candidate_rows"] += float(empty_rows)
         n_batches += 1
@@ -231,7 +289,7 @@ def main() -> None:
     predictor = FuturePredictor(
         item_dim=int(ckpt.get("item_dim", store.dim)),
         d_model=int(cfg.get("d_model", 128)),
-        max_seq_len=50,
+        max_seq_len=int(cfg.get("max_seq_len", 50)),
         n_layer=int(cfg.get("n_layer", 2)),
         n_head=int(cfg.get("n_head", 4)),
         dropout=float(cfg.get("dropout", 0.1)),
@@ -254,14 +312,41 @@ def main() -> None:
 
     soft_state = SoftStateBuilder(item_dim=store.dim, d_model=int(cfg.get("d_model", 128))).to(device)
     value_head = ValueHead(d_model=int(cfg.get("d_model", 128))).to(device)
+    target_value_head = copy.deepcopy(value_head).to(device).eval()
+    for param in target_value_head.parameters():
+        param.requires_grad_(False)
     optimizer = torch.optim.AdamW(list(soft_state.parameters()) + list(value_head.parameters()), lr=args.lr, weight_decay=1e-4)
 
     history = []
     for epoch in range(1, args.epochs + 1):
         train_loader = make_loader(args.data_dir, "train", store, args.batch_size, args.max_train_rows)
         val_loader = make_loader(args.data_dir, "val", store, args.batch_size, args.max_val_rows)
-        train_metrics = run_epoch(predictor, soft_state, value_head, train_loader, optimizer, device, args, train=True, hpn_pack=hpn_pack, store=store)
-        val_metrics = run_epoch(predictor, soft_state, value_head, val_loader, optimizer, device, args, train=False, hpn_pack=hpn_pack, store=store)
+        train_metrics = run_epoch(
+            predictor,
+            soft_state,
+            value_head,
+            target_value_head,
+            train_loader,
+            optimizer,
+            device,
+            args,
+            train=True,
+            hpn_pack=hpn_pack,
+            store=store,
+        )
+        val_metrics = run_epoch(
+            predictor,
+            soft_state,
+            value_head,
+            target_value_head,
+            val_loader,
+            optimizer,
+            device,
+            args,
+            train=False,
+            hpn_pack=hpn_pack,
+            store=store,
+        )
         row = {"epoch": epoch, "train": train_metrics, "val": val_metrics}
         history.append(row)
         print(json.dumps(row, ensure_ascii=False))

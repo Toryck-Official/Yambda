@@ -16,7 +16,22 @@ from typing import Any, Iterable
 import numpy as np
 import pyarrow as pa
 import pyarrow.parquet as pq
-from tqdm import tqdm
+
+try:
+    from tqdm import tqdm
+except ImportError:
+    class tqdm:  # type: ignore[no-redef]
+        def __init__(self, iterable, **_kwargs) -> None:
+            self.iterable = iterable
+
+        def __iter__(self):
+            return iter(self.iterable)
+
+        def set_postfix_str(self, *_args, **_kwargs) -> None:
+            pass
+
+        def close(self) -> None:
+            pass
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -39,6 +54,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--orig2dense_npy", default=str(PROJECT_ROOT / "artifacts/mappings/raw_rqkmeans/orig2dense_item_id.npy"))
     parser.add_argument("--out_root", default=str(PROJECT_ROOT / "artifacts/transitions/raw_rqkmeans"))
     parser.add_argument("--history_len", type=int, default=50)
+    parser.add_argument("--future_horizon", type=int, default=5)
+    parser.add_argument("--gamma", type=float, default=0.9)
     parser.add_argument("--trajectory_mode", choices=["session_run", "item_window"], default="session_run")
     parser.add_argument("--session_gap_seconds", type=int, default=0)
     parser.add_argument("--max_session_span_seconds", type=int, default=21600)
@@ -134,7 +151,9 @@ def expand_user_events(row: dict, orig2dense: np.ndarray) -> tuple[list[dict], d
                 "timestamp": int(row["timestamp"][pos]),
                 "orig_item_id": orig_item_id,
                 "dense_item_id": dense_item_id,
+                "is_organic": int(row["is_organic"][pos] or 0),
                 "played_ratio_norm": ratio_norm,
+                "track_length_seconds": int(row["track_length_seconds"][pos] or 0),
                 "event_type": event_type,
                 "event_type_id": int(EVENT_TYPE_TO_ID.get(event_type, 0)),
                 "history_signal": history_signal(event_type, ratio_norm),
@@ -282,6 +301,8 @@ def build_session_run_steps(
                 "user_step_idx": int(len(steps)),
                 "dense_item_id": int(anchor_event["dense_item_id"]),
                 "orig_item_id": int(anchor_event["orig_item_id"]),
+                "is_organic": int(anchor_event.get("is_organic", 0)),
+                "track_length_seconds": int(anchor_event.get("track_length_seconds", 0)),
                 "start_idx": int(run_indices[0]),
                 "end_idx": int(run_indices[-1]),
                 "event_indices": list(run_indices),
@@ -316,6 +337,48 @@ def build_session_run_steps(
                 run_indices.append(idx)
         add_step(session, run_indices, session_step_idx)
     return steps
+
+
+def step_response_targets(step: dict) -> list[float]:
+    summary = step["summary"]
+    return [
+        float(int(summary.get("n_listen", 0)) > 0),
+        float(summary.get("has_like", 0)),
+        float(summary.get("has_dislike", 0)),
+        float(summary.get("has_unlike", 0)),
+        float(summary.get("has_undislike", 0)),
+    ]
+
+
+def step_gap_seconds(steps: list[dict], step_pos: int, timestamp_unit_seconds: float) -> float:
+    if step_pos <= 0:
+        return 0.0
+    current = steps[step_pos]
+    previous = steps[step_pos - 1]
+    ticks = max(0, int(current["step_start_time"]) - int(previous["step_end_time"]))
+    return float(ticks) * float(timestamp_unit_seconds)
+
+
+def step_history_fields(
+    steps: list[dict],
+    positions: range,
+    reference_session_id: int,
+    timestamp_unit_seconds: float,
+) -> dict[str, list]:
+    selected = [steps[pos] for pos in positions]
+    return {
+        "item_ids": [int(step["dense_item_id"]) for step in selected],
+        "feedbacks": [float(step["history_signal"]) for step in selected],
+        "event_type_ids": [int(step["history_event_type_id"]) for step in selected],
+        "response_targets": [step_response_targets(step) for step in selected],
+        "play_ratios": [float(step["summary"].get("max_play_ratio", 0.0)) for step in selected],
+        "play_excesses": [
+            max(float(step["summary"].get("max_play_ratio", 0.0)) - 1.0, 0.0) for step in selected
+        ],
+        "is_organic": [int(step.get("is_organic", 0)) for step in selected],
+        "time_gap_seconds": [step_gap_seconds(steps, pos, timestamp_unit_seconds) for pos in positions],
+        "same_session": [int(step["session_id"] == reference_session_id) for step in selected],
+    }
 
 
 def target_step_history_stats(history_steps: list[dict], target_dense_item_id: int) -> dict:
@@ -499,13 +562,42 @@ def make_step_row(
     steps: list[dict],
     step_pos: int,
     history_len: int,
+    future_horizon: int,
+    gamma: float,
+    timestamp_unit_seconds: float,
+    split_plan: list[str],
 ) -> dict[str, Any]:
     step = steps[step_pos]
     start_idx = int(step["start_idx"])
     end_idx = int(step["end_idx"])
     target_event = events[start_idx]
-    history_steps = steps[max(0, step_pos - history_len): step_pos]
-    next_history_steps = steps[max(0, step_pos + 1 - history_len): step_pos + 1]
+    history_positions = range(max(0, step_pos - history_len), step_pos)
+    next_history_positions = range(max(0, step_pos + 1 - history_len), step_pos + 1)
+    history_steps = [steps[pos] for pos in history_positions]
+    history = step_history_fields(
+        steps,
+        history_positions,
+        int(step["session_id"]),
+        timestamp_unit_seconds,
+    )
+    next_history = step_history_fields(
+        steps,
+        next_history_positions,
+        int(step["session_id"]),
+        timestamp_unit_seconds,
+    )
+    future_positions = []
+    for future_pos in range(step_pos, min(step_pos + max(int(future_horizon), 1), len(steps))):
+        if split_plan[future_pos] != split_name:
+            break
+        future_positions.append(future_pos)
+    future_steps = [steps[pos] for pos in future_positions]
+    bootstrap_mask = float(step_pos + 1 < len(steps) and split_plan[step_pos + 1] == split_name)
+    future_return = sum(
+        float(gamma) ** offset * float(item["summary"].get("reward_scaled", 0.0))
+        for offset, item in enumerate(future_steps)
+    )
+    future_regret_any = int(any(item["summary"].get("regret_type", "none") != "none" for item in future_steps))
     prior = target_step_history_stats(history_steps, int(target_event["dense_item_id"]))
     return {
         "transition_id": int(transition_id),
@@ -526,12 +618,34 @@ def make_step_row(
         "target_dense_item_id": int(target_event["dense_item_id"]),
         "anchor_event_type": str(target_event["event_type"]),
         "anchor_event_type_id": int(target_event["event_type_id"]),
-        "history_item_ids": [int(item["dense_item_id"]) for item in history_steps],
-        "history_feedbacks": [float(item["history_signal"]) for item in history_steps],
-        "history_event_type_ids": [int(item["history_event_type_id"]) for item in history_steps],
-        "next_history_item_ids": [int(item["dense_item_id"]) for item in next_history_steps],
-        "next_history_feedbacks": [float(item["history_signal"]) for item in next_history_steps],
-        "next_history_event_type_ids": [int(item["history_event_type_id"]) for item in next_history_steps],
+        "history_item_ids": history["item_ids"],
+        "history_feedbacks": history["feedbacks"],
+        "history_event_type_ids": history["event_type_ids"],
+        "history_response_targets": history["response_targets"],
+        "history_play_ratios": history["play_ratios"],
+        "history_play_excesses": history["play_excesses"],
+        "history_is_organic": history["is_organic"],
+        "history_time_gap_seconds": history["time_gap_seconds"],
+        "history_same_session": history["same_session"],
+        "next_history_item_ids": next_history["item_ids"],
+        "next_history_feedbacks": next_history["feedbacks"],
+        "next_history_event_type_ids": next_history["event_type_ids"],
+        "next_history_response_targets": next_history["response_targets"],
+        "next_history_play_ratios": next_history["play_ratios"],
+        "next_history_play_excesses": next_history["play_excesses"],
+        "next_history_is_organic": next_history["is_organic"],
+        "next_history_time_gap_seconds": next_history["time_gap_seconds"],
+        "next_history_same_session": next_history["same_session"],
+        "response_targets": step_response_targets(step),
+        "played_ratio": float(step["summary"].get("max_play_ratio", 0.0)),
+        "played_ratio_clipped": float(np.clip(step["summary"].get("max_play_ratio", 0.0), 0.0, 1.0)),
+        "play_excess": max(float(step["summary"].get("max_play_ratio", 0.0)) - 1.0, 0.0),
+        "is_organic": int(step.get("is_organic", 0)),
+        "track_length_seconds": int(step.get("track_length_seconds", 0)),
+        "future_return": float(future_return),
+        "future_regret_any": int(future_regret_any),
+        "future_horizon_actual": int(len(future_steps)),
+        "bootstrap_mask": bootstrap_mask,
         "regret_memory_item_ids": [int(item) for item in step.get("regret_memory_item_ids", [])],
         "regret_memory_phis": [float(item) for item in step.get("regret_memory_phis", [])],
         "regret_memory_type_ids": [int(item) for item in step.get("regret_memory_type_ids", [])],
@@ -547,7 +661,10 @@ class ShardedParquetWriter:
         self.buffers: dict[str, list[dict]] = defaultdict(list)
         self.shard_idx: dict[str, int] = defaultdict(int)
         for split in ["train", "val", "test"]:
-            (self.out_root / split).mkdir(parents=True, exist_ok=True)
+            split_dir = self.out_root / split
+            split_dir.mkdir(parents=True, exist_ok=True)
+            for old_shard in split_dir.glob("part-*.parquet"):
+                old_shard.unlink()
 
     def add(self, split: str, row: dict) -> None:
         (self.out_root / split).mkdir(parents=True, exist_ok=True)
@@ -649,6 +766,10 @@ def main() -> None:
                     steps=steps,
                     step_pos=step_pos,
                     history_len=args.history_len,
+                    future_horizon=args.future_horizon,
+                    gamma=args.gamma,
+                    timestamp_unit_seconds=args.timestamp_unit_seconds,
+                    split_plan=split_plan,
                 )
                 writer.add(split_name, out_row)
                 split_counts[split_name] += 1
@@ -665,6 +786,10 @@ def main() -> None:
                     "replay_test": range(replay_test_start, len(steps)),
                 }
                 for replay_split, replay_positions in replay_ranges.items():
+                    replay_positions = list(replay_positions)
+                    replay_split_plan = ["excluded"] * len(steps)
+                    for replay_pos in replay_positions:
+                        replay_split_plan[replay_pos] = replay_split
                     for step_pos in replay_positions:
                         out_row = make_step_row(
                             transition_id=transition_id,
@@ -674,6 +799,10 @@ def main() -> None:
                             steps=steps,
                             step_pos=step_pos,
                             history_len=args.history_len,
+                            future_horizon=args.future_horizon,
+                            gamma=args.gamma,
+                            timestamp_unit_seconds=args.timestamp_unit_seconds,
+                            split_plan=replay_split_plan,
                         )
                         writer.add(replay_split, out_row)
                         split_counts[replay_split] += 1

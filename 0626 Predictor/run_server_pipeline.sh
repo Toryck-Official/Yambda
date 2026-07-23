@@ -22,6 +22,12 @@ SID_VOCAB_SIZE="${SID_VOCAB_SIZE:-256}"
 CANDIDATE_K="${CANDIDATE_K:-32}"
 SAMPLE_M="${SAMPLE_M:-1}"
 MAX_EVAL_ROWS="${MAX_EVAL_ROWS:-10000}"
+HISTORY_LEN="${HISTORY_LEN:-50}"
+RESPONSE_LOSS_WEIGHT="${RESPONSE_LOSS_WEIGHT:-1.0}"
+PLAY_LOSS_WEIGHT="${PLAY_LOSS_WEIGHT:-0.1}"
+REWARD_LOSS_WEIGHT="${REWARD_LOSS_WEIGHT:-0.1}"
+REGRET_LOSS_WEIGHT="${REGRET_LOSS_WEIGHT:-0.1}"
+CANDIDATE_LOSS_WEIGHT="${CANDIDATE_LOSS_WEIGHT:-0.1}"
 
 python3 "$ROOT/03_train/train_hpn.py" \
   --data_dir "$FUTURE_DATA" \
@@ -34,6 +40,7 @@ python3 "$ROOT/03_train/train_hpn.py" \
   --d_model "$D_MODEL" \
   --n_layer "$N_LAYER" \
   --n_head "$N_HEAD" \
+  --max_seq_len "$HISTORY_LEN" \
   --sid_levels "$SID_LEVELS" \
   --sid_vocab_size "$SID_VOCAB_SIZE" \
   --device "$DEVICE"
@@ -49,6 +56,20 @@ python3 "$ROOT/03_train/train_predictor.py" \
   --d_model "$D_MODEL" \
   --n_layer "$N_LAYER" \
   --n_head "$N_HEAD" \
+  --max_seq_len "$HISTORY_LEN" \
+  --response_loss_weight "$RESPONSE_LOSS_WEIGHT" \
+  --play_loss_weight "$PLAY_LOSS_WEIGHT" \
+  --reward_loss_weight "$REWARD_LOSS_WEIGHT" \
+  --regret_loss_weight "$REGRET_LOSS_WEIGHT" \
+  --device "$DEVICE"
+
+python3 "$ROOT/04_eval/eval_predictor.py" \
+  --data_dir "$FUTURE_DATA" \
+  --embed_store "$EMBED_STORE" \
+  --ckpt "$ROOT/artifacts/predictor/future_predictor.pt" \
+  --split val \
+  --batch_size "$BATCH_SIZE" \
+  --max_rows "$MAX_EVAL_ROWS" \
   --device "$DEVICE"
 
 python3 "$ROOT/03_train/train_value.py" \
@@ -67,6 +88,7 @@ python3 "$ROOT/03_train/train_value.py" \
   --candidate_k "$CANDIDATE_K" \
   --top_sid_paths "$CANDIDATE_K" \
   --sample_m "$SAMPLE_M" \
+  --candidate_loss_weight "$CANDIDATE_LOSS_WEIGHT" \
   --device "$DEVICE"
 
 python3 "$ROOT/04_eval/eval_hpn_future_rerank.py" \
