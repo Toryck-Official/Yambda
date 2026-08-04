@@ -1,0 +1,29 @@
+Yambda listen/is_organic protocol audit
+
+Scope: descriptive audit only. No HPN, SNMPP, simulator, or actor-critic was trained.
+
+Temporal split:
+{"min_timestamp_seconds": 0, "max_timestamp_seconds": 26000000, "train_end_exclusive": 20800000, "validation_start_inclusive": 20801800, "validation_end_exclusive": 23400000, "test_start_inclusive": 23401800, "gap_seconds": 1800}
+
+Clean explicit targets by split and source:
+  train: {"dislike|organic": 39085, "dislike|recommendation_driven": 37234, "like|organic": 338430, "like|recommendation_driven": 270196, "undislike|organic": 12551, "undislike|recommendation_driven": 1417, "unlike|organic": 201104, "unlike|recommendation_driven": 12004}
+    rec-driven explicit targets with same-item prior rec-listen <=1h: 151910/320851 (47.3460%)
+  validation: {"dislike|organic": 5932, "dislike|recommendation_driven": 5790, "like|organic": 60324, "like|recommendation_driven": 49366, "undislike|organic": 2242, "undislike|recommendation_driven": 204, "unlike|organic": 31859, "unlike|recommendation_driven": 2044}
+    rec-driven explicit targets with same-item prior rec-listen <=1h: 26901/57404 (46.8626%)
+  test: {"dislike|organic": 7382, "dislike|recommendation_driven": 6013, "like|organic": 64980, "like|recommendation_driven": 54848, "undislike|organic": 1923, "undislike|recommendation_driven": 217, "unlike|organic": 35276, "unlike|recommendation_driven": 2049}
+    rec-driven explicit targets with same-item prior rec-listen <=1h: 28776/63127 (45.5843%)
+
+Terminal recommendation-driven listen episodes:
+  train: {"any_source_explicit_link_rate": 0.00910157464610949, "eligible_terminal_anchors": 16215326, "recommendation_driven_explicit_link_rate": 0.008417468757643232}
+  validation: {"any_source_explicit_link_rate": 0.009538165234511946, "eligible_terminal_anchors": 2704084, "recommendation_driven_explicit_link_rate": 0.00882110171133737}
+  test: {"any_source_explicit_link_rate": 0.009294652136553044, "eligible_terminal_anchors": 2966437, "recommendation_driven_explicit_link_rate": 0.008633252619219623}
+
+Held-out simple-prior test:
+  global mark frequency NLL: 0.4797338420517647
+  previous explicit mark NLL: 0.44198903156178504
+  previous explicit mark + rec-listen lag NLL: 0.4309951308564526
+  incremental NLL improvement from listen lag: 0.01099390070533246
+
+Reading rule:
+  A non-zero link rate plus positive held-out NLL gain justify a later small predictive ablation.
+  They do not turn recommendation-driven listens into complete logged exposures or prove simulator validity.

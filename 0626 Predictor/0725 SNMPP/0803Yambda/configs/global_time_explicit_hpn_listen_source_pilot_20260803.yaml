@@ -1,0 +1,54 @@
+data:
+  dataset_dir: ../artifacts/global_time_explicit_hpn_listen_v2
+  feature_store_dir: ../../0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026
+  history_len: 50
+  num_workers: 0
+  shuffle_buffer_size: 8192
+  max_train_rows: 200000
+  max_validation_rows: 40000
+  max_test_rows: 50000
+  limited_row_selection: user_stratified_hash
+  row_selection_seed: 2026
+
+model:
+  d_model: 128
+  num_layers: 2
+  num_heads: 4
+  dropout: 0.1
+  num_event_types: 5
+  include_source: true
+  sid_levels: 4
+  sid_vocab_size: 256
+  sid_temperature: 1.0
+  path_conditioning: prefix_autoregressive
+  time_scale_seconds: 3600.0
+  state_pooling: last_mean
+
+training:
+  run_dir: ../artifacts/global_time_explicit_hpn_listen_source_pilot_seed2026
+  seed: 2026
+  device: cuda
+  epochs: 6
+  batch_size: 256
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  gradient_clip_norm: 1.0
+  token_loss_weight: 1.0
+  candidate_loss_weight: 1.0
+  sampled_negatives: 63
+  negative_mode: semantic_prefix
+  semantic_prefix_levels: [2, 1]
+  early_stopping_patience: 3
+  min_improvement: 0.00001
+  log_every_steps: 100
+  deterministic_algorithms: true
+
+evaluation:
+  split: test
+  candidate_mode: sampled
+  sampled_negatives: 100
+  top_k: [5, 10, 20]
+  batch_size: 256
+  seed: 2026
+  max_rows: 50000
+  exclude_history_items: true

@@ -1,0 +1,645 @@
+{
+  "calibration_rule": "argmax(lambda_k * prior_k**(-gamma)); gamma=0 is standard argmax",
+  "checkpoint": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/artifacts/snmpp_yambda_nolisten_medium_20260803/best.pt",
+  "checkpoint_epoch": 12,
+  "note": "probabilities and likelihood are unchanged; only the decision threshold is swept",
+  "per_gamma": {
+    "0.0": {
+      "next_group_prediction": {
+        "actual_event_counts": [
+          514,
+          101,
+          125,
+          14
+        ],
+        "confusion_actual_rows_predicted_columns": [
+          [
+            479,
+            0,
+            35,
+            0
+          ],
+          [
+            44,
+            0,
+            57,
+            0
+          ],
+          [
+            88,
+            0,
+            37,
+            0
+          ],
+          [
+            4,
+            0,
+            10,
+            0
+          ]
+        ],
+        "count_weighted_type_accuracy": 0.6843501326259946,
+        "predicted_event_counts": [
+          615,
+          0,
+          139,
+          0
+        ]
+      },
+      "type_at_observed_time": {
+        "accuracy": 0.6953239162201656,
+        "actual_event_counts": [
+          7917,
+          1435,
+          2755,
+          211
+        ],
+        "balanced_accuracy": 0.32915544830245375,
+        "confusion_actual_rows_predicted_columns": [
+          [
+            7573,
+            0,
+            344,
+            0
+          ],
+          [
+            654,
+            0,
+            781,
+            0
+          ],
+          [
+            1763,
+            0,
+            992,
+            0
+          ],
+          [
+            138,
+            0,
+            73,
+            0
+          ]
+        ],
+        "macro_f1": 0.31013985651532333,
+        "majority_reference": {
+          "balanced_accuracy": 0.25,
+          "macro_f1": 0.19562638991845813
+        },
+        "predicted_event_counts": [
+          10128,
+          0,
+          2190,
+          0
+        ]
+      }
+    },
+    "0.25": {
+      "next_group_prediction": {
+        "actual_event_counts": [
+          514,
+          101,
+          125,
+          14
+        ],
+        "confusion_actual_rows_predicted_columns": [
+          [
+            474,
+            2,
+            38,
+            0
+          ],
+          [
+            42,
+            4,
+            55,
+            0
+          ],
+          [
+            86,
+            0,
+            39,
+            0
+          ],
+          [
+            4,
+            4,
+            6,
+            0
+          ]
+        ],
+        "count_weighted_type_accuracy": 0.6856763925729443,
+        "predicted_event_counts": [
+          606,
+          10,
+          138,
+          0
+        ]
+      },
+      "type_at_observed_time": {
+        "accuracy": 0.7010066569248254,
+        "actual_event_counts": [
+          7917,
+          1435,
+          2755,
+          211
+        ],
+        "balanced_accuracy": 0.3491765173430438,
+        "confusion_actual_rows_predicted_columns": [
+          [
+            7476,
+            10,
+            431,
+            0
+          ],
+          [
+            607,
+            95,
+            733,
+            0
+          ],
+          [
+            1686,
+            5,
+            1064,
+            0
+          ],
+          [
+            130,
+            7,
+            74,
+            0
+          ]
+        ],
+        "macro_f1": 0.34561778746583116,
+        "majority_reference": {
+          "balanced_accuracy": 0.25,
+          "macro_f1": 0.19562638991845813
+        },
+        "predicted_event_counts": [
+          9899,
+          117,
+          2302,
+          0
+        ]
+      }
+    },
+    "0.5": {
+      "next_group_prediction": {
+        "actual_event_counts": [
+          514,
+          101,
+          125,
+          14
+        ],
+        "confusion_actual_rows_predicted_columns": [
+          [
+            427,
+            9,
+            36,
+            42
+          ],
+          [
+            25,
+            50,
+            13,
+            13
+          ],
+          [
+            56,
+            0,
+            42,
+            27
+          ],
+          [
+            4,
+            5,
+            5,
+            0
+          ]
+        ],
+        "count_weighted_type_accuracy": 0.6883289124668435,
+        "predicted_event_counts": [
+          512,
+          64,
+          96,
+          82
+        ]
+      },
+      "type_at_observed_time": {
+        "accuracy": 0.6285923039454457,
+        "actual_event_counts": [
+          7917,
+          1435,
+          2755,
+          211
+        ],
+        "balanced_accuracy": 0.4730842805125941,
+        "confusion_actual_rows_predicted_columns": [
+          [
+            5990,
+            71,
+            490,
+            1366
+          ],
+          [
+            248,
+            539,
+            291,
+            357
+          ],
+          [
+            1109,
+            34,
+            1141,
+            471
+          ],
+          [
+            43,
+            33,
+            62,
+            73
+          ]
+        ],
+        "macro_f1": 0.45837994996789866,
+        "majority_reference": {
+          "balanced_accuracy": 0.25,
+          "macro_f1": 0.19562638991845813
+        },
+        "predicted_event_counts": [
+          7390,
+          677,
+          1984,
+          2267
+        ]
+      }
+    },
+    "0.75": {
+      "next_group_prediction": {
+        "actual_event_counts": [
+          514,
+          101,
+          125,
+          14
+        ],
+        "confusion_actual_rows_predicted_columns": [
+          [
+            268,
+            8,
+            40,
+            198
+          ],
+          [
+            15,
+            15,
+            3,
+            68
+          ],
+          [
+            31,
+            7,
+            33,
+            54
+          ],
+          [
+            2,
+            5,
+            5,
+            2
+          ]
+        ],
+        "count_weighted_type_accuracy": 0.4217506631299735,
+        "predicted_event_counts": [
+          316,
+          35,
+          81,
+          322
+        ]
+      },
+      "type_at_observed_time": {
+        "accuracy": 0.49748335768793633,
+        "actual_event_counts": [
+          7917,
+          1435,
+          2755,
+          211
+        ],
+        "balanced_accuracy": 0.4268589244227322,
+        "confusion_actual_rows_predicted_columns": [
+          [
+            4589,
+            78,
+            553,
+            2697
+          ],
+          [
+            148,
+            276,
+            165,
+            846
+          ],
+          [
+            715,
+            46,
+            1154,
+            840
+          ],
+          [
+            21,
+            28,
+            53,
+            109
+          ]
+        ],
+        "macro_f1": 0.38031224352870935,
+        "majority_reference": {
+          "balanced_accuracy": 0.25,
+          "macro_f1": 0.19562638991845813
+        },
+        "predicted_event_counts": [
+          5473,
+          428,
+          1925,
+          4492
+        ]
+      }
+    },
+    "1.0": {
+      "next_group_prediction": {
+        "actual_event_counts": [
+          514,
+          101,
+          125,
+          14
+        ],
+        "confusion_actual_rows_predicted_columns": [
+          [
+            178,
+            3,
+            47,
+            286
+          ],
+          [
+            8,
+            10,
+            3,
+            80
+          ],
+          [
+            22,
+            22,
+            17,
+            64
+          ],
+          [
+            1,
+            1,
+            5,
+            7
+          ]
+        ],
+        "count_weighted_type_accuracy": 0.28116710875331563,
+        "predicted_event_counts": [
+          209,
+          36,
+          72,
+          437
+        ]
+      },
+      "type_at_observed_time": {
+        "accuracy": 0.4247442766682903,
+        "actual_event_counts": [
+          7917,
+          1435,
+          2755,
+          211
+        ],
+        "balanced_accuracy": 0.39067756641755935,
+        "confusion_actual_rows_predicted_columns": [
+          [
+            4046,
+            86,
+            731,
+            3054
+          ],
+          [
+            111,
+            222,
+            101,
+            1001
+          ],
+          [
+            588,
+            358,
+            839,
+            970
+          ],
+          [
+            13,
+            22,
+            51,
+            125
+          ]
+        ],
+        "macro_f1": 0.31724943761015073,
+        "majority_reference": {
+          "balanced_accuracy": 0.25,
+          "macro_f1": 0.19562638991845813
+        },
+        "predicted_event_counts": [
+          4758,
+          688,
+          1722,
+          5150
+        ]
+      }
+    },
+    "1.5": {
+      "next_group_prediction": {
+        "actual_event_counts": [
+          514,
+          101,
+          125,
+          14
+        ],
+        "confusion_actual_rows_predicted_columns": [
+          [
+            7,
+            13,
+            109,
+            385
+          ],
+          [
+            1,
+            1,
+            4,
+            95
+          ],
+          [
+            0,
+            33,
+            18,
+            74
+          ],
+          [
+            0,
+            5,
+            0,
+            9
+          ]
+        ],
+        "count_weighted_type_accuracy": 0.046419098143236075,
+        "predicted_event_counts": [
+          8,
+          52,
+          131,
+          563
+        ]
+      },
+      "type_at_observed_time": {
+        "accuracy": 0.11609027439519402,
+        "actual_event_counts": [
+          7917,
+          1435,
+          2755,
+          211
+        ],
+        "balanced_accuracy": 0.2711661512023859,
+        "confusion_actual_rows_predicted_columns": [
+          [
+            605,
+            125,
+            2152,
+            5035
+          ],
+          [
+            8,
+            65,
+            39,
+            1323
+          ],
+          [
+            53,
+            665,
+            603,
+            1434
+          ],
+          [
+            3,
+            30,
+            21,
+            157
+          ]
+        ],
+        "macro_f1": 0.1129897552958512,
+        "majority_reference": {
+          "balanced_accuracy": 0.25,
+          "macro_f1": 0.19562638991845813
+        },
+        "predicted_event_counts": [
+          669,
+          885,
+          2815,
+          7949
+        ]
+      }
+    },
+    "2.0": {
+      "next_group_prediction": {
+        "actual_event_counts": [
+          514,
+          101,
+          125,
+          14
+        ],
+        "confusion_actual_rows_predicted_columns": [
+          [
+            0,
+            21,
+            81,
+            412
+          ],
+          [
+            0,
+            1,
+            2,
+            98
+          ],
+          [
+            0,
+            26,
+            15,
+            84
+          ],
+          [
+            0,
+            5,
+            0,
+            9
+          ]
+        ],
+        "count_weighted_type_accuracy": 0.033156498673740056,
+        "predicted_event_counts": [
+          0,
+          53,
+          98,
+          603
+        ]
+      },
+      "type_at_observed_time": {
+        "accuracy": 0.037018996590355575,
+        "actual_event_counts": [
+          7917,
+          1435,
+          2755,
+          211
+        ],
+        "balanced_accuracy": 0.2409015433257776,
+        "confusion_actual_rows_predicted_columns": [
+          [
+            3,
+            198,
+            1463,
+            6253
+          ],
+          [
+            1,
+            20,
+            11,
+            1403
+          ],
+          [
+            1,
+            782,
+            252,
+            1720
+          ],
+          [
+            0,
+            29,
+            1,
+            181
+          ]
+        ],
+        "macro_f1": 0.04162518424730109,
+        "majority_reference": {
+          "balanced_accuracy": 0.25,
+          "macro_f1": 0.19562638991845813
+        },
+        "predicted_event_counts": [
+          5,
+          1029,
+          1727,
+          9557
+        ]
+      }
+    }
+  },
+  "split": "validation",
+  "training_prior": {
+    "dislike": 0.0757565698422053,
+    "like": 0.6785702977456879,
+    "undislike": 0.01475909982769134,
+    "unlike": 0.23091403258441542
+  }
+}

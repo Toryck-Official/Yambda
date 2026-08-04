@@ -1,0 +1,44 @@
+data:
+  dataset_dir: ../processed/snmpp_yambda_nolisten_max50
+  event_type_names: [like, dislike, unlike, undislike]
+  target_groups_per_window: 8
+  history_groups: 64
+  num_workers: 0
+  max_train_windows: 8192
+  max_validation_windows: 1024
+  max_test_windows: 1024
+
+model:
+  num_event_types: 4
+  type_embedding_dim: 4
+  interaction_hidden_dims: [16, 16]
+  temporal_hidden_dims: [16, 16]
+  softclip_s: 0.1
+  softclip_lower: 0.0
+  softclip_upper: 1.0
+  stratified_samples: 4
+  positive_link: elu_plus_one
+  softplus_beta: 1.0
+  initial_delay: 0.1
+  minimum_intensity: 1.0e-8
+  query_chunk_size: 16
+
+training:
+  run_dir: ../artifacts/snmpp_yambda_nolisten_medium_20260803
+  seed: 2026
+  device: cuda
+  epochs: 12
+  batch_size: 16
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  gradient_clip_norm: 5.0
+  early_stopping_patience: 4
+  min_improvement: 0.00001
+  log_every_steps: 50
+  deterministic_algorithms: true
+
+evaluation:
+  prediction_horizon_mean_multiplier: 5.0
+  prediction_grid_size: 64
+  max_prediction_targets: 512
+  prediction_batch_size: 16

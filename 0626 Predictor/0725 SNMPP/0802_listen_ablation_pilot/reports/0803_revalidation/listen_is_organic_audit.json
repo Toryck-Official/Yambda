@@ -1,0 +1,1253 @@
+{
+  "explicit_target_audit": {
+    "cleaning": {
+      "exact_duplicate_explicit_rows_removed": 6953,
+      "explicit_rows_after_exact_dedup": 1242687,
+      "explicit_rows_before_group_cleaning": 1323237,
+      "explicit_timestamp_groups": 785366,
+      "extreme_explicit_timestamp_groups": 466,
+      "rows_removed_in_extreme_groups": 73597,
+      "source_sensitive_rows_retained_relative_to_legacy_source_blind_dedup": 1
+    },
+    "condition_counts": {
+      "test": {
+        "no_prior_explicit_mark_on_item__1_day_to_7_days": {
+          "0": 1263,
+          "1": 131,
+          "2": 19
+        },
+        "no_prior_explicit_mark_on_item__1_hour_to_24_hours": {
+          "0": 595,
+          "1": 86,
+          "2": 7,
+          "3": 1
+        },
+        "no_prior_explicit_mark_on_item__5_minutes_to_1_hour": {
+          "0": 8329,
+          "1": 1046,
+          "2": 255,
+          "3": 21
+        },
+        "no_prior_explicit_mark_on_item__no_prior_recommendation_driven_listen": {
+          "0": 21344,
+          "1": 1377,
+          "2": 304,
+          "3": 10
+        },
+        "no_prior_explicit_mark_on_item__over_7_days": {
+          "0": 7351,
+          "1": 521,
+          "2": 139,
+          "3": 8
+        },
+        "no_prior_explicit_mark_on_item__within_5_minutes": {
+          "0": 14668,
+          "1": 2633,
+          "2": 440,
+          "3": 82
+        },
+        "previous_dislike__1_day_to_7_days": {
+          "0": 1
+        },
+        "previous_dislike__1_hour_to_24_hours": {
+          "0": 2,
+          "3": 7
+        },
+        "previous_dislike__5_minutes_to_1_hour": {
+          "0": 9,
+          "1": 9,
+          "3": 21
+        },
+        "previous_dislike__no_prior_recommendation_driven_listen": {
+          "1": 2,
+          "3": 1
+        },
+        "previous_dislike__over_7_days": {
+          "0": 2,
+          "1": 2,
+          "3": 1
+        },
+        "previous_dislike__within_5_minutes": {
+          "0": 31,
+          "1": 21,
+          "3": 47
+        },
+        "previous_like__1_day_to_7_days": {
+          "0": 51,
+          "1": 4,
+          "2": 23
+        },
+        "previous_like__1_hour_to_24_hours": {
+          "0": 8,
+          "1": 1,
+          "2": 18
+        },
+        "previous_like__5_minutes_to_1_hour": {
+          "0": 96,
+          "1": 24,
+          "2": 167,
+          "3": 2
+        },
+        "previous_like__no_prior_recommendation_driven_listen": {
+          "0": 145,
+          "1": 13,
+          "2": 200
+        },
+        "previous_like__over_7_days": {
+          "0": 233,
+          "1": 22,
+          "2": 137
+        },
+        "previous_like__within_5_minutes": {
+          "0": 142,
+          "1": 47,
+          "2": 301,
+          "3": 6
+        },
+        "previous_undislike__1_day_to_7_days": {
+          "0": 2,
+          "1": 1
+        },
+        "previous_undislike__1_hour_to_24_hours": {
+          "0": 1
+        },
+        "previous_undislike__5_minutes_to_1_hour": {
+          "0": 4,
+          "1": 5,
+          "3": 1
+        },
+        "previous_undislike__no_prior_recommendation_driven_listen": {
+          "0": 5,
+          "1": 1
+        },
+        "previous_undislike__over_7_days": {
+          "0": 8,
+          "1": 2,
+          "3": 1
+        },
+        "previous_undislike__within_5_minutes": {
+          "0": 9,
+          "1": 17,
+          "3": 2
+        },
+        "previous_unlike__1_day_to_7_days": {
+          "0": 15,
+          "1": 2
+        },
+        "previous_unlike__1_hour_to_24_hours": {
+          "0": 4
+        },
+        "previous_unlike__5_minutes_to_1_hour": {
+          "0": 99,
+          "1": 11,
+          "2": 9
+        },
+        "previous_unlike__no_prior_recommendation_driven_listen": {
+          "0": 103,
+          "1": 1,
+          "2": 4,
+          "3": 1
+        },
+        "previous_unlike__over_7_days": {
+          "0": 157,
+          "1": 6,
+          "2": 8
+        },
+        "previous_unlike__within_5_minutes": {
+          "0": 171,
+          "1": 28,
+          "2": 18,
+          "3": 5
+        }
+      },
+      "train": {
+        "no_prior_explicit_mark_on_item__1_day_to_7_days": {
+          "0": 5960,
+          "1": 689,
+          "2": 153,
+          "3": 17
+        },
+        "no_prior_explicit_mark_on_item__1_hour_to_24_hours": {
+          "0": 3630,
+          "1": 468,
+          "2": 99,
+          "3": 9
+        },
+        "no_prior_explicit_mark_on_item__5_minutes_to_1_hour": {
+          "0": 43455,
+          "1": 6128,
+          "2": 1651,
+          "3": 174
+        },
+        "no_prior_explicit_mark_on_item__no_prior_recommendation_driven_listen": {
+          "0": 101534,
+          "1": 8384,
+          "2": 2112,
+          "3": 69
+        },
+        "no_prior_explicit_mark_on_item__over_7_days": {
+          "0": 36004,
+          "1": 3755,
+          "2": 858,
+          "3": 30
+        },
+        "no_prior_explicit_mark_on_item__within_5_minutes": {
+          "0": 74444,
+          "1": 16557,
+          "2": 2850,
+          "3": 496
+        },
+        "previous_dislike__1_day_to_7_days": {
+          "0": 1,
+          "1": 1
+        },
+        "previous_dislike__1_hour_to_24_hours": {
+          "0": 5,
+          "1": 8,
+          "3": 25
+        },
+        "previous_dislike__5_minutes_to_1_hour": {
+          "0": 20,
+          "1": 72,
+          "3": 101
+        },
+        "previous_dislike__no_prior_recommendation_driven_listen": {
+          "0": 4,
+          "1": 3,
+          "2": 1,
+          "3": 16
+        },
+        "previous_dislike__over_7_days": {
+          "0": 4,
+          "3": 2
+        },
+        "previous_dislike__within_5_minutes": {
+          "0": 133,
+          "1": 120,
+          "2": 4,
+          "3": 319
+        },
+        "previous_like__1_day_to_7_days": {
+          "0": 196,
+          "1": 27,
+          "2": 178,
+          "3": 1
+        },
+        "previous_like__1_hour_to_24_hours": {
+          "0": 78,
+          "1": 8,
+          "2": 132,
+          "3": 3
+        },
+        "previous_like__5_minutes_to_1_hour": {
+          "0": 287,
+          "1": 75,
+          "2": 762,
+          "3": 15
+        },
+        "previous_like__no_prior_recommendation_driven_listen": {
+          "0": 476,
+          "1": 45,
+          "2": 949,
+          "3": 2
+        },
+        "previous_like__over_7_days": {
+          "0": 705,
+          "1": 82,
+          "2": 537,
+          "3": 2
+        },
+        "previous_like__within_5_minutes": {
+          "0": 457,
+          "1": 219,
+          "2": 1458,
+          "3": 37
+        },
+        "previous_undislike__1_day_to_7_days": {
+          "0": 5,
+          "1": 5,
+          "3": 2
+        },
+        "previous_undislike__1_hour_to_24_hours": {
+          "0": 4,
+          "1": 3
+        },
+        "previous_undislike__5_minutes_to_1_hour": {
+          "0": 25,
+          "1": 57,
+          "2": 5,
+          "3": 19
+        },
+        "previous_undislike__no_prior_recommendation_driven_listen": {
+          "0": 24,
+          "1": 3,
+          "2": 3,
+          "3": 1
+        },
+        "previous_undislike__over_7_days": {
+          "0": 29,
+          "1": 17,
+          "2": 1,
+          "3": 2
+        },
+        "previous_undislike__within_5_minutes": {
+          "0": 56,
+          "1": 142,
+          "2": 8,
+          "3": 35
+        },
+        "previous_unlike__1_day_to_7_days": {
+          "0": 109,
+          "1": 15,
+          "2": 8
+        },
+        "previous_unlike__1_hour_to_24_hours": {
+          "0": 50,
+          "1": 8,
+          "2": 4
+        },
+        "previous_unlike__5_minutes_to_1_hour": {
+          "0": 466,
+          "1": 71,
+          "2": 48,
+          "3": 10
+        },
+        "previous_unlike__no_prior_recommendation_driven_listen": {
+          "0": 472,
+          "1": 40,
+          "2": 48,
+          "3": 3
+        },
+        "previous_unlike__over_7_days": {
+          "0": 712,
+          "1": 56,
+          "2": 55
+        },
+        "previous_unlike__within_5_minutes": {
+          "0": 851,
+          "1": 176,
+          "2": 80,
+          "3": 27
+        }
+      },
+      "validation": {
+        "no_prior_explicit_mark_on_item__1_day_to_7_days": {
+          "0": 1168,
+          "1": 100,
+          "2": 13,
+          "3": 1
+        },
+        "no_prior_explicit_mark_on_item__1_hour_to_24_hours": {
+          "0": 651,
+          "1": 71,
+          "2": 19,
+          "3": 2
+        },
+        "no_prior_explicit_mark_on_item__5_minutes_to_1_hour": {
+          "0": 7812,
+          "1": 959,
+          "2": 216,
+          "3": 18
+        },
+        "no_prior_explicit_mark_on_item__no_prior_recommendation_driven_listen": {
+          "0": 18233,
+          "1": 1143,
+          "2": 290,
+          "3": 7
+        },
+        "no_prior_explicit_mark_on_item__over_7_days": {
+          "0": 6985,
+          "1": 507,
+          "2": 109,
+          "3": 4
+        },
+        "no_prior_explicit_mark_on_item__within_5_minutes": {
+          "0": 13209,
+          "1": 2792,
+          "2": 432,
+          "3": 83
+        },
+        "previous_dislike__1_day_to_7_days": {
+          "0": 1
+        },
+        "previous_dislike__1_hour_to_24_hours": {
+          "0": 1,
+          "1": 2,
+          "3": 2
+        },
+        "previous_dislike__5_minutes_to_1_hour": {
+          "0": 8,
+          "1": 6,
+          "3": 12
+        },
+        "previous_dislike__no_prior_recommendation_driven_listen": {
+          "0": 1,
+          "3": 1
+        },
+        "previous_dislike__over_7_days": {
+          "1": 1
+        },
+        "previous_dislike__within_5_minutes": {
+          "0": 23,
+          "1": 23,
+          "2": 4,
+          "3": 49
+        },
+        "previous_like__1_day_to_7_days": {
+          "0": 50,
+          "1": 7,
+          "2": 36
+        },
+        "previous_like__1_hour_to_24_hours": {
+          "0": 12,
+          "1": 2,
+          "2": 24
+        },
+        "previous_like__5_minutes_to_1_hour": {
+          "0": 84,
+          "1": 13,
+          "2": 174,
+          "3": 3
+        },
+        "previous_like__no_prior_recommendation_driven_listen": {
+          "0": 141,
+          "1": 14,
+          "2": 195
+        },
+        "previous_like__over_7_days": {
+          "0": 239,
+          "1": 19,
+          "2": 134
+        },
+        "previous_like__within_5_minutes": {
+          "0": 147,
+          "1": 46,
+          "2": 342,
+          "3": 11
+        },
+        "previous_undislike__1_day_to_7_days": {
+          "1": 2,
+          "3": 1
+        },
+        "previous_undislike__1_hour_to_24_hours": {
+          "3": 1
+        },
+        "previous_undislike__5_minutes_to_1_hour": {
+          "0": 4,
+          "1": 6,
+          "2": 3,
+          "3": 1
+        },
+        "previous_undislike__no_prior_recommendation_driven_listen": {
+          "0": 2
+        },
+        "previous_undislike__over_7_days": {
+          "0": 8,
+          "1": 5
+        },
+        "previous_undislike__within_5_minutes": {
+          "0": 11,
+          "1": 15,
+          "2": 3,
+          "3": 2
+        },
+        "previous_unlike__1_day_to_7_days": {
+          "0": 23,
+          "1": 2,
+          "2": 3
+        },
+        "previous_unlike__1_hour_to_24_hours": {
+          "0": 13,
+          "1": 1,
+          "2": 4
+        },
+        "previous_unlike__5_minutes_to_1_hour": {
+          "0": 124,
+          "1": 11,
+          "2": 9,
+          "3": 3
+        },
+        "previous_unlike__no_prior_recommendation_driven_listen": {
+          "0": 78,
+          "1": 5,
+          "2": 7
+        },
+        "previous_unlike__over_7_days": {
+          "0": 151,
+          "1": 7,
+          "2": 5
+        },
+        "previous_unlike__within_5_minutes": {
+          "0": 187,
+          "1": 31,
+          "2": 22,
+          "3": 3
+        }
+      }
+    },
+    "context_presence": {
+      "test": {
+        "has_any_prior_rec_listen": 63110,
+        "has_prior_same_item_rec_listen": 39616,
+        "same_item_rec_listen_within_1_hour": 28776,
+        "same_item_rec_listen_within_24_hours": 29506,
+        "same_item_rec_listen_within_5_minutes": 18668,
+        "targets_recommendation_driven": 63127
+      },
+      "train": {
+        "has_any_prior_rec_listen": 320596,
+        "has_prior_same_item_rec_listen": 206662,
+        "same_item_rec_listen_within_1_hour": 151910,
+        "same_item_rec_listen_within_24_hours": 156444,
+        "same_item_rec_listen_within_5_minutes": 98469,
+        "targets_recommendation_driven": 320851
+      },
+      "validation": {
+        "has_any_prior_rec_listen": 57378,
+        "has_prior_same_item_rec_listen": 37287,
+        "same_item_rec_listen_within_1_hour": 26901,
+        "same_item_rec_listen_within_24_hours": 27706,
+        "same_item_rec_listen_within_5_minutes": 17435,
+        "targets_recommendation_driven": 57404
+      }
+    },
+    "lag_counts": {
+      "test": {
+        "1_day_to_7_days": {
+          "dislike": 138,
+          "like": 1332,
+          "unlike": 42
+        },
+        "1_hour_to_24_hours": {
+          "dislike": 87,
+          "like": 610,
+          "undislike": 8,
+          "unlike": 25
+        },
+        "5_minutes_to_1_hour": {
+          "dislike": 1095,
+          "like": 8537,
+          "undislike": 45,
+          "unlike": 431
+        },
+        "no_prior_recommendation_driven_listen": {
+          "dislike": 1394,
+          "like": 21597,
+          "undislike": 12,
+          "unlike": 508
+        },
+        "over_7_days": {
+          "dislike": 553,
+          "like": 7751,
+          "undislike": 10,
+          "unlike": 284
+        },
+        "within_5_minutes": {
+          "dislike": 2746,
+          "like": 15021,
+          "undislike": 142,
+          "unlike": 759
+        }
+      },
+      "train": {
+        "1_day_to_7_days": {
+          "dislike": 737,
+          "like": 6271,
+          "undislike": 20,
+          "unlike": 339
+        },
+        "1_hour_to_24_hours": {
+          "dislike": 495,
+          "like": 3767,
+          "undislike": 37,
+          "unlike": 235
+        },
+        "5_minutes_to_1_hour": {
+          "dislike": 6403,
+          "like": 44253,
+          "undislike": 319,
+          "unlike": 2466
+        },
+        "no_prior_recommendation_driven_listen": {
+          "dislike": 8475,
+          "like": 102510,
+          "undislike": 91,
+          "unlike": 3113
+        },
+        "over_7_days": {
+          "dislike": 3910,
+          "like": 37454,
+          "undislike": 36,
+          "unlike": 1451
+        },
+        "within_5_minutes": {
+          "dislike": 17214,
+          "like": 75941,
+          "undislike": 914,
+          "unlike": 4400
+        }
+      },
+      "validation": {
+        "1_day_to_7_days": {
+          "dislike": 111,
+          "like": 1242,
+          "undislike": 2,
+          "unlike": 52
+        },
+        "1_hour_to_24_hours": {
+          "dislike": 76,
+          "like": 677,
+          "undislike": 5,
+          "unlike": 47
+        },
+        "5_minutes_to_1_hour": {
+          "dislike": 995,
+          "like": 8032,
+          "undislike": 37,
+          "unlike": 402
+        },
+        "no_prior_recommendation_driven_listen": {
+          "dislike": 1162,
+          "like": 18455,
+          "undislike": 8,
+          "unlike": 492
+        },
+        "over_7_days": {
+          "dislike": 539,
+          "like": 7383,
+          "undislike": 4,
+          "unlike": 248
+        },
+        "within_5_minutes": {
+          "dislike": 2907,
+          "like": 13577,
+          "undislike": 148,
+          "unlike": 803
+        }
+      }
+    },
+    "quality": {},
+    "target_counts": {
+      "test": {
+        "dislike|organic": 7382,
+        "dislike|recommendation_driven": 6013,
+        "like|organic": 64980,
+        "like|recommendation_driven": 54848,
+        "undislike|organic": 1923,
+        "undislike|recommendation_driven": 217,
+        "unlike|organic": 35276,
+        "unlike|recommendation_driven": 2049
+      },
+      "train": {
+        "dislike|organic": 39085,
+        "dislike|recommendation_driven": 37234,
+        "like|organic": 338430,
+        "like|recommendation_driven": 270196,
+        "undislike|organic": 12551,
+        "undislike|recommendation_driven": 1417,
+        "unlike|organic": 201104,
+        "unlike|recommendation_driven": 12004
+      },
+      "validation": {
+        "dislike|organic": 5932,
+        "dislike|recommendation_driven": 5790,
+        "like|organic": 60324,
+        "like|recommendation_driven": 49366,
+        "undislike|organic": 2242,
+        "undislike|recommendation_driven": 204,
+        "unlike|organic": 31859,
+        "unlike|recommendation_driven": 2044
+      }
+    },
+    "target_items": {
+      "test": 69139,
+      "train": 204864,
+      "validation": 64491
+    },
+    "target_mapping": {
+      "test": {
+        "mapped_to_current_explicit_semantic_catalog": 172630,
+        "not_mapped_to_current_explicit_semantic_catalog": 58
+      },
+      "train": {
+        "mapped_to_current_explicit_semantic_catalog": 911725,
+        "not_mapped_to_current_explicit_semantic_catalog": 296
+      },
+      "validation": {
+        "mapped_to_current_explicit_semantic_catalog": 157703,
+        "not_mapped_to_current_explicit_semantic_catalog": 58
+      }
+    },
+    "target_users": {
+      "test": 6763,
+      "train": 7482,
+      "validation": 6170
+    }
+  },
+  "inputs": {
+    "multi_event": {
+      "mtime_ns": 1773299027137732538,
+      "path": "/root/autodl-tmp/0330Yambda/data/sequential-50m/multi_event.parquet",
+      "size_bytes": 437501893
+    },
+    "semantic_map": {
+      "mtime_ns": 1785557745185223462,
+      "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/orig2catalog_row.npy",
+      "size_bytes": 37562536
+    }
+  },
+  "listen_information_prior_test": {
+    "available": true,
+    "global_train_distribution": {
+      "dislike": 0.11604763581849518,
+      "like": 0.8421229792021842,
+      "undislike": 0.004416380188935051,
+      "unlike": 0.03741300479038557
+    },
+    "interpretation": "A positive NLL improvement means that the coarse same-item rec-listen lag contains held-out association beyond the previous explicit mark. It does not establish causal response prediction or simulator validity.",
+    "smoothing_selected_on_validation": {
+      "explicit_state_only": 100.0,
+      "explicit_state_plus_listen_lag": 50.0
+    },
+    "target_definition": "recommendation-driven explicit feedback only; target source is not a predictor feature",
+    "test": {
+      "global_mark_frequency": {
+        "count": 63127,
+        "mean_nll": 0.4797338420517647,
+        "multiclass_brier": 0.23613074113411284
+      },
+      "listen_incremental_nll_improvement_over_explicit_state": 0.01099390070533246,
+      "previous_explicit_mark_on_same_item": {
+        "count": 63127,
+        "mean_nll": 0.44198903156178504,
+        "multiclass_brier": 0.22282217188288542
+      },
+      "previous_explicit_mark_plus_same_item_rec_listen_lag": {
+        "count": 63127,
+        "mean_nll": 0.4309951308564526,
+        "multiclass_brier": 0.21850823191587174
+      }
+    },
+    "validation_grid": {
+      "explicit_state_only": {
+        "1.0": {
+          "count": 57404,
+          "mean_nll": 0.4585189410638262,
+          "multiclass_brier": 0.23389315522614293
+        },
+        "10.0": {
+          "count": 57404,
+          "mean_nll": 0.4584993048648204,
+          "multiclass_brier": 0.23388107973934683
+        },
+        "100.0": {
+          "count": 57404,
+          "mean_nll": 0.45838340359309904,
+          "multiclass_brier": 0.23380487807676864
+        },
+        "50.0": {
+          "count": 57404,
+          "mean_nll": 0.45843288086079104,
+          "multiclass_brier": 0.23383849045673613
+        }
+      },
+      "explicit_state_plus_listen_lag": {
+        "1.0": {
+          "count": 57404,
+          "mean_nll": 0.4444661293091223,
+          "multiclass_brier": 0.22792264707341703
+        },
+        "10.0": {
+          "count": 57404,
+          "mean_nll": 0.4443605028348925,
+          "multiclass_brier": 0.227892409741729
+        },
+        "100.0": {
+          "count": 57404,
+          "mean_nll": 0.44432633111163894,
+          "multiclass_brier": 0.22787365445670893
+        },
+        "50.0": {
+          "count": 57404,
+          "mean_nll": 0.4442847497168508,
+          "multiclass_brier": 0.22784953806767344
+        }
+      }
+    }
+  },
+  "protocol": {
+    "explicit_deduplication_key": [
+      "uid",
+      "timestamp",
+      "item_id",
+      "event_type",
+      "is_organic"
+    ],
+    "listen_role": "context and action proxy only; not a fifth explicit-feedback mark",
+    "max_users": 10000,
+    "name": "listen_is_organic_descriptive_audit",
+    "not_a_complete_exposure_log": true,
+    "recommendation_driven_definition": "is_organic=0",
+    "strict_same_timestamp_history": true,
+    "target_source_not_used_as_feature": true,
+    "version": 1
+  },
+  "raw_event_counts_by_split": {
+    "gap_before_test": {
+      "all_events": 3732,
+      "dislike|organic": 4,
+      "dislike|recommendation_driven": 1,
+      "explicit_events": 82,
+      "like|organic": 34,
+      "like|recommendation_driven": 31,
+      "listen|organic": 2067,
+      "listen|recommendation_driven": 1583,
+      "undislike|organic": 0,
+      "undislike|recommendation_driven": 1,
+      "unlike|organic": 10,
+      "unlike|recommendation_driven": 1
+    },
+    "gap_before_validation": {
+      "all_events": 4822,
+      "dislike|organic": 3,
+      "dislike|recommendation_driven": 1,
+      "explicit_events": 136,
+      "like|organic": 46,
+      "like|recommendation_driven": 60,
+      "listen|organic": 2483,
+      "listen|recommendation_driven": 2203,
+      "undislike|organic": 3,
+      "undislike|recommendation_driven": 0,
+      "unlike|organic": 22,
+      "unlike|recommendation_driven": 1
+    },
+    "test": {
+      "all_events": 6503432,
+      "dislike|organic": 7883,
+      "dislike|recommendation_driven": 6114,
+      "explicit_events": 189694,
+      "like|organic": 77140,
+      "like|recommendation_driven": 55254,
+      "listen|organic": 3255504,
+      "listen|recommendation_driven": 3058234,
+      "undislike|organic": 2209,
+      "undislike|recommendation_driven": 223,
+      "unlike|organic": 38800,
+      "unlike|recommendation_driven": 2071
+    },
+    "train": {
+      "all_events": 35247649,
+      "dislike|organic": 41661,
+      "dislike|recommendation_driven": 39704,
+      "explicit_events": 961196,
+      "like|organic": 357509,
+      "like|recommendation_driven": 273845,
+      "listen|organic": 17673253,
+      "listen|recommendation_driven": 16613200,
+      "undislike|organic": 13803,
+      "undislike|recommendation_driven": 1856,
+      "unlike|organic": 220472,
+      "unlike|recommendation_driven": 12346
+    },
+    "validation": {
+      "all_events": 6030814,
+      "dislike|organic": 6437,
+      "dislike|recommendation_driven": 5968,
+      "explicit_events": 172129,
+      "like|organic": 67472,
+      "like|recommendation_driven": 50065,
+      "listen|organic": 3070350,
+      "listen|recommendation_driven": 2788335,
+      "undislike|organic": 2694,
+      "undislike|recommendation_driven": 244,
+      "unlike|organic": 37137,
+      "unlike|recommendation_driven": 2112
+    }
+  },
+  "rec_listen_anchor_audit": {
+    "all_terminal_anchor_items": 491167,
+    "anchor_counts": {
+      "test": {
+        "terminal_rec_listen_episodes": 2968507,
+        "within_300_seconds_any_source_explicit_link": 16363,
+        "within_300_seconds_eligible_terminal_anchors": 2968302,
+        "within_300_seconds_no_observed_any_source_explicit": 2951939,
+        "within_300_seconds_no_observed_recommendation_driven_explicit": 2951939,
+        "within_300_seconds_recommendation_driven_explicit_link": 16363,
+        "within_300_seconds_right_censored_by_dataset_end": 205,
+        "within_3600_seconds_any_source_explicit_link": 27572,
+        "within_3600_seconds_eligible_terminal_anchors": 2966437,
+        "within_3600_seconds_no_observed_any_source_explicit": 2938865,
+        "within_3600_seconds_no_observed_recommendation_driven_explicit": 2940827,
+        "within_3600_seconds_recommendation_driven_explicit_link": 25610,
+        "within_3600_seconds_right_censored_by_dataset_end": 2070,
+        "within_604800_seconds_any_source_explicit_link": 32111,
+        "within_604800_seconds_eligible_terminal_anchors": 2262555,
+        "within_604800_seconds_no_observed_any_source_explicit": 2230444,
+        "within_604800_seconds_no_observed_recommendation_driven_explicit": 2239415,
+        "within_604800_seconds_recommendation_driven_explicit_link": 23140,
+        "within_604800_seconds_right_censored_by_dataset_end": 705952,
+        "within_86400_seconds_any_source_explicit_link": 34305,
+        "within_86400_seconds_eligible_terminal_anchors": 2858004,
+        "within_86400_seconds_no_observed_any_source_explicit": 2823699,
+        "within_86400_seconds_no_observed_recommendation_driven_explicit": 2831688,
+        "within_86400_seconds_recommendation_driven_explicit_link": 26316,
+        "within_86400_seconds_right_censored_by_dataset_end": 110503
+      },
+      "train": {
+        "terminal_rec_listen_episodes": 16219175,
+        "within_300_seconds_any_source_explicit_link": 87543,
+        "within_300_seconds_eligible_terminal_anchors": 16218865,
+        "within_300_seconds_no_observed_any_source_explicit": 16131322,
+        "within_300_seconds_no_observed_recommendation_driven_explicit": 16131322,
+        "within_300_seconds_recommendation_driven_explicit_link": 87543,
+        "within_300_seconds_right_censored_by_split_end": 310,
+        "within_3600_seconds_any_source_explicit_link": 147585,
+        "within_3600_seconds_eligible_terminal_anchors": 16215326,
+        "within_3600_seconds_no_observed_any_source_explicit": 16067741,
+        "within_3600_seconds_no_observed_recommendation_driven_explicit": 16078834,
+        "within_3600_seconds_recommendation_driven_explicit_link": 136492,
+        "within_3600_seconds_right_censored_by_split_end": 3849,
+        "within_604800_seconds_any_source_explicit_link": 223759,
+        "within_604800_seconds_eligible_terminal_anchors": 15642701,
+        "within_604800_seconds_no_observed_any_source_explicit": 15418942,
+        "within_604800_seconds_no_observed_recommendation_driven_explicit": 15486630,
+        "within_604800_seconds_recommendation_driven_explicit_link": 156071,
+        "within_604800_seconds_right_censored_by_split_end": 576474,
+        "within_86400_seconds_any_source_explicit_link": 194680,
+        "within_86400_seconds_eligible_terminal_anchors": 16145376,
+        "within_86400_seconds_no_observed_any_source_explicit": 15950696,
+        "within_86400_seconds_no_observed_recommendation_driven_explicit": 16000623,
+        "within_86400_seconds_recommendation_driven_explicit_link": 144753,
+        "within_86400_seconds_right_censored_by_split_end": 73799
+      },
+      "validation": {
+        "terminal_rec_listen_episodes": 2707585,
+        "within_300_seconds_any_source_explicit_link": 15250,
+        "within_300_seconds_eligible_terminal_anchors": 2707299,
+        "within_300_seconds_no_observed_any_source_explicit": 2692049,
+        "within_300_seconds_no_observed_recommendation_driven_explicit": 2692049,
+        "within_300_seconds_recommendation_driven_explicit_link": 15250,
+        "within_300_seconds_right_censored_by_split_end": 286,
+        "within_3600_seconds_any_source_explicit_link": 25792,
+        "within_3600_seconds_eligible_terminal_anchors": 2704084,
+        "within_3600_seconds_no_observed_any_source_explicit": 2678292,
+        "within_3600_seconds_no_observed_recommendation_driven_explicit": 2680231,
+        "within_3600_seconds_recommendation_driven_explicit_link": 23853,
+        "within_3600_seconds_right_censored_by_split_end": 3501,
+        "within_604800_seconds_any_source_explicit_link": 30635,
+        "within_604800_seconds_eligible_terminal_anchors": 2048729,
+        "within_604800_seconds_no_observed_any_source_explicit": 2018094,
+        "within_604800_seconds_no_observed_recommendation_driven_explicit": 2026894,
+        "within_604800_seconds_recommendation_driven_explicit_link": 21835,
+        "within_604800_seconds_right_censored_by_split_end": 658856,
+        "within_86400_seconds_any_source_explicit_link": 32353,
+        "within_86400_seconds_eligible_terminal_anchors": 2607806,
+        "within_86400_seconds_no_observed_any_source_explicit": 2575453,
+        "within_86400_seconds_no_observed_recommendation_driven_explicit": 2583153,
+        "within_86400_seconds_recommendation_driven_explicit_link": 24653,
+        "within_86400_seconds_right_censored_by_split_end": 99779
+      }
+    },
+    "episode_definition": {
+      "description": "A terminal anchor is the last recommendation-driven listen for one user-item before a gap greater than one hour.",
+      "gap_seconds": 3600
+    },
+    "first_future_any_source_label_distribution": {
+      "test": {
+        "within_300_seconds": {
+          "dislike": 2509,
+          "like": 13113,
+          "multi_mark_same_timestamp": 311,
+          "undislike": 19,
+          "unlike": 411
+        },
+        "within_3600_seconds": {
+          "dislike": 3699,
+          "like": 22661,
+          "multi_mark_same_timestamp": 482,
+          "undislike": 33,
+          "unlike": 697
+        },
+        "within_604800_seconds": {
+          "dislike": 4348,
+          "like": 25878,
+          "multi_mark_same_timestamp": 632,
+          "undislike": 49,
+          "unlike": 1204
+        },
+        "within_86400_seconds": {
+          "dislike": 4449,
+          "like": 28165,
+          "multi_mark_same_timestamp": 615,
+          "undislike": 43,
+          "unlike": 1033
+        }
+      },
+      "train": {
+        "within_300_seconds": {
+          "dislike": 15720,
+          "like": 67433,
+          "multi_mark_same_timestamp": 2133,
+          "undislike": 149,
+          "unlike": 2108
+        },
+        "within_3600_seconds": {
+          "dislike": 22880,
+          "like": 117527,
+          "multi_mark_same_timestamp": 3344,
+          "undislike": 196,
+          "unlike": 3638
+        },
+        "within_604800_seconds": {
+          "dislike": 33114,
+          "like": 176588,
+          "multi_mark_same_timestamp": 5439,
+          "undislike": 274,
+          "unlike": 8344
+        },
+        "within_86400_seconds": {
+          "dislike": 29086,
+          "like": 155589,
+          "multi_mark_same_timestamp": 4377,
+          "undislike": 232,
+          "unlike": 5396
+        }
+      },
+      "validation": {
+        "within_300_seconds": {
+          "dislike": 2694,
+          "like": 11789,
+          "multi_mark_same_timestamp": 331,
+          "undislike": 24,
+          "unlike": 412
+        },
+        "within_3600_seconds": {
+          "dislike": 3890,
+          "like": 20703,
+          "multi_mark_same_timestamp": 488,
+          "undislike": 30,
+          "unlike": 681
+        },
+        "within_604800_seconds": {
+          "dislike": 4465,
+          "like": 24258,
+          "multi_mark_same_timestamp": 643,
+          "undislike": 48,
+          "unlike": 1221
+        },
+        "within_86400_seconds": {
+          "dislike": 4690,
+          "like": 26013,
+          "multi_mark_same_timestamp": 648,
+          "undislike": 38,
+          "unlike": 964
+        }
+      }
+    },
+    "first_future_recommendation_driven_label_distribution": {
+      "test": {
+        "within_300_seconds": {
+          "dislike": 2509,
+          "like": 13113,
+          "multi_mark_same_timestamp": 311,
+          "undislike": 19,
+          "unlike": 411
+        },
+        "within_3600_seconds": {
+          "dislike": 3505,
+          "like": 20979,
+          "multi_mark_same_timestamp": 451,
+          "undislike": 29,
+          "unlike": 646
+        },
+        "within_604800_seconds": {
+          "dislike": 3374,
+          "like": 18737,
+          "multi_mark_same_timestamp": 417,
+          "undislike": 31,
+          "unlike": 581
+        },
+        "within_86400_seconds": {
+          "dislike": 3567,
+          "like": 21573,
+          "multi_mark_same_timestamp": 469,
+          "undislike": 34,
+          "unlike": 673
+        }
+      },
+      "train": {
+        "within_300_seconds": {
+          "dislike": 15720,
+          "like": 67433,
+          "multi_mark_same_timestamp": 2133,
+          "undislike": 149,
+          "unlike": 2108
+        },
+        "within_3600_seconds": {
+          "dislike": 21508,
+          "like": 108334,
+          "multi_mark_same_timestamp": 3125,
+          "undislike": 187,
+          "unlike": 3338
+        },
+        "within_604800_seconds": {
+          "dislike": 24844,
+          "like": 123356,
+          "multi_mark_same_timestamp": 3681,
+          "undislike": 223,
+          "unlike": 3967
+        },
+        "within_86400_seconds": {
+          "dislike": 22628,
+          "like": 115007,
+          "multi_mark_same_timestamp": 3358,
+          "undislike": 202,
+          "unlike": 3558
+        }
+      },
+      "validation": {
+        "within_300_seconds": {
+          "dislike": 2694,
+          "like": 11789,
+          "multi_mark_same_timestamp": 331,
+          "undislike": 24,
+          "unlike": 412
+        },
+        "within_3600_seconds": {
+          "dislike": 3621,
+          "like": 19131,
+          "multi_mark_same_timestamp": 460,
+          "undislike": 29,
+          "unlike": 612
+        },
+        "within_604800_seconds": {
+          "dislike": 3387,
+          "like": 17400,
+          "multi_mark_same_timestamp": 428,
+          "undislike": 30,
+          "unlike": 590
+        },
+        "within_86400_seconds": {
+          "dislike": 3714,
+          "like": 19782,
+          "multi_mark_same_timestamp": 490,
+          "undislike": 36,
+          "unlike": 631
+        }
+      }
+    },
+    "items": {
+      "test": 233633,
+      "train": 408881,
+      "validation": 220125
+    },
+    "link_rates": {
+      "test": {
+        "within_300_seconds": {
+          "any_source_explicit_link_rate": 0.005512579245642795,
+          "eligible_terminal_anchors": 2968302,
+          "recommendation_driven_explicit_link_rate": 0.005512579245642795
+        },
+        "within_3600_seconds": {
+          "any_source_explicit_link_rate": 0.009294652136553044,
+          "eligible_terminal_anchors": 2966437,
+          "recommendation_driven_explicit_link_rate": 0.008633252619219623
+        },
+        "within_604800_seconds": {
+          "any_source_explicit_link_rate": 0.01419236217462117,
+          "eligible_terminal_anchors": 2262555,
+          "recommendation_driven_explicit_link_rate": 0.01022737568810482
+        },
+        "within_86400_seconds": {
+          "any_source_explicit_link_rate": 0.01200313225593806,
+          "eligible_terminal_anchors": 2858004,
+          "recommendation_driven_explicit_link_rate": 0.00920782476161685
+        }
+      },
+      "train": {
+        "within_300_seconds": {
+          "any_source_explicit_link_rate": 0.005397603346473381,
+          "eligible_terminal_anchors": 16218865,
+          "recommendation_driven_explicit_link_rate": 0.005397603346473381
+        },
+        "within_3600_seconds": {
+          "any_source_explicit_link_rate": 0.00910157464610949,
+          "eligible_terminal_anchors": 16215326,
+          "recommendation_driven_explicit_link_rate": 0.008417468757643232
+        },
+        "within_604800_seconds": {
+          "any_source_explicit_link_rate": 0.014304371092946161,
+          "eligible_terminal_anchors": 15642701,
+          "recommendation_driven_explicit_link_rate": 0.009977241142690128
+        },
+        "within_86400_seconds": {
+          "any_source_explicit_link_rate": 0.012057941543139038,
+          "eligible_terminal_anchors": 16145376,
+          "recommendation_driven_explicit_link_rate": 0.008965601048869967
+        }
+      },
+      "validation": {
+        "within_300_seconds": {
+          "any_source_explicit_link_rate": 0.005632920486433157,
+          "eligible_terminal_anchors": 2707299,
+          "recommendation_driven_explicit_link_rate": 0.005632920486433157
+        },
+        "within_3600_seconds": {
+          "any_source_explicit_link_rate": 0.009538165234511946,
+          "eligible_terminal_anchors": 2704084,
+          "recommendation_driven_explicit_link_rate": 0.00882110171133737
+        },
+        "within_604800_seconds": {
+          "any_source_explicit_link_rate": 0.014953173406536444,
+          "eligible_terminal_anchors": 2048729,
+          "recommendation_driven_explicit_link_rate": 0.010657827365161522
+        },
+        "within_86400_seconds": {
+          "any_source_explicit_link_rate": 0.012406214265938494,
+          "eligible_terminal_anchors": 2607806,
+          "recommendation_driven_explicit_link_rate": 0.009453540639142636
+        }
+      }
+    },
+    "mapping": {
+      "test": {
+        "mapped_to_current_explicit_semantic_catalog": 2666206,
+        "not_mapped_to_current_explicit_semantic_catalog": 302301
+      },
+      "train": {
+        "mapped_to_current_explicit_semantic_catalog": 14786353,
+        "not_mapped_to_current_explicit_semantic_catalog": 1432822
+      },
+      "validation": {
+        "mapped_to_current_explicit_semantic_catalog": 2442393,
+        "not_mapped_to_current_explicit_semantic_catalog": 265192
+      }
+    },
+    "mapping_rates": {
+      "test": {
+        "terminal_anchor_items_mapped_to_current_explicit_semantic_catalog_rate": 0.8981639591889121
+      },
+      "train": {
+        "terminal_anchor_items_mapped_to_current_explicit_semantic_catalog_rate": 0.9116587619283965
+      },
+      "validation": {
+        "terminal_anchor_items_mapped_to_current_explicit_semantic_catalog_rate": 0.9020558911354584
+      }
+    },
+    "users": {
+      "test": 7904,
+      "train": 7780,
+      "validation": 7179
+    }
+  },
+  "temporal_split": {
+    "gap_seconds": 1800,
+    "max_timestamp_seconds": 26000000,
+    "min_timestamp_seconds": 0,
+    "test_start_inclusive": 23401800,
+    "train_end_exclusive": 20800000,
+    "validation_end_exclusive": 23400000,
+    "validation_start_inclusive": 20801800
+  }
+}
