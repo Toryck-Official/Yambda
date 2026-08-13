@@ -1,0 +1,79 @@
+{
+  "status": "complete_read_only_audit",
+  "data_contract": {
+    "explicit_universe": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/artifacts/item_explicit_frequency.npz",
+    "source_embeddings": "/root/autodl-tmp/0804 Yambda/data/embeddings.parquet",
+    "artist_mapping": "/root/autodl-tmp/0804 Yambda/dataprocess/data/official_metadata/artist_item_mapping.parquet",
+    "album_mapping": "/root/autodl-tmp/0804 Yambda/dataprocess/data/official_metadata/album_item_mapping.parquet",
+    "no_proxy_vectors_created": true,
+    "no_rows_removed": true,
+    "collaborative_fallback_not_audited_here": true
+  },
+  "explicit_items": 2875071,
+  "explicit_events": 136292476,
+  "source_embedding": {
+    "covered": {
+      "items": 2367341,
+      "events": 122858755
+    },
+    "missing": {
+      "items": 507730,
+      "events": 13433721
+    }
+  },
+  "artist": {
+    "path": "/root/autodl-tmp/0804 Yambda/dataprocess/data/official_metadata/artist_item_mapping.parquet",
+    "group_column": "artist_id",
+    "mapping_rows": 9271906,
+    "groups": 1293394,
+    "groups_with_source_embedding": 1012843,
+    "missing_explicit_items_with_mapping": 507730,
+    "missing_explicit_items_with_source_supported_group": 448289,
+    "definition": "target belongs to an official group containing at least one item with a source audio embedding"
+  },
+  "album": {
+    "path": "/root/autodl-tmp/0804 Yambda/dataprocess/data/official_metadata/album_item_mapping.parquet",
+    "group_column": "album_id",
+    "mapping_rows": 9651644,
+    "groups": 3367691,
+    "groups_with_source_embedding": 2744796,
+    "missing_explicit_items_with_mapping": 163768,
+    "missing_explicit_items_with_source_supported_group": 68757,
+    "definition": "target belongs to an official group containing at least one item with a source audio embedding"
+  },
+  "missing_explicit_slices": {
+    "artist_mapping": {
+      "items": 507730,
+      "events": 13433721
+    },
+    "album_mapping": {
+      "items": 163768,
+      "events": 6290691
+    },
+    "either_mapping": {
+      "items": 507730,
+      "events": 13433721
+    },
+    "artist_source_supported": {
+      "items": 448289,
+      "events": 12234686
+    },
+    "album_source_supported": {
+      "items": 68757,
+      "events": 3719259
+    },
+    "either_source_supported": {
+      "items": 450594,
+      "events": 12450538
+    },
+    "both_source_supported": {
+      "items": 66452,
+      "events": 3503407
+    },
+    "no_source_supported_metadata": {
+      "items": 57136,
+      "events": 983183
+    }
+  },
+  "interpretation_boundary": "metadata support is only potential proxy-vector coverage; quality must still be established by leave-one-out reconstruction before RQKMeans"
+}

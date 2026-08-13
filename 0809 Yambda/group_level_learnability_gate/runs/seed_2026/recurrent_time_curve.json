@@ -1,0 +1,282 @@
+[
+  {
+    "epoch": 1,
+    "train_batch_objective": 4.185654431948624,
+    "evaluation": {
+      "nll_per_group": 2.5420748839924143,
+      "mae_hours": 41.849979400634766,
+      "median_ae_hours": 0.6550680994987488,
+      "prediction_median_hours": 0.5894151926040649,
+      "prediction_p95_hours": 0.7486652731895447,
+      "finite": true
+    },
+    "seconds": 3.468319147825241,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 2,
+    "train_batch_objective": 2.5200808969132154,
+    "evaluation": {
+      "nll_per_group": 2.483347142642693,
+      "mae_hours": 41.714962005615234,
+      "median_ae_hours": 1.1318321228027344,
+      "prediction_median_hours": 0.6534975171089172,
+      "prediction_p95_hours": 1.9115557670593262,
+      "finite": true
+    },
+    "seconds": 3.097560629248619,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 3,
+    "train_batch_objective": 2.449946214344876,
+    "evaluation": {
+      "nll_per_group": 2.4182088468037604,
+      "mae_hours": 41.29098129272461,
+      "median_ae_hours": 2.2918052673339844,
+      "prediction_median_hours": 0.7130882143974304,
+      "prediction_p95_hours": 7.194242477416992,
+      "finite": true
+    },
+    "seconds": 3.349552273750305,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 4,
+    "train_batch_objective": 2.4098732144862725,
+    "evaluation": {
+      "nll_per_group": 2.3948997284265023,
+      "mae_hours": 40.98325729370117,
+      "median_ae_hours": 3.3609538078308105,
+      "prediction_median_hours": 1.6730997562408447,
+      "prediction_p95_hours": 10.93752670288086,
+      "finite": true
+    },
+    "seconds": 3.5290744304656982,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 5,
+    "train_batch_objective": 2.390011379151082,
+    "evaluation": {
+      "nll_per_group": 2.3673138133686495,
+      "mae_hours": 40.98974609375,
+      "median_ae_hours": 2.8710696697235107,
+      "prediction_median_hours": 1.2756730318069458,
+      "prediction_p95_hours": 9.996941566467285,
+      "finite": true
+    },
+    "seconds": 3.589865058660507,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 6,
+    "train_batch_objective": 2.376604090572686,
+    "evaluation": {
+      "nll_per_group": 2.357036021010131,
+      "mae_hours": 41.00663375854492,
+      "median_ae_hours": 2.6968979835510254,
+      "prediction_median_hours": 1.2065407037734985,
+      "prediction_p95_hours": 9.467838287353516,
+      "finite": true
+    },
+    "seconds": 3.4181670397520065,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 7,
+    "train_batch_objective": 2.3618460286338374,
+    "evaluation": {
+      "nll_per_group": 2.344747440526984,
+      "mae_hours": 40.946720123291016,
+      "median_ae_hours": 2.474825620651245,
+      "prediction_median_hours": 1.0359830856323242,
+      "prediction_p95_hours": 9.879733085632324,
+      "finite": true
+    },
+    "seconds": 3.450579434633255,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 8,
+    "train_batch_objective": 2.3545146770676566,
+    "evaluation": {
+      "nll_per_group": 2.3281486699823803,
+      "mae_hours": 40.80747985839844,
+      "median_ae_hours": 2.6412384510040283,
+      "prediction_median_hours": 1.139258623123169,
+      "prediction_p95_hours": 11.511784553527832,
+      "finite": true
+    },
+    "seconds": 3.5414289012551308,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 9,
+    "train_batch_objective": 2.33772791801963,
+    "evaluation": {
+      "nll_per_group": 2.3252531826637832,
+      "mae_hours": 40.80327224731445,
+      "median_ae_hours": 2.43756103515625,
+      "prediction_median_hours": 1.0648819208145142,
+      "prediction_p95_hours": 11.932967185974121,
+      "finite": true
+    },
+    "seconds": 3.5367940217256546,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 10,
+    "train_batch_objective": 2.3295887078321353,
+    "evaluation": {
+      "nll_per_group": 2.321397599779105,
+      "mae_hours": 40.52640151977539,
+      "median_ae_hours": 2.8088390827178955,
+      "prediction_median_hours": 1.1902180910110474,
+      "prediction_p95_hours": 16.199052810668945,
+      "finite": true
+    },
+    "seconds": 3.490314371883869,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 11,
+    "train_batch_objective": 2.3210617581377457,
+    "evaluation": {
+      "nll_per_group": 2.292878627008709,
+      "mae_hours": 40.3394889831543,
+      "median_ae_hours": 3.0388600826263428,
+      "prediction_median_hours": 1.3628087043762207,
+      "prediction_p95_hours": 19.761112213134766,
+      "finite": true
+    },
+    "seconds": 3.3228158354759216,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 12,
+    "train_batch_objective": 2.311742501234313,
+    "evaluation": {
+      "nll_per_group": 2.289671603172518,
+      "mae_hours": 40.47433090209961,
+      "median_ae_hours": 2.559937000274658,
+      "prediction_median_hours": 1.1262258291244507,
+      "prediction_p95_hours": 16.823486328125,
+      "finite": true
+    },
+    "seconds": 3.064825102686882,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 13,
+    "train_batch_objective": 2.2987370807779164,
+    "evaluation": {
+      "nll_per_group": 2.2842357722756095,
+      "mae_hours": 40.31646728515625,
+      "median_ae_hours": 2.777576446533203,
+      "prediction_median_hours": 1.3698581457138062,
+      "prediction_p95_hours": 18.04062843322754,
+      "finite": true
+    },
+    "seconds": 3.598884701728821,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 14,
+    "train_batch_objective": 2.2866442985362165,
+    "evaluation": {
+      "nll_per_group": 2.262895900467509,
+      "mae_hours": 40.01968765258789,
+      "median_ae_hours": 2.9841904640197754,
+      "prediction_median_hours": 1.5354338884353638,
+      "prediction_p95_hours": 22.431440353393555,
+      "finite": true
+    },
+    "seconds": 3.5679789260029793,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 15,
+    "train_batch_objective": 2.2750499048862074,
+    "evaluation": {
+      "nll_per_group": 2.2569323652788706,
+      "mae_hours": 40.4154052734375,
+      "median_ae_hours": 2.0510613918304443,
+      "prediction_median_hours": 0.8442625999450684,
+      "prediction_p95_hours": 15.311418533325195,
+      "finite": true
+    },
+    "seconds": 3.4793072268366814,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 16,
+    "train_batch_objective": 2.2622467459186866,
+    "evaluation": {
+      "nll_per_group": 2.233337142642868,
+      "mae_hours": 39.85005187988281,
+      "median_ae_hours": 2.4997506141662598,
+      "prediction_median_hours": 1.150898814201355,
+      "prediction_p95_hours": 24.744586944580078,
+      "finite": true
+    },
+    "seconds": 3.6032864078879356,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 17,
+    "train_batch_objective": 2.2461270177752852,
+    "evaluation": {
+      "nll_per_group": 2.2187480056654776,
+      "mae_hours": 39.8693733215332,
+      "median_ae_hours": 2.4422669410705566,
+      "prediction_median_hours": 1.1702120304107666,
+      "prediction_p95_hours": 22.411821365356445,
+      "finite": true
+    },
+    "seconds": 3.838744133710861,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 18,
+    "train_batch_objective": 2.223357188168134,
+    "evaluation": {
+      "nll_per_group": 2.1934249745202354,
+      "mae_hours": 39.98411560058594,
+      "median_ae_hours": 2.1517653465270996,
+      "prediction_median_hours": 1.0004689693450928,
+      "prediction_p95_hours": 18.999332427978516,
+      "finite": true
+    },
+    "seconds": 3.4692239835858345,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 19,
+    "train_batch_objective": 2.203641731282134,
+    "evaluation": {
+      "nll_per_group": 2.1857524199285794,
+      "mae_hours": 39.7463493347168,
+      "median_ae_hours": 2.1063232421875,
+      "prediction_median_hours": 0.8642452955245972,
+      "prediction_p95_hours": 22.900279998779297,
+      "finite": true
+    },
+    "seconds": 3.606566794216633,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 20,
+    "train_batch_objective": 2.197089409021437,
+    "evaluation": {
+      "nll_per_group": 2.152524097852437,
+      "mae_hours": 39.2692985534668,
+      "median_ae_hours": 2.455909252166748,
+      "prediction_median_hours": 1.3142608404159546,
+      "prediction_p95_hours": 30.16206169128418,
+      "finite": true
+    },
+    "seconds": 3.4400216937065125,
+    "nonfinite_steps": 0
+  }
+]

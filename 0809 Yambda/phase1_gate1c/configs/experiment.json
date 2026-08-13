@@ -1,0 +1,47 @@
+{
+  "seeds": [2026, 2027, 2028],
+  "graph_model": {
+    "name": "Four-Relation DistMult Matrix Factorization",
+    "embedding_dim": 64,
+    "batch_size": 65536,
+    "training_steps": 1200,
+    "sparse_learning_rate": 0.02,
+    "relation_learning_rate": 0.005,
+    "l2_weight": 0.000001,
+    "relation_sampling": "proportional_to_unique_train_edge_count",
+    "negative_sampling": "uniform_from_items_with_train_evidence; contrast only, not interpreted as true rejection"
+  },
+  "mapper": {
+    "hidden_dim": 256,
+    "batch_size": 2048,
+    "epochs": 30,
+    "patience": 5,
+    "learning_rate": 0.001,
+    "weight_decay": 0.00001
+  },
+  "evaluation": {
+    "neighbor_reference_items": 50000,
+    "neighbor_query_items": 10000,
+    "bootstrap_repeats": 1000,
+    "unique_train_user_strata": [
+      {"name": "1", "min": 1, "max": 1},
+      {"name": "2-4", "min": 2, "max": 4},
+      {"name": "5-9", "min": 5, "max": 9},
+      {"name": "10-19", "min": 10, "max": 19},
+      {"name": "20-49", "min": 20, "max": 49},
+      {"name": "50+", "min": 50, "max": null}
+    ]
+  },
+  "paths": {
+    "graph": "/root/autodl-tmp/0809 Yambda/phase1_gate1c/artifacts/train_four_relation_graph",
+    "gate1b_sample": "/root/autodl-tmp/0809 Yambda/phase1_gate1b/artifacts/learning_sample.npz",
+    "gate1b_arrays": "/root/autodl-tmp/0809 Yambda/phase1_gate1b/work/learning_arrays",
+    "gate1b_proxy_vectors": "/root/autodl-tmp/0809 Yambda/phase1_gate1b/work/learning_proxy_vectors",
+    "gate1b_predictor_runs": "/root/autodl-tmp/0809 Yambda/phase1_gate1b/artifacts/predictor_runs",
+    "gate1b_metrics": "/root/autodl-tmp/0809 Yambda/phase1_gate1b/artifacts/gate1b_metrics.json",
+    "codebooks": "/root/autodl-tmp/0809 Yambda/phase1_gates/artifacts/gate1_candidate_rq/codebooks.npy",
+    "support": "/root/autodl-tmp/0809 Yambda/phase1_gates/artifacts/metadata_loo_support.npz",
+    "dense_features": "/root/autodl-tmp/0626/0626 Predictor/01_data/processed/raw_rqkmeans/dense_item_features.npy"
+  }
+}
+

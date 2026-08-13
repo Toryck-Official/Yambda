@@ -1,0 +1,1442 @@
+[
+  {
+    "epoch": 1,
+    "train_batch_objective": 5.434518132829897,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 1.215621829032898,
+        "accuracy": 0.41399264916716627,
+        "macro_f1": 0.15602295675434866,
+        "per_class_recall": {
+          "like": 0.0021327645961077045,
+          "dislike": 0.018463464246596777,
+          "unlike": 0.999491998983998,
+          "undislike": 0.0
+        },
+        "per_class_precision": {
+          "like": 0.9230769230769231,
+          "dislike": 0.7065868263473054,
+          "unlike": 0.41236573225045847,
+          "undislike": 0.0
+        },
+        "predicted_argmax_distribution": [
+          0.000779666302822392,
+          0.00686106346483705,
+          0.9923592702323406,
+          0.0
+        ],
+        "event_weighted_predicted_probability": [
+          0.24790790677070618,
+          0.166678324341774,
+          0.4445565640926361,
+          0.14085619151592255
+        ],
+        "confusion_matrix": [
+          [
+            24,
+            30,
+            11199,
+            0
+          ],
+          [
+            0,
+            118,
+            6273,
+            0
+          ],
+          [
+            1,
+            7,
+            15740,
+            0
+          ],
+          [
+            1,
+            12,
+            4958,
+            0
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.5426270016030776,
+        "mae_hours": 41.84536361694336,
+        "median_ae_hours": 0.6400848031044006,
+        "prediction_median_hours": 0.5709294676780701,
+        "prediction_p95_hours": 0.7376991510391235,
+        "finite": true
+      }
+    },
+    "seconds": 3.027101755142212,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 2,
+    "train_batch_objective": 3.690100724455832,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 0.9753691554069519,
+        "accuracy": 0.6188254307535906,
+        "macro_f1": 0.47872419127023075,
+        "per_class_recall": {
+          "like": 0.7090553630143073,
+          "dislike": 0.6042872789860742,
+          "unlike": 0.7552070104140208,
+          "undislike": 0.0012070006035003018
+        },
+        "per_class_precision": {
+          "like": 0.5474066959385291,
+          "dislike": 0.4975521772738985,
+          "unlike": 0.7427090488977706,
+          "undislike": 0.5
+        },
+        "predicted_argmax_distribution": [
+          0.4553251208482769,
+          0.26836114143146733,
+          0.2760018711991268,
+          0.0003118665211289568
+        ],
+        "event_weighted_predicted_probability": [
+          0.2770687937736511,
+          0.20834936201572418,
+          0.3757396936416626,
+          0.1388419270515442
+        ],
+        "confusion_matrix": [
+          [
+            7979,
+            895,
+            2377,
+            2
+          ],
+          [
+            1413,
+            3862,
+            1116,
+            0
+          ],
+          [
+            3377,
+            474,
+            11893,
+            4
+          ],
+          [
+            1807,
+            2531,
+            627,
+            6
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.493199821323423,
+        "mae_hours": 41.7148551940918,
+        "median_ae_hours": 1.1773102283477783,
+        "prediction_median_hours": 0.703162431716919,
+        "prediction_p95_hours": 1.9691047668457031,
+        "finite": true
+      }
+    },
+    "seconds": 3.463952213525772,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 3,
+    "train_batch_objective": 3.4665963176667516,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 0.8684493899345398,
+        "accuracy": 0.6384537184266089,
+        "macro_f1": 0.5838691997850289,
+        "per_class_recall": {
+          "like": 0.7268284013152049,
+          "dislike": 0.5632921295571898,
+          "unlike": 0.7080264160528321,
+          "undislike": 0.31462482397907865
+        },
+        "per_class_precision": {
+          "like": 0.5585985521103675,
+          "dislike": 0.5487804878048781,
+          "unlike": 0.7676419965576592,
+          "undislike": 0.5933232169954477
+        },
+        "predicted_argmax_distribution": [
+          0.44877592390456883,
+          0.22189302978325276,
+          0.25354748167784186,
+          0.0757835646343365
+        ],
+        "event_weighted_predicted_probability": [
+          0.28202390670776367,
+          0.17868611216545105,
+          0.38112175464630127,
+          0.15816791355609894
+        ],
+        "confusion_matrix": [
+          [
+            8179,
+            766,
+            2054,
+            254
+          ],
+          [
+            1383,
+            3600,
+            791,
+            617
+          ],
+          [
+            4000,
+            397,
+            11150,
+            201
+          ],
+          [
+            1080,
+            1797,
+            530,
+            1564
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.440251164531265,
+        "mae_hours": 41.433738708496094,
+        "median_ae_hours": 2.120875835418701,
+        "prediction_median_hours": 0.9707627296447754,
+        "prediction_p95_hours": 5.6897993087768555,
+        "finite": true
+      }
+    },
+    "seconds": 3.4858368411660194,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 4,
+    "train_batch_objective": 3.360437756932025,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 0.8164075613021851,
+        "accuracy": 0.6775278262909574,
+        "macro_f1": 0.6246538964617311,
+        "per_class_recall": {
+          "like": 0.6740424775615391,
+          "dislike": 0.5431074949147239,
+          "unlike": 0.818516637033274,
+          "undislike": 0.4115872057936029
+        },
+        "per_class_precision": {
+          "like": 0.6581916001388407,
+          "dislike": 0.6247300215982722,
+          "unlike": 0.7252982219221247,
+          "undislike": 0.5827399601253204
+        },
+        "predicted_argmax_distribution": [
+          0.3301107126150008,
+          0.20536410416341805,
+          0.35661936691096213,
+          0.10790581631061906
+        ],
+        "event_weighted_predicted_probability": [
+          0.2538699209690094,
+          0.1670263409614563,
+          0.4336613118648529,
+          0.14544187486171722
+        ],
+        "confusion_matrix": [
+          [
+            7585,
+            351,
+            2978,
+            339
+          ],
+          [
+            959,
+            3471,
+            1113,
+            848
+          ],
+          [
+            2219,
+            361,
+            12890,
+            278
+          ],
+          [
+            761,
+            1373,
+            791,
+            2046
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.409299811517216,
+        "mae_hours": 41.186424255371094,
+        "median_ae_hours": 2.4400551319122314,
+        "prediction_median_hours": 0.9744042754173279,
+        "prediction_p95_hours": 8.45044231414795,
+        "finite": true
+      }
+    },
+    "seconds": 3.2953155040740967,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 5,
+    "train_batch_objective": 3.29478328242496,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 0.7696356773376465,
+        "accuracy": 0.7022912702343403,
+        "macro_f1": 0.6523847597502415,
+        "per_class_recall": {
+          "like": 0.7932995645605616,
+          "dislike": 0.5565639180097012,
+          "unlike": 0.7800990601981204,
+          "undislike": 0.4371353852343593
+        },
+        "per_class_precision": {
+          "like": 0.6433410204669934,
+          "dislike": 0.6454363999274179,
+          "unlike": 0.7918143731872381,
+          "undislike": 0.6278532216122508
+        },
+        "predicted_argmax_distribution": [
+          0.41758927179167316,
+          0.20520817090285356,
+          0.2719476064244503,
+          0.10525495088102292
+        ],
+        "event_weighted_predicted_probability": [
+          0.3070004880428314,
+          0.15810881555080414,
+          0.40259453654289246,
+          0.13229520618915558
+        ],
+        "confusion_matrix": [
+          [
+            8927,
+            380,
+            1683,
+            263
+          ],
+          [
+            1163,
+            3557,
+            877,
+            794
+          ],
+          [
+            2846,
+            386,
+            12285,
+            231
+          ],
+          [
+            940,
+            1188,
+            670,
+            2173
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.3812929722559035,
+        "mae_hours": 41.002864837646484,
+        "median_ae_hours": 2.5745091438293457,
+        "prediction_median_hours": 0.936788022518158,
+        "prediction_p95_hours": 10.483901977539062,
+        "finite": true
+      }
+    },
+    "seconds": 3.060072474181652,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 6,
+    "train_batch_objective": 3.2458475061758953,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 0.7435392737388611,
+        "accuracy": 0.7210854208482131,
+        "macro_f1": 0.6671999133060833,
+        "per_class_recall": {
+          "like": 0.7848573713676353,
+          "dislike": 0.589579095603192,
+          "unlike": 0.8135636271272543,
+          "undislike": 0.4528263930798632
+        },
+        "per_class_precision": {
+          "like": 0.6923800564440263,
+          "dislike": 0.5991413579265384,
+          "unlike": 0.8163629412514337,
+          "undislike": 0.6211368653421634
+        },
+        "predicted_argmax_distribution": [
+          0.37299235927023233,
+          0.23421175736784655,
+          0.28208326836114145,
+          0.11071261500077967
+        ],
+        "event_weighted_predicted_probability": [
+          0.2798369824886322,
+          0.17981977760791779,
+          0.3967190682888031,
+          0.14362438023090363
+        ],
+        "confusion_matrix": [
+          [
+            8832,
+            739,
+            1395,
+            287
+          ],
+          [
+            988,
+            3768,
+            822,
+            813
+          ],
+          [
+            2164,
+            499,
+            12812,
+            273
+          ],
+          [
+            772,
+            1283,
+            665,
+            2251
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.3634467920727174,
+        "mae_hours": 40.927772521972656,
+        "median_ae_hours": 2.6073951721191406,
+        "prediction_median_hours": 1.0453144311904907,
+        "prediction_p95_hours": 10.676576614379883,
+        "finite": true
+      }
+    },
+    "seconds": 3.031838983297348,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 7,
+    "train_batch_objective": 3.200584911731296,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 0.7119206190109253,
+        "accuracy": 0.7182962750566952,
+        "macro_f1": 0.6607572394850677,
+        "per_class_recall": {
+          "like": 0.7688616368968275,
+          "dislike": 0.601157878266312,
+          "unlike": 0.8293116586233172,
+          "undislike": 0.4027358680346007
+        },
+        "per_class_precision": {
+          "like": 0.6929360884190293,
+          "dislike": 0.6055161544523247,
+          "unlike": 0.7908920244655726,
+          "undislike": 0.6631334879099039
+        },
+        "predicted_argmax_distribution": [
+          0.36441602993918604,
+          0.26009667862155,
+          0.29689692811476687,
+          0.07859036332449712
+        ],
+        "event_weighted_predicted_probability": [
+          0.27850839495658875,
+          0.18108804523944855,
+          0.4178389608860016,
+          0.12256456166505814
+        ],
+        "confusion_matrix": [
+          [
+            8652,
+            544,
+            1848,
+            209
+          ],
+          [
+            1006,
+            3842,
+            916,
+            627
+          ],
+          [
+            2064,
+            443,
+            13060,
+            181
+          ],
+          [
+            764,
+            1516,
+            689,
+            2002
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.352790976909736,
+        "mae_hours": 40.764137268066406,
+        "median_ae_hours": 2.746565818786621,
+        "prediction_median_hours": 1.092714548110962,
+        "prediction_p95_hours": 12.648198127746582,
+        "finite": true
+      }
+    },
+    "seconds": 3.4778027832508087,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 8,
+    "train_batch_objective": 3.169153995861896,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 0.6890867352485657,
+        "accuracy": 0.733675677084691,
+        "macro_f1": 0.683130423641968,
+        "per_class_recall": {
+          "like": 0.729227761485826,
+          "dislike": 0.602566108590205,
+          "unlike": 0.8676657353314706,
+          "undislike": 0.48782941058137197
+        },
+        "per_class_precision": {
+          "like": 0.7464071311624523,
+          "dislike": 0.6614565441429062,
+          "unlike": 0.7753503943709924,
+          "undislike": 0.6179918450560652
+        },
+        "predicted_argmax_distribution": [
+          0.31046312178387653,
+          0.21908623109309217,
+          0.34913457040386714,
+          0.1213160767191642
+        ],
+        "event_weighted_predicted_probability": [
+          0.2613210380077362,
+          0.1605629026889801,
+          0.4457286596298218,
+          0.13238705694675446
+        ],
+        "confusion_matrix": [
+          [
+            8206,
+            442,
+            2274,
+            331
+          ],
+          [
+            760,
+            3851,
+            874,
+            906
+          ],
+          [
+            1405,
+            417,
+            13664,
+            262
+          ],
+          [
+            623,
+            1112,
+            811,
+            2425
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.338919869205449,
+        "mae_hours": 40.67704391479492,
+        "median_ae_hours": 2.755945920944214,
+        "prediction_median_hours": 1.1170908212661743,
+        "prediction_p95_hours": 13.283973693847656,
+        "finite": true
+      }
+    },
+    "seconds": 3.54783034324646,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 9,
+    "train_batch_objective": 3.1391485433356916,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 0.6722184419631958,
+        "accuracy": 0.7474389385605923,
+        "macro_f1": 0.6953090492189606,
+        "per_class_recall": {
+          "like": 0.7883231138363103,
+          "dislike": 0.6313565952120169,
+          "unlike": 0.8573152146304293,
+          "undislike": 0.45604506135586403
+        },
+        "per_class_precision": {
+          "like": 0.7245773094829698,
+          "dislike": 0.6546073977936405,
+          "unlike": 0.8083463058316369,
+          "undislike": 0.696681007990166
+        },
+        "predicted_argmax_distribution": [
+          0.37018556058007174,
+          0.23795415562139405,
+          0.3134258537346016,
+          0.07843443006393264
+        ],
+        "event_weighted_predicted_probability": [
+          0.2891365885734558,
+          0.16459693014621735,
+          0.4282224774360657,
+          0.11804364621639252
+        ],
+        "confusion_matrix": [
+          [
+            8871,
+            509,
+            1735,
+            138
+          ],
+          [
+            885,
+            4035,
+            741,
+            730
+          ],
+          [
+            1673,
+            455,
+            13501,
+            119
+          ],
+          [
+            814,
+            1165,
+            725,
+            2267
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.3380603988086532,
+        "mae_hours": 40.73651123046875,
+        "median_ae_hours": 2.5339128971099854,
+        "prediction_median_hours": 0.9891678094863892,
+        "prediction_p95_hours": 13.014579772949219,
+        "finite": true
+      }
+    },
+    "seconds": 3.12009284645319,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 10,
+    "train_batch_objective": 3.113604238731114,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 0.6489651203155518,
+        "accuracy": 0.7583869874618774,
+        "macro_f1": 0.706092505643948,
+        "per_class_recall": {
+          "like": 0.811961254776504,
+          "dislike": 0.6352683461117196,
+          "unlike": 0.8533147066294132,
+          "undislike": 0.4946690806678737
+        },
+        "per_class_precision": {
+          "like": 0.7453907652145537,
+          "dislike": 0.6434231378763867,
+          "unlike": 0.8395601649381482,
+          "undislike": 0.6489839007653735
+        },
+        "predicted_argmax_distribution": [
+          0.35989396538281615,
+          0.2448152190862311,
+          0.28114766879775455,
+          0.1141431467331982
+        ],
+        "event_weighted_predicted_probability": [
+          0.28870537877082825,
+          0.1732190102338791,
+          0.40739256143569946,
+          0.13068252801895142
+        ],
+        "confusion_matrix": [
+          [
+            9137,
+            534,
+            1317,
+            265
+          ],
+          [
+            834,
+            4060,
+            657,
+            840
+          ],
+          [
+            1544,
+            541,
+            13438,
+            225
+          ],
+          [
+            743,
+            1175,
+            594,
+            2459
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.322284967139844,
+        "mae_hours": 40.45195388793945,
+        "median_ae_hours": 2.7787110805511475,
+        "prediction_median_hours": 1.1719633340835571,
+        "prediction_p95_hours": 16.869216918945312,
+        "finite": true
+      }
+    },
+    "seconds": 3.3482571169734,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 11,
+    "train_batch_objective": 3.0878258033641206,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 0.6430929899215698,
+        "accuracy": 0.7683705653885254,
+        "macro_f1": 0.7187755455447545,
+        "per_class_recall": {
+          "like": 0.826712876566249,
+          "dislike": 0.6937881395712721,
+          "unlike": 0.8380111760223521,
+          "undislike": 0.5115670891168779
+        },
+        "per_class_precision": {
+          "like": 0.7746689982513115,
+          "dislike": 0.6309947345951331,
+          "unlike": 0.8641304347826086,
+          "undislike": 0.6271270036991369
+        },
+        "predicted_argmax_distribution": [
+          0.346483704974271,
+          0.2591610790581631,
+          0.2613441447060658,
+          0.13301107126150008
+        ],
+        "event_weighted_predicted_probability": [
+          0.2782022953033447,
+          0.1888410449028015,
+          0.3910595178604126,
+          0.14189667999744415
+        ],
+        "confusion_matrix": [
+          [
+            9303,
+            561,
+            1046,
+            343
+          ],
+          [
+            595,
+            4434,
+            506,
+            856
+          ],
+          [
+            1479,
+            759,
+            13197,
+            313
+          ],
+          [
+            632,
+            1273,
+            523,
+            2543
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.3087916807705557,
+        "mae_hours": 40.15546417236328,
+        "median_ae_hours": 3.331430196762085,
+        "prediction_median_hours": 1.5833525657653809,
+        "prediction_p95_hours": 21.993846893310547,
+        "finite": true
+      }
+    },
+    "seconds": 3.362054817378521,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 12,
+    "train_batch_objective": 3.064556778081397,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 0.623741865158081,
+        "accuracy": 0.7673278940645935,
+        "macro_f1": 0.7117154024526025,
+        "per_class_recall": {
+          "like": 0.8095618946058829,
+          "dislike": 0.6901893287435457,
+          "unlike": 0.8707137414274828,
+          "undislike": 0.44337155501911085
+        },
+        "per_class_precision": {
+          "like": 0.772164773690456,
+          "dislike": 0.6447887735711153,
+          "unlike": 0.8292210933720368,
+          "undislike": 0.6913425345043914
+        },
+        "predicted_argmax_distribution": [
+          0.3296429128333073,
+          0.25604241384687354,
+          0.31670045220645565,
+          0.09761422111336349
+        ],
+        "event_weighted_predicted_probability": [
+          0.2806355357170105,
+          0.1763915717601776,
+          0.42567259073257446,
+          0.11730101704597473
+        ],
+        "confusion_matrix": [
+          [
+            9110,
+            540,
+            1380,
+            223
+          ],
+          [
+            674,
+            4411,
+            747,
+            559
+          ],
+          [
+            1373,
+            461,
+            13712,
+            202
+          ],
+          [
+            641,
+            1429,
+            697,
+            2204
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.301325643795599,
+        "mae_hours": 40.514808654785156,
+        "median_ae_hours": 2.463430881500244,
+        "prediction_median_hours": 0.9947448968887329,
+        "prediction_p95_hours": 14.700376510620117,
+        "finite": true
+      }
+    },
+    "seconds": 3.5725460052490234,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 13,
+    "train_batch_objective": 3.0429377638566852,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 0.6203170418739319,
+        "accuracy": 0.7665719573547428,
+        "macro_f1": 0.7109876528905573,
+        "per_class_recall": {
+          "like": 0.772416244557007,
+          "dislike": 0.7203880456892505,
+          "unlike": 0.8871602743205487,
+          "undislike": 0.43069804868235767
+        },
+        "per_class_precision": {
+          "like": 0.8070566388115135,
+          "dislike": 0.6469926925238898,
+          "unlike": 0.8053842162910013,
+          "undislike": 0.6840255591054313
+        },
+        "predicted_argmax_distribution": [
+          0.26976454077654766,
+          0.24949321690316545,
+          0.3661312958053953,
+          0.11461094651489162
+        ],
+        "event_weighted_predicted_probability": [
+          0.2571331560611725,
+          0.17402274906635284,
+          0.44763219356536865,
+          0.12121260166168213
+        ],
+        "confusion_matrix": [
+          [
+            8692,
+            518,
+            1765,
+            278
+          ],
+          [
+            490,
+            4604,
+            817,
+            480
+          ],
+          [
+            1114,
+            432,
+            13971,
+            231
+          ],
+          [
+            474,
+            1562,
+            794,
+            2141
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.289979699204371,
+        "mae_hours": 40.30372619628906,
+        "median_ae_hours": 2.7731499671936035,
+        "prediction_median_hours": 1.345460295677185,
+        "prediction_p95_hours": 17.765316009521484,
+        "finite": true
+      }
+    },
+    "seconds": 3.4847049489617348,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 14,
+    "train_batch_objective": 3.0191234399464504,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 0.6009394526481628,
+        "accuracy": 0.7731407866955139,
+        "macro_f1": 0.7204349993537162,
+        "per_class_recall": {
+          "like": 0.7969430374122456,
+          "dislike": 0.7023939915506181,
+          "unlike": 0.8784607569215138,
+          "undislike": 0.4765640716153691
+        },
+        "per_class_precision": {
+          "like": 0.7990733315512786,
+          "dislike": 0.6612166740315216,
+          "unlike": 0.8279370399186068,
+          "undislike": 0.6504667764964306
+        },
+        "predicted_argmax_distribution": [
+          0.2940901294246063,
+          0.2398253547481678,
+          0.32668018088258227,
+          0.1394043349446437
+        ],
+        "event_weighted_predicted_probability": [
+          0.2801405191421509,
+          0.17007660865783691,
+          0.42360302805900574,
+          0.1261788308620453
+        ],
+        "confusion_matrix": [
+          [
+            8968,
+            498,
+            1435,
+            352
+          ],
+          [
+            544,
+            4489,
+            742,
+            616
+          ],
+          [
+            1188,
+            421,
+            13834,
+            305
+          ],
+          [
+            523,
+            1381,
+            698,
+            2369
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.2785364170757894,
+        "mae_hours": 39.85032272338867,
+        "median_ae_hours": 3.3369181156158447,
+        "prediction_median_hours": 1.6403645277023315,
+        "prediction_p95_hours": 26.46517562866211,
+        "finite": true
+      }
+    },
+    "seconds": 3.6418687775731087,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 15,
+    "train_batch_objective": 2.993914176386826,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 0.589346170425415,
+        "accuracy": 0.7839063681151109,
+        "macro_f1": 0.739066488132851,
+        "per_class_recall": {
+          "like": 0.8515951301875055,
+          "dislike": 0.6620247222656861,
+          "unlike": 0.8427101854203708,
+          "undislike": 0.6010863005431503
+        },
+        "per_class_precision": {
+          "like": 0.7776515458897996,
+          "dislike": 0.684074373484236,
+          "unlike": 0.8863879241250334,
+          "undislike": 0.6119189023141511
+        },
+        "predicted_argmax_distribution": [
+          0.35724309995322,
+          0.23592702323405582,
+          0.231093092156557,
+          0.17573678465616716
+        ],
+        "event_weighted_predicted_probability": [
+          0.29238161444664,
+          0.1697951704263687,
+          0.3900091350078583,
+          0.14781299233436584
+        ],
+        "confusion_matrix": [
+          [
+            9583,
+            509,
+            736,
+            425
+          ],
+          [
+            559,
+            4231,
+            549,
+            1052
+          ],
+          [
+            1565,
+            494,
+            13271,
+            418
+          ],
+          [
+            616,
+            951,
+            416,
+            2988
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.264812136822993,
+        "mae_hours": 40.38895034790039,
+        "median_ae_hours": 2.290024518966675,
+        "prediction_median_hours": 0.9211919903755188,
+        "prediction_p95_hours": 15.059104919433594,
+        "finite": true
+      }
+    },
+    "seconds": 3.6773722022771835,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 16,
+    "train_batch_objective": 2.973301954580212,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 0.5808769464492798,
+        "accuracy": 0.7844277037770768,
+        "macro_f1": 0.7379362957027971,
+        "per_class_recall": {
+          "like": 0.8669688083177819,
+          "dislike": 0.6862775778438429,
+          "unlike": 0.8415671831343663,
+          "undislike": 0.5427479380406357
+        },
+        "per_class_precision": {
+          "like": 0.7527777777777778,
+          "dislike": 0.6809501630181649,
+          "unlike": 0.8893437122533888,
+          "undislike": 0.6645320197044335
+        },
+        "predicted_argmax_distribution": [
+          0.40807734289723996,
+          0.23701855605800717,
+          0.2231404958677686,
+          0.13176360517698424
+        ],
+        "event_weighted_predicted_probability": [
+          0.30828776955604553,
+          0.17078956961631775,
+          0.3888278901576996,
+          0.13209447264671326
+        ],
+        "confusion_matrix": [
+          [
+            9756,
+            494,
+            706,
+            297
+          ],
+          [
+            665,
+            4386,
+            541,
+            799
+          ],
+          [
+            1747,
+            482,
+            13253,
+            266
+          ],
+          [
+            792,
+            1079,
+            402,
+            2698
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.2446269640190315,
+        "mae_hours": 40.04349899291992,
+        "median_ae_hours": 2.423736572265625,
+        "prediction_median_hours": 0.9381216764450073,
+        "prediction_p95_hours": 19.33152198791504,
+        "finite": true
+      }
+    },
+    "seconds": 3.5448726192116737,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 17,
+    "train_batch_objective": 2.950894451914647,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 0.5727856159210205,
+        "accuracy": 0.7840627688137007,
+        "macro_f1": 0.7373216763493313,
+        "per_class_recall": {
+          "like": 0.8260908202257176,
+          "dislike": 0.6847128774839618,
+          "unlike": 0.8726187452374905,
+          "undislike": 0.5361094347213841
+        },
+        "per_class_precision": {
+          "like": 0.7893351447737115,
+          "dislike": 0.6799254195152269,
+          "unlike": 0.8457656326932546,
+          "undislike": 0.6829830855971297
+        },
+        "predicted_argmax_distribution": [
+          0.3283954467487915,
+          0.23951348822703883,
+          0.3085919226571028,
+          0.1234991423670669
+        ],
+        "event_weighted_predicted_probability": [
+          0.27969077229499817,
+          0.16838142275810242,
+          0.42410820722579956,
+          0.12782002985477448
+        ],
+        "confusion_matrix": [
+          [
+            9296,
+            510,
+            1177,
+            270
+          ],
+          [
+            549,
+            4376,
+            698,
+            768
+          ],
+          [
+            1339,
+            468,
+            13742,
+            199
+          ],
+          [
+            593,
+            1082,
+            631,
+            2665
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.2360979711618136,
+        "mae_hours": 39.88032150268555,
+        "median_ae_hours": 2.603755235671997,
+        "prediction_median_hours": 1.2028024196624756,
+        "prediction_p95_hours": 20.74842071533203,
+        "finite": true
+      }
+    },
+    "seconds": 3.557653419673443,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 18,
+    "train_batch_objective": 2.9232178818839363,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 0.5629740953445435,
+        "accuracy": 0.7860699111122696,
+        "macro_f1": 0.7399294125257502,
+        "per_class_recall": {
+          "like": 0.837643295121301,
+          "dislike": 0.6930057893913315,
+          "unlike": 0.8589027178054356,
+          "undislike": 0.5582377791188896
+        },
+        "per_class_precision": {
+          "like": 0.7909045141802316,
+          "dislike": 0.6696401572422135,
+          "unlike": 0.8686661100764241,
+          "undislike": 0.6514084507042254
+        },
+        "predicted_argmax_distribution": [
+          0.33026664587556526,
+          0.2440355527834087,
+          0.2797442694526743,
+          0.14595353188835178
+        ],
+        "event_weighted_predicted_probability": [
+          0.2937855124473572,
+          0.17098793387413025,
+          0.4022623300552368,
+          0.13296350836753845
+        ],
+        "confusion_matrix": [
+          [
+            9426,
+            530,
+            953,
+            344
+          ],
+          [
+            534,
+            4429,
+            567,
+            861
+          ],
+          [
+            1374,
+            568,
+            13526,
+            280
+          ],
+          [
+            584,
+            1087,
+            525,
+            2775
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.2193294533679953,
+        "mae_hours": 40.04965591430664,
+        "median_ae_hours": 2.2040488719940186,
+        "prediction_median_hours": 1.0048470497131348,
+        "prediction_p95_hours": 16.689767837524414,
+        "finite": true
+      }
+    },
+    "seconds": 3.2027690932154655,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 19,
+    "train_batch_objective": 2.8967045637592035,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 0.5564345121383667,
+        "accuracy": 0.7881031201939369,
+        "macro_f1": 0.7432627877839327,
+        "per_class_recall": {
+          "like": 0.8341775526526259,
+          "dislike": 0.6593647316538883,
+          "unlike": 0.8660147320294641,
+          "undislike": 0.6024944679139006
+        },
+        "per_class_precision": {
+          "like": 0.7982142857142858,
+          "dislike": 0.6913863822805578,
+          "unlike": 0.8649711422591488,
+          "undislike": 0.631723265133938
+        },
+        "predicted_argmax_distribution": [
+          0.3248089817558085,
+          0.231093092156557,
+          0.2831748011850928,
+          0.1609231249025417
+        ],
+        "event_weighted_predicted_probability": [
+          0.28474855422973633,
+          0.1634370982646942,
+          0.4096919000148773,
+          0.14212235808372498
+        ],
+        "confusion_matrix": [
+          [
+            9387,
+            510,
+            975,
+            381
+          ],
+          [
+            501,
+            4214,
+            642,
+            1034
+          ],
+          [
+            1322,
+            457,
+            13638,
+            331
+          ],
+          [
+            550,
+            914,
+            512,
+            2995
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.2012224728643486,
+        "mae_hours": 39.79909133911133,
+        "median_ae_hours": 2.1862120628356934,
+        "prediction_median_hours": 0.9297175407409668,
+        "prediction_p95_hours": 18.963363647460938,
+        "finite": true
+      }
+    },
+    "seconds": 3.074981816112995,
+    "nonfinite_steps": 0
+  },
+  {
+    "epoch": 20,
+    "train_batch_objective": 2.876682994928186,
+    "evaluation": {
+      "mark": {
+        "ce_per_event": 0.5543187856674194,
+        "accuracy": 0.78575710971509,
+        "macro_f1": 0.7373776290219765,
+        "per_class_recall": {
+          "like": 0.8231582689060695,
+          "dislike": 0.7114692536379283,
+          "unlike": 0.876238252476505,
+          "undislike": 0.5099577549788775
+        },
+        "per_class_precision": {
+          "like": 0.797777969167169,
+          "dislike": 0.6690700412007063,
+          "unlike": 0.8455787732091428,
+          "undislike": 0.6970030244707176
+        },
+        "predicted_argmax_distribution": [
+          0.3218462498050834,
+          0.2498050834242944,
+          0.3128021206923437,
+          0.1155465460782785
+        ],
+        "event_weighted_predicted_probability": [
+          0.2862720787525177,
+          0.17164577543735504,
+          0.4262502193450928,
+          0.11583151668310165
+        ],
+        "confusion_matrix": [
+          [
+            9263,
+            526,
+            1194,
+            270
+          ],
+          [
+            532,
+            4547,
+            701,
+            611
+          ],
+          [
+            1252,
+            476,
+            13799,
+            221
+          ],
+          [
+            564,
+            1247,
+            625,
+            2535
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.1726365483336636,
+        "mae_hours": 39.15594482421875,
+        "median_ae_hours": 2.814328670501709,
+        "prediction_median_hours": 1.3469517230987549,
+        "prediction_p95_hours": 30.393890380859375,
+        "finite": true
+      }
+    },
+    "seconds": 3.1316037848591805,
+    "nonfinite_steps": 0
+  }
+]

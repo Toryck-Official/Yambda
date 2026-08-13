@@ -1,0 +1,13 @@
+{
+  "path": "/root/autodl-tmp/0804 Yambda/data/embeddings.parquet",
+  "rows": 7721749,
+  "unique_items": 7721749,
+  "duplicates": 0,
+  "strict_order_violations": 0,
+  "min_seen": 2,
+  "max_seen": 9390623,
+  "out_of_range": 0,
+  "official_catalog_items": 9390623,
+  "missing_embedding_items": 1668874,
+  "catalog_embedding_coverage": 0.8222829305361317
+}

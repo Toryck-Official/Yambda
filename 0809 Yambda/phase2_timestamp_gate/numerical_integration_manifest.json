@@ -1,0 +1,25 @@
+{
+  "status": "complete_numerical_integration_validated",
+  "protocol_version": "v1.1",
+  "dataset": "D_SID train-only fixed stratified subset",
+  "records": 338,
+  "gap_bins": 5,
+  "previous_group_size_bins": 6,
+  "nonempty_cross_cells": 30,
+  "validation_or_test_used": false,
+  "parameters_trained": false,
+  "integration_rule_for_audit": "deterministic_midpoint",
+  "requested_Q_values": [2, 4, 8, 16, 32],
+  "extended_reference_Q_full_sample": 128,
+  "extended_reference_sanity_Q_small_subset": 256,
+  "numerical_integration_validated": true,
+  "recommended_integration_Q": 64,
+  "minimal_snmpp_pilot_approved": true,
+  "minimal_snmpp_training_started": false,
+  "q4_decision": "rejected_due_to_large_tail_and_extreme_burst_error",
+  "q64_decision": "frozen_as_accuracy_compute_tradeoff",
+  "artifact_sha256": {
+    "integration_audit_subset_json": "8407d006891fc97917e343d19cf0f683af206f6c12b72f4fa26665b069059e07",
+    "numerical_integration_metrics_json": "bf244abb5c0fa0f112cc1e373258a1da7c6424f535e0070325250999121c037f"
+  }
+}

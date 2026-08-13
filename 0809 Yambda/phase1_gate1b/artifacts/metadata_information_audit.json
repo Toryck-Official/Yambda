@@ -1,0 +1,143 @@
+{
+  "status": "complete_gate1b_metadata_information_audit",
+  "data_contract": {
+    "explicit_items": 2875071,
+    "real_embedding_items": 2367341,
+    "missing_embedding_items": 507730,
+    "interaction_frequency_used_as_metadata_input": false,
+    "historical_sid_used_as_metadata_input": false,
+    "context_signature": "artist and album relation sets represented by independent xor+sum 64-bit digests plus relation counts; audit-only, not model input"
+  },
+  "actual_local_static_fields": {
+    "artist_item_mapping": [
+      "artist_id",
+      "item_id"
+    ],
+    "album_item_mapping": [
+      "album_id",
+      "item_id"
+    ],
+    "audio_embedding": [
+      "item_id",
+      "embed",
+      "normalized_embed"
+    ],
+    "historical_item_tokens": [
+      "item_id_as_json_key",
+      "four_historical_sid_tokens"
+    ]
+  },
+  "requested_but_not_present_in_pinned_local_yambda_assets": [
+    "track_title",
+    "genre",
+    "release_date",
+    "release_year",
+    "track_text"
+  ],
+  "pinned_official_metadata_manifest": {
+    "files": {
+      "album_item_mapping.parquet": {
+        "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/data/official_metadata/album_item_mapping.parquet",
+        "row_groups": 36,
+        "rows": 9651644,
+        "schema": "album_id: uint32\nitem_id: uint32",
+        "sha256": "559b6576063d96280414574b32292eee7b47ee0b9f2952cb3ae670a5d19125e4",
+        "size_bytes": 54528894,
+        "source_url": "https://huggingface.co/datasets/yandex/yambda/resolve/dd6f3a19eef5866e346c3270e098baa641a44948/album_item_mapping.parquet"
+      },
+      "artist_item_mapping.parquet": {
+        "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/data/official_metadata/artist_item_mapping.parquet",
+        "row_groups": 35,
+        "rows": 9271906,
+        "schema": "artist_id: uint32\nitem_id: uint32",
+        "sha256": "cf1110aa2413ed70008ec9232d395660b2181ffda731002fb74da54e87b6f25d",
+        "size_bytes": 38274621,
+        "source_url": "https://huggingface.co/datasets/yandex/yambda/resolve/dd6f3a19eef5866e346c3270e098baa641a44948/artist_item_mapping.parquet"
+      }
+    },
+    "format_version": 1,
+    "repository": "yandex/yambda",
+    "revision": "dd6f3a19eef5866e346c3270e098baa641a44948"
+  },
+  "relation_tables": {
+    "artist": {
+      "path": "/root/autodl-tmp/0804 Yambda/dataprocess/data/official_metadata/artist_item_mapping.parquet",
+      "schema": "artist_id: uint32\nitem_id: uint32",
+      "rows": 9271906,
+      "explicit_relation_rows": 2876471,
+      "explicit_items_with_relation": 2875071,
+      "maximum_relations_per_item": 2,
+      "adjacent_duplicate_explicit_relation_rows": 0
+    },
+    "album": {
+      "path": "/root/autodl-tmp/0804 Yambda/dataprocess/data/official_metadata/album_item_mapping.parquet",
+      "schema": "album_id: uint32\nitem_id: uint32",
+      "rows": 9651644,
+      "explicit_relation_rows": 2924718,
+      "explicit_items_with_relation": 2228573,
+      "maximum_relations_per_item": 241,
+      "adjacent_duplicate_explicit_relation_rows": 0
+    }
+  },
+  "real_items_strict_leave_one_out_context": {
+    "count": 2315335,
+    "fraction_of_real_items": 0.9780318931662147,
+    "artist_only": 598684,
+    "album_only": 14427,
+    "both": 1702224,
+    "none": 52006
+  },
+  "missing_items": {
+    "with_any_item_associated_artist_or_album_relation": 507730,
+    "without_artist_or_album_relation": 0,
+    "with_artist_relation": 507730,
+    "with_album_relation": 163768,
+    "item_specific_title_genre_release_fields": 0,
+    "same_context_collision": {
+      "items": 507730,
+      "unique_contexts": 159627,
+      "singleton_contexts": 117012,
+      "singleton_items": 117012,
+      "items_in_nonunique_context": 390718,
+      "nonunique_context_buckets": 42615,
+      "bucket_size_p50": 1.0,
+      "bucket_size_p90": 4.0,
+      "bucket_size_p99": 32.0,
+      "maximum_context_collision_bucket": 30893
+    },
+    "maximum_bucket": {
+      "size": 30893,
+      "member_item_id_sample": [
+        197,
+        846,
+        919,
+        1060,
+        1407,
+        1935,
+        2286,
+        2488,
+        2533,
+        2610,
+        2648,
+        2807,
+        2924,
+        3162,
+        3476,
+        4339,
+        4745,
+        4749,
+        4816,
+        5255
+      ],
+      "all_members_have_same_digest_and_relation_counts": true,
+      "artist_relation_count": 1,
+      "album_relation_count": 0,
+      "events_in_bucket": 134650
+    }
+  },
+  "interpretation": {
+    "metadata_can_distinguish_every_missing_item": false,
+    "identifiability_limit": "items with identical available artist/album relation sets receive identical permitted context inputs; no deterministic model can distinguish their track-specific audio embedding or SID from these inputs alone",
+    "old_item_tokens_are_targets_or_history_not_new_static_metadata": true
+  }
+}

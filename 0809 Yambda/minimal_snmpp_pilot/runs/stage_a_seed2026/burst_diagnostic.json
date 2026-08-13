@@ -1,0 +1,93 @@
+{
+  ">500": {
+    "groups": 17,
+    "time_loss": {
+      "mean": 22.64574074043947,
+      "median": 1.6338526010513306,
+      "max": 229.77565002441406,
+      "finite": true
+    },
+    "total_lambda": {
+      "mean": 6.191545198945438,
+      "median": 1.110435962677002,
+      "max": 37.302406311035156,
+      "finite": true
+    },
+    "signed": {
+      "mean": 5.159758069935967,
+      "median": 4.030210018157959,
+      "max": 15.163108825683594,
+      "finite": true
+    },
+    "absolute": {
+      "mean": 5.159758069935967,
+      "median": 4.030210018157959,
+      "max": 15.163108825683594,
+      "finite": true
+    },
+    "positive": {
+      "mean": 5.159758069935967,
+      "median": 4.030210018157959,
+      "max": 15.163108825683594,
+      "finite": true
+    },
+    "negative": {
+      "mean": 0.0,
+      "median": 0.0,
+      "max": 0.0,
+      "finite": true
+    },
+    "gradient_norm": {
+      "mean": 14156.617456054688,
+      "median": 2294.6318359375,
+      "max": 50385.3125,
+      "finite": true
+    }
+  },
+  "<=500_matched": {
+    "groups": 17,
+    "time_loss": {
+      "mean": 3.8848125093123493,
+      "median": 3.5978143215179443,
+      "max": 7.344544410705566,
+      "finite": true
+    },
+    "total_lambda": {
+      "mean": 0.04184976285871338,
+      "median": 0.03272959217429161,
+      "max": 0.12435394525527954,
+      "finite": true
+    },
+    "signed": {
+      "mean": 0.5326435572522528,
+      "median": 0.42190544307231903,
+      "max": 1.8471813201904297,
+      "finite": true
+    },
+    "absolute": {
+      "mean": 0.5326435572522528,
+      "median": 0.42190544307231903,
+      "max": 1.8471813201904297,
+      "finite": true
+    },
+    "positive": {
+      "mean": 0.5326435572522528,
+      "median": 0.42190544307231903,
+      "max": 1.8471813201904297,
+      "finite": true
+    },
+    "negative": {
+      "mean": 0.0,
+      "median": 0.0,
+      "max": 0.0,
+      "finite": true
+    },
+    "gradient_norm": {
+      "mean": 103.81609840393067,
+      "median": 101.58430480957031,
+      "max": 181.8176727294922,
+      "finite": true
+    }
+  },
+  "conclusion": "All sampled values remain finite; only 17 burst cases exist, so this diagnostic cannot attribute the global collapse to >500 bursts."
+}

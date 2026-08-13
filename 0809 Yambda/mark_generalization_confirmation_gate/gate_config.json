@@ -1,0 +1,27 @@
+{
+  "experiment": "Mark Generalization Confirmation Gate",
+  "dataset": "D_SID real-audio subset",
+  "selected_users": 2000,
+  "minimum_train_groups_per_user": 6,
+  "max_train_targets_per_user": 64,
+  "validation_targets": "all validation-period targets for selected users",
+  "seeds": [2026, 2027, 2028],
+  "models": [
+    "full-train global feedback prior",
+    "previous-group composition",
+    "last-group-only MLP",
+    "last-5 GRU diagnostic",
+    "full-history GRU"
+  ],
+  "hidden_size": 64,
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "batch_size": 128,
+  "early_stopping_metric": "validation CE/event",
+  "patience": 3,
+  "min_delta": 0.0001,
+  "max_epochs": 12,
+  "test_used": false,
+  "time_model_repeated": false,
+  "group_snmpp_implemented": false
+}

@@ -1,0 +1,93 @@
+[
+  {
+    "epoch": 1,
+    "train_cross_entropy": 3.8380449265034993,
+    "validation_autoregressive_cross_entropy": 3.629589481201172,
+    "validation_prefix_at_1": 0.4896,
+    "validation_prefix_at_4": 0.0067
+  },
+  {
+    "epoch": 2,
+    "train_cross_entropy": 3.3289440610249836,
+    "validation_autoregressive_cross_entropy": 3.498541224975586,
+    "validation_prefix_at_1": 0.5155,
+    "validation_prefix_at_4": 0.01
+  },
+  {
+    "epoch": 3,
+    "train_cross_entropy": 3.248299407043457,
+    "validation_autoregressive_cross_entropy": 3.454055327758789,
+    "validation_prefix_at_1": 0.52668,
+    "validation_prefix_at_4": 0.01066
+  },
+  {
+    "epoch": 4,
+    "train_cross_entropy": 3.1996170294443766,
+    "validation_autoregressive_cross_entropy": 3.4447521868896485,
+    "validation_prefix_at_1": 0.52664,
+    "validation_prefix_at_4": 0.01268
+  },
+  {
+    "epoch": 5,
+    "train_cross_entropy": 3.1633068371836344,
+    "validation_autoregressive_cross_entropy": 3.4366644512939453,
+    "validation_prefix_at_1": 0.52816,
+    "validation_prefix_at_4": 0.01306
+  },
+  {
+    "epoch": 6,
+    "train_cross_entropy": 3.133206655476888,
+    "validation_autoregressive_cross_entropy": 3.4246345355224608,
+    "validation_prefix_at_1": 0.52748,
+    "validation_prefix_at_4": 0.0139
+  },
+  {
+    "epoch": 7,
+    "train_cross_entropy": 3.1077793062845864,
+    "validation_autoregressive_cross_entropy": 3.4312323260498045,
+    "validation_prefix_at_1": 0.52928,
+    "validation_prefix_at_4": 0.0143
+  },
+  {
+    "epoch": 8,
+    "train_cross_entropy": 3.0850285438028973,
+    "validation_autoregressive_cross_entropy": 3.419788688964844,
+    "validation_prefix_at_1": 0.5299,
+    "validation_prefix_at_4": 0.01554
+  },
+  {
+    "epoch": 9,
+    "train_cross_entropy": 3.0659152804311116,
+    "validation_autoregressive_cross_entropy": 3.424757673339844,
+    "validation_prefix_at_1": 0.5305,
+    "validation_prefix_at_4": 0.01562
+  },
+  {
+    "epoch": 10,
+    "train_cross_entropy": 3.0485950882466635,
+    "validation_autoregressive_cross_entropy": 3.4276864349365233,
+    "validation_prefix_at_1": 0.53102,
+    "validation_prefix_at_4": 0.01544
+  },
+  {
+    "epoch": 11,
+    "train_cross_entropy": 3.0338442548624673,
+    "validation_autoregressive_cross_entropy": 3.4240803436279297,
+    "validation_prefix_at_1": 0.53184,
+    "validation_prefix_at_4": 0.0164
+  },
+  {
+    "epoch": 12,
+    "train_cross_entropy": 3.0193924947611492,
+    "validation_autoregressive_cross_entropy": 3.4257918731689454,
+    "validation_prefix_at_1": 0.5321,
+    "validation_prefix_at_4": 0.0167
+  },
+  {
+    "epoch": 13,
+    "train_cross_entropy": 3.007132970123291,
+    "validation_autoregressive_cross_entropy": 3.4323839117431643,
+    "validation_prefix_at_1": 0.53114,
+    "validation_prefix_at_4": 0.01614
+  }
+]

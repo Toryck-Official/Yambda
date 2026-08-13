@@ -1,0 +1,40 @@
+{
+  "name": "mark_matched_2000_user_confirmation",
+  "source_npz": "/root/autodl-tmp/0809 Yambda/minimal_snmpp_pilot/data/pilot_sequences.npz",
+  "source_sha256": "6417bd993dbf3c4831e5921a906d79a2c7b928c3af2b1321eaa3f38432f74c6f",
+  "selection": "/root/autodl-tmp/0809 Yambda/mark_generalization_confirmation_gate/selection_ids.npz",
+  "selection_sha256": "b713779e3298220045e7634590822c4e0994cc9db76e4b0d4bc63faa199bd205",
+  "users": 2000,
+  "train_targets": 101241,
+  "train_events": 180400,
+  "validation_targets": 44365,
+  "validation_events": 70890,
+  "materialized_history_groups": 463368,
+  "feature_dim": 522,
+  "feature_definition": "4x per-feedback mean frozen SID semantics + composition + presence mask + log1p group size + log1p previous gap",
+  "empty_feedback_representation": "zero semantic vector plus zero presence mask",
+  "within_group_order_used": false,
+  "event_level_temporal_source_used": false,
+  "burst_removed": false,
+  "listen_used": false,
+  "test_used": false,
+  "permutation_check_groups": 100,
+  "permutation_check_max_error": 6.532015867088958e-08,
+  "train_history_length_percentiles": {
+    "0": 1.0,
+    "50": 58.0,
+    "90": 300.0,
+    "95": 481.0,
+    "99": 1072.2000000000116,
+    "100": 8706.0
+  },
+  "validation_history_length_percentiles": {
+    "0": 6.0,
+    "50": 432.0,
+    "90": 1926.5999999999985,
+    "95": 3676.7999999999956,
+    "99": 5229.360000000001,
+    "100": 8866.0
+  },
+  "preparation_seconds": 2.6435602456331253
+}

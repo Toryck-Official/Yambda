@@ -1,0 +1,104 @@
+{
+  "seed": 2026,
+  "model": {
+    "name": "Four-Relation DistMult Matrix Factorization",
+    "embedding_dim": 64,
+    "batch_size": 65536,
+    "training_steps": 1200,
+    "sparse_learning_rate": 0.02,
+    "relation_learning_rate": 0.005,
+    "l2_weight": 1e-06,
+    "relation_sampling": "proportional_to_unique_train_edge_count",
+    "negative_sampling": "uniform_from_items_with_train_evidence; contrast only, not interpreted as true rejection"
+  },
+  "data_contract": {
+    "source": "/root/autodl-tmp/0809 Yambda/phase1_canonical/artifacts/dall_manifest.json",
+    "train_cutoff_timestamp_inclusive": 22172245,
+    "validation_or_test_edges_used": false,
+    "listen_used": false,
+    "relations_preserved": [
+      "like",
+      "dislike",
+      "unlike",
+      "undislike"
+    ],
+    "relations_collapsed_to_positive": false,
+    "audio_embedding_used": false
+  },
+  "relation_edge_counts": {
+    "like": 67962990,
+    "dislike": 9125498,
+    "unlike": 24829358,
+    "undislike": 1713251
+  },
+  "relation_sampling_probabilities": {
+    "like": 0.6558165644044085,
+    "dislike": 0.08805752582161704,
+    "unlike": 0.2395937003349487,
+    "undislike": 0.01653220943902582
+  },
+  "trace": [
+    {
+      "step": 100,
+      "mean_bpr_loss_last_100": 0.5896088996529579,
+      "pairwise_accuracy_last_100": 0.6717643737792969
+    },
+    {
+      "step": 200,
+      "mean_bpr_loss_last_100": 0.20087804540991783,
+      "pairwise_accuracy_last_100": 0.9283010864257812
+    },
+    {
+      "step": 300,
+      "mean_bpr_loss_last_100": 0.15031873747706415,
+      "pairwise_accuracy_last_100": 0.9455494689941406
+    },
+    {
+      "step": 400,
+      "mean_bpr_loss_last_100": 0.13126336611807346,
+      "pairwise_accuracy_last_100": 0.9512820434570313
+    },
+    {
+      "step": 500,
+      "mean_bpr_loss_last_100": 0.11984010182321071,
+      "pairwise_accuracy_last_100": 0.9544972229003906
+    },
+    {
+      "step": 600,
+      "mean_bpr_loss_last_100": 0.10569868922233581,
+      "pairwise_accuracy_last_100": 0.959794921875
+    },
+    {
+      "step": 700,
+      "mean_bpr_loss_last_100": 0.09916197985410691,
+      "pairwise_accuracy_last_100": 0.9624383544921875
+    },
+    {
+      "step": 800,
+      "mean_bpr_loss_last_100": 0.09280654057860374,
+      "pairwise_accuracy_last_100": 0.9650251770019531
+    },
+    {
+      "step": 900,
+      "mean_bpr_loss_last_100": 0.08510484352707863,
+      "pairwise_accuracy_last_100": 0.9681204223632812
+    },
+    {
+      "step": 1000,
+      "mean_bpr_loss_last_100": 0.08021419890224933,
+      "pairwise_accuracy_last_100": 0.970111083984375
+    },
+    {
+      "step": 1100,
+      "mean_bpr_loss_last_100": 0.07502035956829786,
+      "pairwise_accuracy_last_100": 0.9721881103515625
+    },
+    {
+      "step": 1200,
+      "mean_bpr_loss_last_100": 0.07064541634172201,
+      "pairwise_accuracy_last_100": 0.9739689636230469
+    }
+  ],
+  "output": "/root/autodl-tmp/0809 Yambda/phase1_gate1c/artifacts/collaborative_runs/seed_2026/item_collaborative_embedding.float16.npy",
+  "audio_embedding_used_in_graph_training": false
+}

@@ -1,0 +1,81 @@
+{
+  "all_groups": {
+    "groups": 6413,
+    "events": 38363,
+    "oracle_feedback_ce_per_event": 0.24528991409727754,
+    "mean_group_composition_entropy": 0.2068173976528577
+  },
+  "singleton": {
+    "groups": 3182,
+    "events": 3182,
+    "oracle_feedback_ce_per_event": 0.0,
+    "mean_group_composition_entropy": 0.0
+  },
+  "multi_event": {
+    "groups": 3231,
+    "events": 35181,
+    "oracle_feedback_ce_per_event": 0.26747554005042096,
+    "mean_group_composition_entropy": 0.4104982888108253
+  },
+  "by_group_size": {
+    "1": {
+      "groups": 3182,
+      "events": 3182,
+      "oracle_feedback_ce_per_event": 0.0,
+      "mean_group_composition_entropy": 0.0
+    },
+    "2-5": {
+      "groups": 2437,
+      "events": 6963,
+      "oracle_feedback_ce_per_event": 0.419695638531764,
+      "mean_group_composition_entropy": 0.41580237741313303
+    },
+    "6-20": {
+      "groups": 559,
+      "events": 4985,
+      "oracle_feedback_ce_per_event": 0.4564874129323498,
+      "mean_group_composition_entropy": 0.4467969586329336
+    },
+    "21-100": {
+      "groups": 148,
+      "events": 5904,
+      "oracle_feedback_ce_per_event": 0.3508537663943416,
+      "mean_group_composition_entropy": 0.3325467215378353
+    },
+    "101-500": {
+      "groups": 85,
+      "events": 15888,
+      "oracle_feedback_ce_per_event": 0.1347360179479626,
+      "mean_group_composition_entropy": 0.16509603210072563
+    },
+    ">500": {
+      "groups": 2,
+      "events": 1441,
+      "oracle_feedback_ce_per_event": 0.0,
+      "mean_group_composition_entropy": 0.0
+    }
+  },
+  "class_counts": {
+    "like": 11253,
+    "dislike": 6391,
+    "unlike": 15748,
+    "undislike": 4971
+  },
+  "class_proportions": {
+    "like": 0.2933295102051456,
+    "dislike": 0.16659281078122148,
+    "unlike": 0.4104997002319944,
+    "undislike": 0.12957797878163857
+  },
+  "majority_class": "unlike",
+  "majority_class_accuracy": 0.4104997002319944,
+  "failed_model_predicted_class_proportions": {
+    "like": 0.0008341370591455308,
+    "dislike": 0.0,
+    "unlike": 0.9991658629408545,
+    "undislike": 0.0
+  },
+  "failed_model_feedback_loss_per_event": 1.3760899544085377,
+  "failed_model_feedback_excess_loss": 1.1308000403112601,
+  "unlike_collapse_is_majority_collapse": true
+}

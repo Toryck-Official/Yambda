@@ -1,0 +1,759 @@
+{
+  "status": "smoke",
+  "data_contract": {
+    "real_audio_items": 5000,
+    "explicit_real_audio_only": true,
+    "missing_audio_items_processed": false,
+    "snmpp_or_hpn_trained": false,
+    "suffix_generated": false,
+    "gate2_started": false
+  },
+  "comparison_contract": {
+    "rq_objective": "four sequential global Euclidean residual KMeans fits",
+    "levels": 4,
+    "codes_per_level": 256,
+    "iterations": 2,
+    "restarts": 1,
+    "seed": 2026,
+    "normalized_input": true,
+    "context_weight": 0.25,
+    "old_candidate_fit_items": 100000,
+    "old_candidate_collision": {
+      "unique_semantic_sid_paths": 1635303,
+      "singleton_buckets": 1357200,
+      "singleton_items": 1357200,
+      "singleton_item_ratio": 0.5733014381958492,
+      "collision_buckets": 278103,
+      "collision_items": 1010141,
+      "collision_item_ratio": 0.4266985618041507,
+      "all_bucket_size": {
+        "p50": 1,
+        "p90": 2,
+        "p99": 7,
+        "p99_9": 33,
+        "max": 1481
+      },
+      "collision_bucket_size": {
+        "p50": 2,
+        "p90": 6,
+        "p99": 22,
+        "p99_9": 94,
+        "max": 1481
+      },
+      "quantile_rule": "numpy higher empirical quantile over unique SID buckets"
+    }
+  },
+  "metadata_prototypes": {
+    "artist": {
+      "mapping": "/root/autodl-tmp/0804 Yambda/dataprocess/data/official_metadata/artist_item_mapping.parquet",
+      "mapping_sha256": "cf1110aa2413ed70008ec9232d395660b2181ffda731002fb74da54e87b6f25d",
+      "group_column": "artist_id",
+      "mapping_rows": 9271906,
+      "real_audio_source_rows": 7661912,
+      "real_audio_source_groups": 1012843,
+      "target_relation_rows": 5002,
+      "usable_strict_loo_target_relation_rows": 4865,
+      "target_items_available": 4863,
+      "target_coverage": 0.9726,
+      "singleton_or_unavailable_targets": 137,
+      "maximum_usable_relations_per_target": 2,
+      "prototype": "normalize(mean(other real-audio embeddings in relation)); then normalize(mean across usable relations)",
+      "target_self_excluded": true,
+      "source_scope": "all 7,721,749 locally available real audio embeddings, not missing-audio items",
+      "elapsed_seconds": 16.61737832427025
+    },
+    "album": {
+      "mapping": "/root/autodl-tmp/0804 Yambda/dataprocess/data/official_metadata/album_item_mapping.parquet",
+      "mapping_sha256": "559b6576063d96280414574b32292eee7b47ee0b9f2952cb3ae670a5d19125e4",
+      "group_column": "album_id",
+      "mapping_rows": 9651644,
+      "real_audio_source_rows": 8325547,
+      "real_audio_source_groups": 2744796,
+      "target_relation_rows": 5753,
+      "usable_strict_loo_target_relation_rows": 4851,
+      "target_items_available": 3608,
+      "target_coverage": 0.7216,
+      "singleton_or_unavailable_targets": 1392,
+      "maximum_usable_relations_per_target": 75,
+      "prototype": "normalize(mean(other real-audio embeddings in relation)); then normalize(mean across usable relations)",
+      "target_self_excluded": true,
+      "source_scope": "all 7,721,749 locally available real audio embeddings, not missing-audio items",
+      "elapsed_seconds": 24.318643152713776
+    }
+  },
+  "methods": {
+    "B0_audio_only": {
+      "method": "B0_audio_only",
+      "fusion_contract": {
+        "fusion": "audio only",
+        "available_items": 5000
+      },
+      "fit": {
+        "items": 5000,
+        "levels": 4,
+        "codes_per_level": 256,
+        "feature_dimension": 128,
+        "iterations": 2,
+        "restarts": 1,
+        "seed": 2026,
+        "threads": 16,
+        "all_items_used_by_faiss": true,
+        "elapsed_seconds": 0.03877617418766022,
+        "level_trace": [
+          {
+            "level": 1,
+            "mse": 0.0024616175796836615,
+            "mean_residual_l2": 0.5486330389976501,
+            "mean_cosine_similarity": 0.8264193534851074,
+            "used_codes": 256,
+            "assignment_mean_squared_l2": 0.31508705019950867,
+            "training_final_objective": 1661.01123046875,
+            "elapsed_seconds": 0.011615075170993805
+          },
+          {
+            "level": 2,
+            "mse": 0.0017377932090312243,
+            "mean_residual_l2": 0.45894789695739746,
+            "mean_cosine_similarity": 0.8824259638786316,
+            "used_codes": 256,
+            "assignment_mean_squared_l2": 0.22243750095367432,
+            "training_final_objective": 1154.693115234375,
+            "elapsed_seconds": 0.009066954255104065
+          },
+          {
+            "level": 3,
+            "mse": 0.0013583841500803828,
+            "mean_residual_l2": 0.4042510390281677,
+            "mean_cosine_similarity": 0.9100397229194641,
+            "used_codes": 256,
+            "assignment_mean_squared_l2": 0.173873171210289,
+            "training_final_objective": 914.28759765625,
+            "elapsed_seconds": 0.009023845195770264
+          },
+          {
+            "level": 4,
+            "mse": 0.0011068555759266019,
+            "mean_residual_l2": 0.3624928593635559,
+            "mean_cosine_similarity": 0.9275018572807312,
+            "used_codes": 256,
+            "assignment_mean_squared_l2": 0.14167751371860504,
+            "training_final_objective": 737.1064453125,
+            "elapsed_seconds": 0.00870618224143982
+          }
+        ]
+      },
+      "identity": {
+        "unique_semantic_sid_paths": 4916,
+        "singleton_buckets": 4852,
+        "singleton_items": 4852,
+        "singleton_item_ratio": 0.9704,
+        "collision_buckets": 64,
+        "collision_items": 148,
+        "collision_item_ratio": 0.0296,
+        "all_bucket_size": {
+          "p50": 1,
+          "p90": 1,
+          "p99": 2,
+          "p99_9": 3,
+          "max": 5
+        },
+        "collision_bucket_size": {
+          "p50": 2,
+          "p90": 3,
+          "p99": 4,
+          "p99_9": 4,
+          "max": 5
+        }
+      },
+      "semantic_preservation": {
+        "fused_input_vs_original_audio": {
+          "cosine_mean": 1.0,
+          "cosine_median": 1.0,
+          "mse": 0.0
+        },
+        "rq_reconstruction_vs_fused_input": {
+          "cosine_mean": 0.9275018572807312,
+          "cosine_median": 0.9289242625236511,
+          "mse": 0.0011068555759266019
+        },
+        "rq_reconstruction_vs_original_audio": {
+          "cosine_mean": 0.9275018572807312,
+          "cosine_median": 0.9289242625236511,
+          "mse": 0.0011068555759266019
+        },
+        "input_neighbor_overlap_at_10": 1.0,
+        "input_neighbor_overlap_at_50": 1.0,
+        "rq_reconstruction_neighbor_overlap_at_10": 0.6459999680519104,
+        "rq_reconstruction_neighbor_overlap_at_50": 0.7583999037742615,
+        "neighbor_protocol": {
+          "reference_pool": 1000,
+          "queries": 100,
+          "exact_flat_inner_product_within_fixed_pool": true,
+          "self_excluded": true,
+          "seed": 2127
+        },
+        "audio_only_sid_consistency": {
+          "token_accuracy": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "prefix_accuracy": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "exact_semantic_sid": 1.0
+        }
+      }
+    },
+    "B1_audio_artist": {
+      "method": "B1_audio_artist",
+      "fusion_contract": {
+        "context_weight_relative_to_audio": 0.25,
+        "available_items": 4863,
+        "fallback_audio_only_items": 137,
+        "contexts_per_item": {
+          "one": 4863,
+          "two": 0
+        },
+        "fusion": "L2_normalize(audio + weight * L2_normalize(mean(available LOO prototypes)))",
+        "projection": "shared identity projection in the original 128-d audio coordinate system",
+        "availability_mask_used_for_gating": true
+      },
+      "fit": {
+        "items": 5000,
+        "levels": 4,
+        "codes_per_level": 256,
+        "feature_dimension": 128,
+        "iterations": 2,
+        "restarts": 1,
+        "seed": 2026,
+        "threads": 16,
+        "all_items_used_by_faiss": true,
+        "elapsed_seconds": 0.0351477712392807,
+        "level_trace": [
+          {
+            "level": 1,
+            "mse": 0.0022259196266531944,
+            "mean_residual_l2": 0.520287036895752,
+            "mean_cosine_similarity": 0.8446599841117859,
+            "used_codes": 256,
+            "assignment_mean_squared_l2": 0.2849177122116089,
+            "training_final_objective": 1501.9541015625,
+            "elapsed_seconds": 0.010209672152996063
+          },
+          {
+            "level": 2,
+            "mse": 0.0015577742597088218,
+            "mean_residual_l2": 0.4336148798465729,
+            "mean_cosine_similarity": 0.895374596118927,
+            "used_codes": 256,
+            "assignment_mean_squared_l2": 0.1993951052427292,
+            "training_final_objective": 1038.2357177734375,
+            "elapsed_seconds": 0.00825124979019165
+          },
+          {
+            "level": 3,
+            "mse": 0.0012029511854052544,
+            "mean_residual_l2": 0.37928977608680725,
+            "mean_cosine_similarity": 0.9207095503807068,
+            "used_codes": 256,
+            "assignment_mean_squared_l2": 0.15397776663303375,
+            "training_final_objective": 805.3136596679688,
+            "elapsed_seconds": 0.008260264992713928
+          },
+          {
+            "level": 4,
+            "mse": 0.0009668315760791302,
+            "mean_residual_l2": 0.3385463058948517,
+            "mean_cosine_similarity": 0.9370210766792297,
+            "used_codes": 256,
+            "assignment_mean_squared_l2": 0.12375444173812866,
+            "training_final_objective": 643.1607666015625,
+            "elapsed_seconds": 0.00792422890663147
+          }
+        ]
+      },
+      "identity": {
+        "unique_semantic_sid_paths": 4899,
+        "singleton_buckets": 4811,
+        "singleton_items": 4811,
+        "singleton_item_ratio": 0.9622,
+        "collision_buckets": 88,
+        "collision_items": 189,
+        "collision_item_ratio": 0.0378,
+        "all_bucket_size": {
+          "p50": 1,
+          "p90": 1,
+          "p99": 2,
+          "p99_9": 3,
+          "max": 4
+        },
+        "collision_bucket_size": {
+          "p50": 2,
+          "p90": 3,
+          "p99": 4,
+          "p99_9": 4,
+          "max": 4
+        }
+      },
+      "semantic_preservation": {
+        "fused_input_vs_original_audio": {
+          "cosine_mean": 0.9938568472862244,
+          "cosine_median": 0.9951609373092651,
+          "mse": 9.598633187124506e-05
+        },
+        "rq_reconstruction_vs_fused_input": {
+          "cosine_mean": 0.9370210766792297,
+          "cosine_median": 0.9390511512756348,
+          "mse": 0.0009668315760791302
+        },
+        "rq_reconstruction_vs_original_audio": {
+          "cosine_mean": 0.9247531294822693,
+          "cosine_median": 0.9273590445518494,
+          "mse": 0.001149437390267849
+        },
+        "input_neighbor_overlap_at_10": 0.859000027179718,
+        "input_neighbor_overlap_at_50": 0.9037999510765076,
+        "rq_reconstruction_neighbor_overlap_at_10": 0.6469999551773071,
+        "rq_reconstruction_neighbor_overlap_at_50": 0.7430000305175781,
+        "neighbor_protocol": {
+          "reference_pool": 1000,
+          "queries": 100,
+          "exact_flat_inner_product_within_fixed_pool": true,
+          "self_excluded": true,
+          "seed": 2127
+        },
+        "audio_only_sid_consistency": {
+          "token_accuracy": [
+            0.7924,
+            0.3784,
+            0.1814,
+            0.0944
+          ],
+          "prefix_accuracy": [
+            0.7924,
+            0.3324,
+            0.08,
+            0.0088
+          ],
+          "exact_semantic_sid": 0.0088
+        }
+      }
+    },
+    "B2_audio_album": {
+      "method": "B2_audio_album",
+      "fusion_contract": {
+        "context_weight_relative_to_audio": 0.25,
+        "available_items": 3608,
+        "fallback_audio_only_items": 1392,
+        "contexts_per_item": {
+          "one": 3608,
+          "two": 0
+        },
+        "fusion": "L2_normalize(audio + weight * L2_normalize(mean(available LOO prototypes)))",
+        "projection": "shared identity projection in the original 128-d audio coordinate system",
+        "availability_mask_used_for_gating": true
+      },
+      "fit": {
+        "items": 5000,
+        "levels": 4,
+        "codes_per_level": 256,
+        "feature_dimension": 128,
+        "iterations": 2,
+        "restarts": 1,
+        "seed": 2026,
+        "threads": 16,
+        "all_items_used_by_faiss": true,
+        "elapsed_seconds": 0.031175240874290466,
+        "level_trace": [
+          {
+            "level": 1,
+            "mse": 0.002315978053957224,
+            "mean_residual_l2": 0.5315738320350647,
+            "mean_cosine_similarity": 0.8377968668937683,
+            "used_codes": 256,
+            "assignment_mean_squared_l2": 0.29644519090652466,
+            "training_final_objective": 1562.6561279296875,
+            "elapsed_seconds": 0.008378222584724426
+          },
+          {
+            "level": 2,
+            "mse": 0.0016292324289679527,
+            "mean_residual_l2": 0.4441692531108856,
+            "mean_cosine_similarity": 0.8902201056480408,
+            "used_codes": 256,
+            "assignment_mean_squared_l2": 0.20854175090789795,
+            "training_final_objective": 1082.6087646484375,
+            "elapsed_seconds": 0.007278613746166229
+          },
+          {
+            "level": 3,
+            "mse": 0.001269453321583569,
+            "mean_residual_l2": 0.3901016116142273,
+            "mean_cosine_similarity": 0.9160939455032349,
+            "used_codes": 256,
+            "assignment_mean_squared_l2": 0.16249002516269684,
+            "training_final_objective": 848.2426147460938,
+            "elapsed_seconds": 0.007649734616279602
+          },
+          {
+            "level": 4,
+            "mse": 0.0010290300706401467,
+            "mean_residual_l2": 0.3488445281982422,
+            "mean_cosine_similarity": 0.9327005743980408,
+            "used_codes": 256,
+            "assignment_mean_squared_l2": 0.13171584904193878,
+            "training_final_objective": 682.8671875,
+            "elapsed_seconds": 0.007378391921520233
+          }
+        ]
+      },
+      "identity": {
+        "unique_semantic_sid_paths": 4889,
+        "singleton_buckets": 4796,
+        "singleton_items": 4796,
+        "singleton_item_ratio": 0.9592,
+        "collision_buckets": 93,
+        "collision_items": 204,
+        "collision_item_ratio": 0.0408,
+        "all_bucket_size": {
+          "p50": 1,
+          "p90": 1,
+          "p99": 2,
+          "p99_9": 3,
+          "max": 5
+        },
+        "collision_bucket_size": {
+          "p50": 2,
+          "p90": 3,
+          "p99": 4,
+          "p99_9": 4,
+          "max": 5
+        }
+      },
+      "semantic_preservation": {
+        "fused_input_vs_original_audio": {
+          "cosine_mean": 0.9962741136550903,
+          "cosine_median": 0.9974573254585266,
+          "mse": 5.821655213367194e-05
+        },
+        "rq_reconstruction_vs_fused_input": {
+          "cosine_mean": 0.9327005743980408,
+          "cosine_median": 0.9347506761550903,
+          "mse": 0.0010290301870554686
+        },
+        "rq_reconstruction_vs_original_audio": {
+          "cosine_mean": 0.9253292679786682,
+          "cosine_median": 0.9282321929931641,
+          "mse": 0.0011381433578208089
+        },
+        "input_neighbor_overlap_at_10": 0.8880000114440918,
+        "input_neighbor_overlap_at_50": 0.9252000451087952,
+        "rq_reconstruction_neighbor_overlap_at_10": 0.6439999938011169,
+        "rq_reconstruction_neighbor_overlap_at_50": 0.7450000047683716,
+        "neighbor_protocol": {
+          "reference_pool": 1000,
+          "queries": 100,
+          "exact_flat_inner_product_within_fixed_pool": true,
+          "self_excluded": true,
+          "seed": 2127
+        },
+        "audio_only_sid_consistency": {
+          "token_accuracy": [
+            0.821,
+            0.428,
+            0.1968,
+            0.1022
+          ],
+          "prefix_accuracy": [
+            0.821,
+            0.3902,
+            0.1002,
+            0.0134
+          ],
+          "exact_semantic_sid": 0.0134
+        }
+      }
+    },
+    "B3_audio_artist_album": {
+      "method": "B3_audio_artist_album",
+      "fusion_contract": {
+        "context_weight_relative_to_audio": 0.25,
+        "available_items": 4890,
+        "fallback_audio_only_items": 110,
+        "contexts_per_item": {
+          "one": 1309,
+          "two": 3581
+        },
+        "fusion": "L2_normalize(audio + weight * L2_normalize(mean(available LOO prototypes)))",
+        "projection": "shared identity projection in the original 128-d audio coordinate system",
+        "availability_mask_used_for_gating": true
+      },
+      "fit": {
+        "items": 5000,
+        "levels": 4,
+        "codes_per_level": 256,
+        "feature_dimension": 128,
+        "iterations": 2,
+        "restarts": 1,
+        "seed": 2026,
+        "threads": 16,
+        "all_items_used_by_faiss": true,
+        "elapsed_seconds": 0.03323819488286972,
+        "level_trace": [
+          {
+            "level": 1,
+            "mse": 0.0022321331780403852,
+            "mean_residual_l2": 0.5211731195449829,
+            "mean_cosine_similarity": 0.8441593647003174,
+            "used_codes": 256,
+            "assignment_mean_squared_l2": 0.2857130169868469,
+            "training_final_objective": 1505.2972412109375,
+            "elapsed_seconds": 0.008705325424671173
+          },
+          {
+            "level": 2,
+            "mse": 0.0015662304358556867,
+            "mean_residual_l2": 0.43502724170684814,
+            "mean_cosine_similarity": 0.8947728276252747,
+            "used_codes": 256,
+            "assignment_mean_squared_l2": 0.2004774957895279,
+            "training_final_objective": 1042.1033935546875,
+            "elapsed_seconds": 0.007921837270259857
+          },
+          {
+            "level": 3,
+            "mse": 0.0012119109742343426,
+            "mean_residual_l2": 0.381119966506958,
+            "mean_cosine_similarity": 0.9200683832168579,
+            "used_codes": 256,
+            "assignment_mean_squared_l2": 0.15512460470199585,
+            "training_final_objective": 812.4755859375,
+            "elapsed_seconds": 0.008539631962776184
+          },
+          {
+            "level": 4,
+            "mse": 0.0009758991072885692,
+            "mean_residual_l2": 0.3402422368526459,
+            "mean_cosine_similarity": 0.9363493323326111,
+            "used_codes": 256,
+            "assignment_mean_squared_l2": 0.12491508573293686,
+            "training_final_objective": 649.6390380859375,
+            "elapsed_seconds": 0.007614165544509888
+          }
+        ]
+      },
+      "identity": {
+        "unique_semantic_sid_paths": 4892,
+        "singleton_buckets": 4803,
+        "singleton_items": 4803,
+        "singleton_item_ratio": 0.9606,
+        "collision_buckets": 89,
+        "collision_items": 197,
+        "collision_item_ratio": 0.0394,
+        "all_bucket_size": {
+          "p50": 1,
+          "p90": 1,
+          "p99": 2,
+          "p99_9": 3,
+          "max": 6
+        },
+        "collision_bucket_size": {
+          "p50": 2,
+          "p90": 3,
+          "p99": 4,
+          "p99_9": 5,
+          "max": 6
+        }
+      },
+      "semantic_preservation": {
+        "fused_input_vs_original_audio": {
+          "cosine_mean": 0.9945828914642334,
+          "cosine_median": 0.995808482170105,
+          "mse": 8.464283018838614e-05
+        },
+        "rq_reconstruction_vs_fused_input": {
+          "cosine_mean": 0.9363492131233215,
+          "cosine_median": 0.938514232635498,
+          "mse": 0.0009758991072885692
+        },
+        "rq_reconstruction_vs_original_audio": {
+          "cosine_mean": 0.9248778223991394,
+          "cosine_median": 0.9275357723236084,
+          "mse": 0.0011463278206065297
+        },
+        "input_neighbor_overlap_at_10": 0.862000048160553,
+        "input_neighbor_overlap_at_50": 0.9103999137878418,
+        "rq_reconstruction_neighbor_overlap_at_10": 0.6300000548362732,
+        "rq_reconstruction_neighbor_overlap_at_50": 0.7389999628067017,
+        "neighbor_protocol": {
+          "reference_pool": 1000,
+          "queries": 100,
+          "exact_flat_inner_product_within_fixed_pool": true,
+          "self_excluded": true,
+          "seed": 2127
+        },
+        "audio_only_sid_consistency": {
+          "token_accuracy": [
+            0.803,
+            0.3788,
+            0.1838,
+            0.0898
+          ],
+          "prefix_accuracy": [
+            0.803,
+            0.3394,
+            0.0804,
+            0.009
+          ],
+          "exact_semantic_sid": 0.009
+        }
+      }
+    }
+  },
+  "embedding_uniqueness": {
+    "raw_audio": {
+      "validity": {
+        "items": 5000,
+        "finite_items": 5000,
+        "nan_items": 0,
+        "inf_items": 0,
+        "zero_norm_items": 0,
+        "norm": {
+          "p01": 18.00921058654785,
+          "p10": 20.888675689697266,
+          "p25": 22.707494735717773,
+          "p50": 25.222896575927734,
+          "p90": 31.50969696044922,
+          "p99": 41.120487213134766,
+          "p99_9": 70.30117797851562,
+          "max": 100.49542236328125
+        },
+        "source": "/root/autodl-tmp/0804 Yambda/data/embeddings.parquet",
+        "source_sha256": "c8959a584257473ab9f5dab7e88b05ea3d03b4daf7c16e9a617e8e216d811c83"
+      },
+      "exact_duplicates": {
+        "unique_vectors": 4998,
+        "duplicate_buckets": 2,
+        "duplicate_items": 4,
+        "duplicate_item_ratio": 0.0008,
+        "duplicate_surplus": 2,
+        "maximum_duplicate_bucket": 2,
+        "candidate_hash_groups_verified_by_exact_float32_comparison": 2,
+        "hash_collision_groups_without_exact_equality": 0
+      }
+    },
+    "normalized_audio": {
+      "validity": {
+        "items": 5000,
+        "finite_items": 5000,
+        "nan_items": 0,
+        "inf_items": 0,
+        "zero_norm_items": 0,
+        "norm": {
+          "p01": 0.9999999403953552,
+          "p10": 0.9999999403953552,
+          "p25": 1.0,
+          "p50": 1.0,
+          "p90": 1.0,
+          "p99": 1.0,
+          "p99_9": 1.0,
+          "max": 1.0
+        }
+      },
+      "exact_duplicates": {
+        "unique_vectors": 4998,
+        "duplicate_buckets": 2,
+        "duplicate_items": 4,
+        "duplicate_item_ratio": 0.0008,
+        "duplicate_surplus": 2,
+        "maximum_duplicate_bucket": 2,
+        "candidate_hash_groups_verified_by_exact_float32_comparison": 2,
+        "hash_collision_groups_without_exact_equality": 0
+      }
+    },
+    "near_duplicates": {
+      "method": "sampled IVF-Flat approximate nearest-other audit",
+      "sample_items": 1000,
+      "reference_items": 5000,
+      "nlist": 100,
+      "nprobe": 64,
+      "search_k": 8,
+      "not_an_exhaustive_pair_count": true,
+      "nearest_other_cosine": {
+        "p01": 0.7031068801879883,
+        "p10": 0.7829466462135315,
+        "p25": 0.8215933442115784,
+        "p50": 0.8713212609291077,
+        "p90": 0.950908362865448,
+        "p99": 0.9830214977264404,
+        "p99_9": 0.991214394569397,
+        "max": 0.9922987818717957
+      },
+      "thresholds": {
+        "0.99": {
+          "sample_items_with_neighbor": 3,
+          "sample_item_ratio": 0.003,
+          "estimated_population_items": 15.0
+        },
+        "0.999": {
+          "sample_items_with_neighbor": 0,
+          "sample_item_ratio": 0.0,
+          "estimated_population_items": 0.0
+        },
+        "0.9999": {
+          "sample_items_with_neighbor": 0,
+          "sample_item_ratio": 0.0,
+          "estimated_population_items": 0.0
+        }
+      }
+    }
+  },
+  "residual_uniqueness": {
+    "residual_exact_duplicates_within_sid": {
+      "unique_vectors": 4998,
+      "duplicate_buckets": 2,
+      "duplicate_items": 4,
+      "duplicate_item_ratio": 0.0008,
+      "duplicate_surplus": 2,
+      "maximum_duplicate_bucket": 2,
+      "candidate_hash_groups_verified_by_exact_float32_comparison": 2,
+      "hash_collision_groups_without_exact_equality": 0
+    },
+    "sid_plus_float32_residual_unique_rate": 0.9996,
+    "sampled_within_collision_bucket_pairs": 250000,
+    "sampling": "collision buckets sampled uniformly with replacement, then two distinct items uniformly",
+    "residual_pair_l2": {
+      "p01": 0.0,
+      "p10": 0.1331680715084076,
+      "p25": 0.20098885893821716,
+      "p50": 0.2545322775840759,
+      "p90": 0.43812093138694763,
+      "p99": 0.5193213820457458,
+      "p99_9": 0.5911102890968323,
+      "max": 0.5911102890968323
+    },
+    "original_audio_pair_cosine": {
+      "p01": 0.8651525974273682,
+      "p10": 0.9040250182151794,
+      "p25": 0.9411240816116333,
+      "p50": 0.9676066040992737,
+      "p90": 0.9911330938339233,
+      "p99": 1.0,
+      "p99_9": 1.0,
+      "max": 1.0
+    },
+    "identity_note": "within a fixed SID reconstruction is constant, so residual pair differences equal original audio pair differences"
+  },
+  "artifacts": {
+    "support": "/root/autodl-tmp/0809 Yambda/phase1_gates/artifacts/metadata_loo_support.npz",
+    "dense_features": "/root/autodl-tmp/0626/0626 Predictor/01_data/processed/raw_rqkmeans/dense_item_features.npy",
+    "orig2dense": "/root/autodl-tmp/0626/0626 Predictor/01_data/processed/raw_rqkmeans/orig2dense_item_id.npy",
+    "embeddings": "/root/autodl-tmp/0804 Yambda/data/embeddings.parquet"
+  },
+  "elapsed_seconds": 82.57659234851599
+}

@@ -1,0 +1,51 @@
+{
+  "seed": 2026,
+  "paths": {
+    "item_frequency": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/artifacts/item_explicit_frequency.npz",
+    "dense_features": "/root/autodl-tmp/0626/0626 Predictor/01_data/processed/raw_rqkmeans/dense_item_features.npy",
+    "orig2dense": "/root/autodl-tmp/0626/0626 Predictor/01_data/processed/raw_rqkmeans/orig2dense_item_id.npy",
+    "artist_mapping": "/root/autodl-tmp/0804 Yambda/dataprocess/data/official_metadata/artist_item_mapping.parquet",
+    "album_mapping": "/root/autodl-tmp/0804 Yambda/dataprocess/data/official_metadata/album_item_mapping.parquet"
+  },
+  "gate1": {
+    "sample_size": 100000,
+    "validation_fraction": 0.5,
+    "minimum_availability_category_sample": 10000,
+    "group_size_tiers": {
+      "small_max": 2,
+      "medium_max": 9
+    },
+    "frequency_tiers": {
+      "tail_quantile": 0.5,
+      "head_quantile": 0.9
+    },
+    "album_weight_grid": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "candidate_codebook_fit_items": 100000,
+    "candidate_codebook_levels": 4,
+    "candidate_codebook_size": 256,
+    "candidate_codebook_iterations": 25,
+    "neighbor_reference_items": 50000,
+    "neighbor_query_items": 10000
+  },
+  "gate2": {
+    "semantic_levels": 4,
+    "codebook_size": 256,
+    "feature_dim": 128,
+    "iterations": 25,
+    "restarts": 1,
+    "normalization": "official normalized_embed cache; finite unit-L2 rows",
+    "unknown_representation": "normalized global centroid of all real explicit-item embeddings"
+  }
+}

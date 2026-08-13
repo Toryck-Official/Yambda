@@ -1,0 +1,20 @@
+{
+  "mark_long_history_generalization_confirmed": true,
+  "group_snmpp_design_approved": true,
+  "full_history_beats_previous_composition_all_3_seeds": true,
+  "full_history_beats_last_group_mlp_all_3_seeds": true,
+  "full_history_beats_last5_gru_all_3_seeds_diagnostic": true,
+  "validation_CE_relative_gain_vs_previous_composition": 0.23452660074394044,
+  "validation_CE_relative_gain_vs_last_group_MLP": 0.19491668450761176,
+  "validation_CE_relative_gain_vs_last5_GRU": 0.06415180173334563,
+  "severe_undislike_failure_remains": true,
+  "full_history_mean_undislike_recall": 0.027675950163933913,
+  "full_history_mean_like_argmax_share": 0.6790488091261919,
+  "confirmation_scope": "the fixed 2,000-user subset selected from the already materialized 7,343-user train-only pool",
+  "population_scope_limitation": "the materialized pool is partly enriched by prior Tiny train stratification and is not a fresh random sample of all D_SID users",
+  "test_used": false,
+  "time_model_repeated": false,
+  "group_snmpp_designed_or_trained": false,
+  "decision_rule": "approve iff Full-history GRU validation CE is lower than previous-group composition and last-group MLP for every seed",
+  "stop_reason": "Mark Generalization Confirmation Gate complete; Group-SNMPP was not implemented."
+}

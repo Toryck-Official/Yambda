@@ -1,0 +1,2081 @@
+{
+  "status": "complete_gate1b_rq_stability_calibration",
+  "data_contract": {
+    "sample_items": 100000,
+    "sample_item_id_min": 158,
+    "sample_item_id_max": 9390144,
+    "truth_normalized": true,
+    "perturbation": "random Gaussian direction projected orthogonal to each truth vector; target cosine then constructed analytically and renormalized",
+    "same_frozen_codebook_for_truth_and_perturbation": true,
+    "candidate_codebook_not_gate2_final": true,
+    "codebook_path": "/root/autodl-tmp/0809 Yambda/phase1_gates/artifacts/gate1_candidate_rq/codebooks.npy"
+  },
+  "original_codeword_margin": {
+    "definition_absolute": "second_nearest_squared_l2 - nearest_squared_l2 on the original greedy residual",
+    "definition_relative": "absolute_margin / max(second_nearest_squared_l2, 1e-12)",
+    "absolute_by_level": {
+      "level_1": {
+        "mean": 0.15813282132148743,
+        "median": 0.12587058544158936,
+        "p10": 0.020097065716981888,
+        "p90": 0.33731192350387573
+      },
+      "level_2": {
+        "mean": 0.030510297045111656,
+        "median": 0.021101832389831543,
+        "p10": 0.0032221078872680664,
+        "p90": 0.06921406090259552
+      },
+      "level_3": {
+        "mean": 0.013652685098350048,
+        "median": 0.009182021021842957,
+        "p10": 0.0013635068899020553,
+        "p90": 0.031701356172561646
+      },
+      "level_4": {
+        "mean": 0.00866591464728117,
+        "median": 0.005717366933822632,
+        "p10": 0.0008540377020835876,
+        "p90": 0.019934646785259247
+      }
+    },
+    "relative_by_level": {
+      "level_1": {
+        "mean": 0.31839001178741455,
+        "median": 0.28026920557022095,
+        "p10": 0.04612821713089943,
+        "p90": 0.6560662388801575
+      },
+      "level_2": {
+        "mean": 0.12126484513282776,
+        "median": 0.08691450953483582,
+        "p10": 0.013346909545361996,
+        "p90": 0.2767651677131653
+      },
+      "level_3": {
+        "mean": 0.07216482609510422,
+        "median": 0.049650855362415314,
+        "p10": 0.007405872456729412,
+        "p90": 0.16629518568515778
+      },
+      "level_4": {
+        "mean": 0.05416445434093475,
+        "median": 0.03779473155736923,
+        "p10": 0.005737920757383108,
+        "p90": 0.12347759306430817
+      }
+    }
+  },
+  "curve": {
+    "target_0.99": {
+      "count": 100000,
+      "target_cosine": 0.99,
+      "actual_cosine": {
+        "mean": 0.9899999499320984,
+        "median": 0.9900000095367432,
+        "p10": 0.9899999499320984,
+        "p90": 0.9900000095367432
+      },
+      "mse": {
+        "mean": 0.00015624999650754035,
+        "median": 0.00015624999650754035,
+        "p10": 0.00015624998195562512,
+        "p90": 0.00015625001105945557
+      },
+      "token_accuracy": {
+        "level_1": 0.96541,
+        "level_2": 0.86334,
+        "level_3": 0.72253,
+        "level_4": 0.58949
+      },
+      "prefix_accuracy": {
+        "prefix_at_1": 0.96541,
+        "prefix_at_2": 0.85743,
+        "prefix_at_3": 0.69117,
+        "prefix_at_4": 0.52045
+      },
+      "exact_semantic_sid_at_4": 0.52045,
+      "margin_relation": {
+        "level_1": {
+          "margin_stable_median": 0.2928997874259949,
+          "margin_flipped_median": 0.018595267087221146,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 3.3455346510891104e-06,
+              "margin_max": 0.04612821713089944,
+              "count": 10000,
+              "token_flip_rate": 0.2956
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.04612821713089944,
+              "margin_max": 0.09646165370941169,
+              "count": 10000,
+              "token_flip_rate": 0.0469
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.09646165370941169,
+              "margin_max": 0.15177621543407444,
+              "count": 10000,
+              "token_flip_rate": 0.0031
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.15177621543407444,
+              "margin_max": 0.2125356853008271,
+              "count": 10000,
+              "token_flip_rate": 0.0003
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.2125356853008271,
+              "margin_max": 0.28026919066905975,
+              "count": 10000,
+              "token_flip_rate": 0.0
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.28026919066905975,
+              "margin_max": 0.35583871603012096,
+              "count": 10000,
+              "token_flip_rate": 0.0
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.35583871603012096,
+              "margin_max": 0.43981416523456573,
+              "count": 10000,
+              "token_flip_rate": 0.0
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.43981416523456573,
+              "margin_max": 0.5362295150756837,
+              "count": 10000,
+              "token_flip_rate": 0.0
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.5362295150756837,
+              "margin_max": 0.6560662269592288,
+              "count": 10000,
+              "token_flip_rate": 0.0
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.6560662269592288,
+              "margin_max": 0.987726628780365,
+              "count": 10000,
+              "token_flip_rate": 0.0
+            }
+          ]
+        },
+        "level_2": {
+          "margin_stable_median": 0.10194604098796844,
+          "margin_flipped_median": 0.02094457484781742,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 4.253195129422238e-06,
+              "margin_max": 0.013346909265965228,
+              "count": 10000,
+              "token_flip_rate": 0.4926
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.013346909265965228,
+              "margin_max": 0.0284351296722889,
+              "count": 10000,
+              "token_flip_rate": 0.3351
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.0284351296722889,
+              "margin_max": 0.04515204578638078,
+              "count": 10000,
+              "token_flip_rate": 0.2093
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.04515204578638078,
+              "margin_max": 0.064462049305439,
+              "count": 10000,
+              "token_flip_rate": 0.1121
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.064462049305439,
+              "margin_max": 0.08691450953483582,
+              "count": 10000,
+              "token_flip_rate": 0.0709
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.08691450953483582,
+              "margin_max": 0.11480172723531727,
+              "count": 10000,
+              "token_flip_rate": 0.0487
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.11480172723531727,
+              "margin_max": 0.14965707361698155,
+              "count": 10000,
+              "token_flip_rate": 0.0359
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.14965707361698155,
+              "margin_max": 0.19779898524284367,
+              "count": 10000,
+              "token_flip_rate": 0.0255
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.19779898524284367,
+              "margin_max": 0.2767651736736298,
+              "count": 10000,
+              "token_flip_rate": 0.0217
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.2767651736736298,
+              "margin_max": 0.9856388568878174,
+              "count": 10000,
+              "token_flip_rate": 0.0148
+            }
+          ]
+        },
+        "level_3": {
+          "margin_stable_median": 0.06459010392427444,
+          "margin_flipped_median": 0.021775588393211365,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 2.007369857892627e-06,
+              "margin_max": 0.007405872363597156,
+              "count": 10000,
+              "token_flip_rate": 0.6038
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.007405872363597156,
+              "margin_max": 0.015914687141776084,
+              "count": 10000,
+              "token_flip_rate": 0.5091
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.015914687141776084,
+              "margin_max": 0.025476815178990364,
+              "count": 10000,
+              "token_flip_rate": 0.421
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.025476815178990364,
+              "margin_max": 0.0365149162709713,
+              "count": 10000,
+              "token_flip_rate": 0.3348
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.0365149162709713,
+              "margin_max": 0.049650853499770164,
+              "count": 10000,
+              "token_flip_rate": 0.259
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.049650853499770164,
+              "margin_max": 0.06583770066499713,
+              "count": 10000,
+              "token_flip_rate": 0.2035
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.06583770066499713,
+              "margin_max": 0.08665405586361885,
+              "count": 10000,
+              "token_flip_rate": 0.1554
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.08665405586361885,
+              "margin_max": 0.11565404832363134,
+              "count": 10000,
+              "token_flip_rate": 0.1269
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.11565404832363134,
+              "margin_max": 0.1662951886653901,
+              "count": 10000,
+              "token_flip_rate": 0.0929
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.1662951886653901,
+              "margin_max": 0.7593071460723877,
+              "count": 10000,
+              "token_flip_rate": 0.0683
+            }
+          ]
+        },
+        "level_4": {
+          "margin_stable_median": 0.051407646387815475,
+          "margin_flipped_median": 0.023036489263176918,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 0.0,
+              "margin_max": 0.005737920571118596,
+              "count": 10000,
+              "token_flip_rate": 0.6708
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.005737920571118596,
+              "margin_max": 0.012258261628448964,
+              "count": 10000,
+              "token_flip_rate": 0.6076
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.012258261628448964,
+              "margin_max": 0.01943623945116997,
+              "count": 10000,
+              "token_flip_rate": 0.5535
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.01943623945116997,
+              "margin_max": 0.027878545969724656,
+              "count": 10000,
+              "token_flip_rate": 0.492
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.027878545969724656,
+              "margin_max": 0.03779472969472408,
+              "count": 10000,
+              "token_flip_rate": 0.4363
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.03779472969472408,
+              "margin_max": 0.04972211867570878,
+              "count": 10000,
+              "token_flip_rate": 0.3788
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.04972211867570878,
+              "margin_max": 0.06497852951288224,
+              "count": 10000,
+              "token_flip_rate": 0.3141
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.06497852951288224,
+              "margin_max": 0.08656250238418586,
+              "count": 10000,
+              "token_flip_rate": 0.2728
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.08656250238418586,
+              "margin_max": 0.12347759231925012,
+              "count": 10000,
+              "token_flip_rate": 0.224
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.12347759231925012,
+              "margin_max": 0.8823438286781311,
+              "count": 10000,
+              "token_flip_rate": 0.1552
+            }
+          ]
+        }
+      }
+    },
+    "target_0.95": {
+      "count": 100000,
+      "target_cosine": 0.95,
+      "actual_cosine": {
+        "mean": 0.9499999284744263,
+        "median": 0.949999988079071,
+        "p10": 0.9499999284744263,
+        "p90": 0.9500000476837158
+      },
+      "mse": {
+        "mean": 0.0007812500698491931,
+        "median": 0.0007812500116415322,
+        "p10": 0.0007812499534338713,
+        "p90": 0.0007812500698491931
+      },
+      "token_accuracy": {
+        "level_1": 0.92264,
+        "level_2": 0.69078,
+        "level_3": 0.46009,
+        "level_4": 0.30275
+      },
+      "prefix_accuracy": {
+        "prefix_at_1": 0.92264,
+        "prefix_at_2": 0.67755,
+        "prefix_at_3": 0.3941,
+        "prefix_at_4": 0.19102
+      },
+      "exact_semantic_sid_at_4": 0.19102,
+      "margin_relation": {
+        "level_1": {
+          "margin_stable_median": 0.3080677092075348,
+          "margin_flipped_median": 0.03933612257242203,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 3.3455346510891104e-06,
+              "margin_max": 0.04612821713089944,
+              "count": 10000,
+              "token_flip_rate": 0.4365
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.04612821713089944,
+              "margin_max": 0.09646165370941169,
+              "count": 10000,
+              "token_flip_rate": 0.2222
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.09646165370941169,
+              "margin_max": 0.15177621543407444,
+              "count": 10000,
+              "token_flip_rate": 0.0852
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.15177621543407444,
+              "margin_max": 0.2125356853008271,
+              "count": 10000,
+              "token_flip_rate": 0.0237
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.2125356853008271,
+              "margin_max": 0.28026919066905975,
+              "count": 10000,
+              "token_flip_rate": 0.0048
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.28026919066905975,
+              "margin_max": 0.35583871603012096,
+              "count": 10000,
+              "token_flip_rate": 0.0012
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.35583871603012096,
+              "margin_max": 0.43981416523456573,
+              "count": 10000,
+              "token_flip_rate": 0.0
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.43981416523456573,
+              "margin_max": 0.5362295150756837,
+              "count": 10000,
+              "token_flip_rate": 0.0
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.5362295150756837,
+              "margin_max": 0.6560662269592288,
+              "count": 10000,
+              "token_flip_rate": 0.0
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.6560662269592288,
+              "margin_max": 0.987726628780365,
+              "count": 10000,
+              "token_flip_rate": 0.0
+            }
+          ]
+        },
+        "level_2": {
+          "margin_stable_median": 0.11902392655611038,
+          "margin_flipped_median": 0.04020736366510391,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 4.253195129422238e-06,
+              "margin_max": 0.013346909265965228,
+              "count": 10000,
+              "token_flip_rate": 0.6277
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.013346909265965228,
+              "margin_max": 0.0284351296722889,
+              "count": 10000,
+              "token_flip_rate": 0.5579
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.0284351296722889,
+              "margin_max": 0.04515204578638078,
+              "count": 10000,
+              "token_flip_rate": 0.4839
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.04515204578638078,
+              "margin_max": 0.064462049305439,
+              "count": 10000,
+              "token_flip_rate": 0.4056
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.064462049305439,
+              "margin_max": 0.08691450953483582,
+              "count": 10000,
+              "token_flip_rate": 0.3259
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.08691450953483582,
+              "margin_max": 0.11480172723531727,
+              "count": 10000,
+              "token_flip_rate": 0.2538
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.11480172723531727,
+              "margin_max": 0.14965707361698155,
+              "count": 10000,
+              "token_flip_rate": 0.1899
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.14965707361698155,
+              "margin_max": 0.19779898524284367,
+              "count": 10000,
+              "token_flip_rate": 0.1285
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.19779898524284367,
+              "margin_max": 0.2767651736736298,
+              "count": 10000,
+              "token_flip_rate": 0.0821
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.2767651736736298,
+              "margin_max": 0.9856388568878174,
+              "count": 10000,
+              "token_flip_rate": 0.0369
+            }
+          ]
+        },
+        "level_3": {
+          "margin_stable_median": 0.07607903331518173,
+          "margin_flipped_median": 0.0344226136803627,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 2.007369857892627e-06,
+              "margin_max": 0.007405872363597156,
+              "count": 10000,
+              "token_flip_rate": 0.7502
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.007405872363597156,
+              "margin_max": 0.015914687141776084,
+              "count": 10000,
+              "token_flip_rate": 0.7197
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.015914687141776084,
+              "margin_max": 0.025476815178990364,
+              "count": 10000,
+              "token_flip_rate": 0.6875
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.025476815178990364,
+              "margin_max": 0.0365149162709713,
+              "count": 10000,
+              "token_flip_rate": 0.653
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.0365149162709713,
+              "margin_max": 0.049650853499770164,
+              "count": 10000,
+              "token_flip_rate": 0.5975
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.049650853499770164,
+              "margin_max": 0.06583770066499713,
+              "count": 10000,
+              "token_flip_rate": 0.5488
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.06583770066499713,
+              "margin_max": 0.08665405586361885,
+              "count": 10000,
+              "token_flip_rate": 0.4901
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.08665405586361885,
+              "margin_max": 0.11565404832363134,
+              "count": 10000,
+              "token_flip_rate": 0.4105
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.11565404832363134,
+              "margin_max": 0.1662951886653901,
+              "count": 10000,
+              "token_flip_rate": 0.3269
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.1662951886653901,
+              "margin_max": 0.7593071460723877,
+              "count": 10000,
+              "token_flip_rate": 0.2149
+            }
+          ]
+        },
+        "level_4": {
+          "margin_stable_median": 0.05852252617478371,
+          "margin_flipped_median": 0.031307514756917953,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 0.0,
+              "margin_max": 0.005737920571118596,
+              "count": 10000,
+              "token_flip_rate": 0.8344
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.005737920571118596,
+              "margin_max": 0.012258261628448964,
+              "count": 10000,
+              "token_flip_rate": 0.8101
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.012258261628448964,
+              "margin_max": 0.01943623945116997,
+              "count": 10000,
+              "token_flip_rate": 0.7916
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.01943623945116997,
+              "margin_max": 0.027878545969724656,
+              "count": 10000,
+              "token_flip_rate": 0.7682
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.027878545969724656,
+              "margin_max": 0.03779472969472408,
+              "count": 10000,
+              "token_flip_rate": 0.7534
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.03779472969472408,
+              "margin_max": 0.04972211867570878,
+              "count": 10000,
+              "token_flip_rate": 0.7223
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.04972211867570878,
+              "margin_max": 0.06497852951288224,
+              "count": 10000,
+              "token_flip_rate": 0.678
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.06497852951288224,
+              "margin_max": 0.08656250238418586,
+              "count": 10000,
+              "token_flip_rate": 0.6266
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.08656250238418586,
+              "margin_max": 0.12347759231925012,
+              "count": 10000,
+              "token_flip_rate": 0.5633
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.12347759231925012,
+              "margin_max": 0.8823438286781311,
+              "count": 10000,
+              "token_flip_rate": 0.4246
+            }
+          ]
+        }
+      }
+    },
+    "target_0.90": {
+      "count": 100000,
+      "target_cosine": 0.9,
+      "actual_cosine": {
+        "mean": 0.8999999761581421,
+        "median": 0.8999999761581421,
+        "p10": 0.8999999761581421,
+        "p90": 0.9000000357627869
+      },
+      "mse": {
+        "mean": 0.0015625001396983862,
+        "median": 0.0015625001396983862,
+        "p10": 0.0015624999068677425,
+        "p90": 0.0015625001396983862
+      },
+      "token_accuracy": {
+        "level_1": 0.88898,
+        "level_2": 0.54229,
+        "level_3": 0.30359,
+        "level_4": 0.18551
+      },
+      "prefix_accuracy": {
+        "prefix_at_1": 0.88898,
+        "prefix_at_2": 0.52508,
+        "prefix_at_3": 0.22055,
+        "prefix_at_4": 0.07096
+      },
+      "exact_semantic_sid_at_4": 0.07096,
+      "margin_relation": {
+        "level_1": {
+          "margin_stable_median": 0.3206692337989807,
+          "margin_flipped_median": 0.05519966781139374,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 3.3455346510891104e-06,
+              "margin_max": 0.04612821713089944,
+              "count": 10000,
+              "token_flip_rate": 0.481
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.04612821713089944,
+              "margin_max": 0.09646165370941169,
+              "count": 10000,
+              "token_flip_rate": 0.3157
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.09646165370941169,
+              "margin_max": 0.15177621543407444,
+              "count": 10000,
+              "token_flip_rate": 0.1834
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.15177621543407444,
+              "margin_max": 0.2125356853008271,
+              "count": 10000,
+              "token_flip_rate": 0.0885
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.2125356853008271,
+              "margin_max": 0.28026919066905975,
+              "count": 10000,
+              "token_flip_rate": 0.0289
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.28026919066905975,
+              "margin_max": 0.35583871603012096,
+              "count": 10000,
+              "token_flip_rate": 0.0097
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.35583871603012096,
+              "margin_max": 0.43981416523456573,
+              "count": 10000,
+              "token_flip_rate": 0.0026
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.43981416523456573,
+              "margin_max": 0.5362295150756837,
+              "count": 10000,
+              "token_flip_rate": 0.0004
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.5362295150756837,
+              "margin_max": 0.6560662269592288,
+              "count": 10000,
+              "token_flip_rate": 0.0
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.6560662269592288,
+              "margin_max": 0.987726628780365,
+              "count": 10000,
+              "token_flip_rate": 0.0
+            }
+          ]
+        },
+        "level_2": {
+          "margin_stable_median": 0.12914109230041504,
+          "margin_flipped_median": 0.05403703823685646,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 4.253195129422238e-06,
+              "margin_max": 0.013346909265965228,
+              "count": 10000,
+              "token_flip_rate": 0.7109
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.013346909265965228,
+              "margin_max": 0.0284351296722889,
+              "count": 10000,
+              "token_flip_rate": 0.6691
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.0284351296722889,
+              "margin_max": 0.04515204578638078,
+              "count": 10000,
+              "token_flip_rate": 0.6298
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.04515204578638078,
+              "margin_max": 0.064462049305439,
+              "count": 10000,
+              "token_flip_rate": 0.5701
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.064462049305439,
+              "margin_max": 0.08691450953483582,
+              "count": 10000,
+              "token_flip_rate": 0.5118
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.08691450953483582,
+              "margin_max": 0.11480172723531727,
+              "count": 10000,
+              "token_flip_rate": 0.4589
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.11480172723531727,
+              "margin_max": 0.14965707361698155,
+              "count": 10000,
+              "token_flip_rate": 0.3835
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.14965707361698155,
+              "margin_max": 0.19779898524284367,
+              "count": 10000,
+              "token_flip_rate": 0.3057
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.19779898524284367,
+              "margin_max": 0.2767651736736298,
+              "count": 10000,
+              "token_flip_rate": 0.2236
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.2767651736736298,
+              "margin_max": 0.9856388568878174,
+              "count": 10000,
+              "token_flip_rate": 0.1137
+            }
+          ]
+        },
+        "level_3": {
+          "margin_stable_median": 0.0800175741314888,
+          "margin_flipped_median": 0.0405791699886322,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 2.007369857892627e-06,
+              "margin_max": 0.007405872363597156,
+              "count": 10000,
+              "token_flip_rate": 0.8333
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.007405872363597156,
+              "margin_max": 0.015914687141776084,
+              "count": 10000,
+              "token_flip_rate": 0.8131
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.015914687141776084,
+              "margin_max": 0.025476815178990364,
+              "count": 10000,
+              "token_flip_rate": 0.8045
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.025476815178990364,
+              "margin_max": 0.0365149162709713,
+              "count": 10000,
+              "token_flip_rate": 0.78
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.0365149162709713,
+              "margin_max": 0.049650853499770164,
+              "count": 10000,
+              "token_flip_rate": 0.75
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.049650853499770164,
+              "margin_max": 0.06583770066499713,
+              "count": 10000,
+              "token_flip_rate": 0.727
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.06583770066499713,
+              "margin_max": 0.08665405586361885,
+              "count": 10000,
+              "token_flip_rate": 0.6772
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.08665405586361885,
+              "margin_max": 0.11565404832363134,
+              "count": 10000,
+              "token_flip_rate": 0.6206
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.11565404832363134,
+              "margin_max": 0.1662951886653901,
+              "count": 10000,
+              "token_flip_rate": 0.5514
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.1662951886653901,
+              "margin_max": 0.7593071460723877,
+              "count": 10000,
+              "token_flip_rate": 0.407
+            }
+          ]
+        },
+        "level_4": {
+          "margin_stable_median": 0.059462204575538635,
+          "margin_flipped_median": 0.03418352082371712,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 0.0,
+              "margin_max": 0.005737920571118596,
+              "count": 10000,
+              "token_flip_rate": 0.8949
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.005737920571118596,
+              "margin_max": 0.012258261628448964,
+              "count": 10000,
+              "token_flip_rate": 0.8839
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.012258261628448964,
+              "margin_max": 0.01943623945116997,
+              "count": 10000,
+              "token_flip_rate": 0.8787
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.01943623945116997,
+              "margin_max": 0.027878545969724656,
+              "count": 10000,
+              "token_flip_rate": 0.8572
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.027878545969724656,
+              "margin_max": 0.03779472969472408,
+              "count": 10000,
+              "token_flip_rate": 0.8436
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.03779472969472408,
+              "margin_max": 0.04972211867570878,
+              "count": 10000,
+              "token_flip_rate": 0.8394
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.04972211867570878,
+              "margin_max": 0.06497852951288224,
+              "count": 10000,
+              "token_flip_rate": 0.8126
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.06497852951288224,
+              "margin_max": 0.08656250238418586,
+              "count": 10000,
+              "token_flip_rate": 0.7861
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.08656250238418586,
+              "margin_max": 0.12347759231925012,
+              "count": 10000,
+              "token_flip_rate": 0.7387
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.12347759231925012,
+              "margin_max": 0.8823438286781311,
+              "count": 10000,
+              "token_flip_rate": 0.6098
+            }
+          ]
+        }
+      }
+    },
+    "target_0.85": {
+      "count": 100000,
+      "target_cosine": 0.85,
+      "actual_cosine": {
+        "mean": 0.8500000238418579,
+        "median": 0.8500000238418579,
+        "p10": 0.8499999642372131,
+        "p90": 0.8500000238418579
+      },
+      "mse": {
+        "mean": 0.00234374962747097,
+        "median": 0.002343749860301614,
+        "p10": 0.00234374962747097,
+        "p90": 0.0023437500931322575
+      },
+      "token_accuracy": {
+        "level_1": 0.85607,
+        "level_2": 0.41718,
+        "level_3": 0.21409,
+        "level_4": 0.12606
+      },
+      "prefix_accuracy": {
+        "prefix_at_1": 0.85607,
+        "prefix_at_2": 0.39732,
+        "prefix_at_3": 0.12333,
+        "prefix_at_4": 0.02843
+      },
+      "exact_semantic_sid_at_4": 0.02843,
+      "margin_relation": {
+        "level_1": {
+          "margin_stable_median": 0.3321589231491089,
+          "margin_flipped_median": 0.06896349787712097,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 3.3455346510891104e-06,
+              "margin_max": 0.04612821713089944,
+              "count": 10000,
+              "token_flip_rate": 0.5202
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.04612821713089944,
+              "margin_max": 0.09646165370941169,
+              "count": 10000,
+              "token_flip_rate": 0.3869
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.09646165370941169,
+              "margin_max": 0.15177621543407444,
+              "count": 10000,
+              "token_flip_rate": 0.2581
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.15177621543407444,
+              "margin_max": 0.2125356853008271,
+              "count": 10000,
+              "token_flip_rate": 0.1569
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.2125356853008271,
+              "margin_max": 0.28026919066905975,
+              "count": 10000,
+              "token_flip_rate": 0.0736
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.28026919066905975,
+              "margin_max": 0.35583871603012096,
+              "count": 10000,
+              "token_flip_rate": 0.0307
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.35583871603012096,
+              "margin_max": 0.43981416523456573,
+              "count": 10000,
+              "token_flip_rate": 0.0099
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.43981416523456573,
+              "margin_max": 0.5362295150756837,
+              "count": 10000,
+              "token_flip_rate": 0.0028
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.5362295150756837,
+              "margin_max": 0.6560662269592288,
+              "count": 10000,
+              "token_flip_rate": 0.0001
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.6560662269592288,
+              "margin_max": 0.987726628780365,
+              "count": 10000,
+              "token_flip_rate": 0.0001
+            }
+          ]
+        },
+        "level_2": {
+          "margin_stable_median": 0.1331484019756317,
+          "margin_flipped_median": 0.06411047279834747,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 4.253195129422238e-06,
+              "margin_max": 0.013346909265965228,
+              "count": 10000,
+              "token_flip_rate": 0.7731
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.013346909265965228,
+              "margin_max": 0.0284351296722889,
+              "count": 10000,
+              "token_flip_rate": 0.7428
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.0284351296722889,
+              "margin_max": 0.04515204578638078,
+              "count": 10000,
+              "token_flip_rate": 0.723
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.04515204578638078,
+              "margin_max": 0.064462049305439,
+              "count": 10000,
+              "token_flip_rate": 0.6857
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.064462049305439,
+              "margin_max": 0.08691450953483582,
+              "count": 10000,
+              "token_flip_rate": 0.6433
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.08691450953483582,
+              "margin_max": 0.11480172723531727,
+              "count": 10000,
+              "token_flip_rate": 0.6002
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.11480172723531727,
+              "margin_max": 0.14965707361698155,
+              "count": 10000,
+              "token_flip_rate": 0.5392
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.14965707361698155,
+              "margin_max": 0.19779898524284367,
+              "count": 10000,
+              "token_flip_rate": 0.4787
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.19779898524284367,
+              "margin_max": 0.2767651736736298,
+              "count": 10000,
+              "token_flip_rate": 0.4027
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.2767651736736298,
+              "margin_max": 0.9856388568878174,
+              "count": 10000,
+              "token_flip_rate": 0.2395
+            }
+          ]
+        },
+        "level_3": {
+          "margin_stable_median": 0.08104545623064041,
+          "margin_flipped_median": 0.04370209574699402,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 2.007369857892627e-06,
+              "margin_max": 0.007405872363597156,
+              "count": 10000,
+              "token_flip_rate": 0.8819
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.007405872363597156,
+              "margin_max": 0.015914687141776084,
+              "count": 10000,
+              "token_flip_rate": 0.8706
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.015914687141776084,
+              "margin_max": 0.025476815178990364,
+              "count": 10000,
+              "token_flip_rate": 0.8553
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.025476815178990364,
+              "margin_max": 0.0365149162709713,
+              "count": 10000,
+              "token_flip_rate": 0.8468
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.0365149162709713,
+              "margin_max": 0.049650853499770164,
+              "count": 10000,
+              "token_flip_rate": 0.8287
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.049650853499770164,
+              "margin_max": 0.06583770066499713,
+              "count": 10000,
+              "token_flip_rate": 0.8098
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.06583770066499713,
+              "margin_max": 0.08665405586361885,
+              "count": 10000,
+              "token_flip_rate": 0.7803
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.08665405586361885,
+              "margin_max": 0.11565404832363134,
+              "count": 10000,
+              "token_flip_rate": 0.7455
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.11565404832363134,
+              "margin_max": 0.1662951886653901,
+              "count": 10000,
+              "token_flip_rate": 0.6846
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.1662951886653901,
+              "margin_max": 0.7593071460723877,
+              "count": 10000,
+              "token_flip_rate": 0.5556
+            }
+          ]
+        },
+        "level_4": {
+          "margin_stable_median": 0.05962347239255905,
+          "margin_flipped_median": 0.03550568222999573,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 0.0,
+              "margin_max": 0.005737920571118596,
+              "count": 10000,
+              "token_flip_rate": 0.9268
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.005737920571118596,
+              "margin_max": 0.012258261628448964,
+              "count": 10000,
+              "token_flip_rate": 0.9177
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.012258261628448964,
+              "margin_max": 0.01943623945116997,
+              "count": 10000,
+              "token_flip_rate": 0.9088
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.01943623945116997,
+              "margin_max": 0.027878545969724656,
+              "count": 10000,
+              "token_flip_rate": 0.9075
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.027878545969724656,
+              "margin_max": 0.03779472969472408,
+              "count": 10000,
+              "token_flip_rate": 0.8996
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.03779472969472408,
+              "margin_max": 0.04972211867570878,
+              "count": 10000,
+              "token_flip_rate": 0.8924
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.04972211867570878,
+              "margin_max": 0.06497852951288224,
+              "count": 10000,
+              "token_flip_rate": 0.8725
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.06497852951288224,
+              "margin_max": 0.08656250238418586,
+              "count": 10000,
+              "token_flip_rate": 0.8597
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.08656250238418586,
+              "margin_max": 0.12347759231925012,
+              "count": 10000,
+              "token_flip_rate": 0.8328
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.12347759231925012,
+              "margin_max": 0.8823438286781311,
+              "count": 10000,
+              "token_flip_rate": 0.7216
+            }
+          ]
+        }
+      }
+    },
+    "target_0.80": {
+      "count": 100000,
+      "target_cosine": 0.8,
+      "actual_cosine": {
+        "mean": 0.8000000715255737,
+        "median": 0.800000011920929,
+        "p10": 0.7999999523162842,
+        "p90": 0.8000000715255737
+      },
+      "mse": {
+        "mean": 0.0031250002793967724,
+        "median": 0.003124999813735485,
+        "p10": 0.003124999813735485,
+        "p90": 0.0031250002793967724
+      },
+      "token_accuracy": {
+        "level_1": 0.8249,
+        "level_2": 0.30315,
+        "level_3": 0.15674,
+        "level_4": 0.09353
+      },
+      "prefix_accuracy": {
+        "prefix_at_1": 0.8249,
+        "prefix_at_2": 0.28209,
+        "prefix_at_3": 0.06629,
+        "prefix_at_4": 0.01048
+      },
+      "exact_semantic_sid_at_4": 0.01048,
+      "margin_relation": {
+        "level_1": {
+          "margin_stable_median": 0.3423783481121063,
+          "margin_flipped_median": 0.08310805261135101,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 3.3455346510891104e-06,
+              "margin_max": 0.04612821713089944,
+              "count": 10000,
+              "token_flip_rate": 0.5465
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.04612821713089944,
+              "margin_max": 0.09646165370941169,
+              "count": 10000,
+              "token_flip_rate": 0.4314
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.09646165370941169,
+              "margin_max": 0.15177621543407444,
+              "count": 10000,
+              "token_flip_rate": 0.321
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.15177621543407444,
+              "margin_max": 0.2125356853008271,
+              "count": 10000,
+              "token_flip_rate": 0.2205
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.2125356853008271,
+              "margin_max": 0.28026919066905975,
+              "count": 10000,
+              "token_flip_rate": 0.1296
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.28026919066905975,
+              "margin_max": 0.35583871603012096,
+              "count": 10000,
+              "token_flip_rate": 0.0654
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.35583871603012096,
+              "margin_max": 0.43981416523456573,
+              "count": 10000,
+              "token_flip_rate": 0.0251
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.43981416523456573,
+              "margin_max": 0.5362295150756837,
+              "count": 10000,
+              "token_flip_rate": 0.0101
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.5362295150756837,
+              "margin_max": 0.6560662269592288,
+              "count": 10000,
+              "token_flip_rate": 0.0012
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.6560662269592288,
+              "margin_max": 0.987726628780365,
+              "count": 10000,
+              "token_flip_rate": 0.0002
+            }
+          ]
+        },
+        "level_2": {
+          "margin_stable_median": 0.13678033649921417,
+          "margin_flipped_median": 0.07149272412061691,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 4.253195129422238e-06,
+              "margin_max": 0.013346909265965228,
+              "count": 10000,
+              "token_flip_rate": 0.8334
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.013346909265965228,
+              "margin_max": 0.0284351296722889,
+              "count": 10000,
+              "token_flip_rate": 0.8172
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.0284351296722889,
+              "margin_max": 0.04515204578638078,
+              "count": 10000,
+              "token_flip_rate": 0.8001
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.04515204578638078,
+              "margin_max": 0.064462049305439,
+              "count": 10000,
+              "token_flip_rate": 0.7767
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.064462049305439,
+              "margin_max": 0.08691450953483582,
+              "count": 10000,
+              "token_flip_rate": 0.7498
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.08691450953483582,
+              "margin_max": 0.11480172723531727,
+              "count": 10000,
+              "token_flip_rate": 0.7184
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.11480172723531727,
+              "margin_max": 0.14965707361698155,
+              "count": 10000,
+              "token_flip_rate": 0.6748
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.14965707361698155,
+              "margin_max": 0.19779898524284367,
+              "count": 10000,
+              "token_flip_rate": 0.6295
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.19779898524284367,
+              "margin_max": 0.2767651736736298,
+              "count": 10000,
+              "token_flip_rate": 0.5589
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.2767651736736298,
+              "margin_max": 0.9856388568878174,
+              "count": 10000,
+              "token_flip_rate": 0.4097
+            }
+          ]
+        },
+        "level_3": {
+          "margin_stable_median": 0.07990606129169464,
+          "margin_flipped_median": 0.04568126052618027,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 2.007369857892627e-06,
+              "margin_max": 0.007405872363597156,
+              "count": 10000,
+              "token_flip_rate": 0.909
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.007405872363597156,
+              "margin_max": 0.015914687141776084,
+              "count": 10000,
+              "token_flip_rate": 0.9036
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.015914687141776084,
+              "margin_max": 0.025476815178990364,
+              "count": 10000,
+              "token_flip_rate": 0.8931
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.025476815178990364,
+              "margin_max": 0.0365149162709713,
+              "count": 10000,
+              "token_flip_rate": 0.8866
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.0365149162709713,
+              "margin_max": 0.049650853499770164,
+              "count": 10000,
+              "token_flip_rate": 0.8704
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.049650853499770164,
+              "margin_max": 0.06583770066499713,
+              "count": 10000,
+              "token_flip_rate": 0.8617
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.06583770066499713,
+              "margin_max": 0.08665405586361885,
+              "count": 10000,
+              "token_flip_rate": 0.8456
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.08665405586361885,
+              "margin_max": 0.11565404832363134,
+              "count": 10000,
+              "token_flip_rate": 0.8145
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.11565404832363134,
+              "margin_max": 0.1662951886653901,
+              "count": 10000,
+              "token_flip_rate": 0.7795
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.1662951886653901,
+              "margin_max": 0.7593071460723877,
+              "count": 10000,
+              "token_flip_rate": 0.6686
+            }
+          ]
+        },
+        "level_4": {
+          "margin_stable_median": 0.060521118342876434,
+          "margin_flipped_median": 0.03617502376437187,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 0.0,
+              "margin_max": 0.005737920571118596,
+              "count": 10000,
+              "token_flip_rate": 0.9443
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.005737920571118596,
+              "margin_max": 0.012258261628448964,
+              "count": 10000,
+              "token_flip_rate": 0.9401
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.012258261628448964,
+              "margin_max": 0.01943623945116997,
+              "count": 10000,
+              "token_flip_rate": 0.9342
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.01943623945116997,
+              "margin_max": 0.027878545969724656,
+              "count": 10000,
+              "token_flip_rate": 0.9302
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.027878545969724656,
+              "margin_max": 0.03779472969472408,
+              "count": 10000,
+              "token_flip_rate": 0.9248
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.03779472969472408,
+              "margin_max": 0.04972211867570878,
+              "count": 10000,
+              "token_flip_rate": 0.9232
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.04972211867570878,
+              "margin_max": 0.06497852951288224,
+              "count": 10000,
+              "token_flip_rate": 0.9134
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.06497852951288224,
+              "margin_max": 0.08656250238418586,
+              "count": 10000,
+              "token_flip_rate": 0.894
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.08656250238418586,
+              "margin_max": 0.12347759231925012,
+              "count": 10000,
+              "token_flip_rate": 0.8749
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.12347759231925012,
+              "margin_max": 0.8823438286781311,
+              "count": 10000,
+              "token_flip_rate": 0.7856
+            }
+          ]
+        }
+      }
+    },
+    "target_0.70": {
+      "count": 100000,
+      "target_cosine": 0.7,
+      "actual_cosine": {
+        "mean": 0.6999999284744263,
+        "median": 0.699999988079071,
+        "p10": 0.6999999284744263,
+        "p90": 0.7000000476837158
+      },
+      "mse": {
+        "mean": 0.004687499720603228,
+        "median": 0.004687500186264515,
+        "p10": 0.004687499720603228,
+        "p90": 0.004687500186264515
+      },
+      "token_accuracy": {
+        "level_1": 0.759,
+        "level_2": 0.14338,
+        "level_3": 0.09689,
+        "level_4": 0.0586
+      },
+      "prefix_accuracy": {
+        "prefix_at_1": 0.759,
+        "prefix_at_2": 0.12585,
+        "prefix_at_3": 0.01706,
+        "prefix_at_4": 0.00159
+      },
+      "exact_semantic_sid_at_4": 0.00159,
+      "margin_relation": {
+        "level_1": {
+          "margin_stable_median": 0.3614497184753418,
+          "margin_flipped_median": 0.10849867016077042,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 3.3455346510891104e-06,
+              "margin_max": 0.04612821713089944,
+              "count": 10000,
+              "token_flip_rate": 0.5939
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.04612821713089944,
+              "margin_max": 0.09646165370941169,
+              "count": 10000,
+              "token_flip_rate": 0.5141
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.09646165370941169,
+              "margin_max": 0.15177621543407444,
+              "count": 10000,
+              "token_flip_rate": 0.423
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.15177621543407444,
+              "margin_max": 0.2125356853008271,
+              "count": 10000,
+              "token_flip_rate": 0.3334
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.2125356853008271,
+              "margin_max": 0.28026919066905975,
+              "count": 10000,
+              "token_flip_rate": 0.2436
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.28026919066905975,
+              "margin_max": 0.35583871603012096,
+              "count": 10000,
+              "token_flip_rate": 0.1581
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.35583871603012096,
+              "margin_max": 0.43981416523456573,
+              "count": 10000,
+              "token_flip_rate": 0.0866
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.43981416523456573,
+              "margin_max": 0.5362295150756837,
+              "count": 10000,
+              "token_flip_rate": 0.0426
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.5362295150756837,
+              "margin_max": 0.6560662269592288,
+              "count": 10000,
+              "token_flip_rate": 0.0124
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.6560662269592288,
+              "margin_max": 0.987726628780365,
+              "count": 10000,
+              "token_flip_rate": 0.0023
+            }
+          ]
+        },
+        "level_2": {
+          "margin_stable_median": 0.1284448802471161,
+          "margin_flipped_median": 0.08147621154785156,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 4.253195129422238e-06,
+              "margin_max": 0.013346909265965228,
+              "count": 10000,
+              "token_flip_rate": 0.9112
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.013346909265965228,
+              "margin_max": 0.0284351296722889,
+              "count": 10000,
+              "token_flip_rate": 0.9014
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.0284351296722889,
+              "margin_max": 0.04515204578638078,
+              "count": 10000,
+              "token_flip_rate": 0.9005
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.04515204578638078,
+              "margin_max": 0.064462049305439,
+              "count": 10000,
+              "token_flip_rate": 0.8909
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.064462049305439,
+              "margin_max": 0.08691450953483582,
+              "count": 10000,
+              "token_flip_rate": 0.8783
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.08691450953483582,
+              "margin_max": 0.11480172723531727,
+              "count": 10000,
+              "token_flip_rate": 0.8639
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.11480172723531727,
+              "margin_max": 0.14965707361698155,
+              "count": 10000,
+              "token_flip_rate": 0.8501
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.14965707361698155,
+              "margin_max": 0.19779898524284367,
+              "count": 10000,
+              "token_flip_rate": 0.8405
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.19779898524284367,
+              "margin_max": 0.2767651736736298,
+              "count": 10000,
+              "token_flip_rate": 0.8141
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.2767651736736298,
+              "margin_max": 0.9856388568878174,
+              "count": 10000,
+              "token_flip_rate": 0.7153
+            }
+          ]
+        },
+        "level_3": {
+          "margin_stable_median": 0.07889031618833542,
+          "margin_flipped_median": 0.04732057824730873,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 2.007369857892627e-06,
+              "margin_max": 0.007405872363597156,
+              "count": 10000,
+              "token_flip_rate": 0.9385
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.007405872363597156,
+              "margin_max": 0.015914687141776084,
+              "count": 10000,
+              "token_flip_rate": 0.9385
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.015914687141776084,
+              "margin_max": 0.025476815178990364,
+              "count": 10000,
+              "token_flip_rate": 0.932
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.025476815178990364,
+              "margin_max": 0.0365149162709713,
+              "count": 10000,
+              "token_flip_rate": 0.9337
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.0365149162709713,
+              "margin_max": 0.049650853499770164,
+              "count": 10000,
+              "token_flip_rate": 0.9187
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.049650853499770164,
+              "margin_max": 0.06583770066499713,
+              "count": 10000,
+              "token_flip_rate": 0.9141
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.06583770066499713,
+              "margin_max": 0.08665405586361885,
+              "count": 10000,
+              "token_flip_rate": 0.9063
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.08665405586361885,
+              "margin_max": 0.11565404832363134,
+              "count": 10000,
+              "token_flip_rate": 0.8877
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.11565404832363134,
+              "margin_max": 0.1662951886653901,
+              "count": 10000,
+              "token_flip_rate": 0.8675
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.1662951886653901,
+              "margin_max": 0.7593071460723877,
+              "count": 10000,
+              "token_flip_rate": 0.7941
+            }
+          ]
+        },
+        "level_4": {
+          "margin_stable_median": 0.05913188308477402,
+          "margin_flipped_median": 0.03680580109357834,
+          "decile_flip_rate": [
+            {
+              "bin": 1,
+              "margin_min": 0.0,
+              "margin_max": 0.005737920571118596,
+              "count": 10000,
+              "token_flip_rate": 0.9628
+            },
+            {
+              "bin": 2,
+              "margin_min": 0.005737920571118596,
+              "margin_max": 0.012258261628448964,
+              "count": 10000,
+              "token_flip_rate": 0.9638
+            },
+            {
+              "bin": 3,
+              "margin_min": 0.012258261628448964,
+              "margin_max": 0.01943623945116997,
+              "count": 10000,
+              "token_flip_rate": 0.9567
+            },
+            {
+              "bin": 4,
+              "margin_min": 0.01943623945116997,
+              "margin_max": 0.027878545969724656,
+              "count": 10000,
+              "token_flip_rate": 0.9547
+            },
+            {
+              "bin": 5,
+              "margin_min": 0.027878545969724656,
+              "margin_max": 0.03779472969472408,
+              "count": 10000,
+              "token_flip_rate": 0.9531
+            },
+            {
+              "bin": 6,
+              "margin_min": 0.03779472969472408,
+              "margin_max": 0.04972211867570878,
+              "count": 10000,
+              "token_flip_rate": 0.9486
+            },
+            {
+              "bin": 7,
+              "margin_min": 0.04972211867570878,
+              "margin_max": 0.06497852951288224,
+              "count": 10000,
+              "token_flip_rate": 0.9457
+            },
+            {
+              "bin": 8,
+              "margin_min": 0.06497852951288224,
+              "margin_max": 0.08656250238418586,
+              "count": 10000,
+              "token_flip_rate": 0.9391
+            },
+            {
+              "bin": 9,
+              "margin_min": 0.08656250238418586,
+              "margin_max": 0.12347759231925012,
+              "count": 10000,
+              "token_flip_rate": 0.9248
+            },
+            {
+              "bin": 10,
+              "margin_min": 0.12347759231925012,
+              "margin_max": 0.8823438286781311,
+              "count": 10000,
+              "token_flip_rate": 0.8647
+            }
+          ]
+        }
+      }
+    }
+  }
+}

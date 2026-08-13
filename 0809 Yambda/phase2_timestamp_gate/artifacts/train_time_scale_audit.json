@@ -1,0 +1,68 @@
+{
+  "status": "complete_train_only_time_scale_audit",
+  "data_contract": {
+    "dataset": "D_SID",
+    "split": "train only",
+    "cutoff_inclusive": 22172245,
+    "validation_or_test_used_for_decision": false,
+    "unique_timestamp_groups": true
+  },
+  "counts": {
+    "users_with_train_groups": 775855,
+    "train_groups": 61535193,
+    "positive_adjacent_group_gaps": 60759338,
+    "zero_group_gaps": 0
+  },
+  "raw_timestamp_gap": {
+    "min": 5,
+    "mode": 5,
+    "mode_count": 2200382,
+    "gcd": 5,
+    "all_positive_gaps_divisible_by_gcd": true,
+    "p50": 2845,
+    "p75": 95565,
+    "p90": 389800,
+    "p95": 751985,
+    "p99": 2494400,
+    "p99_9": 8536335,
+    "max": 22088095
+  },
+  "official_evidence": {
+    "dataset_card": "https://huggingface.co/datasets/yandex/yambda/blob/main/README.md",
+    "field_description": "timestamp is a delta-time field on a 5-second quantized grid; local values and train-only gap GCD independently agree",
+    "raw_value_interpretation": "seconds from anonymized origin, quantized to multiples of 5 seconds"
+  },
+  "frozen_train_only_decision": {
+    "raw_timestamp_unit_seconds": 1,
+    "timestamp_quantum_seconds": 5,
+    "model_time_unit_seconds": 3600,
+    "model_time_unit_name": "hour",
+    "normalization": "model_delta = raw_timestamp_delta / 3600",
+    "prediction_horizon_seconds": 2505600,
+    "prediction_horizon_hours": 696.0,
+    "selection": "train positive group-gap p99 rounded upward to the next whole 24-hour boundary",
+    "train_gap_mass_covered": 0.9901031673518234,
+    "candidate_horizons": {
+      "p95_rounded_day": {
+        "seconds": 777600,
+        "mass_covered": 0.9521604070143095
+      },
+      "p99_rounded_day_selected": {
+        "seconds": 2505600,
+        "mass_covered": 0.9901031673518234
+      },
+      "p99_9_rounded_day_long_tail_diagnostic": {
+        "seconds": 8553600,
+        "mass_covered": 0.9990070497476454
+      }
+    },
+    "selection_reason": "p99 preserves a fixed high train-only event mass while avoiding the approximately 99-day p99.9 tail as the first prediction grid",
+    "train_p99_seconds": 2494400,
+    "train_p99_9_seconds": 8536335
+  },
+  "elapsed_seconds": 64.62340474128723,
+  "boundaries": {
+    "minimal_snmpp_training_started": false,
+    "validation_test_inspected_for_horizon": false
+  }
+}

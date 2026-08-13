@@ -1,0 +1,28 @@
+{
+  "status": "complete",
+  "date_utc": "2026-08-09",
+  "operation": "same-filesystem move",
+  "source_root": "/root/autodl-tmp/0804 Yambda",
+  "destination_root": "/root/autodl-tmp/0809 Yambda",
+  "moved": [
+    {
+      "source": "/root/autodl-tmp/0804 Yambda/phase0_5b_audit",
+      "destination": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit"
+    },
+    {
+      "source": "/root/autodl-tmp/0804 Yambda/docs/2026-08-09_Yambda显式反馈主线协议.md",
+      "destination": "/root/autodl-tmp/0809 Yambda/docs/2026-08-09_Yambda显式反馈主线协议.md"
+    }
+  ],
+  "path_metadata_rebased": {
+    "from": "/root/autodl-tmp/0804 Yambda/phase0_5b_audit",
+    "to": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit"
+  },
+  "legacy_read_only_references_retained": [
+    "/root/autodl-tmp/0804 Yambda/data/embeddings.parquet",
+    "/root/autodl-tmp/0804 Yambda/dataprocess/data/official_metadata/artist_item_mapping.parquet",
+    "/root/autodl-tmp/0804 Yambda/dataprocess/data/official_metadata/album_item_mapping.parquet",
+    "/root/autodl-tmp/0804 Yambda/dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026"
+  ],
+  "boundary": "0804 is read-only historical reference; all new writes go to 0809"
+}

@@ -1,0 +1,69 @@
+{
+  "status": "complete_train_only_four_relation_graph",
+  "data_contract": {
+    "source": "/root/autodl-tmp/0809 Yambda/phase1_canonical/artifacts/dall_manifest.json",
+    "train_cutoff_timestamp_inclusive": 22172245,
+    "validation_or_test_edges_used": false,
+    "listen_used": false,
+    "relations_preserved": [
+      "like",
+      "dislike",
+      "unlike",
+      "undislike"
+    ],
+    "relations_collapsed_to_positive": false,
+    "audio_embedding_used": false
+  },
+  "counts": {
+    "explicit_items": 2875071,
+    "relation_edges": 103631097,
+    "unique_user_item_pairs_across_relations": 94665941,
+    "items_with_train_evidence": 2567743,
+    "items_without_train_evidence": 307328
+  },
+  "relations": {
+    "like": {
+      "relation_id": 0,
+      "train_events_after_exact_dedup": 70351717,
+      "unique_user_item_relation_edges": 67962990,
+      "users_with_relation_edge": 748566,
+      "uid_file": "/root/autodl-tmp/0809 Yambda/phase1_gate1c/artifacts/train_four_relation_graph/like/uid.uint32.bin",
+      "item_position_file": "/root/autodl-tmp/0809 Yambda/phase1_gate1c/artifacts/train_four_relation_graph/like/item_position.uint32.bin",
+      "edge_semantics": "one edge per observed train-period user,item,feedback triple; repeated times are aggregated"
+    },
+    "dislike": {
+      "relation_id": 1,
+      "train_events_after_exact_dedup": 9397458,
+      "unique_user_item_relation_edges": 9125498,
+      "users_with_relation_edge": 522127,
+      "uid_file": "/root/autodl-tmp/0809 Yambda/phase1_gate1c/artifacts/train_four_relation_graph/dislike/uid.uint32.bin",
+      "item_position_file": "/root/autodl-tmp/0809 Yambda/phase1_gate1c/artifacts/train_four_relation_graph/dislike/item_position.uint32.bin",
+      "edge_semantics": "one edge per observed train-period user,item,feedback triple; repeated times are aggregated"
+    },
+    "unlike": {
+      "relation_id": 2,
+      "train_events_after_exact_dedup": 26289967,
+      "unique_user_item_relation_edges": 24829358,
+      "users_with_relation_edge": 567996,
+      "uid_file": "/root/autodl-tmp/0809 Yambda/phase1_gate1c/artifacts/train_four_relation_graph/unlike/uid.uint32.bin",
+      "item_position_file": "/root/autodl-tmp/0809 Yambda/phase1_gate1c/artifacts/train_four_relation_graph/unlike/item_position.uint32.bin",
+      "edge_semantics": "one edge per observed train-period user,item,feedback triple; repeated times are aggregated"
+    },
+    "undislike": {
+      "relation_id": 3,
+      "train_events_after_exact_dedup": 2023870,
+      "unique_user_item_relation_edges": 1713251,
+      "users_with_relation_edge": 245167,
+      "uid_file": "/root/autodl-tmp/0809 Yambda/phase1_gate1c/artifacts/train_four_relation_graph/undislike/uid.uint32.bin",
+      "item_position_file": "/root/autodl-tmp/0809 Yambda/phase1_gate1c/artifacts/train_four_relation_graph/undislike/item_position.uint32.bin",
+      "edge_semantics": "one edge per observed train-period user,item,feedback triple; repeated times are aggregated"
+    }
+  },
+  "outputs": {
+    "explicit_item_id": "/root/autodl-tmp/0809 Yambda/phase1_gate1c/artifacts/train_four_relation_graph/explicit_item_id.uint32.npy",
+    "unique_user_count_by_relation": "/root/autodl-tmp/0809 Yambda/phase1_gate1c/artifacts/train_four_relation_graph/unique_user_count_by_relation.uint32.npy",
+    "event_count_by_relation": "/root/autodl-tmp/0809 Yambda/phase1_gate1c/artifacts/train_four_relation_graph/event_count_by_relation.uint32.npy",
+    "unique_train_user_count": "/root/autodl-tmp/0809 Yambda/phase1_gate1c/artifacts/train_four_relation_graph/unique_train_user_count.uint32.npy",
+    "revision_event_share": "/root/autodl-tmp/0809 Yambda/phase1_gate1c/artifacts/train_four_relation_graph/revision_event_share.float32.npy"
+  }
+}

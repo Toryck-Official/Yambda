@@ -1,0 +1,19 @@
+{
+  "factorized_snmpp_tiny_passed": false,
+  "time_mark_coupling_failure_supported": false,
+  "time_mark_coupling_contribution_detected": true,
+  "primary_failure_attribution_to_coupling_not_supported": true,
+  "history_aggregation_gate_needed": true,
+  "minimal_snmpp_stageB_approved": false,
+  "old_gradient_conflict_detected_at_initialization": true,
+  "factorization_unit_tests_passed": true,
+  "factorization_prevented_hundred_scale_Lambda_at_selected_lr": true,
+  "factorization_prevented_hundred_scale_Lambda_at_original_lr": true,
+  "time_loss_decreased": false,
+  "feedback_excess_loss_decreased": false,
+  "all_four_recalls_nonzero": false,
+  "positive_and_negative_signed_influence_recovered": false,
+  "burst_amplification_still_present": true,
+  "stageB_or_forbidden_branch_started": false,
+  "stop_reason": "At the exact matched LR, factorization reduced intensity explosion and briefly improved loss, but final Tiny time loss and feedback excess worsened, majority collapse remained, signed influence stayed all-positive, and >500 burst amplification persisted."
+}

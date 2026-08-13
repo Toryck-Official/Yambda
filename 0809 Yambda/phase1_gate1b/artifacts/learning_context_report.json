@@ -1,0 +1,40 @@
+{
+  "status": "complete_gate1b_learning_arrays",
+  "context": {
+    "dimension": 262,
+    "components": [
+      "artist_loo_centroid_128",
+      "album_loo_centroid_128",
+      "artist_available",
+      "album_available",
+      "standardized_log1p_artist_source_count",
+      "standardized_log1p_album_source_count",
+      "standardized_log1p_artist_relation_count",
+      "standardized_log1p_album_relation_count"
+    ],
+    "scalar_standardization_fit_on_train_only": true,
+    "scalar_train_mean": [
+      4.379828929901123,
+      1.8303052186965942,
+      0.6903300285339355,
+      0.5884999632835388
+    ],
+    "scalar_train_std": [
+      1.7998698949813843,
+      1.3273069858551025,
+      0.03171705827116966,
+      0.415682852268219
+    ],
+    "interaction_frequency_used_as_model_input": false,
+    "item_id_used_as_model_input": false
+  },
+  "targets": {
+    "embedding": "true normalized 128-d audio embedding",
+    "sid": "same frozen real-only candidate RQKMeans codebook"
+  },
+  "counts": {
+    "train": 300000,
+    "validation": 50000,
+    "test": 50000
+  }
+}

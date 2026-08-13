@@ -1,0 +1,419 @@
+{
+  "status": "complete_gate1c_read_only_candidate_cutoff_coverage_audit",
+  "data_contract": {
+    "source": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/manifest.json",
+    "explicit_only": true,
+    "listen_used": false,
+    "raw_events_before_phase1_dedup_or_burst_decision": true,
+    "global_chronological": true,
+    "same_timestamp_not_split": true,
+    "candidate_fractions_are_not_approved_protocol": true,
+    "collaborative_model_trained": false,
+    "gate2_started": false
+  },
+  "counts": {
+    "explicit_events": 136292476,
+    "explicit_items": 2875071,
+    "real_audio_items": 2367341,
+    "missing_audio_items": 507730,
+    "missing_audio_events": 13433721,
+    "missing_item_user_pairs_full_period": 11852480,
+    "missing_events_by_feedback": {
+      "like": 3415279,
+      "dislike": 482444,
+      "unlike": 8901553,
+      "undislike": 634445
+    }
+  },
+  "candidate_curves": [
+    {
+      "candidate_fraction": 0.6,
+      "cutoff_timestamp": 17696260,
+      "train_events_including_full_cutoff_timestamp": 81775490,
+      "actual_train_event_fraction": 0.6000000322835136,
+      "same_timestamp_not_split": true,
+      "train_feedback_counts": {
+        "like": 52768799,
+        "dislike": 7267853,
+        "unlike": 20210193,
+        "undislike": 1528645
+      },
+      "real_audio_items": {
+        "total": 2367341,
+        "with_train_collaborative_evidence": 1802507,
+        "without_train_collaborative_evidence": 564834,
+        "train_event_count_distribution_among_evidence": {
+          "count": 1802507,
+          "min": 1,
+          "mean": 40.72589066228314,
+          "median": 2.0,
+          "p75": 7.0,
+          "p90": 33.0,
+          "p95": 100.0,
+          "p99": 721.9399999999441,
+          "max": 80848
+        },
+        "event_threshold_counts": {
+          "at_least_1": 1802507,
+          "at_least_2": 1040851,
+          "at_least_5": 554809,
+          "at_least_10": 366775,
+          "at_least_20": 244211,
+          "at_least_50": 141738,
+          "at_least_100": 90673
+        }
+      },
+      "missing_audio_items": {
+        "total": 507730,
+        "with_train_collaborative_evidence": 396896,
+        "without_train_collaborative_evidence": 110834,
+        "first_explicit_event_after_train_cutoff": 110834,
+        "train_events": 8366787,
+        "train_feedback_counts": {
+          "like": 2136135,
+          "dislike": 319148,
+          "unlike": 5507259,
+          "undislike": 404245
+        },
+        "train_event_count_distribution_among_evidence": {
+          "count": 396896,
+          "min": 1,
+          "mean": 21.080552588083528,
+          "median": 2.0,
+          "p75": 5.0,
+          "p90": 20.0,
+          "p95": 57.0,
+          "p99": 391.0,
+          "max": 32249
+        },
+        "event_threshold_counts": {
+          "at_least_1": 396896,
+          "at_least_2": 204092,
+          "at_least_5": 100022,
+          "at_least_10": 63971,
+          "at_least_20": 40576,
+          "at_least_50": 21905,
+          "at_least_100": 13432
+        },
+        "train_unique_user_count_distribution_among_evidence": {
+          "count": 396896,
+          "min": 1,
+          "mean": 18.70824850842538,
+          "median": 1.0,
+          "p75": 4.0,
+          "p90": 18.0,
+          "p95": 51.0,
+          "p99": 352.0,
+          "max": 26765
+        },
+        "unique_user_threshold_counts": {
+          "at_least_1": 396896,
+          "at_least_2": 180272,
+          "at_least_5": 92267,
+          "at_least_10": 59025,
+          "at_least_20": 37659,
+          "at_least_50": 20316
+        },
+        "events_but_only_one_unique_train_user": 216624,
+        "event_and_unique_user_conservation": true
+      }
+    },
+    {
+      "candidate_fraction": 0.7,
+      "cutoff_timestamp": 20017840,
+      "train_events_including_full_cutoff_timestamp": 95404768,
+      "actual_train_event_fraction": 0.7000002553332437,
+      "same_timestamp_not_split": true,
+      "train_feedback_counts": {
+        "like": 61741935,
+        "dislike": 8360855,
+        "unlike": 23577894,
+        "undislike": 1724084
+      },
+      "real_audio_items": {
+        "total": 2367341,
+        "with_train_collaborative_evidence": 1963563,
+        "without_train_collaborative_evidence": 403778,
+        "train_event_count_distribution_among_evidence": {
+          "count": 1963563,
+          "min": 1,
+          "mean": 43.64536406522225,
+          "median": 2.0,
+          "p75": 7.0,
+          "p90": 34.0,
+          "p95": 103.0,
+          "p99": 765.0,
+          "max": 87036
+        },
+        "event_threshold_counts": {
+          "at_least_1": 1963563,
+          "at_least_2": 1138672,
+          "at_least_5": 608735,
+          "at_least_10": 402030,
+          "at_least_20": 268255,
+          "at_least_50": 156417,
+          "at_least_100": 100748
+        }
+      },
+      "missing_audio_items": {
+        "total": 507730,
+        "with_train_collaborative_evidence": 428095,
+        "without_train_collaborative_evidence": 79635,
+        "first_explicit_event_after_train_cutoff": 79635,
+        "train_events": 9704346,
+        "train_feedback_counts": {
+          "like": 2467077,
+          "dislike": 362821,
+          "unlike": 6420354,
+          "undislike": 454094
+        },
+        "train_event_count_distribution_among_evidence": {
+          "count": 428095,
+          "min": 1,
+          "mean": 22.668674009273644,
+          "median": 2.0,
+          "p75": 5.0,
+          "p90": 21.0,
+          "p95": 60.0,
+          "p99": 426.0599999999977,
+          "max": 34900
+        },
+        "event_threshold_counts": {
+          "at_least_1": 428095,
+          "at_least_2": 221658,
+          "at_least_5": 109522,
+          "at_least_10": 69865,
+          "at_least_20": 44654,
+          "at_least_50": 24305,
+          "at_least_100": 14960
+        },
+        "train_unique_user_count_distribution_among_evidence": {
+          "count": 428095,
+          "min": 1,
+          "mean": 20.070000817575536,
+          "median": 1.0,
+          "p75": 4.0,
+          "p90": 18.0,
+          "p95": 53.0,
+          "p99": 383.0,
+          "max": 28802
+        },
+        "unique_user_threshold_counts": {
+          "at_least_1": 428095,
+          "at_least_2": 195265,
+          "at_least_5": 100610,
+          "at_least_10": 64346,
+          "at_least_20": 41153,
+          "at_least_50": 22410
+        },
+        "events_but_only_one_unique_train_user": 232830,
+        "event_and_unique_user_conservation": true
+      }
+    },
+    {
+      "candidate_fraction": 0.8,
+      "cutoff_timestamp": 22167760,
+      "train_events_including_full_cutoff_timestamp": 109034004,
+      "actual_train_event_fraction": 0.8000001702221625,
+      "same_timestamp_not_split": true,
+      "train_feedback_counts": {
+        "like": 70818751,
+        "dislike": 9426513,
+        "unlike": 26725072,
+        "undislike": 2063668
+      },
+      "real_audio_items": {
+        "total": 2367341,
+        "with_train_collaborative_evidence": 2110160,
+        "without_train_collaborative_evidence": 257181,
+        "train_event_count_distribution_among_evidence": {
+          "count": 2110160,
+          "min": 1,
+          "mean": 46.46021628691663,
+          "median": 2.0,
+          "p75": 7.0,
+          "p90": 34.0,
+          "p95": 107.0,
+          "p99": 814.0,
+          "max": 94713
+        },
+        "event_threshold_counts": {
+          "at_least_1": 2110160,
+          "at_least_2": 1229337,
+          "at_least_5": 658376,
+          "at_least_10": 435357,
+          "at_least_20": 291704,
+          "at_least_50": 170404,
+          "at_least_100": 110462
+        }
+      },
+      "missing_audio_items": {
+        "total": 507730,
+        "with_train_collaborative_evidence": 457148,
+        "without_train_collaborative_evidence": 50582,
+        "first_explicit_event_after_train_cutoff": 50582,
+        "train_events": 10995514,
+        "train_feedback_counts": {
+          "like": 2787910,
+          "dislike": 404293,
+          "unlike": 7262102,
+          "undislike": 541209
+        },
+        "train_event_count_distribution_among_evidence": {
+          "count": 457148,
+          "min": 1,
+          "mean": 24.05241628531679,
+          "median": 2.0,
+          "p75": 5.0,
+          "p90": 21.0,
+          "p95": 62.0,
+          "p99": 459.0,
+          "max": 37003
+        },
+        "event_threshold_counts": {
+          "at_least_1": 457148,
+          "at_least_2": 238328,
+          "at_least_5": 117765,
+          "at_least_10": 75308,
+          "at_least_20": 48499,
+          "at_least_50": 26469,
+          "at_least_100": 16287
+        },
+        "train_unique_user_count_distribution_among_evidence": {
+          "count": 457148,
+          "min": 1,
+          "mean": 21.248042209525142,
+          "median": 1.0,
+          "p75": 4.0,
+          "p90": 19.0,
+          "p95": 54.0,
+          "p99": 411.0,
+          "max": 30426
+        },
+        "unique_user_threshold_counts": {
+          "at_least_1": 457148,
+          "at_least_2": 209167,
+          "at_least_5": 108090,
+          "at_least_10": 69416,
+          "at_least_20": 44492,
+          "at_least_50": 24354
+        },
+        "events_but_only_one_unique_train_user": 247981,
+        "event_and_unique_user_conservation": true
+      }
+    },
+    {
+      "candidate_fraction": 0.9,
+      "cutoff_timestamp": 24152880,
+      "train_events_including_full_cutoff_timestamp": 122663267,
+      "actual_train_event_fraction": 0.90000028321446,
+      "same_timestamp_not_split": true,
+      "train_feedback_counts": {
+        "like": 80119179,
+        "dislike": 10527175,
+        "unlike": 29765504,
+        "undislike": 2251409
+      },
+      "real_audio_items": {
+        "total": 2367341,
+        "with_train_collaborative_evidence": 2244670,
+        "without_train_collaborative_evidence": 122671,
+        "train_event_count_distribution_among_evidence": {
+          "count": 2244670,
+          "min": 1,
+          "mean": 49.21039974695612,
+          "median": 2.0,
+          "p75": 7.0,
+          "p90": 35.0,
+          "p95": 110.0,
+          "p99": 862.0,
+          "max": 102265
+        },
+        "event_threshold_counts": {
+          "at_least_1": 2244670,
+          "at_least_2": 1311346,
+          "at_least_5": 703794,
+          "at_least_10": 466203,
+          "at_least_20": 312797,
+          "at_least_50": 183663,
+          "at_least_100": 119726
+        }
+      },
+      "missing_audio_items": {
+        "total": 507730,
+        "with_train_collaborative_evidence": 483659,
+        "without_train_collaborative_evidence": 24071,
+        "first_explicit_event_after_train_cutoff": 24071,
+        "train_events": 12202159,
+        "train_feedback_counts": {
+          "like": 3103242,
+          "dislike": 444372,
+          "unlike": 8066048,
+          "undislike": 588497
+        },
+        "train_event_count_distribution_among_evidence": {
+          "count": 483659,
+          "min": 1,
+          "mean": 25.228847183656253,
+          "median": 2.0,
+          "p75": 5.0,
+          "p90": 22.0,
+          "p95": 63.0,
+          "p99": 482.0,
+          "max": 39008
+        },
+        "event_threshold_counts": {
+          "at_least_1": 483659,
+          "at_least_2": 252655,
+          "at_least_5": 125152,
+          "at_least_10": 80079,
+          "at_least_20": 51800,
+          "at_least_50": 28421,
+          "at_least_100": 17599
+        },
+        "train_unique_user_count_distribution_among_evidence": {
+          "count": 483659,
+          "min": 1,
+          "mean": 22.275462671014083,
+          "median": 1.0,
+          "p75": 4.0,
+          "p90": 19.0,
+          "p95": 56.0,
+          "p99": 431.0,
+          "max": 31912
+        },
+        "unique_user_threshold_counts": {
+          "at_least_1": 483659,
+          "at_least_2": 221024,
+          "at_least_5": 114718,
+          "at_least_10": 73912,
+          "at_least_20": 47430,
+          "at_least_50": 26181
+        },
+        "events_but_only_one_unique_train_user": 262635,
+        "event_and_unique_user_conservation": true
+      }
+    }
+  ],
+  "interpretation_boundary": {
+    "formal_train_cutoff_confirmed": false,
+    "why_no_training": "global chronological split ratio/cutoff and Phase 1 duplicate/burst cleaning policy remain unconfirmed",
+    "future_graph_edges_used": false,
+    "recommended_metrics_if_approved": [
+      "Cosine",
+      "MSE",
+      "PrefixAcc@1",
+      "PrefixAcc@2",
+      "PrefixAcc@3",
+      "PrefixAcc@4",
+      "NN@10",
+      "NN@50"
+    ],
+    "primary_semantic_metrics": [
+      "PrefixAcc@1",
+      "PrefixAcc@2",
+      "NN@10",
+      "NN@50"
+    ]
+  }
+}

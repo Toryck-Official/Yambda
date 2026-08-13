@@ -1,0 +1,67 @@
+{
+  "format_version": 1,
+  "date": "2026-08-10",
+  "status": "phase1_pre_audit_complete_stop_before_materialization",
+  "scope": {
+    "model_training_performed": false,
+    "rqkmeans_training_performed": false,
+    "event_cleaning_performed": false,
+    "canonical_split_materialized": false,
+    "source_data_modified": false
+  },
+  "official_artifacts": {
+    "timestamp_burst_full": {
+      "path": "phase1_pre_audit/artifacts/timestamp_burst_sensitivity.json",
+      "sha256": "718bd8b3b395de87a6d4952a0d932a8ff00065a6b144bff209dcc02e97dcd1a6"
+    },
+    "timestamp_burst_validation": {
+      "path": "phase1_pre_audit/artifacts/timestamp_burst_validation.json",
+      "sha256": "d732198a84d343382da8936e0e60c190140ba74aaf233801532df96917c088a1",
+      "status": "passed",
+      "checks_passed": 15,
+      "checks_total": 15
+    },
+    "existing_sid_contract": {
+      "path": "phase1_pre_audit/artifacts/existing_sid_contract.json",
+      "sha256": "13867c134e621bd8c3773a93bcff5a08a96d75dc805ddf615748d9007c2697ac",
+      "status": "complete_read_only_audit"
+    }
+  },
+  "decision_documents": {
+    "fixed_checklist": {
+      "path": "docs/2026-08-10_Phase1前置审计与SID重建决策清单.md",
+      "sha256": "a2e52fca3311c6806840652d63f4eddabd6a063eb9505948f7f4ef14670b8220"
+    },
+    "cleaning_and_group_contract": {
+      "path": "docs/2026-08-10_Phase1清洗与分组实施契约.md",
+      "sha256": "1aa94a525dcbabbca0bb83397b5d9be46d677c024cc078a5d9ca8ef894159c83"
+    },
+    "sid_and_proxy_plan": {
+      "path": "docs/2026-08-10_SID重建与Proxy验证实施方案.md",
+      "sha256": "440aa54d8b2050d489701cfa865af097ca9f8da3022cf9da7efd5d980903747c"
+    },
+    "timestamp_burst_report": {
+      "path": "docs/2026-08-10_TimestampBurst全量前置审计.md",
+      "sha256": "b451aa2f773ccce2b25665be44410160a1603674b944ade96eadc105c1834573"
+    }
+  },
+  "frozen_counts": {
+    "users": 857499,
+    "events": 136292476,
+    "timestamp_groups": 80259999,
+    "explicit_items": 2875071,
+    "exact_duplicate_surplus": 1213728,
+    "expected_events_after_exact_dedup": 135078748
+  },
+  "hard_stops_requiring_user_confirmation": [
+    "D_human_like timestamp-group threshold after exact dedup recomputation",
+    "global chronological split target ratio",
+    "SID identity/disambiguation contract"
+  ],
+  "important_boundaries": [
+    "D_all must be retained; burst-filtered data cannot silently replace it",
+    "timestamp burst audit is pre-dedup and must be recomputed after exact dedup",
+    "old HPN architecture is reusable but old checkpoint, SID mapping and metrics are not",
+    "no SNMPP or RQKMeans training is authorized at this stop"
+  ]
+}

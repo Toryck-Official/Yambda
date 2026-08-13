@@ -1,0 +1,79 @@
+{
+  "format_version": 1,
+  "date": "2026-08-10",
+  "status": "gate1_complete_gate2_blocked_stop",
+  "scope": {
+    "snmpp_training_performed": false,
+    "hpn_training_performed": false,
+    "canonical_dataset_materialized": false,
+    "final_rqkmeans_training_performed": false,
+    "full_sid_materialized": false,
+    "source_events_modified": false
+  },
+  "gate1": {
+    "status": "complete",
+    "decision": "C",
+    "sample_items": 100000,
+    "validation_items": 50000,
+    "test_items": 50000,
+    "strict_leave_one_out": true,
+    "official_artifacts": {
+      "support_and_sample": {
+        "path": "phase1_gates/artifacts/metadata_support_sample_report.json",
+        "sha256": "148b9681dcbdf90cc062769d466038cae83990d43a478779a6b3eb82d957fc64"
+      },
+      "proxy_build": {
+        "path": "phase1_gates/artifacts/proxy_vector_build_report.json",
+        "sha256": "76b05b02a097ed79cb3f494ad3be20d617668efa602cd0d921db62948b1e2636"
+      },
+      "candidate_rq_report": {
+        "path": "phase1_gates/artifacts/gate1_candidate_rq/report.json",
+        "sha256": "901450fa351ff2ddeb1a8791d05d3a641ba524f6202fc1d5797de36e4f1f2869"
+      },
+      "candidate_codebooks": {
+        "path": "phase1_gates/artifacts/gate1_candidate_rq/codebooks.npy",
+        "sha256": "69d66315c23ea5a120c6f9076d54d45b3c664d8576dee4c2a9700a0a3c5893c4"
+      },
+      "primary_metrics": {
+        "path": "phase1_gates/artifacts/gate1_proxy_metrics.json",
+        "sha256": "8176af4e8ab8143ca6db6b824dd4aa127643316187df9df3db72117652ebdaf6"
+      },
+      "codebook_sensitivity": {
+        "path": "phase1_gates/artifacts/gate1_proxy_metrics_historical_codebook_sensitivity.json",
+        "sha256": "0df93ec74f047aa0dd57b8fa342d3ef1c90747fd37c38606d9514fcbd07206ea"
+      },
+      "decision": {
+        "path": "phase1_gates/artifacts/gate1_decision.json",
+        "sha256": "43785cb0fd87d7801caf95d1321287b7ce2178c1e549529e9c173a9ef519b604"
+      }
+    },
+    "report": {
+      "path": "phase1_gates/reports/Gate1_MetadataProxy可靠性报告.md",
+      "sha256": "c4f1e403140876d8280ed679717902a4488b0815b7c0a1f5d93348633d7a0203"
+    }
+  },
+  "gate2": {
+    "status": "blocked_not_started",
+    "scientific_block": "Gate 1 did not confirm a four-level semantic-SID proxy rule for 450594 metadata-available items.",
+    "resource_block": "No GPU is visible and the 2-GiB memory limit cannot hold the existing full-matrix RQ fit; two full real-item float32 matrices alone require 2.2577 GiB.",
+    "report": {
+      "path": "phase1_gates/reports/Gate2_阻塞说明.md",
+      "sha256": "a03a86eb1a024feb931702a584dd20b29c80169a682e5201fc70c58db7f2f6df"
+    }
+  },
+  "verification": {
+    "unit_tests_passed": 6,
+    "unit_tests_total": 6,
+    "sample_contract_checks_passed": true,
+    "proxy_shape_checks_passed": true,
+    "candidate_codebook_shape": [4, 256, 128],
+    "running_relevant_processes": 0,
+    "screen_sessions": 0
+  },
+  "required_user_decision": [
+    "Treat all 507730 missing-embedding items as unknown semantic representation",
+    "Change the protocol so metadata proxies are coarse auxiliary features rather than four-level SID sources",
+    "Authorize the failed conditional proxy as a risk-marked sensitivity branch",
+    "Provide another real audio-embedding source"
+  ]
+}

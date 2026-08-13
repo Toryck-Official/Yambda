@@ -1,0 +1,8 @@
+{
+  "mark_output_finite": true,
+  "time_nll_finite": true,
+  "time_hazard_positive": true,
+  "group_source_permutation_invariant_mark": true,
+  "group_source_permutation_invariant_time": true,
+  "signed_parameters_have_finite_gradients": true
+}

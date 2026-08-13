@@ -1,0 +1,30 @@
+# Data arrays and model weights (kept on local disk, too large for GitHub)
+*.npy
+*.npz
+*.parquet
+*.bin
+*.mmap
+*.pt
+*.pth
+
+# Logs and run-time cruft
+*.log
+*.exit
+exit.code
+*.tmp
+
+# Python caches
+__pycache__/
+*.pyc
+.pytest_cache/
+.cache/
+
+# The repo-root .gitignore excludes any directory named artifacts/ wholesale.
+# In this workspace, artifacts/ holds the experiment result JSON/TXT/MD files,
+# so re-include those while the binary data extensions above stay ignored.
+!artifacts/
+artifacts/**
+!artifacts/**/
+!artifacts/**/*.json
+!artifacts/**/*.txt
+!artifacts/**/*.md

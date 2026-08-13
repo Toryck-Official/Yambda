@@ -1,0 +1,214 @@
+{
+  "status": "complete_phase1_dall_exact_dedup_global_split",
+  "data_contract": {
+    "events": [
+      "like",
+      "dislike",
+      "unlike",
+      "undislike"
+    ],
+    "listen_used": false,
+    "only_deletion": "surplus rows sharing exact user,item,timestamp,feedback key",
+    "state_anomalies_removed": false,
+    "timestamp_bursts_removed": false,
+    "is_organic_used": false,
+    "dataset": "D_all"
+  },
+  "dedup": {
+    "events_before": 136292476,
+    "exact_duplicate_surplus_removed": 1213728,
+    "events_after": 135078748,
+    "explicit_item_universe_before": 2875071,
+    "by_feedback": {
+      "like": {
+        "feedback": "like",
+        "raw_events": 89334605,
+        "events_after_exact_dedup": 88713630,
+        "exact_duplicate_surplus_removed": 620975,
+        "duplicate_keys_with_mixed_is_organic": 1,
+        "users": 827246,
+        "output_files": {
+          "uid": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/like/uid.npy",
+          "offsets": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/like/offsets.npy",
+          "timestamp": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/like/timestamp.npy",
+          "item_id": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/like/item_id.npy"
+        }
+      },
+      "dislike": {
+        "feedback": "dislike",
+        "raw_events": 11579143,
+        "events_after_exact_dedup": 11540959,
+        "exact_duplicate_surplus_removed": 38184,
+        "duplicate_keys_with_mixed_is_organic": 1,
+        "users": 593011,
+        "output_files": {
+          "uid": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/dislike/uid.npy",
+          "offsets": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/dislike/offsets.npy",
+          "timestamp": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/dislike/timestamp.npy",
+          "item_id": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/dislike/item_id.npy"
+        }
+      },
+      "unlike": {
+        "feedback": "unlike",
+        "raw_events": 32944520,
+        "events_after_exact_dedup": 32435484,
+        "exact_duplicate_surplus_removed": 509036,
+        "duplicate_keys_with_mixed_is_organic": 0,
+        "users": 638130,
+        "output_files": {
+          "uid": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/unlike/uid.npy",
+          "offsets": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/unlike/offsets.npy",
+          "timestamp": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/unlike/timestamp.npy",
+          "item_id": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/unlike/item_id.npy"
+        }
+      },
+      "undislike": {
+        "feedback": "undislike",
+        "raw_events": 2434208,
+        "events_after_exact_dedup": 2388675,
+        "exact_duplicate_surplus_removed": 45533,
+        "duplicate_keys_with_mixed_is_organic": 3,
+        "users": 288764,
+        "output_files": {
+          "uid": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/undislike/uid.npy",
+          "offsets": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/undislike/offsets.npy",
+          "timestamp": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/undislike/timestamp.npy",
+          "item_id": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/undislike/item_id.npy"
+        }
+      }
+    }
+  },
+  "global_split": {
+    "train_cutoff_timestamp_inclusive": 22172245,
+    "validation_cutoff_timestamp_inclusive": 24154245,
+    "target_fractions": [
+      0.8,
+      0.1,
+      0.1
+    ],
+    "actual_event_counts": {
+      "train": 108063012,
+      "validation": 13507885,
+      "test": 13507851
+    },
+    "actual_event_fractions": {
+      "train": 0.8000001006820111,
+      "validation": 0.10000007551150829,
+      "test": 0.09999982380648065
+    },
+    "same_timestamp_group_not_split": true
+  },
+  "split_stats": {
+    "train": {
+      "events": 108063012,
+      "users": 778892,
+      "items": 2567743,
+      "real_audio_items": 2110515,
+      "missing_audio_items": 457228,
+      "missing_audio_events": 10845081,
+      "feedback_counts": {
+        "like": 70351717,
+        "dislike": 9397458,
+        "unlike": 26289967,
+        "undislike": 2023870
+      }
+    },
+    "validation": {
+      "events": 13507885,
+      "users": 594894,
+      "items": 879252,
+      "real_audio_items": 748224,
+      "missing_audio_items": 131028,
+      "missing_audio_events": 1194869,
+      "feedback_counts": {
+        "like": 9223498,
+        "dislike": 1095753,
+        "unlike": 3003355,
+        "undislike": 185279
+      }
+    },
+    "test": {
+      "events": 13507851,
+      "users": 629810,
+      "items": 866117,
+      "real_audio_items": 737835,
+      "missing_audio_items": 128282,
+      "missing_audio_events": 1219147,
+      "feedback_counts": {
+        "like": 9138415,
+        "dislike": 1047748,
+        "unlike": 3142162,
+        "undislike": 179526
+      }
+    }
+  },
+  "split_views": {
+    "like": {
+      "uid": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/like/uid.npy",
+      "offsets": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/like/offsets.npy",
+      "shared_timestamp": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/like/timestamp.npy",
+      "shared_item_id": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/like/item_id.npy",
+      "train_end": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/split_views/like/train_end.npy",
+      "validation_end": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/split_views/like/validation_end.npy",
+      "semantics": "per user: [offset,train_end)=train, [train_end,validation_end)=validation, [validation_end,next_offset)=test"
+    },
+    "dislike": {
+      "uid": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/dislike/uid.npy",
+      "offsets": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/dislike/offsets.npy",
+      "shared_timestamp": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/dislike/timestamp.npy",
+      "shared_item_id": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/dislike/item_id.npy",
+      "train_end": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/split_views/dislike/train_end.npy",
+      "validation_end": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/split_views/dislike/validation_end.npy",
+      "semantics": "per user: [offset,train_end)=train, [train_end,validation_end)=validation, [validation_end,next_offset)=test"
+    },
+    "unlike": {
+      "uid": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/unlike/uid.npy",
+      "offsets": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/unlike/offsets.npy",
+      "shared_timestamp": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/unlike/timestamp.npy",
+      "shared_item_id": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/unlike/item_id.npy",
+      "train_end": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/split_views/unlike/train_end.npy",
+      "validation_end": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/split_views/unlike/validation_end.npy",
+      "semantics": "per user: [offset,train_end)=train, [train_end,validation_end)=validation, [validation_end,next_offset)=test"
+    },
+    "undislike": {
+      "uid": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/undislike/uid.npy",
+      "offsets": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/undislike/offsets.npy",
+      "shared_timestamp": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/undislike/timestamp.npy",
+      "shared_item_id": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/undislike/item_id.npy",
+      "train_end": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/split_views/undislike/train_end.npy",
+      "validation_end": "/root/autodl-tmp/0809 Yambda/phase1_canonical/d_all/split_views/undislike/validation_end.npy",
+      "semantics": "per user: [offset,train_end)=train, [train_end,validation_end)=validation, [validation_end,next_offset)=test"
+    }
+  },
+  "checksums": {
+    "like": {
+      "uid": "20d3b891d4848ae1db56cb6ab18cf4fe8e0af6d1a2ffd273093a05af7891a849",
+      "offsets": "c0b70624c1d8af9f6236c52951966bb9d17be9a6fa168c78db6ad71bcdcdc81b",
+      "timestamp": "4e06fa4909e76d5eb1ecc95acbf887a40f3b1c2d9b96cb5b2361c0e3d6ff2148",
+      "item_id": "f9daaf630c5fc29873af2e222b43f121dd93f148462d90a64cc7756f6bf62e2a"
+    },
+    "dislike": {
+      "uid": "1088dc2ce52324004583930b00d0c16dd5455d6403d0f90ac2b28ec4e6fd96ff",
+      "offsets": "651d043098bc6ad321879eae298a378321b3a9295dfafae1d7035dcf94c7ca5c",
+      "timestamp": "072f4440c61827446490d28f59a0e759755dbc41294e4fab95a504039cb3757d",
+      "item_id": "9706c01d64681d31c965ae790fdd6fe837377b30ea4eb356816ad750ee000a15"
+    },
+    "unlike": {
+      "uid": "9b2dabf911bc359f66020e57731ef2ab7e536e9919bd2671d7a78effd62800f2",
+      "offsets": "fd1fc79c8ff5b9f4dc632d472b992325bba8561e3ea6ef1fde93e8cd6a89f643",
+      "timestamp": "f3f287a926b3b00895c99c493ec0d02da2023ecdf2344dda891dbb2b3cc2f67a",
+      "item_id": "bb04ed467ed91951d23e0e4ee4ea0d29a2d2d956bffbae152ef6c5c064657f06"
+    },
+    "undislike": {
+      "uid": "9a960dac99662788f6a840ea6228df2d0f4f21a23edb6b2d91a050feb25cefa6",
+      "offsets": "37505ce6c15e7a5b67bf087454c270a59754738434315023616ffe004d3a5d21",
+      "timestamp": "f5738b91c97bbee320ab5d2988a05d7f459c63c29a2e31bec5326cadb75069e6",
+      "item_id": "4932a1b1f756c7900eb1c9eb32fd68762eded8c6b75cbe0c0394505fe363eeee"
+    }
+  },
+  "boundaries": {
+    "gate1c_allowed": true,
+    "gate2_started": false,
+    "final_sid_materialized": false
+  }
+}

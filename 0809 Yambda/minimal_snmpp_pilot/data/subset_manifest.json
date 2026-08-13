@@ -1,0 +1,62 @@
+{
+  "status": "complete_fixed_full_history_pilot_subsets",
+  "seed": 2026,
+  "data_contract": {
+    "dataset": "D_SID",
+    "listen_used": false,
+    "missing_audio_used": false,
+    "test_used": false,
+    "history_truncated": false,
+    "within_group_order_used": false,
+    "canonical_event_storage_order": "group_id,feedback,sid solely for permutation-stable storage",
+    "user_selection_uses_train_period_only": true
+  },
+  "cutoffs": {
+    "train_inclusive": 22172245,
+    "validation_inclusive": 24154245
+  },
+  "selection": {
+    "tiny": "train target stratification by feedback/group size plus 16 previous-burst cases",
+    "pilot": "stable hash order over users with at least six train groups until 100k train targets",
+    "pilot_target_goal": 100000
+  },
+  "counts": {
+    "selected_users_union": 7343,
+    "materialized_events_through_validation": 4426374,
+    "materialized_groups_through_validation": 2468474,
+    "tiny_users": 6295,
+    "tiny_train_targets": 6413,
+    "pilot_users": 1063,
+    "pilot_train_targets": 100225,
+    "pilot_validation_targets": 12633,
+    "tiny_target_feedback_counts": [
+      11253,
+      6391,
+      15748,
+      4971
+    ],
+    "tiny_previous_burst_targets": 17
+  },
+  "baselines": {
+    "global_train_feedback_counts": [
+      67586458,
+      8995248,
+      19143288,
+      1492937
+    ],
+    "global_train_feedback_probabilities": [
+      0.6952056817584402,
+      0.09252663482418691,
+      0.1969110821747482,
+      0.015356601242624677
+    ],
+    "global_train_gap_mean_seconds": 167519.74109617522,
+    "global_train_gap_median_seconds": 2845.0,
+    "constant_exponential_rate_per_hour": 0.021490004559720482
+  },
+  "artifacts": {
+    "npz": "/root/autodl-tmp/0809 Yambda/minimal_snmpp_pilot/data/pilot_sequences.npz",
+    "npz_sha256": "6417bd993dbf3c4831e5921a906d79a2c7b928c3af2b1321eaa3f38432f74c6f"
+  },
+  "elapsed_seconds": 42.16898775100708
+}

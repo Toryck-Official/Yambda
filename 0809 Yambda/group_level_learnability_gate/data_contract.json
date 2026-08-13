@@ -1,0 +1,26 @@
+{
+  "source_npz": "/root/autodl-tmp/0809 Yambda/minimal_snmpp_pilot/data/pilot_sequences.npz",
+  "source_npz_sha256": "6417bd993dbf3c4831e5921a906d79a2c7b928c3af2b1321eaa3f38432f74c6f",
+  "codebook": "/root/autodl-tmp/0809 Yambda/phase2_gate2_sid/materialized_v1_1/frozen_sid/codebooks.npy",
+  "codebook_sha256": "c39da5c43f874150847dd6a0b59750e2f12ceb1114943b597fd2e09129a6756b",
+  "target_groups": 6413,
+  "target_events": 38363,
+  "target_users": 6295,
+  "union_history_groups": 1159633,
+  "history_group_length_percentiles": {
+    "0": 5.0,
+    "50": 82.0,
+    "90": 418.0,
+    "95": 666.3999999999996,
+    "99": 1826.8400000000074,
+    "100": 9948.0
+  },
+  "permutation_check_groups": 100,
+  "permutation_check_max_abs_difference": 4.470348358154297e-08,
+  "strict_pre_target_history": true,
+  "within_group_order_used": false,
+  "listen_used": false,
+  "test_used": false,
+  "feature_definition": "mean_frozen_SID_semantics_128 + feedback_composition_4 + log1p_group_size + log1p_previous_gap_hours",
+  "preparation_seconds": 3.6519397869706154
+}

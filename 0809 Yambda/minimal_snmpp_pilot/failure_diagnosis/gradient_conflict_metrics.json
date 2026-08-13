@@ -1,0 +1,189 @@
+{
+  "batch_contract": {
+    "positions": [
+      6,
+      7,
+      7,
+      11,
+      7,
+      10,
+      7,
+      11
+    ],
+    "target_group_ids": [
+      3591,
+      5045,
+      5045,
+      60135,
+      5045,
+      52947,
+      5045,
+      60135
+    ],
+    "target_feedback_counts": [
+      [
+        30,
+        0,
+        0,
+        0
+      ],
+      [
+        5,
+        95,
+        3,
+        7
+      ],
+      [
+        5,
+        95,
+        3,
+        7
+      ],
+      [
+        0,
+        1,
+        0,
+        1
+      ],
+      [
+        5,
+        95,
+        3,
+        7
+      ],
+      [
+        0,
+        0,
+        5,
+        0
+      ],
+      [
+        5,
+        95,
+        3,
+        7
+      ],
+      [
+        0,
+        1,
+        0,
+        1
+      ]
+    ],
+    "history_event_counts": [
+      457,
+      175,
+      175,
+      159,
+      175,
+      450,
+      175,
+      159
+    ],
+    "same_batch_for_all_objectives_and_states": true
+  },
+  "states": {
+    "initialization": {
+      "feedback_embedding": {
+        "gradient_norm_time": 0.0005907800514250994,
+        "gradient_norm_feedback": 0.0009087843936868012,
+        "cosine_similarity": 0.24144525833886535,
+        "combined_gradient_norm": 0.0011975683737546206,
+        "dot_product": 1.29629952994037e-07,
+        "finite": true
+      },
+      "P_SID": {
+        "gradient_norm_time": 0.00041474710451439023,
+        "gradient_norm_feedback": 5.262141348794103e-05,
+        "cosine_similarity": -0.23179043110439515,
+        "combined_gradient_norm": 0.00040579147753305733,
+        "dot_product": -5.058728547169267e-09,
+        "finite": true
+      },
+      "psi": {
+        "gradient_norm_time": 15.582898139953613,
+        "gradient_norm_feedback": 2.0891199111938477,
+        "cosine_similarity": -0.08690155922665946,
+        "combined_gradient_norm": 15.54133415222168,
+        "dot_product": -2.82904052734375,
+        "finite": true
+      },
+      "phi": {
+        "gradient_norm_time": 6.878683780087158e-05,
+        "gradient_norm_feedback": 5.4288579121930525e-05,
+        "cosine_similarity": -0.9789971796024431,
+        "combined_gradient_norm": 1.91588987945579e-05,
+        "dot_product": -3.6559080207609895e-09,
+        "finite": true
+      },
+      "delay": {
+        "gradient_norm_time": 2.473985603046458e-07,
+        "gradient_norm_feedback": 3.505976309270409e-08,
+        "cosine_similarity": -0.018614298543861194,
+        "combined_gradient_norm": 2.492234614237532e-07,
+        "dot_product": -1.6145549117498395e-16,
+        "finite": true
+      },
+      "shared_temporal_parameters": {
+        "gradient_norm_time": 15.582898139953613,
+        "gradient_norm_feedback": 2.0891201496124268,
+        "cosine_similarity": -0.08690154930911294,
+        "combined_gradient_norm": 15.54133415222168,
+        "dot_product": -2.82904052734375,
+        "finite": true
+      },
+      "negative_cosine_parameter_group_count": 4
+    },
+    "failed_checkpoint": {
+      "feedback_embedding": {
+        "gradient_norm_time": 0.05172017961740494,
+        "gradient_norm_feedback": 0.0476205088198185,
+        "cosine_similarity": 0.18035465245292534,
+        "combined_gradient_norm": 0.07636161148548126,
+        "dot_product": 0.00044420291669666767,
+        "finite": true
+      },
+      "P_SID": {
+        "gradient_norm_time": 0.04277322441339493,
+        "gradient_norm_feedback": 0.0026072480250149965,
+        "cosine_similarity": 0.886049226395465,
+        "combined_gradient_norm": 0.04509957134723663,
+        "dot_product": 9.88125684671104e-05,
+        "finite": true
+      },
+      "psi": {
+        "gradient_norm_time": 60.521244049072266,
+        "gradient_norm_feedback": 2.2083582878112793,
+        "cosine_similarity": 0.09202376311383632,
+        "combined_gradient_norm": 60.7642707824707,
+        "dot_product": 12.299214363098145,
+        "finite": true
+      },
+      "phi": {
+        "gradient_norm_time": 0.13645313680171967,
+        "gradient_norm_feedback": 0.002762389602139592,
+        "cosine_similarity": 0.9997513562607048,
+        "combined_gradient_norm": 0.13921484351158142,
+        "dot_product": 0.0003768430033233017,
+        "finite": true
+      },
+      "delay": {
+        "gradient_norm_time": 7.707905751885846e-05,
+        "gradient_norm_feedback": 1.094789695343934e-05,
+        "cosine_similarity": 0.07446095179678347,
+        "combined_gradient_norm": 7.865561201469973e-05,
+        "dot_product": 6.283414066832194e-11,
+        "finite": true
+      },
+      "shared_temporal_parameters": {
+        "gradient_norm_time": 60.52143096923828,
+        "gradient_norm_feedback": 2.2088749408721924,
+        "cosine_similarity": 0.09200883168813355,
+        "combined_gradient_norm": 60.764488220214844,
+        "dot_product": 12.30013370513916,
+        "finite": true
+      },
+      "negative_cosine_parameter_group_count": 0
+    }
+  }
+}

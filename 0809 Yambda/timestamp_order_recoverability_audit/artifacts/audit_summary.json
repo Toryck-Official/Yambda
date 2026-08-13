@@ -1,0 +1,256 @@
+{
+  "status": "complete_timestamp_order_recoverability_audit",
+  "guardrails": {
+    "SNMPP_or_HPN_trained": false,
+    "group_protocol_modified": false,
+    "Gate2_executed": false,
+    "events_deleted": false,
+    "SNMPP_Phase2_v1_1_modified": false
+  },
+  "conservation": {
+    "users": 854649,
+    "events": 121819651,
+    "groups": 77565283,
+    "expected_D_SID_events": 121819651,
+    "expected_D_SID_users": 854649,
+    "event_conservation_pass": true,
+    "user_conservation_pass": true,
+    "strict_like_to_unlike": 5993072,
+    "strict_dislike_to_undislike": 293608
+  },
+  "final_answers": {
+    "row_order": {
+      "answer": "No defensible ground-truth chronology; evidence class B only.",
+      "reason": "All reads are engineering-stable, but there is no sub-5-second/event-sequence field and current explicit streams are separate by feedback type."
+    },
+    "recoverability": {
+      "tied_events": 58618274,
+      "locally_unique_same_item_events": 2804692,
+      "locally_unique_fraction_of_tied_events": 0.04784671756114825,
+      "fully_uniquely_orderable_group_events": 1149564,
+      "fully_unique_fraction_of_tied_events": 0.01961101754719015,
+      "fully_uniquely_orderable_groups": 574782,
+      "fully_unique_fraction_of_multi_groups": 0.04001571717330927
+    },
+    "mixed_protocol": {
+      "recommended_as_main": false,
+      "reason": "Only 1.96% of tied events belong to a fully uniquely orderable timestamp group; local item order does not order events relative to other items.",
+      "allowed_role": "diagnostic/sensitivity analysis only"
+    },
+    "main_protocol": {
+      "keep_grouped_shared_history": true,
+      "reason": "It is the only protocol that covers all ties without inventing chronology."
+    },
+    "extreme_burst": {
+      "separate_sensitivity_subset_recommended": true,
+      "candidate_exclusion_rule_for_sensitivity_only": "group_size > 500",
+      "not_approved_as_cleaning": true,
+      "evidence": {
+        "train_201_500": {
+          "groups": 3467,
+          "group_fraction": 5.634174252122684e-05,
+          "events": 1003677,
+          "event_fraction": 0.01032399054038704,
+          "unique_items_per_group_mean": 280.2411306605134,
+          "same_item_multifeedback_group_fraction": 0.38534756273435244,
+          "single_feedback_group_fraction": 0.5742717046437843,
+          "feedback_counts": {
+            "like": 426740,
+            "dislike": 53019,
+            "unlike": 471605,
+            "undislike": 52313
+          },
+          "feedback_composition": {
+            "like": 0.4251766255478605,
+            "dislike": 0.05282476334517978,
+            "unlike": 0.46987726131016255,
+            "undislike": 0.052121349796797174
+          },
+          "same_time_revision_related_events": 27051,
+          "same_time_revision_related_event_fraction": 0.0269518978715264,
+          "users": 2785,
+          "previous_timestamp_gap": {
+            "count": 3105,
+            "mean_seconds": 291112.18518518517,
+            "min_seconds": 5,
+            "median_seconds_sample": 1630,
+            "p90_seconds_sample": 606860,
+            "p99_seconds_sample": 5513020,
+            "max_seconds": 17361265,
+            "sample_size": 3105
+          },
+          "next_timestamp_gap": {
+            "count": 3357,
+            "mean_seconds": 260918.24843610366,
+            "min_seconds": 5,
+            "median_seconds_sample": 1115,
+            "p90_seconds_sample": 524950,
+            "p99_seconds_sample": 5545200,
+            "max_seconds": 17649835,
+            "sample_size": 3357
+          }
+        },
+        "train_501_1000": {
+          "groups": 686,
+          "group_fraction": 1.1148092116977678e-05,
+          "events": 485818,
+          "event_fraction": 0.004997205710950586,
+          "unique_items_per_group_mean": 695.868804664723,
+          "same_item_multifeedback_group_fraction": 0.16909620991253643,
+          "single_feedback_group_fraction": 0.8177842565597667,
+          "feedback_counts": {
+            "like": 383395,
+            "dislike": 8674,
+            "unlike": 82270,
+            "undislike": 11479
+          },
+          "feedback_composition": {
+            "like": 0.7891741351699608,
+            "dislike": 0.017854422849709152,
+            "unlike": 0.16934325199972006,
+            "undislike": 0.02362818998061002
+          },
+          "same_time_revision_related_events": 5839,
+          "same_time_revision_related_event_fraction": 0.012018904198691692,
+          "users": 594,
+          "previous_timestamp_gap": {
+            "count": 531,
+            "mean_seconds": 327386.02636534837,
+            "min_seconds": 5,
+            "median_seconds_sample": 3600,
+            "p90_seconds_sample": 681035,
+            "p99_seconds_sample": 6123450,
+            "max_seconds": 17153480,
+            "sample_size": 531
+          },
+          "next_timestamp_gap": {
+            "count": 659,
+            "mean_seconds": 296312.48103186645,
+            "min_seconds": 5,
+            "median_seconds_sample": 2750,
+            "p90_seconds_sample": 707250,
+            "p99_seconds_sample": 4505270,
+            "max_seconds": 10878820,
+            "sample_size": 659
+          }
+        },
+        "train_1000_plus": {
+          "groups": 350,
+          "group_fraction": 5.6878021004988156e-06,
+          "events": 576294,
+          "event_fraction": 0.005927857074020635,
+          "unique_items_per_group_mean": 1641.92,
+          "same_item_multifeedback_group_fraction": 0.04,
+          "single_feedback_group_fraction": 0.9571428571428572,
+          "feedback_counts": {
+            "like": 551399,
+            "dislike": 987,
+            "unlike": 23358,
+            "undislike": 550
+          },
+          "feedback_composition": {
+            "like": 0.9568015630910611,
+            "dislike": 0.001712667492633968,
+            "unlike": 0.04053139543358077,
+            "undislike": 0.0009543739827240957
+          },
+          "same_time_revision_related_events": 758,
+          "same_time_revision_related_event_fraction": 0.0013153008707361173,
+          "users": 293,
+          "previous_timestamp_gap": {
+            "count": 267,
+            "mean_seconds": 549863.3520599251,
+            "min_seconds": 5,
+            "median_seconds_sample": 2170,
+            "p90_seconds_sample": 1273905,
+            "p99_seconds_sample": 12434540,
+            "max_seconds": 16565565,
+            "sample_size": 267
+          },
+          "next_timestamp_gap": {
+            "count": 335,
+            "mean_seconds": 348379.74626865675,
+            "min_seconds": 5,
+            "median_seconds_sample": 1045,
+            "p90_seconds_sample": 623640,
+            "p99_seconds_sample": 8163055,
+            "max_seconds": 17897545,
+            "sample_size": 335
+          }
+        },
+        "hypothetical_retain_le_500": {
+          "rule": "hypothetically retain timestamp groups with size <= 500",
+          "event_retention": 0.9880813400130328,
+          "group_retention": 0.9999825824138359,
+          "user_retention": 0.9999894693611061,
+          "feedback_retention": {
+            "like": 0.9847555119973046,
+            "dislike": 0.9990137460779026,
+            "unlike": 0.9945985371173587,
+            "undislike": 0.9929564944631478
+          },
+          "tied_event_fraction_after": 0.47493086269538504,
+          "multi_group_bins_retained": {
+            "2": 7386355,
+            "3-5": 5015332,
+            "6-10": 1384507,
+            "11-20": 393684,
+            "21-50": 138034,
+            "51-100": 31340,
+            "101-200": 9178,
+            "201-500": 4125
+          },
+          "strict_like_to_unlike_pairs_retained": 5868055,
+          "strict_dislike_to_undislike_pairs_retained": 291025,
+          "strict_like_to_unlike_pair_retention": 0.9791397466941829,
+          "strict_dislike_to_undislike_pair_retention": 0.9912025557886706
+        }
+      }
+    }
+  },
+  "order_sensitivity": {
+    "sample": {
+      "selection": "uid % 211 == 0 among users with multi-event groups",
+      "users": 3196,
+      "groups": 348529,
+      "multi_groups": 66278
+    },
+    "TV_engineering_original_vs_reversed": 0.010484395913023735,
+    "TV_engineering_original_vs_random_1": 0.020305060448923773,
+    "TV_random_1_vs_random_2": 0.0009526282299765337,
+    "TV_conservative_mixed_vs_grouped": 0.0075437668213052195,
+    "like_to_unlike_adjacent": {
+      "engineering_original": 8714.0,
+      "reversed": 4026.0,
+      "random_1": 6900.0,
+      "random_2": 7018.0,
+      "random_3": 6874.0,
+      "grouped": 3555.865534826909,
+      "conservative_mixed": 6104.872231255476
+    },
+    "dislike_to_undislike_adjacent": {
+      "engineering_original": 646.0,
+      "reversed": 524.0,
+      "random_1": 621.0,
+      "random_2": 624.0,
+      "random_3": 618.0,
+      "grouped": 359.20197039157415,
+      "conservative_mixed": 508.7972084868123
+    },
+    "zero_delta_ordered_transitions": {
+      "engineering_original": 201575.0,
+      "reversed": 201575.0,
+      "random_1": 201575.0,
+      "random_2": 201575.0,
+      "random_3": 201575.0,
+      "grouped": 0.0,
+      "conservative_mixed": 2732.0
+    },
+    "conclusion": "Arbitrary ordering materially changes revision adjacency and introduces many zero-delta transitions; random permutations are mutually stable but differ from deterministic type ordering, demonstrating assumption-driven structure."
+  },
+  "artifacts": {
+    "provenance": "/root/autodl-tmp/0809 Yambda/timestamp_order_recoverability_audit/artifacts/row_order_provenance.json",
+    "group_and_burst": "/root/autodl-tmp/0809 Yambda/timestamp_order_recoverability_audit/artifacts/group_recoverability_and_burst.json",
+    "sensitivity": "/root/autodl-tmp/0809 Yambda/timestamp_order_recoverability_audit/artifacts/row_order_sensitivity.json"
+  }
+}

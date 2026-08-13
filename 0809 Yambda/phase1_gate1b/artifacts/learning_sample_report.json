@@ -1,0 +1,20 @@
+{
+  "status": "complete_gate1b_fixed_learning_sample",
+  "counts": {
+    "train": 300000,
+    "validation": 50000,
+    "test": 50000
+  },
+  "contract": {
+    "train_disjoint_from_gate1a_sample": true,
+    "validation_and_test_exactly_reuse_gate1a_targets": true,
+    "targets_all_have_real_audio_embedding": true,
+    "targets_all_have_strict_loo_artist_or_album_context": true,
+    "frequency_is_stratification_only_not_model_input": true,
+    "frequency_boundaries_from_train_eligible_universe": {
+      "p50": 2,
+      "p90": 37
+    }
+  },
+  "output": "/root/autodl-tmp/0809 Yambda/phase1_gate1b/artifacts/learning_sample.npz"
+}

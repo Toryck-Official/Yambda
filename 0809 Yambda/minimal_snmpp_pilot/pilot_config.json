@@ -1,0 +1,59 @@
+{
+  "protocol_version": "v1.1",
+  "status": "authorized_implementation_stage_a_not_started",
+  "data": {
+    "dataset": "D_SID",
+    "train_cutoff_inclusive": 22172245,
+    "validation_cutoff_inclusive": 24154245,
+    "listen_used": false,
+    "missing_audio_used": false,
+    "history_truncated": false,
+    "test_used": false
+  },
+  "model": {
+    "feedback_embedding_dim": 4,
+    "interaction_hidden_dims": [16, 16],
+    "temporal_hidden_dims": [16, 16],
+    "sid_history_representation": "sum_of_four_frozen_codewords_then_trainable_projection",
+    "codebook_frozen": true,
+    "positive_link": "softplus",
+    "initial_delay_hours": 0.1,
+    "item_specific_delay": false,
+    "history_contribution_clipping": false,
+    "history_burst_normalization": false
+  },
+  "time": {
+    "model_unit": "hour",
+    "prediction_horizon_hours": 696,
+    "integration_Q": 64,
+    "train_integration": "one_stratified_random_point_per_segment",
+    "validation_integration": "deterministic_midpoint"
+  },
+  "stage_a": {
+    "target_groups_goal": 8000,
+    "seed": 2026,
+    "max_epochs": 5,
+    "early_stop_reason": "three consecutive deterministic same-subset evaluations degraded and remained single-class; five epochs retained for reproducible failure artifacts",
+    "batch_size": 8,
+    "learning_rate": 0.00001,
+    "optimization_note": "final allowed stability retry; preserved attempts at 1e-3 and 1e-4 oscillated under raw full-history summation; formula and data contract are unchanged",
+    "rejected_learning_rate_attempts": [0.001, 0.0001],
+    "gradient_clip_norm": 10.0
+  },
+  "stage_b": {
+    "train_target_groups_goal": 100000,
+    "seeds": [2026, 2027, 2028],
+    "max_epochs": 5,
+    "batch_size": 8,
+    "learning_rate": 0.00001,
+    "gradient_clip_norm": 10.0,
+    "may_reduce_after_measured_full_history_profile": true
+  },
+  "forbidden": {
+    "hierarchical_sid_head": true,
+    "residual": true,
+    "hpn": true,
+    "bola": true,
+    "full_scale_training": true
+  }
+}

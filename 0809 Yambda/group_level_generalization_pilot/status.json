@@ -1,0 +1,24 @@
+{
+  "group_level_mark_generalizes": false,
+  "group_level_time_generalizes": true,
+  "full_history_generalization_supported": true,
+  "group_snmpp_design_gate_approved": true,
+  "ordinary_group_models_numerically_stable": true,
+  "mark_overfit_detected": true,
+  "time_overfit_detected": true,
+  "validation_previous_group_over_500_count": 0,
+  "burst_over_500_validation_evaluable": false,
+  "design_gate_approval_scope": "time-history signal only; mark-history generalization and >500 validation stability are not supported",
+  "test_used": false,
+  "group_snmpp_designed_or_trained": false,
+  "decision_thresholds": {
+    "mark": "validation CE >=1% better and Macro-F1 >=0.01 higher than strongest simple baseline, with zero collapsed seeds",
+    "time": "validation NLL and MAE each >=1% better than strongest respective baseline",
+    "approval": "at least one full-history task generalizes and all runs/slices are finite"
+  },
+  "mark_validation_relative_CE_gain": -0.15100524453222544,
+  "mark_validation_absolute_MacroF1_gain": -0.08301992673779274,
+  "time_validation_relative_NLL_gain": 0.05501055160435807,
+  "time_validation_relative_MAE_gain": 0.026455088954181374,
+  "stop_reason": "Group-Level Generalization Pilot complete; Group-SNMPP Design Gate not started."
+}

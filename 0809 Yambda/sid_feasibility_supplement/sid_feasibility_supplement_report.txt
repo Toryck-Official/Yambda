@@ -1,0 +1,18 @@
+SID Feasibility 补充实验（STOP before Gate 2）
+
+100k candidate collision: 42.6699%
+2.367M full-fit collision: 43.1204%
+full-fit reconstruction MSE: 0.00120615
+结论：拟合规模不是高 collision 的主要原因。
+
+B0_audio_only: collision=43.1204%, NN@10/50=1.0000/1.0000, max_bucket=1293
+B1_audio_artist: collision=46.0301%, NN@10/50=0.7180/0.7882, max_bucket=2246
+B2_audio_album: collision=43.4368%, NN@10/50=0.7651/0.8266, max_bucket=1311
+B3_audio_artist_album: collision=45.0959%, NN@10/50=0.7326/0.8012, max_bucket=1248
+
+raw exact duplicate item ratio: 5.1685%
+normalized exact duplicate item ratio: 5.1685%
+SID+residual unique rate: 96.7175%
+结论：metadata fusion 不批准；B0 是当前最合理语义 SID。SID+residual 可区分所有 audio-distinguishable items，但不能区分源向量本身完全相同的物品。
+
+STOP: no missing item, no suffix, no Gate 2, no SNMPP/HPN.

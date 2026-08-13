@@ -1,0 +1,746 @@
+{
+  "status": "complete_read_only_audit",
+  "historical_store": "/root/autodl-tmp/0804 Yambda/dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026",
+  "structure": {
+    "catalog_items": 244553,
+    "semantic_levels": 4,
+    "semantic_vocabulary_per_level": [
+      256,
+      256,
+      256,
+      256
+    ],
+    "codebooks_shape": [
+      4,
+      256,
+      128
+    ],
+    "codebook_vector_dimension": 128,
+    "full_identity_levels": 5,
+    "fifth_level": {
+      "kind": "deterministic item-id-ordered collision suffix",
+      "semantic": false,
+      "has_codebook_vector": false,
+      "observed_min": 0,
+      "observed_max": 177,
+      "observed_vocabulary_size": 178
+    },
+    "semantic_unique_paths": 229913,
+    "semantic_excess_colliding_items": 14640,
+    "full_unique_paths": 244553,
+    "item_id_min": 26,
+    "item_id_max": 9390601,
+    "orig2catalog_length": 9390602,
+    "exact_item_recovery": "full 5-token path is unique inside this historical catalog; catalog_item_ids plus inverse map recover the item"
+  },
+  "checks": {
+    "four_semantic_levels": true,
+    "four_codebooks": true,
+    "codebook_size_256_each": true,
+    "codebook_vector_dimension_128": true,
+    "fifth_level_exists": true,
+    "fifth_level_equals_collision_suffix": true,
+    "first_four_full_levels_equal_semantic_codes": true,
+    "fifth_level_has_no_codebook_vectors": true,
+    "full_sid_unique_per_catalog_item": true,
+    "semantic_sid_not_unique_per_catalog_item": true,
+    "catalog_item_ids_unique": true,
+    "orig2catalog_inverse_consistent": true,
+    "feature_rows_align": true,
+    "feature_source_rows_align": true,
+    "codebooks_finite": true
+  },
+  "historical_training_contract": {
+    "source_codebook_items": 210985,
+    "source_feature_type": "normalized 128-d audio embedding",
+    "fit_scope": "all_feature_covered_explicit_items",
+    "fit_uses_interaction_labels": false,
+    "codebook_refitted_after_proxy_imputation": false,
+    "old_proxy_collaborative_split_strategy": "user_disjoint_seeded_permutation",
+    "old_proxy_collaborative_train_users": 6876,
+    "current_protocol_compatible": false,
+    "incompatibility": "old item universe and collaborative fallback came from a 50M-derived pipeline with user-disjoint splitting, not the current full-5B global chronological protocol"
+  },
+  "interaction_leakage_audit": {
+    "kmeans_objective_uses_feedback_labels": false,
+    "item_universe_selected_from_full_old_explicit_log": true,
+    "global_time_inductive_codebook_claim_supported": false,
+    "classification": "transductive item-universe selection",
+    "note": "Static audio vectors are not future labels, but selecting the fit catalog from all explicit periods reveals which items occur later. The new fixed protocol may deliberately retain the full explicit universe, but this must be disclosed rather than called inductive or leakage-free."
+  },
+  "historical_hpn_contract": {
+    "configured_predicted_levels": 4,
+    "stored_semantic_levels": 4,
+    "stored_identity_levels": 5,
+    "predicts_fifth_suffix": false,
+    "separate_collision_resolution": "matched-training popularity then dense item id inside equal semantic prefix",
+    "code_evidence": {
+      "store_exposes_full_codes": true,
+      "evaluation_has_separate_collision_resolver": true
+    }
+  },
+  "new_full5b_requirements": {
+    "explicit_items": 2875071,
+    "real_embedding_items_for_codebook_fit": 2367341,
+    "metadata_supported_proxy_items_quantized_after_freeze": 450594,
+    "cold_unknown_items": 57136,
+    "orig2catalog_required_length": 9390624,
+    "single_256_way_suffix_can_distinguish_all_cold_items": false,
+    "minimum_base256_disambiguation_levels_for_cold_bucket": 2,
+    "hard_issue": "If all cold items share one unknown semantic vector, they share one four-level semantic path. One historical 256-way suffix is insufficient; identity needs a larger vocabulary, at least two base-256 suffix levels, or a separate exact-item resolver. Proxy centroids may create additional large identical-vector buckets, so the final maximum bucket must be audited."
+  },
+  "decision_boundary": "Do not train a new codebook or assign final SIDs until the disambiguation contract is selected and proxy leave-one-out quality is measured.",
+  "provenance": {
+    "store_manifest": {
+      "config": {
+        "data_contract": {
+          "codebook_strategy": "fixed_existing_rq4",
+          "collaborative_source": "train_users_only",
+          "is_organic_used": false,
+          "listen_included": false
+        },
+        "paths": {
+          "events_parquet": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/processed/nolisten_clean_max50/events.parquet",
+          "feature_store": "/root/autodl-tmp/0626/0626 Predictor/01_data/processed/raw_rqkmeans",
+          "metadata_dir": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/data/official_metadata",
+          "output_dir": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026",
+          "report_json": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/reports/metadata_imputation_report.json",
+          "report_markdown": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/reports/metadata_imputation_report.md",
+          "source_artifact": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/rq4_collision_aware_seed2026",
+          "train_split_npz": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/processed/snmpp_yambda_nolisten_max50/train.npz"
+        },
+        "runtime": {
+          "aggregation_batch_size": 131072,
+          "aggregation_device": "cpu"
+        },
+        "seed": 2026,
+        "validation": {
+          "artist_album_right_weight_grid": [
+            0.0,
+            0.25,
+            0.5,
+            0.75,
+            1.0
+          ],
+          "collaborative_right_weight_grid": [
+            0.0,
+            0.1,
+            0.25,
+            0.5
+          ],
+          "sample_items": 20000
+        }
+      },
+      "feature_source_labels": {
+        "0": "source_audio_embedding",
+        "1": "artist_centroid",
+        "2": "album_centroid",
+        "3": "artist_album_centroid",
+        "4": "train_explicit_collaborative",
+        "5": "metadata_plus_train_explicit_collaborative"
+      },
+      "format_version": 1,
+      "inputs": {
+        "events": {
+          "mtime_ns": 1784954762929672274,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/processed/nolisten_clean_max50/events.parquet",
+          "sha256": "73597d8e5e425a548922a76a60298a0334cfb7e234d262c532c8f398f51bf2d8",
+          "size_bytes": 10209890
+        },
+        "official_metadata": {
+          "files": {
+            "album_item_mapping.parquet": {
+              "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/data/official_metadata/album_item_mapping.parquet",
+              "row_groups": 36,
+              "rows": 9651644,
+              "schema": "album_id: uint32\nitem_id: uint32",
+              "sha256": "559b6576063d96280414574b32292eee7b47ee0b9f2952cb3ae670a5d19125e4",
+              "size_bytes": 54528894,
+              "source_url": "https://huggingface.co/datasets/yandex/yambda/resolve/dd6f3a19eef5866e346c3270e098baa641a44948/album_item_mapping.parquet"
+            },
+            "artist_item_mapping.parquet": {
+              "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/data/official_metadata/artist_item_mapping.parquet",
+              "row_groups": 35,
+              "rows": 9271906,
+              "schema": "artist_id: uint32\nitem_id: uint32",
+              "sha256": "cf1110aa2413ed70008ec9232d395660b2181ffda731002fb74da54e87b6f25d",
+              "size_bytes": 38274621,
+              "source_url": "https://huggingface.co/datasets/yandex/yambda/resolve/dd6f3a19eef5866e346c3270e098baa641a44948/artist_item_mapping.parquet"
+            }
+          },
+          "format_version": 1,
+          "repository": "yandex/yambda",
+          "revision": "dd6f3a19eef5866e346c3270e098baa641a44948"
+        },
+        "source_artifact": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/rq4_collision_aware_seed2026",
+        "train_split": {
+          "mtime_ns": 1785131003816797199,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/processed/snmpp_yambda_nolisten_max50/train.npz",
+          "sha256": "c6c9f18533b2af4d9aa6d6a00d382b3ca8d432876957143c70a9bb2759a3c07d",
+          "size_bytes": 16049458
+        }
+      },
+      "outputs": {
+        "album_source_count.npy": {
+          "dtype": "int64",
+          "mtime_ns": 1785557745157222644,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/album_source_count.npy",
+          "sha256": "b426a9abfb42ad65cfe527329bd51d4f719c477054b74cfb9292eea0e238f4f1",
+          "shape": [
+            244553
+          ],
+          "size_bytes": 1956552
+        },
+        "artist_source_count.npy": {
+          "dtype": "int64",
+          "mtime_ns": 1785557745157222644,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/artist_source_count.npy",
+          "sha256": "a95abe9ccfe6b5246c0654a14b5ef4c9cbd590f73c02f95d44b35aaff5e9c754",
+          "shape": [
+            244553
+          ],
+          "size_bytes": 1956552
+        },
+        "catalog_event_counts.npy": {
+          "dtype": "int64",
+          "mtime_ns": 1785557745153222527,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/catalog_event_counts.npy",
+          "sha256": "332af2259956f7c80426fcc31e5cd76da97e5d3ad64c5020066194f69aafa910",
+          "shape": [
+            244553
+          ],
+          "size_bytes": 1956552
+        },
+        "catalog_features.npy": {
+          "dtype": "float32",
+          "mtime_ns": 1785557745149222410,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/catalog_features.npy",
+          "sha256": "d21e3874c11c326a2eab5d2e7248c1fd61295be77c9487d43fa4984dd0d3ea32",
+          "shape": [
+            244553,
+            128
+          ],
+          "size_bytes": 125211264
+        },
+        "catalog_item_ids.npy": {
+          "dtype": "int64",
+          "mtime_ns": 1785557745085220541,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/catalog_item_ids.npy",
+          "sha256": "730907e6ae47a220aa20694618ebfeab6751b8d582b17ee84d1c8c08705d04e6",
+          "shape": [
+            244553
+          ],
+          "size_bytes": 1956552
+        },
+        "codebooks.npy": {
+          "dtype": "float32",
+          "mtime_ns": 1785557745165222878,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/codebooks.npy",
+          "sha256": "bf87a9b5ff6f25c2dd133db54639bf00007ad20cd6d7efd936147fcc7e887c22",
+          "shape": [
+            4,
+            256,
+            128
+          ],
+          "size_bytes": 524416
+        },
+        "cold_item_ids.npy": {
+          "dtype": "int64",
+          "mtime_ns": 1785557745165222878,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/cold_item_ids.npy",
+          "sha256": "dea93404adbd2408189bb3bd31d21ebad43345ad2d2a78400cbae8cc223a9166",
+          "shape": [
+            340
+          ],
+          "size_bytes": 2848
+        },
+        "collaborative_user_count.npy": {
+          "dtype": "int32",
+          "mtime_ns": 1785557745157222644,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/collaborative_user_count.npy",
+          "sha256": "8b560d57678a48daf6b31f4df458e4bb22a40c96184b67548c9555b644fba65d",
+          "shape": [
+            244553
+          ],
+          "size_bytes": 978340
+        },
+        "collision_suffix.npy": {
+          "dtype": "uint16",
+          "mtime_ns": 1785557745161222761,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/collision_suffix.npy",
+          "sha256": "418d447d00c4e396c1d9f27c2b88c4cc1480145ab50e1304e48171a6d7701167",
+          "shape": [
+            244553
+          ],
+          "size_bytes": 489234
+        },
+        "feature_source.npy": {
+          "dtype": "int8",
+          "mtime_ns": 1785557745153222527,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/feature_source.npy",
+          "sha256": "5cefa9009414c2d3a42f838f92fe97ef6aff388c330dfdc7888342e4aa2ee54f",
+          "shape": [
+            244553
+          ],
+          "size_bytes": 244681
+        },
+        "full_codes.npy": {
+          "dtype": "uint16",
+          "mtime_ns": 1785557745165222878,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/full_codes.npy",
+          "sha256": "529be92a21dad3e9577185d9a9fd047d03665a573eb34f4a100365b275c28a0d",
+          "shape": [
+            244553,
+            5
+          ],
+          "size_bytes": 2445658
+        },
+        "greedy_codes.npy": {
+          "dtype": "uint16",
+          "mtime_ns": 1785557745161222761,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/greedy_codes.npy",
+          "sha256": "fbda931bf6a77fe1012dd934ed38409a9c29adb4f326055b61694d354d2ca017",
+          "shape": [
+            244553,
+            4
+          ],
+          "size_bytes": 1956552
+        },
+        "imputation_confidence.npy": {
+          "dtype": "float32",
+          "mtime_ns": 1785557745153222527,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/imputation_confidence.npy",
+          "sha256": "6198f624ff3098d16b8a896792f95b53bf216c325eddb83fc364aa2d7b0eb2c4",
+          "shape": [
+            244553
+          ],
+          "size_bytes": 978340
+        },
+        "orig2catalog_row.npy": {
+          "dtype": "int32",
+          "mtime_ns": 1785557745185223462,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/orig2catalog_row.npy",
+          "sha256": "15edf3efe87fe55e30c6743c24915bb0f336700970bf15e04e2d5b46c79a7ab1",
+          "shape": [
+            9390602
+          ],
+          "size_bytes": 37562536
+        },
+        "proxy_duplicate_mask.npy": {
+          "dtype": "bool",
+          "mtime_ns": 1785557745161222761,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/proxy_duplicate_mask.npy",
+          "sha256": "f679def53ef2af62c40528059d03e04f934f971c6cb50c7f054811a561b90dec",
+          "shape": [
+            244553
+          ],
+          "size_bytes": 244681
+        },
+        "recommended_semantic_mask.npy": {
+          "dtype": "bool",
+          "mtime_ns": 1785557745161222761,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/recommended_semantic_mask.npy",
+          "sha256": "a36478eb220621f9702a1b8d16df3cf20c2710ecc3471a4aa365f62254b56176",
+          "shape": [
+            244553
+          ],
+          "size_bytes": 244681
+        },
+        "semantic_codes.npy": {
+          "dtype": "uint16",
+          "mtime_ns": 1785557745161222761,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/semantic_codes.npy",
+          "sha256": "3e20888cc4fdd16c418717bd9463c656d43f9f9aade231ff6f53069219b2b035",
+          "shape": [
+            244553,
+            4
+          ],
+          "size_bytes": 1956552
+        },
+        "source_dense_ids.npy": {
+          "dtype": "int64",
+          "mtime_ns": 1785557745153222527,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/source_dense_ids.npy",
+          "sha256": "4fe1bc527e64d1cfecc80c0c681e0057a9fc2688a142a47cb8cfce6cc602efe6",
+          "shape": [
+            244553
+          ],
+          "size_bytes": 1956552
+        }
+      },
+      "seed": 2026
+    },
+    "source_store_manifest": {
+      "acceptance": {
+        "checks": {
+          "collision_aware_mse_increase_at_most_2_percent": true,
+          "full_code_is_unique": true,
+          "mean_neighbor_common_prefix_drop_at_most_0_05": true,
+          "suffix_scope_equals_identical_feature_lower_bound": true,
+          "suffix_vocabulary_fits_one_256_way_level": true,
+          "zero_avoidable_semantic_collisions": true
+        },
+        "observed": {
+          "identical_feature_item_rate_lower_bound": 0.027068274995852785,
+          "mean_neighbor_common_prefix_change_vs_greedy": -0.02950000000000008,
+          "relative_mse_change_vs_greedy": 0.012071374833355852,
+          "suffix_nonzero_item_rate": 0.027068274995852785
+        },
+        "passed": true,
+        "threshold_note": "The 2% MSE and 0.05-prefix limits are engineering guardrails for this task-scoped encoding, not universal RQ-KMeans theory."
+      },
+      "config": {
+        "collision": {
+          "append_disambiguation_suffix": true,
+          "enabled": true,
+          "lock_prefix_levels": 3,
+          "require_zero_avoidable_collisions": true,
+          "resolve_overflow_with_last_two_levels": true
+        },
+        "data": {
+          "feature_column": "normalized_embed",
+          "feature_dim": 128,
+          "fit_scope": "all_feature_covered_explicit_items",
+          "keep_compact_features": true,
+          "verify_source_cache_alignment": true
+        },
+        "evaluation": {
+          "locality_pool_size": 100000,
+          "locality_query_size": 3000,
+          "locality_topk": 10,
+          "prefix_pair_samples": 20000,
+          "random_pair_samples": 30000
+        },
+        "paths": {
+          "embeddings_parquet": "/root/autodl-tmp/0330Yambda/data/embeddings.parquet",
+          "events_parquet": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/processed/nolisten_clean_max50/events.parquet",
+          "output_dir": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/rq4_collision_aware_seed2026",
+          "verified_feature_store": "/root/autodl-tmp/0626/0626 Predictor/01_data/processed/raw_rqkmeans"
+        },
+        "rq": {
+          "anchor_historical_prefix_levels": 0,
+          "codebook_size": 256,
+          "iterations": 25,
+          "levels": 4,
+          "max_points_per_centroid": 1000000,
+          "min_points_per_centroid": 1,
+          "restarts": 1,
+          "use_gpu": true
+        },
+        "seed": 2026
+      },
+      "config_file": {
+        "mtime_ns": 1785472236884440180,
+        "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/configs/rq4_collision_aware.yaml",
+        "sha256": "9e010cd6356e812a9322ecf73a2f5f47c87bd2782f90a1fe12bec9809dab94c5",
+        "size_bytes": 1104
+      },
+      "data_contract": {
+        "anchored_historical_prefix_levels": 0,
+        "event_types": [
+          "like",
+          "dislike",
+          "unlike",
+          "undislike"
+        ],
+        "fit_scope": "all_feature_covered_explicit_items",
+        "fit_uses_interaction_labels": false,
+        "is_organic_used": false,
+        "listen_included": false,
+        "missing_feature_policy": "do not fabricate codes; retain original item ids in missing_item_ids.npy",
+        "semantic_codebook_size": 256,
+        "semantic_codes_are_zero_based": true,
+        "semantic_levels": 4,
+        "suffix_is_semantic": false
+      },
+      "format_version": 1,
+      "inputs": {
+        "embeddings_parquet": {
+          "mtime_ns": 1773299305716661665,
+          "path": "/root/autodl-tmp/0330Yambda/data/embeddings.parquet",
+          "size_bytes": 13814230943
+        },
+        "events_parquet": {
+          "mtime_ns": 1784954762929672274,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/processed/nolisten_clean_max50/events.parquet",
+          "sha256": "73597d8e5e425a548922a76a60298a0334cfb7e234d262c532c8f398f51bf2d8",
+          "size_bytes": 10209890
+        },
+        "historical_sid": {
+          "mtime_ns": 1776671070423054431,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/01_data/processed/raw_rqkmeans/dense_item2sid.npy",
+          "sha256": "960d09ed272226c147a589d5795d5f53b86cf6c82956806943e4bef3dfd283c3",
+          "size_bytes": 61774128
+        }
+      },
+      "outputs": {
+        "catalog_event_counts.npy": {
+          "dtype": "int64",
+          "mtime_ns": 1785472361984948485,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/rq4_collision_aware_seed2026/catalog_event_counts.npy",
+          "sha256": "d958941735fcc7e4ac7e066a474bb2df6fd1d8b483acb7d8def18ad4af84227a",
+          "shape": [
+            210985
+          ],
+          "size_bytes": 1688008
+        },
+        "catalog_features.npy": {
+          "dtype": "float32",
+          "mtime_ns": 1785472362064912584,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/rq4_collision_aware_seed2026/catalog_features.npy",
+          "sha256": "8997467af2379f2683dca5eda041bb752e3ec0dc7e6a4f10c74814ac590e3b77",
+          "shape": [
+            210985,
+            128
+          ],
+          "size_bytes": 108024448
+        },
+        "catalog_item_ids.npy": {
+          "dtype": "int64",
+          "mtime_ns": 1785472361984948485,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/rq4_collision_aware_seed2026/catalog_item_ids.npy",
+          "sha256": "0ac020888c426ad090b391a477f63c2f1662f0d7edf0e4d417b7bcbeebc15248",
+          "shape": [
+            210985
+          ],
+          "size_bytes": 1688008
+        },
+        "codebooks.npy": {
+          "dtype": "float32",
+          "mtime_ns": 1785472361988946664,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/rq4_collision_aware_seed2026/codebooks.npy",
+          "sha256": "bf87a9b5ff6f25c2dd133db54639bf00007ad20cd6d7efd936147fcc7e887c22",
+          "shape": [
+            4,
+            256,
+            128
+          ],
+          "size_bytes": 524416
+        },
+        "collision_suffix.npy": {
+          "dtype": "uint16",
+          "mtime_ns": 1785472361988946664,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/rq4_collision_aware_seed2026/collision_suffix.npy",
+          "sha256": "3a4d93f85d4bbfb25b8b7530e7cde9d80b128dbe71ae7b5faa681132733947e4",
+          "shape": [
+            210985
+          ],
+          "size_bytes": 422098
+        },
+        "full_codes.npy": {
+          "dtype": "uint16",
+          "mtime_ns": 1785472361988946664,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/rq4_collision_aware_seed2026/full_codes.npy",
+          "sha256": "f0bbe491087884f7ca2318cf58ffd996b815e505bfa5fe5cab6cc7ca7cd06d17",
+          "shape": [
+            210985,
+            5
+          ],
+          "size_bytes": 2109978
+        },
+        "greedy_codes.npy": {
+          "dtype": "uint16",
+          "mtime_ns": 1785472361988946664,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/rq4_collision_aware_seed2026/greedy_codes.npy",
+          "sha256": "89bb3b42112670229828764433fd60a87f36fbe16e5a059a2585fe2e1167fb41",
+          "shape": [
+            210985,
+            4
+          ],
+          "size_bytes": 1688008
+        },
+        "missing_item_ids.npy": {
+          "dtype": "int64",
+          "mtime_ns": 1785472361988946664,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/rq4_collision_aware_seed2026/missing_item_ids.npy",
+          "sha256": "e75f31795617c1132c3ef0f42d15d0f971632fb735b763ad2a81ee6727227a35",
+          "shape": [
+            33908
+          ],
+          "size_bytes": 271392
+        },
+        "orig2catalog_row.npy": {
+          "dtype": "int32",
+          "mtime_ns": 1785472362008937623,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/rq4_collision_aware_seed2026/orig2catalog_row.npy",
+          "sha256": "aa685520e452dcd7d705c4eb1c5977cab41beb16766cb1fd18ae7b238673b50e",
+          "shape": [
+            9390602
+          ],
+          "size_bytes": 37562536
+        },
+        "semantic_codes.npy": {
+          "dtype": "uint16",
+          "mtime_ns": 1785472361988946664,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/rq4_collision_aware_seed2026/semantic_codes.npy",
+          "sha256": "46190389f8e1b2110a75452867492e6d8a233d480a9b88e895d68617733bd6b6",
+          "shape": [
+            210985,
+            4
+          ],
+          "size_bytes": 1688008
+        },
+        "source_dense_ids.npy": {
+          "dtype": "int64",
+          "mtime_ns": 1785472361984948485,
+          "path": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/0731dataprocess/artifacts/rq4_collision_aware_seed2026/source_dense_ids.npy",
+          "sha256": "7d3bdfb24470b04ae97d1398f88f4c997d69662795f17bbca127fac16c45b5a5",
+          "shape": [
+            210985
+          ],
+          "size_bytes": 1688008
+        }
+      },
+      "purpose": "Task-scoped low-collision semantic item encoding for Yambda explicit feedback without listen",
+      "runtime": {
+        "cuda_available": true,
+        "cuda_device": "NVIDIA GeForce RTX 4090",
+        "faiss": "1.14.1",
+        "faiss_visible_gpus": 1,
+        "numpy": "2.4.4",
+        "platform": "Linux-5.15.0-91-generic-x86_64-with-glibc2.35",
+        "pyarrow": "23.0.1",
+        "python": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+        "scipy": "1.17.1",
+        "torch": "2.5.1+cu124"
+      },
+      "timing_seconds": {
+        "collision_aware_assignment": 4.888254266232252,
+        "evaluation": 17.640961166471243,
+        "load_and_source_audit": 4.600368227809668,
+        "rq_fit_and_greedy_encode": 6.187104094773531,
+        "save_artifacts": 0.30916525423526764,
+        "total_before_manifest": 33.6437509059906
+      }
+    },
+    "old_split_manifest": {
+      "created_at_utc": "2026-07-27T05:43:23.964831+00:00",
+      "data_contract": {
+        "duplicate_retained_field_rows": 0,
+        "event_type_ids_in_source": {
+          "dislike": 2,
+          "like": 1,
+          "undislike": 4,
+          "unlike": 3
+        },
+        "event_type_names": [
+          "like",
+          "dislike",
+          "unlike",
+          "undislike"
+        ],
+        "is_organic_used": false,
+        "item_id_use": "quality validation only",
+        "item_id_used_by_model": false,
+        "listen_included": false,
+        "max_distinct_items_per_timestamp": 50,
+        "observed_max_distinct_items_per_timestamp": 50,
+        "prepared_storage": "uncompressed NumPy NPZ; Parquet ingestion is isolated from the PyTorch training process to fit the 2 GiB container",
+        "tie_policy": "All marks in one uid/timestamp group share the same pre-group history and enter history together.",
+        "time_scale_seconds": 86400.0,
+        "timestamp_precision_seconds": 5
+      },
+      "format_version": 1,
+      "source": {
+        "file": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/processed/nolisten_clean_max50/events.parquet",
+        "manifest": {
+          "adjacent_item_aggregation": false,
+          "duplicates_retained": false,
+          "extreme_group_rule": {
+            "field": "distinct item_id count within (uid, timestamp_seconds)",
+            "operator": ">",
+            "threshold": 50
+          },
+          "input_event_count": 1323237,
+          "input_file": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/processed/nolisten_raw_events/events.parquet",
+          "input_timestamp_group_count": 785366,
+          "is_organic_retained": false,
+          "output_event_count": 1242686,
+          "output_event_counts_by_type": {
+            "dislike": 101445,
+            "like": 838313,
+            "undislike": 18558,
+            "unlike": 284370
+          },
+          "output_explicit_user_count": 8596,
+          "output_file": "/root/autodl-tmp/0626/0626 Predictor/0725 SNMPP/processed/nolisten_clean_max50/events.parquet",
+          "output_multi_event_timestamp_group_count": 151224,
+          "output_timestamp_group_count": 784900,
+          "removed_duplicate_rows_after_extreme_filter": 6954,
+          "removed_extreme_group_count": 466,
+          "removed_extreme_group_rows": 73597,
+          "sessionization": false,
+          "tie_policy": "Remaining tied rows stay separate and must share pre-group history.",
+          "timestamp_event_aggregation": false
+        },
+        "row_count": 1242686,
+        "sha256": "73597d8e5e425a548922a76a60298a0334cfb7e234d262c532c8f398f51bf2d8"
+      },
+      "split": {
+        "overlap_checked": true,
+        "ratios": {
+          "test": 0.09999999999999995,
+          "train": 0.8,
+          "validation": 0.1
+        },
+        "seed": 2026,
+        "strategy": "user_disjoint_seeded_permutation"
+      },
+      "splits": {
+        "test": {
+          "event_count": 135450,
+          "event_counts": {
+            "dislike": 13817,
+            "like": 89504,
+            "undislike": 2040,
+            "unlike": 30089
+          },
+          "file": "test.npz",
+          "mean_positive_inter_group_time_model_units": 1.8045528614903887,
+          "sha256": "09b8b12357cb238316137b45419d46a5406dae9e3cbdf4000033b096b71516d7",
+          "timestamp_group_count": 85769,
+          "user_count": 861,
+          "user_ids_sha256": "db97e07034ff19535700a39a693dc661c72b74a9ceb41421a96d179cfec9570f"
+        },
+        "train": {
+          "event_count": 979057,
+          "event_counts": {
+            "dislike": 74170,
+            "like": 664359,
+            "undislike": 14450,
+            "unlike": 226078
+          },
+          "file": "train.npz",
+          "mean_positive_inter_group_time_model_units": 1.9983398712636489,
+          "sha256": "c6c9f18533b2af4d9aa6d6a00d382b3ca8d432876957143c70a9bb2759a3c07d",
+          "timestamp_group_count": 617237,
+          "user_count": 6876,
+          "user_ids_sha256": "97565e0557fe1c41ad88025ec3319bc47aef51ebbd6ed9584150a6065f29f23e"
+        },
+        "validation": {
+          "event_count": 128179,
+          "event_counts": {
+            "dislike": 13458,
+            "like": 84450,
+            "undislike": 2068,
+            "unlike": 28203
+          },
+          "file": "validation.npz",
+          "mean_positive_inter_group_time_model_units": 1.8825925397462004,
+          "sha256": "7e37c289705e9187ad8eed6a5f7fe4a19f601551aa4fb43a2a7c841770865f8f",
+          "timestamp_group_count": 81894,
+          "user_count": 859,
+          "user_ids_sha256": "8781934f4399efe1da91e1a3f4666f0be192ea59eab29c940f7ff9e713f8cec9"
+        }
+      },
+      "totals": {
+        "event_count": 1242686,
+        "timestamp_group_count": 784900,
+        "user_count": 8596
+      }
+    },
+    "hpn_config": "/root/autodl-tmp/0804 Yambda/configs/nolisten_hpn_high_coverage.yaml",
+    "hpn_data_source": "/root/autodl-tmp/0804 Yambda/snmpp/recommendation/data.py",
+    "hpn_evaluation_source": "/root/autodl-tmp/0804 Yambda/snmpp/recommendation/evaluation.py"
+  }
+}

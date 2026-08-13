@@ -1,0 +1,832 @@
+{
+  "status": "complete",
+  "method": "four-head hierarchical SID classifier with strict autoregressive test inference",
+  "input": "artist/album LOO centroids, availability, train-standardized source/relation counts",
+  "test_truth_prefix_used": false,
+  "runs": [
+    {
+      "seed": 2026,
+      "overall": {
+        "count": 50000,
+        "token_accuracy": {
+          "level_1": 0.52822,
+          "level_2": 0.24096,
+          "level_3": 0.14022,
+          "level_4": 0.09696
+        },
+        "prefix_accuracy": {
+          "prefix_at_1": 0.52822,
+          "prefix_at_2": 0.16986,
+          "prefix_at_3": 0.05018,
+          "prefix_at_4": 0.01404
+        },
+        "exact_semantic_sid_at_4": 0.01404
+      },
+      "strata": {
+        "availability": {
+          "artist_only": {
+            "count": 16146,
+            "token_accuracy": {
+              "level_1": 0.48327759197324416,
+              "level_2": 0.21348940914158304,
+              "level_3": 0.12839093273875882,
+              "level_4": 0.08739006565093521
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.48327759197324416,
+              "prefix_at_2": 0.14542301498823237,
+              "prefix_at_3": 0.04539824105041496,
+              "prefix_at_4": 0.014430818778644865
+            },
+            "exact_semantic_sid_at_4": 0.014430818778644865
+          },
+          "album_only": {
+            "count": 5065,
+            "token_accuracy": {
+              "level_1": 0.36979269496544914,
+              "level_2": 0.14531095755182627,
+              "level_3": 0.07285291214215202,
+              "level_4": 0.050542941757156956
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.36979269496544914,
+              "prefix_at_2": 0.08469891411648568,
+              "prefix_at_3": 0.016584402764067127,
+              "prefix_at_4": 0.0019743336623889436
+            },
+            "exact_semantic_sid_at_4": 0.0019743336623889436
+          },
+          "both": {
+            "count": 28789,
+            "token_accuracy": {
+              "level_1": 0.5812984125881413,
+              "level_2": 0.2731946229462642,
+              "level_3": 0.1587064503803536,
+              "level_4": 0.11049359130223349
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5812984125881413,
+              "prefix_at_2": 0.1985480565493765,
+              "prefix_at_3": 0.0587724478099274,
+              "prefix_at_4": 0.015943589565459028
+            },
+            "exact_semantic_sid_at_4": 0.015943589565459028
+          }
+        },
+        "artist_group_size": {
+          "small": {
+            "count": 1939,
+            "token_accuracy": {
+              "level_1": 0.407426508509541,
+              "level_2": 0.17947395564724083,
+              "level_3": 0.110881897885508,
+              "level_4": 0.06807632800412584
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.407426508509541,
+              "prefix_at_2": 0.111397627643115,
+              "prefix_at_3": 0.030428055698813822,
+              "prefix_at_4": 0.009798865394533264
+            },
+            "exact_semantic_sid_at_4": 0.009798865394533264
+          },
+          "medium": {
+            "count": 4341,
+            "token_accuracy": {
+              "level_1": 0.4809951624049758,
+              "level_2": 0.2248329877908316,
+              "level_3": 0.1301543423174384,
+              "level_4": 0.0810873070721032
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.4809951624049758,
+              "prefix_at_2": 0.1465100207325501,
+              "prefix_at_3": 0.03824003685786685,
+              "prefix_at_4": 0.00783229670582815
+            },
+            "exact_semantic_sid_at_4": 0.00783229670582815
+          },
+          "large": {
+            "count": 38655,
+            "token_accuracy": {
+              "level_1": 0.5603414823438106,
+              "level_2": 0.25838830681671193,
+              "level_3": 0.15164920450135816,
+              "level_4": 0.10627344457379381
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5603414823438106,
+              "prefix_at_2": 0.18657353511835467,
+              "prefix_at_3": 0.05691372396843875,
+              "prefix_at_4": 0.016530849825378346
+            },
+            "exact_semantic_sid_at_4": 0.016530849825378346
+          }
+        },
+        "album_group_size": {
+          "small": {
+            "count": 3858,
+            "token_accuracy": {
+              "level_1": 0.4782270606531882,
+              "level_2": 0.2148781752203214,
+              "level_3": 0.12026956972524624,
+              "level_4": 0.08320373250388803
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.4782270606531882,
+              "prefix_at_2": 0.14463452566096424,
+              "prefix_at_3": 0.03862104717470192,
+              "prefix_at_4": 0.00673924313115604
+            },
+            "exact_semantic_sid_at_4": 0.00673924313115604
+          },
+          "medium": {
+            "count": 10236,
+            "token_accuracy": {
+              "level_1": 0.5471864009378663,
+              "level_2": 0.24697147323173113,
+              "level_3": 0.14693239546697928,
+              "level_4": 0.09945291129347401
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5471864009378663,
+              "prefix_at_2": 0.17477530285267684,
+              "prefix_at_3": 0.048944900351699884,
+              "prefix_at_4": 0.011430246189917937
+            },
+            "exact_semantic_sid_at_4": 0.011430246189917937
+          },
+          "large": {
+            "count": 19760,
+            "token_accuracy": {
+              "level_1": 0.5648785425101215,
+              "level_2": 0.2653846153846154,
+              "level_3": 0.15030364372469635,
+              "level_4": 0.10617408906882592
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5648785425101215,
+              "prefix_at_2": 0.19220647773279353,
+              "prefix_at_3": 0.056983805668016196,
+              "prefix_at_4": 0.016497975708502026
+            },
+            "exact_semantic_sid_at_4": 0.016497975708502026
+          }
+        },
+        "explicit_frequency": {
+          "tail": {
+            "count": 29239,
+            "token_accuracy": {
+              "level_1": 0.5129792400560895,
+              "level_2": 0.22873559287253326,
+              "level_3": 0.13454632511371797,
+              "level_4": 0.09247922295564144
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5129792400560895,
+              "prefix_at_2": 0.15988918909675434,
+              "prefix_at_3": 0.04456376757071035,
+              "prefix_at_4": 0.012072916310407333
+            },
+            "exact_semantic_sid_at_4": 0.012072916310407333
+          },
+          "mid": {
+            "count": 16268,
+            "token_accuracy": {
+              "level_1": 0.5430907302680108,
+              "level_2": 0.2562085074993853,
+              "level_3": 0.14697565773297272,
+              "level_4": 0.1004425866732235
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5430907302680108,
+              "prefix_at_2": 0.18268994344725842,
+              "prefix_at_3": 0.05796656011802311,
+              "prefix_at_4": 0.016658470617162528
+            },
+            "exact_semantic_sid_at_4": 0.016658470617162528
+          },
+          "head": {
+            "count": 4493,
+            "token_accuracy": {
+              "level_1": 0.5735588693523258,
+              "level_2": 0.26530158023592254,
+              "level_3": 0.1526819496995326,
+              "level_4": 0.11350990429557088
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5735588693523258,
+              "prefix_at_2": 0.18829290006677052,
+              "prefix_at_3": 0.05853549966614734,
+              "prefix_at_4": 0.01736033830402849
+            },
+            "exact_semantic_sid_at_4": 0.01736033830402849
+          }
+        }
+      },
+      "test_inference": "strict autoregressive predicted prefix; no truth prefix accepted by inference API"
+    },
+    {
+      "seed": 2027,
+      "overall": {
+        "count": 50000,
+        "token_accuracy": {
+          "level_1": 0.52766,
+          "level_2": 0.24092,
+          "level_3": 0.13982,
+          "level_4": 0.09818
+        },
+        "prefix_accuracy": {
+          "prefix_at_1": 0.52766,
+          "prefix_at_2": 0.16938,
+          "prefix_at_3": 0.04954,
+          "prefix_at_4": 0.01466
+        },
+        "exact_semantic_sid_at_4": 0.01466
+      },
+      "strata": {
+        "availability": {
+          "artist_only": {
+            "count": 16146,
+            "token_accuracy": {
+              "level_1": 0.48587885544407283,
+              "level_2": 0.2132416697634089,
+              "level_3": 0.12721417069243157,
+              "level_4": 0.08887650191998019
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.48587885544407283,
+              "prefix_at_2": 0.14629010281184193,
+              "prefix_at_3": 0.045707915273132664,
+              "prefix_at_4": 0.014616623312275485
+            },
+            "exact_semantic_sid_at_4": 0.014616623312275485
+          },
+          "album_only": {
+            "count": 5065,
+            "token_accuracy": {
+              "level_1": 0.36544916090819346,
+              "level_2": 0.14807502467917077,
+              "level_3": 0.07601184600197433,
+              "level_4": 0.055281342546890426
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.36544916090819346,
+              "prefix_at_2": 0.08311944718657453,
+              "prefix_at_3": 0.015202369200394866,
+              "prefix_at_4": 0.002764067127344521
+            },
+            "exact_semantic_sid_at_4": 0.002764067127344521
+          },
+          "both": {
+            "count": 28789,
+            "token_accuracy": {
+              "level_1": 0.5796311091041717,
+              "level_2": 0.27277779707527183,
+              "level_3": 0.15811594706311438,
+              "level_4": 0.11094515266247525
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5796311091041717,
+              "prefix_at_2": 0.19750599187189552,
+              "prefix_at_3": 0.05773038313244642,
+              "prefix_at_4": 0.016777241307443815
+            },
+            "exact_semantic_sid_at_4": 0.016777241307443815
+          }
+        },
+        "artist_group_size": {
+          "small": {
+            "count": 1939,
+            "token_accuracy": {
+              "level_1": 0.4167096441464673,
+              "level_2": 0.1784424961320268,
+              "level_3": 0.10985043837029397,
+              "level_4": 0.07632800412583807
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.4167096441464673,
+              "prefix_at_2": 0.10675605982465189,
+              "prefix_at_3": 0.027333677153171736,
+              "prefix_at_4": 0.009283135636926251
+            },
+            "exact_semantic_sid_at_4": 0.009283135636926251
+          },
+          "medium": {
+            "count": 4341,
+            "token_accuracy": {
+              "level_1": 0.47224141902787375,
+              "level_2": 0.21907394609536973,
+              "level_3": 0.11932734392997005,
+              "level_4": 0.08500345542501728
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.47224141902787375,
+              "prefix_at_2": 0.14351531905090992,
+              "prefix_at_3": 0.036857866850956,
+              "prefix_at_4": 0.008062658373646624
+            },
+            "exact_semantic_sid_at_4": 0.008062658373646624
+          },
+          "large": {
+            "count": 38655,
+            "token_accuracy": {
+              "level_1": 0.5607036605872462,
+              "level_2": 0.25867287543655415,
+              "level_3": 0.15198551287026257,
+              "level_4": 0.10637692407191825
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5607036605872462,
+              "prefix_at_2": 0.18672875436554132,
+              "prefix_at_3": 0.056577415599534345,
+              "prefix_at_4": 0.017229336437718276
+            },
+            "exact_semantic_sid_at_4": 0.017229336437718276
+          }
+        },
+        "album_group_size": {
+          "small": {
+            "count": 3858,
+            "token_accuracy": {
+              "level_1": 0.4758942457231726,
+              "level_2": 0.2190254017625713,
+              "level_3": 0.12208398133748057,
+              "level_4": 0.0857957490927942
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.4758942457231726,
+              "prefix_at_2": 0.1469673405909798,
+              "prefix_at_3": 0.03732503888024884,
+              "prefix_at_4": 0.008035251425609125
+            },
+            "exact_semantic_sid_at_4": 0.008035251425609125
+          },
+          "medium": {
+            "count": 10236,
+            "token_accuracy": {
+              "level_1": 0.5429855412270418,
+              "level_2": 0.2458968347010551,
+              "level_3": 0.14634622899570143,
+              "level_4": 0.09974599452911294
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5429855412270418,
+              "prefix_at_2": 0.1725283313794451,
+              "prefix_at_3": 0.04865181711606096,
+              "prefix_at_4": 0.01211410707307542
+            },
+            "exact_semantic_sid_at_4": 0.01211410707307542
+          },
+          "large": {
+            "count": 19760,
+            "token_accuracy": {
+              "level_1": 0.5639676113360323,
+              "level_2": 0.2652327935222672,
+              "level_3": 0.15020242914979756,
+              "level_4": 0.10738866396761133
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5639676113360323,
+              "prefix_at_2": 0.1909919028340081,
+              "prefix_at_3": 0.055516194331983806,
+              "prefix_at_4": 0.01730769230769231
+            },
+            "exact_semantic_sid_at_4": 0.01730769230769231
+          }
+        },
+        "explicit_frequency": {
+          "tail": {
+            "count": 29239,
+            "token_accuracy": {
+              "level_1": 0.511440199733233,
+              "level_2": 0.2273675570299942,
+              "level_3": 0.13406751256882932,
+              "level_4": 0.09200041041075276
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.511440199733233,
+              "prefix_at_2": 0.1581791442935805,
+              "prefix_at_3": 0.044426963986456444,
+              "prefix_at_4": 0.011936112726153426
+            },
+            "exact_semantic_sid_at_4": 0.011936112726153426
+          },
+          "mid": {
+            "count": 16268,
+            "token_accuracy": {
+              "level_1": 0.5455495451192525,
+              "level_2": 0.2592820260634374,
+              "level_3": 0.1448241947381362,
+              "level_4": 0.10443816080649126
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5455495451192525,
+              "prefix_at_2": 0.18447258421440865,
+              "prefix_at_3": 0.056060978608310795,
+              "prefix_at_4": 0.018564052126874845
+            },
+            "exact_semantic_sid_at_4": 0.018564052126874845
+          },
+          "head": {
+            "count": 4493,
+            "token_accuracy": {
+              "level_1": 0.5684397952370354,
+              "level_2": 0.26263075895837973,
+              "level_3": 0.1591364344535945,
+              "level_4": 0.11573558869352325
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5684397952370354,
+              "prefix_at_2": 0.18762519474738482,
+              "prefix_at_3": 0.05920320498553305,
+              "prefix_at_4": 0.018250612063209437
+            },
+            "exact_semantic_sid_at_4": 0.018250612063209437
+          }
+        }
+      },
+      "test_inference": "strict autoregressive predicted prefix; no truth prefix accepted by inference API"
+    },
+    {
+      "seed": 2028,
+      "overall": {
+        "count": 50000,
+        "token_accuracy": {
+          "level_1": 0.52734,
+          "level_2": 0.24126,
+          "level_3": 0.13726,
+          "level_4": 0.09712
+        },
+        "prefix_accuracy": {
+          "prefix_at_1": 0.52734,
+          "prefix_at_2": 0.16946,
+          "prefix_at_3": 0.0483,
+          "prefix_at_4": 0.01414
+        },
+        "exact_semantic_sid_at_4": 0.01414
+      },
+      "strata": {
+        "availability": {
+          "artist_only": {
+            "count": 16146,
+            "token_accuracy": {
+              "level_1": 0.48222469961600395,
+              "level_2": 0.2100210578471448,
+              "level_3": 0.12671869193608323,
+              "level_4": 0.0903010033444816
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.48222469961600395,
+              "prefix_at_2": 0.14183079400470705,
+              "prefix_at_3": 0.042796977579586275,
+              "prefix_at_4": 0.014245014245014245
+            },
+            "exact_semantic_sid_at_4": 0.014245014245014245
+          },
+          "album_only": {
+            "count": 5065,
+            "token_accuracy": {
+              "level_1": 0.3581441263573544,
+              "level_2": 0.14333662388943733,
+              "level_3": 0.06495557749259624,
+              "level_4": 0.049358341559723594
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.3581441263573544,
+              "prefix_at_2": 0.08055281342546891,
+              "prefix_at_3": 0.013228035538005924,
+              "prefix_at_4": 0.0015794669299111549
+            },
+            "exact_semantic_sid_at_4": 0.0015794669299111549
+          },
+          "both": {
+            "count": 28789,
+            "token_accuracy": {
+              "level_1": 0.5824099482441211,
+              "level_2": 0.27600819757546285,
+              "level_3": 0.15589287575115496,
+              "level_4": 0.10934732015700441
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5824099482441211,
+              "prefix_at_2": 0.20059745041508908,
+              "prefix_at_3": 0.05755670568619959,
+              "prefix_at_4": 0.01629094445795269
+            },
+            "exact_semantic_sid_at_4": 0.01629094445795269
+          }
+        },
+        "artist_group_size": {
+          "small": {
+            "count": 1939,
+            "token_accuracy": {
+              "level_1": 0.4167096441464673,
+              "level_2": 0.17895822588963384,
+              "level_3": 0.11500773594636411,
+              "level_4": 0.07684373388344508
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.4167096441464673,
+              "prefix_at_2": 0.10985043837029397,
+              "prefix_at_3": 0.02784940691077875,
+              "prefix_at_4": 0.008767405879319236
+            },
+            "exact_semantic_sid_at_4": 0.008767405879319236
+          },
+          "medium": {
+            "count": 4341,
+            "token_accuracy": {
+              "level_1": 0.47869154572679107,
+              "level_2": 0.2257544344621055,
+              "level_3": 0.12047915226906243,
+              "level_4": 0.0792444137295554
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.47869154572679107,
+              "prefix_at_2": 0.1465100207325501,
+              "prefix_at_3": 0.0359364201796821,
+              "prefix_at_4": 0.00598940336328035
+            },
+            "exact_semantic_sid_at_4": 0.00598940336328035
+          },
+          "large": {
+            "count": 38655,
+            "token_accuracy": {
+              "level_1": 0.5605225714655284,
+              "level_2": 0.2589574440563963,
+              "level_3": 0.14973483378605615,
+              "level_4": 0.10640279394644936
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5605225714655284,
+              "prefix_at_2": 0.18667701461647912,
+              "prefix_at_3": 0.05530979174751002,
+              "prefix_at_4": 0.01697063769240719
+            },
+            "exact_semantic_sid_at_4": 0.01697063769240719
+          }
+        },
+        "album_group_size": {
+          "small": {
+            "count": 3858,
+            "token_accuracy": {
+              "level_1": 0.47459823742871954,
+              "level_2": 0.21591498185588387,
+              "level_3": 0.12078797304302748,
+              "level_4": 0.07853810264385692
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.47459823742871954,
+              "prefix_at_2": 0.1394504924831519,
+              "prefix_at_3": 0.03654743390357698,
+              "prefix_at_4": 0.0059616381544841885
+            },
+            "exact_semantic_sid_at_4": 0.0059616381544841885
+          },
+          "medium": {
+            "count": 10236,
+            "token_accuracy": {
+              "level_1": 0.5464048456428292,
+              "level_2": 0.25,
+              "level_3": 0.1401914810472841,
+              "level_4": 0.09691285658460336
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5464048456428292,
+              "prefix_at_2": 0.17751074638530676,
+              "prefix_at_3": 0.04738178976162564,
+              "prefix_at_4": 0.011332551778038297
+            },
+            "exact_semantic_sid_at_4": 0.011332551778038297
+          },
+          "large": {
+            "count": 19760,
+            "token_accuracy": {
+              "level_1": 0.5646255060728745,
+              "level_2": 0.26720647773279355,
+              "level_3": 0.14757085020242916,
+              "level_4": 0.10642712550607288
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5646255060728745,
+              "prefix_at_2": 0.19372469635627532,
+              "prefix_at_3": 0.0555668016194332,
+              "prefix_at_4": 0.017105263157894738
+            },
+            "exact_semantic_sid_at_4": 0.017105263157894738
+          }
+        },
+        "explicit_frequency": {
+          "tail": {
+            "count": 29239,
+            "token_accuracy": {
+              "level_1": 0.5102089674749478,
+              "level_2": 0.2263415301480899,
+              "level_3": 0.13013440952152946,
+              "level_4": 0.09145319607373713
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5102089674749478,
+              "prefix_at_2": 0.1568453093471049,
+              "prefix_at_3": 0.042340709326584354,
+              "prefix_at_4": 0.011388898389137795
+            },
+            "exact_semantic_sid_at_4": 0.011388898389137795
+          },
+          "mid": {
+            "count": 16268,
+            "token_accuracy": {
+              "level_1": 0.5464101303171871,
+              "level_2": 0.25989672977624784,
+              "level_3": 0.14427096139660683,
+              "level_4": 0.10210228669781166
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5464101303171871,
+              "prefix_at_2": 0.1851487582985001,
+              "prefix_at_3": 0.054893041553970984,
+              "prefix_at_4": 0.017703466928940252
+            },
+            "exact_semantic_sid_at_4": 0.017703466928940252
+          },
+          "head": {
+            "count": 4493,
+            "token_accuracy": {
+              "level_1": 0.5697752058758068,
+              "level_2": 0.27086579123080345,
+              "level_3": 0.15824616069441352,
+              "level_4": 0.1159581571333185
+            },
+            "prefix_accuracy": {
+              "prefix_at_1": 0.5697752058758068,
+              "prefix_at_2": 0.1947473848208324,
+              "prefix_at_3": 0.06320943690184731,
+              "prefix_at_4": 0.019140885822390385
+            },
+            "exact_semantic_sid_at_4": 0.019140885822390385
+          }
+        }
+      },
+      "test_inference": "strict autoregressive predicted prefix; no truth prefix accepted by inference API"
+    }
+  ],
+  "three_seed_summary": {
+    "token_level_1": {
+      "mean": 0.5277400000000001,
+      "std": 0.0004454211490263985,
+      "values": [
+        0.52822,
+        0.52766,
+        0.52734
+      ]
+    },
+    "token_level_2": {
+      "mean": 0.24104666666666666,
+      "std": 0.00018583146486355254,
+      "values": [
+        0.24096,
+        0.24092,
+        0.24126
+      ]
+    },
+    "token_level_3": {
+      "mean": 0.1391,
+      "std": 0.0016059887919907864,
+      "values": [
+        0.14022,
+        0.13982,
+        0.13726
+      ]
+    },
+    "token_level_4": {
+      "mean": 0.09742,
+      "std": 0.0006630233781700319,
+      "values": [
+        0.09696,
+        0.09818,
+        0.09712
+      ]
+    },
+    "prefix_at_1": {
+      "mean": 0.5277400000000001,
+      "std": 0.0004454211490263985,
+      "values": [
+        0.52822,
+        0.52766,
+        0.52734
+      ]
+    },
+    "prefix_at_2": {
+      "mean": 0.16956666666666664,
+      "std": 0.00025716402029315083,
+      "values": [
+        0.16986,
+        0.16938,
+        0.16946
+      ]
+    },
+    "prefix_at_3": {
+      "mean": 0.04934,
+      "std": 0.0009558242516278814,
+      "values": [
+        0.05018,
+        0.04954,
+        0.0483
+      ]
+    },
+    "prefix_at_4": {
+      "mean": 0.014280000000000001,
+      "std": 0.0003328663395418643,
+      "values": [
+        0.01404,
+        0.01466,
+        0.01414
+      ]
+    }
+  },
+  "paired_vs_learned_embedding": {
+    "prefix_at_1": {
+      "mean_difference": -0.003433333333333336,
+      "bootstrap_95_ci": [
+        -0.005367000000000003,
+        -0.0015531666666666695
+      ],
+      "ci_excludes_zero": true,
+      "paired_items": 50000,
+      "repeats": 1000
+    },
+    "prefix_at_2": {
+      "mean_difference": 0.0025933333333333316,
+      "bootstrap_95_ci": [
+        0.000272166666666665,
+        0.0048338333333333315
+      ],
+      "ci_excludes_zero": true,
+      "paired_items": 50000,
+      "repeats": 1000
+    },
+    "prefix_at_3": {
+      "mean_difference": 0.0004399999999999999,
+      "bootstrap_95_ci": [
+        -0.0013068333333333337,
+        0.0020541666666666655
+      ],
+      "ci_excludes_zero": false,
+      "paired_items": 50000,
+      "repeats": 1000
+    },
+    "prefix_at_4": {
+      "mean_difference": 4.666666666666671e-05,
+      "bootstrap_95_ci": [
+        -0.0008535,
+        0.0009268333333333331
+      ],
+      "ci_excludes_zero": false,
+      "paired_items": 50000,
+      "repeats": 1000
+    }
+  },
+  "paired_vs_conditional_centroid": {
+    "prefix_at_1": {
+      "mean_difference": 0.0007999999999999941,
+      "bootstrap_95_ci": [
+        -0.0015866666666666722,
+        0.0030673333333333273
+      ],
+      "ci_excludes_zero": false,
+      "paired_items": 50000,
+      "repeats": 1000
+    },
+    "prefix_at_2": {
+      "mean_difference": -0.0007933333333333391,
+      "bootstrap_95_ci": [
+        -0.003413666666666672,
+        0.0019136666666666612
+      ],
+      "ci_excludes_zero": false,
+      "paired_items": 50000,
+      "repeats": 1000
+    },
+    "prefix_at_3": {
+      "mean_difference": -0.005760000000000002,
+      "bootstrap_95_ci": [
+        -0.007566833333333336,
+        -0.0037923333333333364
+      ],
+      "ci_excludes_zero": true,
+      "paired_items": 50000,
+      "repeats": 1000
+    },
+    "prefix_at_4": {
+      "mean_difference": -0.005800000000000001,
+      "bootstrap_95_ci": [
+        -0.006980166666666667,
+        -0.004639666666666668
+      ],
+      "ci_excludes_zero": true,
+      "paired_items": 50000,
+      "repeats": 1000
+    }
+  }
+}

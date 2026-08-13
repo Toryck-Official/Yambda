@@ -1,0 +1,35 @@
+SID Feasibility Gate（STOP before Gate 2）
+
+1. Real-embedding SID collision
+real items: 2,367,341
+unique 4-level paths: 1,635,303
+singleton item ratio: 57.3301%
+collision item ratio: 42.6699% (1,010,141 items)
+collision buckets: 278,103
+all-bucket P90/P99/P99.9/max: 2/7/33/1481
+Decision: 4-layer semantic SID cannot serve exact-item identity.
+Note: audited codebook is the requested frozen 4x256 candidate, whose own report marks it provisional and fit on 100,000 real items.
+
+2. Real-audio-only D_all bias
+overall event retention: 90.1842% (121,819,651/135,078,748)
+like retention: 96.1806%
+dislike retention: 95.8417%
+unlike retention: 72.9667%
+undislike retention: 73.9392%
+strict like->unlike pair retention: 94.1614% (5,993,072/6,364,678)
+strict dislike->undislike pair retention: 95.2642% (293,608/308,204)
+user retention: 99.6676% (854,649/857,499)
+sequence median: 62 -> 56
+sequence mean: 157.526 -> 142.064
+timestamp groups retained: 96.6425%
+multi-group event fraction: 52.1411% -> 48.1189%
+Decision: serious feedback-type composition bias, especially loss of unmatched/left-censored revision events; strict matched revision paths are much less affected. Use only as a sensitivity subset.
+
+3. Missing embedding source
+source parquet rows: 7,721,749
+explicit real/missing items: 2,367,341/507,730
+support-vs-parquet membership mismatches: 0
+real mapping round-trip: 2,367,341/2,367,341
+Decision: missing is genuine absence from the local official embedding parquet, not the current item mapping. No alternate item-specific embedding covering these items was found.
+
+STOP: no UNK SID, no suffix design, no Gate 2, no SNMPP/HPN training.

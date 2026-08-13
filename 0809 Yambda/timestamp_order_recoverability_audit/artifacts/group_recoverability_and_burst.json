@@ -1,0 +1,1534 @@
+{
+  "status": "complete",
+  "data_contract": {
+    "dataset": "D_SID real-audio view of exact-deduplicated D_all",
+    "listen_used": false,
+    "events_modified": false,
+    "group_protocol_modified": false,
+    "train_cutoff_inclusive": 22172245
+  },
+  "counts": {
+    "users": 854649,
+    "events": 121819651,
+    "groups": 77565283
+  },
+  "tied_group_composition": {
+    "groups": 77565283,
+    "events": 121819651,
+    "singleton_groups": 63201377,
+    "singleton_events": 63201377,
+    "multi_groups": 14363906,
+    "multi_events": 58618274,
+    "all_different_item_groups": 11532972,
+    "all_different_item_parent_group_events": 45056925,
+    "same_item_multi_groups": 2830934,
+    "same_item_multi_parent_group_events": 13561349,
+    "like_unlike_groups": 1883427,
+    "like_unlike_parent_group_events": 8858138,
+    "dislike_undislike_groups": 187746,
+    "dislike_undislike_parent_group_events": 1359435,
+    "other_multifeedback_groups": 869404,
+    "other_multifeedback_parent_group_events": 4473366,
+    "like_unlike_direct_events": 4172745,
+    "dislike_undislike_direct_events": 546474,
+    "other_multifeedback_direct_events": 2477515,
+    "fully_uniquely_ordered_groups": 574782,
+    "fully_uniquely_ordered_events": 1149564,
+    "all_different_item_group_fraction_of_multi": 0.8029133579682295,
+    "all_different_item_parent_event_fraction_of_tied": 0.768649807055049,
+    "same_item_multi_group_fraction_of_multi": 0.19708664203177045,
+    "same_item_multi_parent_event_fraction_of_tied": 0.23135019294495093,
+    "like_unlike_group_fraction_of_multi": 0.13112220311104794,
+    "like_unlike_parent_event_fraction_of_tied": 0.1511156401500324,
+    "dislike_undislike_group_fraction_of_multi": 0.0130706786858672,
+    "dislike_undislike_parent_event_fraction_of_tied": 0.023191317437971648,
+    "other_multifeedback_group_fraction_of_multi": 0.06052699036042146,
+    "other_multifeedback_parent_event_fraction_of_tied": 0.07631350592137871,
+    "fully_uniquely_ordered_group_fraction_of_multi": 0.04001571717330927,
+    "fully_uniquely_ordered_event_fraction_of_tied": 0.01961101754719015
+  },
+  "conservative_recovery": {
+    "unit": "same user+item+timestamp subgroup",
+    "rules": "only like->unlike and dislike->undislike; like/dislike are not mutually exclusive; repeated base feedback is not forbidden",
+    "classifications": {
+      "uniquely_recoverable": {
+        "subgroups": 1402346,
+        "events": 2804692,
+        "parent_groups": 1298220,
+        "parent_group_events": 6691419,
+        "subgroup_fraction": 0.4108381784847737,
+        "event_fraction_of_tied": 0.04784671756114825
+      },
+      "ambiguous": {
+        "subgroups": 35611,
+        "events": 108442,
+        "parent_groups": 34732,
+        "parent_group_events": 227130,
+        "subgroup_fraction": 0.01043277363362628,
+        "event_fraction_of_tied": 0.0018499691751415266
+      },
+      "inconsistent": {
+        "subgroups": 531585,
+        "events": 1114493,
+        "parent_groups": 369449,
+        "parent_group_events": 2388945,
+        "subgroup_fraction": 0.1557357550203933,
+        "event_fraction_of_tied": 0.019012722892523242
+      },
+      "no_order_constraint": {
+        "subgroups": 1443836,
+        "events": 2890798,
+        "parent_groups": 1189650,
+        "parent_group_events": 5746277,
+        "subgroup_fraction": 0.4229932928612067,
+        "event_fraction_of_tied": 0.04931564515188557
+      }
+    },
+    "important_scope": "locally unique order inside an item subgroup does not order that subgroup relative to other items in the same timestamp group"
+  },
+  "extreme_burst_all": {
+    "totals": {
+      "groups": 77565283,
+      "events": 121819651
+    },
+    "bins": {
+      "1": {
+        "groups": 63201377,
+        "group_fraction": 0.8148152698675772,
+        "events": 63201377,
+        "event_fraction": 0.5188110167874311,
+        "unique_items_per_group_mean": 1.0,
+        "same_item_multifeedback_group_fraction": 0.0,
+        "single_feedback_group_fraction": 1.0,
+        "feedback_counts": {
+          "like": 54417613,
+          "dislike": 5258545,
+          "unlike": 3386022,
+          "undislike": 139197
+        },
+        "feedback_composition": {
+          "like": 0.8610194205104107,
+          "dislike": 0.08320301312422354,
+          "unlike": 0.05357513017477451,
+          "undislike": 0.002202436190591227
+        },
+        "same_time_revision_related_events": 0,
+        "same_time_revision_related_event_fraction": 0.0,
+        "users": 843471,
+        "previous_timestamp_gap": {
+          "count": 62522406,
+          "mean_seconds": 176787.49468966373,
+          "min_seconds": 5,
+          "median_seconds_sample": 3265,
+          "p90_seconds_sample": 417135,
+          "p99_seconds_sample": 2585585,
+          "max_seconds": 25916840,
+          "sample_size": 61207
+        },
+        "next_timestamp_gap": {
+          "count": 62488955,
+          "mean_seconds": 175206.90690570837,
+          "min_seconds": 5,
+          "median_seconds_sample": 3175,
+          "p90_seconds_sample": 404780,
+          "p99_seconds_sample": 2597635,
+          "max_seconds": 25916840,
+          "sample_size": 61207
+        }
+      },
+      "2": {
+        "groups": 7386355,
+        "group_fraction": 0.09522759041567605,
+        "events": 14772710,
+        "event_fraction": 0.12126705239042262,
+        "unique_items_per_group_mean": 1.8272410410818327,
+        "same_item_multifeedback_group_fraction": 0.17275895891816734,
+        "single_feedback_group_fraction": 0.7777631863077256,
+        "feedback_counts": {
+          "like": 9068405,
+          "dislike": 1586556,
+          "unlike": 3853484,
+          "undislike": 264265
+        },
+        "feedback_composition": {
+          "like": 0.6138619792847758,
+          "dislike": 0.10739776249584539,
+          "unlike": 0.26085152961101926,
+          "undislike": 0.017888728608359605
+        },
+        "same_time_revision_related_events": 1838552,
+        "same_time_revision_related_event_fraction": 0.12445597321006098,
+        "users": 620441,
+        "previous_timestamp_gap": {
+          "count": 7306779,
+          "mean_seconds": 154369.52842285225,
+          "min_seconds": 5,
+          "median_seconds_sample": 1885,
+          "p90_seconds_sample": 335425,
+          "p99_seconds_sample": 2143425,
+          "max_seconds": 25682300,
+          "sample_size": 7165
+        },
+        "next_timestamp_gap": {
+          "count": 7311558,
+          "mean_seconds": 160221.23389638707,
+          "min_seconds": 5,
+          "median_seconds_sample": 2080,
+          "p90_seconds_sample": 348530,
+          "p99_seconds_sample": 2498410,
+          "max_seconds": 25788550,
+          "sample_size": 7169
+        }
+      },
+      "3-5": {
+        "groups": 5015332,
+        "group_fraction": 0.06465949463499024,
+        "events": 18232244,
+        "event_fraction": 0.14966586958946385,
+        "unique_items_per_group_mean": 3.3996690548103294,
+        "same_item_multifeedback_group_fraction": 0.21066023146623195,
+        "single_feedback_group_fraction": 0.7175172052418464,
+        "feedback_counts": {
+          "like": 8818727,
+          "dislike": 1582747,
+          "unlike": 7303046,
+          "undislike": 527724
+        },
+        "feedback_composition": {
+          "like": 0.4836885136026043,
+          "dislike": 0.08681032351256379,
+          "unlike": 0.40055661826377487,
+          "undislike": 0.02894454462105707
+        },
+        "same_time_revision_related_events": 1672533,
+        "same_time_revision_related_event_fraction": 0.09173489560582888,
+        "users": 548655,
+        "previous_timestamp_gap": {
+          "count": 4956518,
+          "mean_seconds": 150578.00642103993,
+          "min_seconds": 5,
+          "median_seconds_sample": 1765,
+          "p90_seconds_sample": 322140,
+          "p99_seconds_sample": 2601935,
+          "max_seconds": 25789795,
+          "sample_size": 4906
+        },
+        "next_timestamp_gap": {
+          "count": 4966195,
+          "mean_seconds": 160826.27774785322,
+          "min_seconds": 5,
+          "median_seconds_sample": 1790,
+          "p90_seconds_sample": 349270,
+          "p99_seconds_sample": 2853655,
+          "max_seconds": 25910210,
+          "sample_size": 4915
+        }
+      },
+      "6-10": {
+        "groups": 1384507,
+        "group_fraction": 0.017849570664236473,
+        "events": 9931319,
+        "event_fraction": 0.0815247697598477,
+        "unique_items_per_group_mean": 6.823704033276827,
+        "same_item_multifeedback_group_fraction": 0.24496806444460015,
+        "single_feedback_group_fraction": 0.6511104674804822,
+        "feedback_counts": {
+          "like": 4582545,
+          "dislike": 865477,
+          "unlike": 4180238,
+          "undislike": 303059
+        },
+        "feedback_composition": {
+          "like": 0.46142360345086086,
+          "dislike": 0.08714622901550137,
+          "unlike": 0.42091468414215677,
+          "undislike": 0.03051548339148103
+        },
+        "same_time_revision_related_events": 602447,
+        "same_time_revision_related_event_fraction": 0.060661328067299014,
+        "users": 323832,
+        "previous_timestamp_gap": {
+          "count": 1364808,
+          "mean_seconds": 142263.82014539774,
+          "min_seconds": 5,
+          "median_seconds_sample": 1470,
+          "p90_seconds_sample": 302285,
+          "p99_seconds_sample": 2366755,
+          "max_seconds": 24889440,
+          "sample_size": 1393
+        },
+        "next_timestamp_gap": {
+          "count": 1372154,
+          "mean_seconds": 147560.79637562548,
+          "min_seconds": 5,
+          "median_seconds_sample": 1105,
+          "p90_seconds_sample": 325525,
+          "p99_seconds_sample": 4274890,
+          "max_seconds": 25754755,
+          "sample_size": 1409
+        }
+      },
+      "11-20": {
+        "groups": 393684,
+        "group_fraction": 0.005075518128387413,
+        "events": 5525080,
+        "event_fraction": 0.04535458733172697,
+        "unique_items_per_group_mean": 13.47394610906209,
+        "same_item_multifeedback_group_fraction": 0.2441272695867752,
+        "single_feedback_group_fraction": 0.6175536724885949,
+        "feedback_counts": {
+          "like": 2956033,
+          "dislike": 640945,
+          "unlike": 1793675,
+          "undislike": 134427
+        },
+        "feedback_composition": {
+          "like": 0.5350208503768271,
+          "dislike": 0.11600646506475924,
+          "unlike": 0.32464235811970144,
+          "undislike": 0.0243303264387122
+        },
+        "same_time_revision_related_events": 240432,
+        "same_time_revision_related_event_fraction": 0.04351647396960768,
+        "users": 139267,
+        "previous_timestamp_gap": {
+          "count": 384744,
+          "mean_seconds": 139951.54971877404,
+          "min_seconds": 5,
+          "median_seconds_sample": 1395,
+          "p90_seconds_sample": 311335,
+          "p99_seconds_sample": 3257630,
+          "max_seconds": 24586110,
+          "sample_size": 373
+        },
+        "next_timestamp_gap": {
+          "count": 390315,
+          "mean_seconds": 137689.74452685652,
+          "min_seconds": 5,
+          "median_seconds_sample": 1280,
+          "p90_seconds_sample": 259185,
+          "p99_seconds_sample": 1992300,
+          "max_seconds": 25671495,
+          "sample_size": 386
+        }
+      },
+      "21-50": {
+        "groups": 138034,
+        "group_fraction": 0.0017795848176045462,
+        "events": 4114259,
+        "event_fraction": 0.03377336058859666,
+        "unique_items_per_group_mean": 28.669067041453555,
+        "same_item_multifeedback_group_fraction": 0.32387672602402306,
+        "single_feedback_group_fraction": 0.5100699827578713,
+        "feedback_counts": {
+          "like": 2155347,
+          "dislike": 624732,
+          "unlike": 1189856,
+          "undislike": 144324
+        },
+        "feedback_composition": {
+          "like": 0.523872464033013,
+          "dislike": 0.1518455692750505,
+          "unlike": 0.289202988922185,
+          "undislike": 0.03507897776975149
+        },
+        "same_time_revision_related_events": 175397,
+        "same_time_revision_related_event_fraction": 0.04263149208642431,
+        "users": 64132,
+        "previous_timestamp_gap": {
+          "count": 132801,
+          "mean_seconds": 168783.72403069254,
+          "min_seconds": 5,
+          "median_seconds_sample": 1710,
+          "p90_seconds_sample": 198940,
+          "p99_seconds_sample": 4223295,
+          "max_seconds": 23589750,
+          "sample_size": 131
+        },
+        "next_timestamp_gap": {
+          "count": 136469,
+          "mean_seconds": 164701.6385772593,
+          "min_seconds": 5,
+          "median_seconds_sample": 1255,
+          "p90_seconds_sample": 392085,
+          "p99_seconds_sample": 3491120,
+          "max_seconds": 23917775,
+          "sample_size": 130
+        }
+      },
+      "51-100": {
+        "groups": 31340,
+        "group_fraction": 0.00040404674343804043,
+        "events": 2138954,
+        "event_fraction": 0.01755836585018619,
+        "unique_items_per_group_mean": 65.70137204850032,
+        "same_item_multifeedback_group_fraction": 0.39473516273133374,
+        "single_feedback_group_fraction": 0.4746011486917677,
+        "feedback_counts": {
+          "like": 1044294,
+          "dislike": 296569,
+          "unlike": 691915,
+          "undislike": 106176
+        },
+        "feedback_composition": {
+          "like": 0.48822648827417514,
+          "dislike": 0.13865141559846542,
+          "unlike": 0.32348287994973246,
+          "undislike": 0.04963921617762701
+        },
+        "same_time_revision_related_events": 86893,
+        "same_time_revision_related_event_fraction": 0.040624062041539934,
+        "users": 20354,
+        "previous_timestamp_gap": {
+          "count": 29274,
+          "mean_seconds": 255704.68914395027,
+          "min_seconds": 5,
+          "median_seconds_sample": 680,
+          "p90_seconds_sample": 263305,
+          "p99_seconds_sample": 1952990,
+          "max_seconds": 25050715,
+          "sample_size": 26
+        },
+        "next_timestamp_gap": {
+          "count": 30636,
+          "mean_seconds": 267019.92051834444,
+          "min_seconds": 5,
+          "median_seconds_sample": 385,
+          "p90_seconds_sample": 403085,
+          "p99_seconds_sample": 16091955,
+          "max_seconds": 23420495,
+          "sample_size": 30
+        }
+      },
+      "101-200": {
+        "groups": 9178,
+        "group_fraction": 0.00011832613309745804,
+        "events": 1254009,
+        "event_fraction": 0.010293979581340288,
+        "unique_items_per_group_mean": 130.59239485726738,
+        "same_item_multifeedback_group_fraction": 0.46349967313140117,
+        "single_feedback_group_fraction": 0.4364785356286773,
+        "feedback_counts": {
+          "like": 458286,
+          "dislike": 133202,
+          "unlike": 581225,
+          "undislike": 81296
+        },
+        "feedback_composition": {
+          "like": 0.3654567072485126,
+          "dislike": 0.10622092823895203,
+          "unlike": 0.46349348369908033,
+          "undislike": 0.06482888081345509
+        },
+        "same_time_revision_related_events": 56237,
+        "same_time_revision_related_event_fraction": 0.04484577064438931,
+        "users": 6962,
+        "previous_timestamp_gap": {
+          "count": 8537,
+          "mean_seconds": 251986.80449806724,
+          "min_seconds": 5,
+          "median_seconds_sample": 1640,
+          "p90_seconds_sample": 435035,
+          "p99_seconds_sample": 4911440,
+          "max_seconds": 24313800,
+          "sample_size": 8537
+        },
+        "next_timestamp_gap": {
+          "count": 8991,
+          "mean_seconds": 234337.02869536204,
+          "min_seconds": 5,
+          "median_seconds_sample": 995,
+          "p90_seconds_sample": 467225,
+          "p99_seconds_sample": 4581015,
+          "max_seconds": 22299535,
+          "sample_size": 8991
+        }
+      },
+      "201-500": {
+        "groups": 4125,
+        "group_fraction": 5.318100882839556e-05,
+        "events": 1197772,
+        "event_fraction": 0.009832338134017475,
+        "unique_items_per_group_mean": 281.1006060606061,
+        "same_item_multifeedback_group_fraction": 0.3825454545454545,
+        "single_feedback_group_fraction": 0.5803636363636364,
+        "feedback_counts": {
+          "like": 523341,
+          "dislike": 61364,
+          "unlike": 559809,
+          "undislike": 53258
+        },
+        "feedback_composition": {
+          "like": 0.4369287310105763,
+          "dislike": 0.05123178701789656,
+          "unlike": 0.46737526006618957,
+          "undislike": 0.044464221905337574
+        },
+        "same_time_revision_related_events": 32023,
+        "same_time_revision_related_event_fraction": 0.026735472193372363,
+        "users": 3319,
+        "previous_timestamp_gap": {
+          "count": 3710,
+          "mean_seconds": 324810.20485175203,
+          "min_seconds": 5,
+          "median_seconds_sample": 1635,
+          "p90_seconds_sample": 602015,
+          "p99_seconds_sample": 6445405,
+          "max_seconds": 24891740,
+          "sample_size": 3710
+        },
+        "next_timestamp_gap": {
+          "count": 4047,
+          "mean_seconds": 306447.30046948354,
+          "min_seconds": 5,
+          "median_seconds_sample": 1280,
+          "p90_seconds_sample": 597955,
+          "p99_seconds_sample": 6467300,
+          "max_seconds": 20995215,
+          "sample_size": 4047
+        }
+      },
+      "501-1000": {
+        "groups": 856,
+        "group_fraction": 1.1035865104753115e-05,
+        "events": 605375,
+        "event_fraction": 0.0049694363350293955,
+        "unique_items_per_group_mean": 694.8095794392524,
+        "same_item_multifeedback_group_fraction": 0.17172897196261683,
+        "single_feedback_group_fraction": 0.8177570093457944,
+        "feedback_counts": {
+          "like": 483170,
+          "dislike": 9922,
+          "unlike": 100397,
+          "undislike": 11886
+        },
+        "feedback_composition": {
+          "like": 0.7981333883956225,
+          "dislike": 0.01638984100763989,
+          "unlike": 0.16584265950856908,
+          "undislike": 0.01963411108816849
+        },
+        "same_time_revision_related_events": 7291,
+        "same_time_revision_related_event_fraction": 0.012043774519925665,
+        "users": 743,
+        "previous_timestamp_gap": {
+          "count": 675,
+          "mean_seconds": 490936.6074074074,
+          "min_seconds": 5,
+          "median_seconds_sample": 3580,
+          "p90_seconds_sample": 852920,
+          "p99_seconds_sample": 11885835,
+          "max_seconds": 25148275,
+          "sample_size": 675
+        },
+        "next_timestamp_gap": {
+          "count": 838,
+          "mean_seconds": 314032.2195704057,
+          "min_seconds": 5,
+          "median_seconds_sample": 2645,
+          "p90_seconds_sample": 822975,
+          "p99_seconds_sample": 5083565,
+          "max_seconds": 10878820,
+          "sample_size": 838
+        }
+      },
+      "1000+": {
+        "groups": 495,
+        "group_fraction": 6.381721059407467e-06,
+        "events": 846552,
+        "event_fraction": 0.006949223651937732,
+        "unique_items_per_group_mean": 1706.8747474747474,
+        "same_item_multifeedback_group_fraction": 0.03838383838383838,
+        "single_feedback_group_fraction": 0.9595959595959596,
+        "feedback_counts": {
+          "like": 817571,
+          "dislike": 987,
+          "unlike": 27440,
+          "undislike": 554
+        },
+        "feedback_composition": {
+          "like": 0.9657658360029863,
+          "dislike": 0.0011659059337170074,
+          "unlike": 0.032413838724614674,
+          "undislike": 0.0006544193386820893
+        },
+        "same_time_revision_related_events": 810,
+        "same_time_revision_related_event_fraction": 0.0009568224987951124,
+        "users": 409,
+        "previous_timestamp_gap": {
+          "count": 382,
+          "mean_seconds": 682273.3900523561,
+          "min_seconds": 5,
+          "median_seconds_sample": 3110,
+          "p90_seconds_sample": 1299200,
+          "p99_seconds_sample": 15554790,
+          "max_seconds": 20229625,
+          "sample_size": 382
+        },
+        "next_timestamp_gap": {
+          "count": 476,
+          "mean_seconds": 376012.8781512605,
+          "min_seconds": 5,
+          "median_seconds_sample": 1090,
+          "p90_seconds_sample": 613000,
+          "p99_seconds_sample": 8825460,
+          "max_seconds": 17897545,
+          "sample_size": 476
+        }
+      }
+    }
+  },
+  "extreme_burst_train": {
+    "totals": {
+      "groups": 61535193,
+      "events": 97217931
+    },
+    "bins": {
+      "1": {
+        "groups": 49980140,
+        "group_fraction": 0.812220415072071,
+        "events": 49980140,
+        "event_fraction": 0.5141041316750508,
+        "unique_items_per_group_mean": 1.0,
+        "same_item_multifeedback_group_fraction": 0.0,
+        "single_feedback_group_fraction": 1.0,
+        "feedback_counts": {
+          "like": 42948670,
+          "dislike": 4224540,
+          "unlike": 2692885,
+          "undislike": 114045
+        },
+        "feedback_composition": {
+          "like": 0.8593147198067073,
+          "dislike": 0.08452437308098777,
+          "unlike": 0.053879100778829354,
+          "undislike": 0.0022818063334756563
+        },
+        "same_time_revision_related_events": 0,
+        "same_time_revision_related_event_fraction": 0.0,
+        "users": 764033,
+        "previous_timestamp_gap": {
+          "count": 49362515,
+          "mean_seconds": 172335.92187867657,
+          "min_seconds": 5,
+          "median_seconds_sample": 3430,
+          "p90_seconds_sample": 416325,
+          "p99_seconds_sample": 2421540,
+          "max_seconds": 22088095,
+          "sample_size": 48175
+        },
+        "next_timestamp_gap": {
+          "count": 49335934,
+          "mean_seconds": 170882.82985794896,
+          "min_seconds": 5,
+          "median_seconds_sample": 3300,
+          "p90_seconds_sample": 406960,
+          "p99_seconds_sample": 2563125,
+          "max_seconds": 21967095,
+          "sample_size": 48161
+        }
+      },
+      "2": {
+        "groups": 5925279,
+        "group_fraction": 0.09629089812069005,
+        "events": 11850558,
+        "event_fraction": 0.12189683403157386,
+        "unique_items_per_group_mean": 1.8266501881177242,
+        "same_item_multifeedback_group_fraction": 0.1733498118822759,
+        "single_feedback_group_fraction": 0.7771522657414106,
+        "feedback_counts": {
+          "like": 7248726,
+          "dislike": 1290377,
+          "unlike": 3098567,
+          "undislike": 212888
+        },
+        "feedback_composition": {
+          "like": 0.611678032376197,
+          "dislike": 0.10888744648142307,
+          "unlike": 0.2614701349927995,
+          "undislike": 0.01796438614958047
+        },
+        "same_time_revision_related_events": 1480136,
+        "same_time_revision_related_event_fraction": 0.12490011018890418,
+        "users": 551571,
+        "previous_timestamp_gap": {
+          "count": 5853004,
+          "mean_seconds": 149073.2078510454,
+          "min_seconds": 5,
+          "median_seconds_sample": 1960,
+          "p90_seconds_sample": 334795,
+          "p99_seconds_sample": 2077525,
+          "max_seconds": 21606995,
+          "sample_size": 5737
+        },
+        "next_timestamp_gap": {
+          "count": 5856985,
+          "mean_seconds": 154740.65739540054,
+          "min_seconds": 5,
+          "median_seconds_sample": 2180,
+          "p90_seconds_sample": 351890,
+          "p99_seconds_sample": 2167490,
+          "max_seconds": 22088095,
+          "sample_size": 5745
+        }
+      },
+      "3-5": {
+        "groups": 4041391,
+        "group_fraction": 0.06567609205353431,
+        "events": 14695504,
+        "event_fraction": 0.1511604273907043,
+        "unique_items_per_group_mean": 3.3989265082245197,
+        "same_item_multifeedback_group_fraction": 0.21260749083669458,
+        "single_feedback_group_fraction": 0.7157394570334817,
+        "feedback_counts": {
+          "like": 7053311,
+          "dislike": 1291319,
+          "unlike": 5921108,
+          "undislike": 429766
+        },
+        "feedback_composition": {
+          "like": 0.4799638719434189,
+          "dislike": 0.08787170552299534,
+          "unlike": 0.40291969571101477,
+          "undislike": 0.029244726822571038
+        },
+        "same_time_revision_related_events": 1358391,
+        "same_time_revision_related_event_fraction": 0.09243582254817528,
+        "users": 485140,
+        "previous_timestamp_gap": {
+          "count": 3988250,
+          "mean_seconds": 145709.4703441359,
+          "min_seconds": 5,
+          "median_seconds_sample": 1785,
+          "p90_seconds_sample": 338540,
+          "p99_seconds_sample": 2703730,
+          "max_seconds": 21524225,
+          "sample_size": 3951
+        },
+        "next_timestamp_gap": {
+          "count": 3995182,
+          "mean_seconds": 154706.8319515857,
+          "min_seconds": 5,
+          "median_seconds_sample": 1635,
+          "p90_seconds_sample": 349635,
+          "p99_seconds_sample": 2853655,
+          "max_seconds": 21885040,
+          "sample_size": 3957
+        }
+      },
+      "6-10": {
+        "groups": 1120248,
+        "group_fraction": 0.01820499693565599,
+        "events": 8034619,
+        "event_fraction": 0.08264544325675888,
+        "unique_items_per_group_mean": 6.819746163349544,
+        "same_item_multifeedback_group_fraction": 0.24779423841863588,
+        "single_feedback_group_fraction": 0.6488643586063086,
+        "feedback_counts": {
+          "like": 3663630,
+          "dislike": 711279,
+          "unlike": 3409845,
+          "undislike": 249865
+        },
+        "feedback_composition": {
+          "like": 0.45598055116241354,
+          "dislike": 0.0885267863977122,
+          "unlike": 0.4243941125273022,
+          "undislike": 0.031098549912572084
+        },
+        "same_time_revision_related_events": 491698,
+        "same_time_revision_related_event_fraction": 0.061197425789573844,
+        "users": 279834,
+        "previous_timestamp_gap": {
+          "count": 1102639,
+          "mean_seconds": 137305.93474382823,
+          "min_seconds": 5,
+          "median_seconds_sample": 1685,
+          "p90_seconds_sample": 307055,
+          "p99_seconds_sample": 1920000,
+          "max_seconds": 21905050,
+          "sample_size": 1149
+        },
+        "next_timestamp_gap": {
+          "count": 1108694,
+          "mean_seconds": 141122.9445410546,
+          "min_seconds": 5,
+          "median_seconds_sample": 1110,
+          "p90_seconds_sample": 322715,
+          "p99_seconds_sample": 4274890,
+          "max_seconds": 21270285,
+          "sample_size": 1155
+        }
+      },
+      "11-20": {
+        "groups": 318351,
+        "group_fraction": 0.005173478532845424,
+        "events": 4469211,
+        "event_fraction": 0.04597105651219835,
+        "unique_items_per_group_mean": 13.473471105792035,
+        "same_item_multifeedback_group_fraction": 0.24658631510502557,
+        "single_feedback_group_fraction": 0.6148810589569375,
+        "feedback_counts": {
+          "like": 2365191,
+          "dislike": 529255,
+          "unlike": 1459723,
+          "undislike": 115042
+        },
+        "feedback_composition": {
+          "like": 0.5292189158220545,
+          "dislike": 0.11842246875343321,
+          "unlike": 0.326617606552924,
+          "undislike": 0.025741008871588297
+        },
+        "same_time_revision_related_events": 195450,
+        "same_time_revision_related_event_fraction": 0.04373255145035668,
+        "users": 117420,
+        "previous_timestamp_gap": {
+          "count": 310538,
+          "mean_seconds": 132933.84463415106,
+          "min_seconds": 5,
+          "median_seconds_sample": 1190,
+          "p90_seconds_sample": 311335,
+          "p99_seconds_sample": 3257630,
+          "max_seconds": 20982250,
+          "sample_size": 311
+        },
+        "next_timestamp_gap": {
+          "count": 315190,
+          "mean_seconds": 130521.3242964561,
+          "min_seconds": 5,
+          "median_seconds_sample": 1170,
+          "p90_seconds_sample": 280775,
+          "p99_seconds_sample": 1805960,
+          "max_seconds": 20286860,
+          "sample_size": 322
+        }
+      },
+      "21-50": {
+        "groups": 112080,
+        "group_fraction": 0.0018213967412111635,
+        "events": 3343521,
+        "event_fraction": 0.03439201971907837,
+        "unique_items_per_group_mean": 28.691746966452534,
+        "same_item_multifeedback_group_fraction": 0.3256602426837973,
+        "single_feedback_group_fraction": 0.5077177016416845,
+        "feedback_counts": {
+          "like": 1726289,
+          "dislike": 523323,
+          "unlike": 963099,
+          "undislike": 130810
+        },
+        "feedback_composition": {
+          "like": 0.5163087057027607,
+          "dislike": 0.15651853240939717,
+          "unlike": 0.2880493348179958,
+          "undislike": 0.03912342706984643
+        },
+        "same_time_revision_related_events": 142943,
+        "same_time_revision_related_event_fraction": 0.04275223634007383,
+        "users": 53539,
+        "previous_timestamp_gap": {
+          "count": 107621,
+          "mean_seconds": 156938.22427778965,
+          "min_seconds": 5,
+          "median_seconds_sample": 1580,
+          "p90_seconds_sample": 198940,
+          "p99_seconds_sample": 4223295,
+          "max_seconds": 21615680,
+          "sample_size": 103
+        },
+        "next_timestamp_gap": {
+          "count": 110604,
+          "mean_seconds": 151388.47274962932,
+          "min_seconds": 5,
+          "median_seconds_sample": 1270,
+          "p90_seconds_sample": 330960,
+          "p99_seconds_sample": 3491120,
+          "max_seconds": 21999325,
+          "sample_size": 103
+        }
+      },
+      "51-100": {
+        "groups": 25693,
+        "group_fraction": 0.0004175334267660459,
+        "events": 1754371,
+        "event_fraction": 0.018045755365849125,
+        "unique_items_per_group_mean": 65.72432179971199,
+        "same_item_multifeedback_group_fraction": 0.3958276573385747,
+        "single_feedback_group_fraction": 0.4696609971587592,
+        "feedback_counts": {
+          "like": 852270,
+          "dislike": 248969,
+          "unlike": 554211,
+          "undislike": 98921
+        },
+        "feedback_composition": {
+          "like": 0.4857980438573141,
+          "dislike": 0.14191354052250066,
+          "unlike": 0.3159029646522885,
+          "undislike": 0.05638545096789676
+        },
+        "same_time_revision_related_events": 72714,
+        "same_time_revision_related_event_fraction": 0.041447333545755145,
+        "users": 16865,
+        "previous_timestamp_gap": {
+          "count": 23907,
+          "mean_seconds": 222999.6496841929,
+          "min_seconds": 5,
+          "median_seconds_sample": 650,
+          "p90_seconds_sample": 217585,
+          "p99_seconds_sample": 1952990,
+          "max_seconds": 20026320,
+          "sample_size": 23
+        },
+        "next_timestamp_gap": {
+          "count": 25077,
+          "mean_seconds": 247154.58627427524,
+          "min_seconds": 5,
+          "median_seconds_sample": 330,
+          "p90_seconds_sample": 403085,
+          "p99_seconds_sample": 16091955,
+          "max_seconds": 21203810,
+          "sample_size": 27
+        }
+      },
+      "101-200": {
+        "groups": 7508,
+        "group_fraction": 0.00012201148048727174,
+        "events": 1024218,
+        "event_fraction": 0.010535278723428089,
+        "unique_items_per_group_mean": 130.4120937666489,
+        "same_item_multifeedback_group_fraction": 0.4627064464571124,
+        "single_feedback_group_fraction": 0.4323388385721897,
+        "feedback_counts": {
+          "like": 366837,
+          "dislike": 113506,
+          "unlike": 466617,
+          "undislike": 77258
+        },
+        "feedback_composition": {
+          "like": 0.3581630082658184,
+          "dislike": 0.11082211013670917,
+          "unlike": 0.45558367456928117,
+          "undislike": 0.07543120702819127
+        },
+        "same_time_revision_related_events": 47673,
+        "same_time_revision_related_event_fraction": 0.04654575490764661,
+        "users": 5696,
+        "previous_timestamp_gap": {
+          "count": 6961,
+          "mean_seconds": 240858.540439592,
+          "min_seconds": 5,
+          "median_seconds_sample": 1655,
+          "p90_seconds_sample": 437940,
+          "p99_seconds_sample": 4704770,
+          "max_seconds": 19427990,
+          "sample_size": 6961
+        },
+        "next_timestamp_gap": {
+          "count": 7321,
+          "mean_seconds": 218245.02185493786,
+          "min_seconds": 5,
+          "median_seconds_sample": 960,
+          "p90_seconds_sample": 440860,
+          "p99_seconds_sample": 4214975,
+          "max_seconds": 19151245,
+          "sample_size": 7321
+        }
+      },
+      "201-500": {
+        "groups": 3467,
+        "group_fraction": 5.634174252122684e-05,
+        "events": 1003677,
+        "event_fraction": 0.01032399054038704,
+        "unique_items_per_group_mean": 280.2411306605134,
+        "same_item_multifeedback_group_fraction": 0.38534756273435244,
+        "single_feedback_group_fraction": 0.5742717046437843,
+        "feedback_counts": {
+          "like": 426740,
+          "dislike": 53019,
+          "unlike": 471605,
+          "undislike": 52313
+        },
+        "feedback_composition": {
+          "like": 0.4251766255478605,
+          "dislike": 0.05282476334517978,
+          "unlike": 0.46987726131016255,
+          "undislike": 0.052121349796797174
+        },
+        "same_time_revision_related_events": 27051,
+        "same_time_revision_related_event_fraction": 0.0269518978715264,
+        "users": 2785,
+        "previous_timestamp_gap": {
+          "count": 3105,
+          "mean_seconds": 291112.18518518517,
+          "min_seconds": 5,
+          "median_seconds_sample": 1630,
+          "p90_seconds_sample": 606860,
+          "p99_seconds_sample": 5513020,
+          "max_seconds": 17361265,
+          "sample_size": 3105
+        },
+        "next_timestamp_gap": {
+          "count": 3357,
+          "mean_seconds": 260918.24843610366,
+          "min_seconds": 5,
+          "median_seconds_sample": 1115,
+          "p90_seconds_sample": 524950,
+          "p99_seconds_sample": 5545200,
+          "max_seconds": 17649835,
+          "sample_size": 3357
+        }
+      },
+      "501-1000": {
+        "groups": 686,
+        "group_fraction": 1.1148092116977678e-05,
+        "events": 485818,
+        "event_fraction": 0.004997205710950586,
+        "unique_items_per_group_mean": 695.868804664723,
+        "same_item_multifeedback_group_fraction": 0.16909620991253643,
+        "single_feedback_group_fraction": 0.8177842565597667,
+        "feedback_counts": {
+          "like": 383395,
+          "dislike": 8674,
+          "unlike": 82270,
+          "undislike": 11479
+        },
+        "feedback_composition": {
+          "like": 0.7891741351699608,
+          "dislike": 0.017854422849709152,
+          "unlike": 0.16934325199972006,
+          "undislike": 0.02362818998061002
+        },
+        "same_time_revision_related_events": 5839,
+        "same_time_revision_related_event_fraction": 0.012018904198691692,
+        "users": 594,
+        "previous_timestamp_gap": {
+          "count": 531,
+          "mean_seconds": 327386.02636534837,
+          "min_seconds": 5,
+          "median_seconds_sample": 3600,
+          "p90_seconds_sample": 681035,
+          "p99_seconds_sample": 6123450,
+          "max_seconds": 17153480,
+          "sample_size": 531
+        },
+        "next_timestamp_gap": {
+          "count": 659,
+          "mean_seconds": 296312.48103186645,
+          "min_seconds": 5,
+          "median_seconds_sample": 2750,
+          "p90_seconds_sample": 707250,
+          "p99_seconds_sample": 4505270,
+          "max_seconds": 10878820,
+          "sample_size": 659
+        }
+      },
+      "1000+": {
+        "groups": 350,
+        "group_fraction": 5.6878021004988156e-06,
+        "events": 576294,
+        "event_fraction": 0.005927857074020635,
+        "unique_items_per_group_mean": 1641.92,
+        "same_item_multifeedback_group_fraction": 0.04,
+        "single_feedback_group_fraction": 0.9571428571428572,
+        "feedback_counts": {
+          "like": 551399,
+          "dislike": 987,
+          "unlike": 23358,
+          "undislike": 550
+        },
+        "feedback_composition": {
+          "like": 0.9568015630910611,
+          "dislike": 0.001712667492633968,
+          "unlike": 0.04053139543358077,
+          "undislike": 0.0009543739827240957
+        },
+        "same_time_revision_related_events": 758,
+        "same_time_revision_related_event_fraction": 0.0013153008707361173,
+        "users": 293,
+        "previous_timestamp_gap": {
+          "count": 267,
+          "mean_seconds": 549863.3520599251,
+          "min_seconds": 5,
+          "median_seconds_sample": 2170,
+          "p90_seconds_sample": 1273905,
+          "p99_seconds_sample": 12434540,
+          "max_seconds": 16565565,
+          "sample_size": 267
+        },
+        "next_timestamp_gap": {
+          "count": 335,
+          "mean_seconds": 348379.74626865675,
+          "min_seconds": 5,
+          "median_seconds_sample": 1045,
+          "p90_seconds_sample": 623640,
+          "p99_seconds_sample": 8163055,
+          "max_seconds": 17897545,
+          "sample_size": 335
+        }
+      }
+    }
+  },
+  "strict_revision_pair_origin_bin_by_revision_bin": {
+    "like_to_unlike": [
+      [
+        1616697,
+        688344,
+        780594,
+        319365,
+        139087,
+        80694,
+        43802,
+        29882,
+        16120,
+        2881,
+        1046
+      ],
+      [
+        198677,
+        106105,
+        134399,
+        63290,
+        31700,
+        21596,
+        12136,
+        9030,
+        4689,
+        963,
+        186
+      ],
+      [
+        177918,
+        101819,
+        143782,
+        76956,
+        41941,
+        30008,
+        17235,
+        12820,
+        7543,
+        1378,
+        266
+      ],
+      [
+        84250,
+        52399,
+        78075,
+        47125,
+        29337,
+        23692,
+        13808,
+        10228,
+        6524,
+        1299,
+        202
+      ],
+      [
+        49696,
+        34610,
+        53463,
+        28889,
+        20497,
+        23264,
+        13747,
+        10028,
+        6538,
+        1349,
+        237
+      ],
+      [
+        30574,
+        23614,
+        39810,
+        22812,
+        14746,
+        19562,
+        14498,
+        10388,
+        7686,
+        1117,
+        402
+      ],
+      [
+        14082,
+        12162,
+        23030,
+        16422,
+        9973,
+        9341,
+        9938,
+        8720,
+        4782,
+        998,
+        328
+      ],
+      [
+        4751,
+        4053,
+        7635,
+        5684,
+        3396,
+        2840,
+        3703,
+        3593,
+        4086,
+        436,
+        102
+      ],
+      [
+        5657,
+        4857,
+        8981,
+        8035,
+        5418,
+        2648,
+        1855,
+        2229,
+        4095,
+        840,
+        0
+      ],
+      [
+        6445,
+        5387,
+        10083,
+        10516,
+        5537,
+        4043,
+        2469,
+        1409,
+        1561,
+        1105,
+        829
+      ],
+      [
+        8519,
+        6216,
+        16174,
+        12357,
+        7857,
+        4602,
+        1732,
+        1730,
+        2121,
+        295,
+        0
+      ]
+    ],
+    "dislike_to_undislike": [
+      [
+        61978,
+        21050,
+        20202,
+        5853,
+        2077,
+        1682,
+        970,
+        745,
+        453,
+        87,
+        0
+      ],
+      [
+        8198,
+        5263,
+        6292,
+        2558,
+        945,
+        829,
+        495,
+        304,
+        302,
+        57,
+        0
+      ],
+      [
+        5566,
+        3154,
+        5277,
+        3486,
+        2106,
+        1681,
+        718,
+        456,
+        466,
+        62,
+        0
+      ],
+      [
+        1776,
+        1078,
+        1844,
+        2502,
+        3880,
+        3212,
+        812,
+        612,
+        286,
+        61,
+        0
+      ],
+      [
+        1002,
+        595,
+        1147,
+        1447,
+        4526,
+        9747,
+        2510,
+        1071,
+        601,
+        266,
+        0
+      ],
+      [
+        735,
+        431,
+        883,
+        1057,
+        2926,
+        16840,
+        13708,
+        4767,
+        1514,
+        410,
+        0
+      ],
+      [
+        275,
+        177,
+        241,
+        332,
+        662,
+        3876,
+        9974,
+        10439,
+        2895,
+        260,
+        0
+      ],
+      [
+        89,
+        57,
+        97,
+        99,
+        148,
+        728,
+        2455,
+        4818,
+        6903,
+        542,
+        0
+      ],
+      [
+        34,
+        19,
+        9,
+        18,
+        16,
+        55,
+        241,
+        355,
+        1398,
+        739,
+        0
+      ],
+      [
+        1,
+        2,
+        2,
+        4,
+        7,
+        14,
+        42,
+        20,
+        6,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "bin_labels": [
+      "1",
+      "2",
+      "3-5",
+      "6-10",
+      "11-20",
+      "21-50",
+      "51-100",
+      "101-200",
+      "201-500",
+      "501-1000",
+      "1000+"
+    ]
+  },
+  "hypothetical_filter_sensitivity": {
+    "20": {
+      "rule": "hypothetically retain timestamp groups with size <= 20",
+      "event_retention": 0.9166232958588922,
+      "group_retention": 0.9976274437108674,
+      "user_retention": 0.9994570870614721,
+      "feedback_retention": {
+        "like": 0.9357516827476277,
+        "dislike": 0.8981311532381295,
+        "unlike": 0.8668767585324222,
+        "undislike": 0.77493961496258
+      },
+      "tied_event_fraction_after": 0.4339975657052268,
+      "multi_group_bins_retained": {
+        "2": 7386355,
+        "3-5": 5015332,
+        "6-10": 1384507,
+        "11-20": 393684
+      },
+      "strict_like_to_unlike_pairs_retained": 5099015,
+      "strict_dislike_to_undislike_pairs_retained": 173802,
+      "strict_like_to_unlike_pair_retention": 0.8508182447999957,
+      "strict_dislike_to_undislike_pair_retention": 0.5919525353532601
+    },
+    "50": {
+      "rule": "hypothetically retain timestamp groups with size <= 50",
+      "event_retention": 0.9503966564474889,
+      "group_retention": 0.999407028528472,
+      "user_retention": 0.9996852509041724,
+      "feedback_retention": {
+        "like": 0.9610120239555587,
+        "dislike": 0.9546115258900469,
+        "unlike": 0.9171514287741209,
+        "undislike": 0.8566556031539504
+      },
+      "tied_event_fraction_after": 0.4541110669236699,
+      "multi_group_bins_retained": {
+        "2": 7386355,
+        "3-5": 5015332,
+        "6-10": 1384507,
+        "11-20": 393684,
+        "21-50": 138034
+      },
+      "strict_like_to_unlike_pairs_retained": 5429387,
+      "strict_dislike_to_undislike_pairs_retained": 213825,
+      "strict_like_to_unlike_pair_retention": 0.9059438965525527,
+      "strict_dislike_to_undislike_pair_retention": 0.7282669409552873
+    },
+    "100": {
+      "rule": "hypothetically retain timestamp groups with size <= 100",
+      "event_retention": 0.9679550222976752,
+      "group_retention": 0.9998110752719099,
+      "user_retention": 0.9999110746048963,
+      "feedback_retention": {
+        "like": 0.9732509918625338,
+        "dislike": 0.9814235471039539,
+        "unlike": 0.9463867299032366,
+        "undislike": 0.9167722626299
+      },
+      "tied_event_fraction_after": 0.46401330140742714,
+      "multi_group_bins_retained": {
+        "2": 7386355,
+        "3-5": 5015332,
+        "6-10": 1384507,
+        "11-20": 393684,
+        "21-50": 138034,
+        "51-100": 31340
+      },
+      "strict_like_to_unlike_pairs_retained": 5639561,
+      "strict_dislike_to_undislike_pairs_retained": 248575,
+      "strict_like_to_unlike_pair_retention": 0.9410133901278009,
+      "strict_dislike_to_undislike_pair_retention": 0.8466220266477753
+    },
+    "200": {
+      "rule": "hypothetically retain timestamp groups with size <= 200",
+      "event_retention": 0.9782490018790154,
+      "group_retention": 0.9999294014050074,
+      "user_retention": 0.9999672380123302,
+      "feedback_retention": {
+        "like": 0.9786220345442078,
+        "dislike": 0.9934659886596621,
+        "unlike": 0.9709450757965475,
+        "undislike": 0.9628019110321453
+      },
+      "tied_event_fraction_after": 0.4696534156529659,
+      "multi_group_bins_retained": {
+        "2": 7386355,
+        "3-5": 5015332,
+        "6-10": 1384507,
+        "11-20": 393684,
+        "21-50": 138034,
+        "51-100": 31340,
+        "101-200": 9178
+      },
+      "strict_like_to_unlike_pairs_retained": 5766312,
+      "strict_dislike_to_undislike_pairs_retained": 275460,
+      "strict_like_to_unlike_pair_retention": 0.9621629775180408,
+      "strict_dislike_to_undislike_pair_retention": 0.9381896951036757
+    },
+    "500": {
+      "rule": "hypothetically retain timestamp groups with size <= 500",
+      "event_retention": 0.9880813400130328,
+      "group_retention": 0.9999825824138359,
+      "user_retention": 0.9999894693611061,
+      "feedback_retention": {
+        "like": 0.9847555119973046,
+        "dislike": 0.9990137460779026,
+        "unlike": 0.9945985371173587,
+        "undislike": 0.9929564944631478
+      },
+      "tied_event_fraction_after": 0.47493086269538504,
+      "multi_group_bins_retained": {
+        "2": 7386355,
+        "3-5": 5015332,
+        "6-10": 1384507,
+        "11-20": 393684,
+        "21-50": 138034,
+        "51-100": 31340,
+        "101-200": 9178,
+        "201-500": 4125
+      },
+      "strict_like_to_unlike_pairs_retained": 5868055,
+      "strict_dislike_to_undislike_pairs_retained": 291025,
+      "strict_like_to_unlike_pair_retention": 0.9791397466941829,
+      "strict_dislike_to_undislike_pair_retention": 0.9912025557886706
+    },
+    "1000": {
+      "rule": "hypothetically retain timestamp groups with size <= 1000",
+      "event_retention": 0.9930507763480623,
+      "group_retention": 0.9999936182789406,
+      "user_retention": 0.9999953197160472,
+      "feedback_retention": {
+        "like": 0.990418191399478,
+        "dislike": 0.9999107679327977,
+        "unlike": 0.9988405849519335,
+        "undislike": 0.9996863262003685
+      },
+      "tied_event_fraction_after": 0.4775584198268741,
+      "multi_group_bins_retained": {
+        "2": 7386355,
+        "3-5": 5015332,
+        "6-10": 1384507,
+        "11-20": 393684,
+        "21-50": 138034,
+        "51-100": 31340,
+        "101-200": 9178,
+        "201-500": 4125,
+        "501-1000": 856
+      },
+      "strict_like_to_unlike_pairs_retained": 5927871,
+      "strict_dislike_to_undislike_pairs_retained": 293607,
+      "strict_like_to_unlike_pair_retention": 0.9891206045914349,
+      "strict_dislike_to_undislike_pair_retention": 0.9999965940982535
+    }
+  },
+  "elapsed_seconds": 1215.7183170318604
+}

@@ -1,0 +1,2019 @@
+{
+  "experiment": "Group-Level Generalization Pilot",
+  "device": "cuda",
+  "config": {
+    "seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "epochs": 20,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "optimizer": "Adam",
+    "hidden_size": 64,
+    "gradient_clip_norm": 5.0,
+    "architecture_search": false,
+    "checkpoint_selection": "train objective only; validation never selects checkpoint"
+  },
+  "manifest": {
+    "source": "/root/autodl-tmp/0809 Yambda/minimal_snmpp_pilot/data/pilot_sequences.npz",
+    "source_sha256": "6417bd993dbf3c4831e5921a906d79a2c7b928c3af2b1321eaa3f38432f74c6f",
+    "selected_user_rule": "prefix of seed-2026 stable hash order over existing pilot users until >=30k train targets",
+    "selection_uses_train_only": true,
+    "selected_users": 303,
+    "train_targets": 30258,
+    "validation_targets": 4321,
+    "train_users": 303,
+    "validation_users": 257,
+    "train_target_events": 50599,
+    "validation_target_events": 5802,
+    "feature_groups_materialized_in_memory": 34579,
+    "scaler_fit": "strict train-history groups only",
+    "validation_history": "all groups strictly before each validation target, including prior validation groups",
+    "within_group_order_used": false,
+    "listen_used": false,
+    "test_used": false,
+    "burst_removed": false,
+    "feature_definition": "mean frozen SID semantics + feedback composition + log1p group size + log1p previous gap hours",
+    "target_goal": 30000,
+    "seed": 2026,
+    "selected_user_ids": [
+      1597,
+      4181,
+      5778,
+      8362,
+      10946,
+      15127,
+      16724,
+      21892,
+      23489,
+      26073,
+      27670,
+      28657,
+      30254,
+      32838,
+      34435,
+      39603,
+      41200,
+      47965,
+      52146,
+      58911,
+      68260,
+      69857,
+      74038,
+      75025,
+      76622,
+      83387,
+      87568,
+      96917,
+      101098,
+      105279,
+      107863,
+      112044,
+      116225,
+      118809,
+      125574,
+      127171,
+      129755,
+      132339,
+      133936,
+      138117,
+      143285,
+      144882,
+      147466,
+      150050,
+      154231,
+      155828,
+      158412,
+      160996,
+      162593,
+      166774,
+      169358,
+      171942,
+      176123,
+      180304,
+      184485,
+      189653,
+      193834,
+      195431,
+      196418,
+      198015,
+      200599,
+      202196,
+      204780,
+      211545,
+      215726,
+      218310,
+      219907,
+      222491,
+      226672,
+      229256,
+      233437,
+      237618,
+      240202,
+      244383,
+      246967,
+      248564,
+      253732,
+      255329,
+      259510,
+      262094,
+      264678,
+      268859,
+      271443,
+      277221,
+      279805,
+      282389,
+      283986,
+      286570,
+      288167,
+      290751,
+      293335,
+      297516,
+      300100,
+      301697,
+      304281,
+      305878,
+      312643,
+      316824,
+      319408,
+      321992,
+      337119,
+      339703,
+      341300,
+      343884,
+      345481,
+      346468,
+      348065,
+      352246,
+      354830,
+      357414,
+      359011,
+      365776,
+      368360,
+      372541,
+      375125,
+      383487,
+      390252,
+      391849,
+      394433,
+      397017,
+      401198,
+      403782,
+      405379,
+      412144,
+      414728,
+      416325,
+      420506,
+      425674,
+      427271,
+      429855,
+      434036,
+      436620,
+      438217,
+      447566,
+      450150,
+      458512,
+      462693,
+      467861,
+      472042,
+      476223,
+      478807,
+      480404,
+      482988,
+      484585,
+      489753,
+      491350,
+      496518,
+      498115,
+      500699,
+      502296,
+      507464,
+      509061,
+      511645,
+      513242,
+      514229,
+      520007,
+      522591,
+      526772,
+      530953,
+      536121,
+      537718,
+      541899,
+      547067,
+      548664,
+      551248,
+      558013,
+      559610,
+      564778,
+      566375,
+      579905,
+      582489,
+      584086,
+      586670,
+      588267,
+      589254,
+      590851,
+      593435,
+      601797,
+      604381,
+      605978,
+      608562,
+      611146,
+      617911,
+      619508,
+      622092,
+      623689,
+      626273,
+      628857,
+      633038,
+      634635,
+      637219,
+      641400,
+      643984,
+      646568,
+      648165,
+      652346,
+      657514,
+      659111,
+      661695,
+      663292,
+      664279,
+      665876,
+      668460,
+      670057,
+      672641,
+      675225,
+      676822,
+      683587,
+      686171,
+      687768,
+      690352,
+      692936,
+      694533,
+      697117,
+      698714,
+      701298,
+      703882,
+      705479,
+      708063,
+      710647,
+      714828,
+      716425,
+      721593,
+      725774,
+      729955,
+      732539,
+      734136,
+      736720,
+      739304,
+      743485,
+      745082,
+      747666,
+      750250,
+      751847,
+      756028,
+      758612,
+      761196,
+      765377,
+      767961,
+      769558,
+      772142,
+      776323,
+      778907,
+      780504,
+      789853,
+      791450,
+      794034,
+      798215,
+      800799,
+      802396,
+      807564,
+      809161,
+      811745,
+      818510,
+      820107,
+      825275,
+      826872,
+      831053,
+      837818,
+      840402,
+      844583,
+      847167,
+      848764,
+      851348,
+      853932,
+      855529,
+      859710,
+      864878,
+      866475,
+      873240,
+      875824,
+      877421,
+      884186,
+      886770,
+      889354,
+      890951,
+      893535,
+      895132,
+      897716,
+      900300,
+      901897,
+      906078,
+      907065,
+      912843,
+      915427,
+      918011,
+      922192,
+      923789,
+      928957,
+      939903,
+      946668,
+      948265,
+      950849,
+      961795,
+      965976,
+      968560,
+      970157,
+      976922,
+      979506,
+      986271,
+      987868,
+      993036,
+      998814
+    ],
+    "selection_artifact": "/root/autodl-tmp/0809 Yambda/group_level_generalization_pilot/selection_ids.npz",
+    "selection_artifact_sha256": "24f9dfe7aed6c914a4029faf7db967b44fd61eb0e8024d88b03601ba009471d9",
+    "train_history_length_percentiles": {
+      "0": 1.0,
+      "50": 80.0,
+      "90": 336.0,
+      "95": 449.0,
+      "99": 747.4300000000003,
+      "100": 934.0
+    },
+    "validation_history_length_percentiles": {
+      "0": 6.0,
+      "50": 165.0,
+      "90": 608.0,
+      "95": 726.0,
+      "99": 881.0,
+      "100": 957.0
+    }
+  },
+  "baselines": {
+    "definition_audit": {
+      "global_feedback_prior_source": "complete D_SID train split, not Tiny and not moderate Pilot",
+      "global_feedback_counts": [
+        67586458,
+        8995248,
+        19143288,
+        1492937
+      ],
+      "global_feedback_probability": [
+        0.6952056817584402,
+        0.09252663482418691,
+        0.1969110821747482,
+        0.015356601242624677
+      ],
+      "global_median_gap_source": "complete D_SID train split",
+      "global_median_gap_seconds": 2845.0
+    },
+    "mark": {
+      "train": {
+        "global_full_train_feedback_prior": {
+          "ce_per_event": 0.7573251769940811,
+          "accuracy": 0.7387300144271626,
+          "macro_f1": 0.21243379026574827,
+          "per_class_recall": {
+            "like": 1.0,
+            "dislike": 0.0,
+            "unlike": 0.0,
+            "undislike": 0.0
+          },
+          "per_class_precision": {
+            "like": 0.7387300144271626,
+            "dislike": 0.0,
+            "unlike": 0.0,
+            "undislike": 0.0
+          },
+          "predicted_argmax_distribution": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "event_weighted_predicted_probability": [
+            0.6952056817582726,
+            0.09252663482414053,
+            0.1969110821747913,
+            0.015356601242619604
+          ],
+          "confusion_matrix": [
+            [
+              37379,
+              0,
+              0,
+              0
+            ],
+            [
+              2639,
+              0,
+              0,
+              0
+            ],
+            [
+              10089,
+              0,
+              0,
+              0
+            ],
+            [
+              492,
+              0,
+              0,
+              0
+            ]
+          ],
+          "collapsed": true
+        },
+        "previous_group_composition_global_Dirichlet_strength_1": {
+          "ce_per_event": 0.5867802069323135,
+          "accuracy": 0.8035336666732544,
+          "macro_f1": 0.48857555882013887,
+          "per_class_recall": {
+            "like": 0.9099761898392146,
+            "dislike": 0.411898446381205,
+            "unlike": 0.5497076023391813,
+            "undislike": 0.022357723577235773
+          },
+          "per_class_precision": {
+            "like": 0.8513503366455585,
+            "dislike": 0.4515995014540922,
+            "unlike": 0.6891153081510935,
+            "undislike": 0.05759162303664921
+          },
+          "predicted_argmax_distribution": [
+            0.8246083680348999,
+            0.05555555555555555,
+            0.11590323220305374,
+            0.003932844206490846
+          ],
+          "event_weighted_predicted_probability": [
+            0.7328237922142148,
+            0.06658251196680504,
+            0.19117021869527193,
+            0.009423477622560955
+          ],
+          "confusion_matrix": [
+            [
+              34014,
+              1005,
+              2263,
+              97
+            ],
+            [
+              1350,
+              1087,
+              173,
+              29
+            ],
+            [
+              4313,
+              176,
+              5546,
+              54
+            ],
+            [
+              276,
+              139,
+              66,
+              11
+            ]
+          ],
+          "collapsed": false
+        }
+      },
+      "validation": {
+        "global_full_train_feedback_prior": {
+          "ce_per_event": 0.7598054970409412,
+          "accuracy": 0.7381937263012754,
+          "macro_f1": 0.21234506693108576,
+          "per_class_recall": {
+            "like": 1.0,
+            "dislike": 0.0,
+            "unlike": 0.0,
+            "undislike": 0.0
+          },
+          "per_class_precision": {
+            "like": 0.7381937263012754,
+            "dislike": 0.0,
+            "unlike": 0.0,
+            "undislike": 0.0
+          },
+          "predicted_argmax_distribution": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "event_weighted_predicted_probability": [
+            0.6952056817584717,
+            0.09252663482418994,
+            0.19691108217474898,
+            0.0153566012426251
+          ],
+          "confusion_matrix": [
+            [
+              4283,
+              0,
+              0,
+              0
+            ],
+            [
+              328,
+              0,
+              0,
+              0
+            ],
+            [
+              1138,
+              0,
+              0,
+              0
+            ],
+            [
+              53,
+              0,
+              0,
+              0
+            ]
+          ],
+          "collapsed": true
+        },
+        "previous_group_composition_global_Dirichlet_strength_1": {
+          "ce_per_event": 0.6564452639325258,
+          "accuracy": 0.7743881420199931,
+          "macro_f1": 0.4887417651248731,
+          "per_class_recall": {
+            "like": 0.9000700443614289,
+            "dislike": 0.39939024390243905,
+            "unlike": 0.44024604569420034,
+            "undislike": 0.11320754716981132
+          },
+          "per_class_precision": {
+            "like": 0.8253050738599872,
+            "dislike": 0.4763636363636364,
+            "unlike": 0.6043425814234017,
+            "undislike": 0.2222222222222222
+          },
+          "predicted_argmax_distribution": [
+            0.8287433464475816,
+            0.05507984262902106,
+            0.11201110853968989,
+            0.004165702383707475
+          ],
+          "event_weighted_predicted_probability": [
+            0.7385481746250596,
+            0.07003892475689635,
+            0.18065419499887794,
+            0.010758705964929845
+          ],
+          "confusion_matrix": [
+            [
+              3855,
+              122,
+              291,
+              15
+            ],
+            [
+              162,
+              131,
+              29,
+              6
+            ],
+            [
+              626,
+              11,
+              501,
+              0
+            ],
+            [
+              28,
+              11,
+              8,
+              6
+            ]
+          ],
+          "collapsed": false
+        }
+      }
+    },
+    "time": {
+      "global_full_train_median_gap": {
+        "definition": "2845-second median computed from the complete D_SID train split",
+        "train": {
+          "mae_hours": 41.41815440669259,
+          "median_ae_hours": 0.7874999999327378,
+          "finite": true
+        },
+        "validation": {
+          "mae_hours": 38.66449193800882,
+          "median_ae_hours": 0.7874999999327378,
+          "finite": true
+        }
+      },
+      "history_free_lognormal_fit_on_moderate_train": {
+        "mu": -0.2101106749326497,
+        "sigma": 3.71394474238529,
+        "train": {
+          "nll_per_group": 2.5209224428972647,
+          "mae_hours": 41.41924778010124,
+          "median_ae_hours": 0.8077167617325335,
+          "prediction_median_hours": 0.8104945395775734,
+          "prediction_p95_hours": 0.8104945395775734,
+          "finite": true
+        },
+        "validation": {
+          "nll_per_group": 2.2893543022526837,
+          "mae_hours": 38.666571755773596,
+          "median_ae_hours": 0.8077167617325335,
+          "prediction_median_hours": 0.8104945395775734,
+          "prediction_p95_hours": 0.8104945395775734,
+          "finite": true
+        }
+      },
+      "previous_gap_point": {
+        "train": {
+          "mae_hours": 57.53670979022324,
+          "median_ae_hours": 7.861805081367493,
+          "finite": true
+        },
+        "validation": {
+          "mae_hours": 55.67957816106832,
+          "median_ae_hours": 5.797222412889823,
+          "finite": true
+        }
+      },
+      "previous_gap_lognormal_residual_fit_on_moderate_train": {
+        "residual_mu": 0.02233093873311401,
+        "residual_sigma": 3.8716247349020043,
+        "train": {
+          "nll_per_group": 2.562502108524007,
+          "mae_hours": 58.163371644699936,
+          "median_ae_hours": 7.914462059736252,
+          "prediction_median_hours": 0.5368555784225464,
+          "prediction_p95_hours": 189.1140899658203,
+          "finite": true
+        },
+        "validation": {
+          "nll_per_group": 2.2795892463738134,
+          "mae_hours": 56.31896244705229,
+          "median_ae_hours": 5.981853485107422,
+          "prediction_median_hours": 0.37068602442741394,
+          "prediction_p95_hours": 170.19174194335938,
+          "finite": true
+        }
+      }
+    }
+  },
+  "models": {
+    "last_group_mark": {
+      "model": "last_group_only_MLP",
+      "train": {
+        "ce_per_event": {
+          "mean": 0.4439748128255208,
+          "std": 0.0022500425125212237,
+          "values": [
+            0.44135037064552307,
+            0.44684532284736633,
+            0.4437287449836731
+          ]
+        },
+        "macro_f1": {
+          "mean": 0.607622627230019,
+          "std": 0.006890082191225347,
+          "values": [
+            0.6120325820547805,
+            0.5978927529588479,
+            0.6129425466764287
+          ]
+        },
+        "accuracy": {
+          "mean": 0.8438440812400773,
+          "std": 0.0008714270113887698,
+          "values": [
+            0.8450759896440642,
+            0.8431984821834424,
+            0.8432577718927251
+          ]
+        }
+      },
+      "validation": {
+        "ce_per_event": {
+          "mean": 0.6825088659922282,
+          "std": 0.004463720083193957,
+          "values": [
+            0.6879247426986694,
+            0.6826095581054688,
+            0.6769922971725464
+          ]
+        },
+        "macro_f1": {
+          "mean": 0.4116447475042,
+          "std": 0.010550886078126584,
+          "values": [
+            0.42580198116784723,
+            0.40048429936828284,
+            0.40864796197646985
+          ]
+        },
+        "accuracy": {
+          "mean": 0.7730093071354706,
+          "std": 0.0018932847355261737,
+          "values": [
+            0.7723198896932092,
+            0.771113409169252,
+            0.7755946225439504
+          ]
+        }
+      },
+      "validation_collapsed_seeds": 0,
+      "nonfinite_steps": 0
+    },
+    "full_history_mark": {
+      "model": "full_history_GRU",
+      "train": {
+        "ce_per_event": {
+          "mean": 0.2775849401950836,
+          "std": 0.00932322648674641,
+          "values": [
+            0.26825615763664246,
+            0.29031866788864136,
+            0.27417999505996704
+          ]
+        },
+        "macro_f1": {
+          "mean": 0.7592935795637867,
+          "std": 0.004875965856644707,
+          "values": [
+            0.7661193796317791,
+            0.7550327970930142,
+            0.7567285619665669
+          ]
+        },
+        "accuracy": {
+          "mean": 0.9027253503033656,
+          "std": 0.0027132555665891527,
+          "values": [
+            0.9054131504575189,
+            0.8990098618549773,
+            0.9037530385976007
+          ]
+        }
+      },
+      "validation": {
+        "ce_per_event": {
+          "mean": 0.7555719415346781,
+          "std": 0.02412917490000024,
+          "values": [
+            0.7869696617126465,
+            0.7282988429069519,
+            0.751447319984436
+          ]
+        },
+        "macro_f1": {
+          "mean": 0.40572183838708037,
+          "std": 0.01583336997347632,
+          "values": [
+            0.38464966155654545,
+            0.40969927375522963,
+            0.422816579849466
+          ]
+        },
+        "accuracy": {
+          "mean": 0.7615190164311157,
+          "std": 0.004569467729552632,
+          "values": [
+            0.755084453636677,
+            0.7642192347466391,
+            0.765253360910031
+          ]
+        }
+      },
+      "validation_collapsed_seeds": 0,
+      "nonfinite_steps": 0
+    },
+    "full_history_time": {
+      "model": "full_history_GRU_lognormal",
+      "train": {
+        "nll_per_group": {
+          "mean": 2.118883514838634,
+          "std": 0.00588524374990619,
+          "values": [
+            2.1187055860263393,
+            2.1117662044098173,
+            2.1261787540797448
+          ]
+        },
+        "mae_hours": {
+          "mean": 39.73690668741862,
+          "std": 0.10413064869474255,
+          "values": [
+            39.881561279296875,
+            39.6884765625,
+            39.640682220458984
+          ]
+        },
+        "median_ae_hours": {
+          "mean": 2.4973670641581216,
+          "std": 0.04299771387456642,
+          "values": [
+            2.436979293823242,
+            2.533740997314453,
+            2.52138090133667
+          ]
+        }
+      },
+      "validation": {
+        "nll_per_group": {
+          "mean": 2.154187784499427,
+          "std": 0.012389536268723094,
+          "values": [
+            2.1403010964032863,
+            2.151877975910618,
+            2.1703842811843765
+          ]
+        },
+        "mae_hours": {
+          "mean": 37.64161936442057,
+          "std": 0.054650744962571905,
+          "values": [
+            37.7180290222168,
+            37.593353271484375,
+            37.61347579956055
+          ]
+        },
+        "median_ae_hours": {
+          "mean": 2.0480294624964395,
+          "std": 0.05659534734111767,
+          "values": [
+            1.982157826423645,
+            2.0415921211242676,
+            2.1203384399414062
+          ]
+        }
+      },
+      "validation_collapsed_seeds": 0,
+      "nonfinite_steps": 0
+    }
+  },
+  "per_seed": {
+    "last_group_mark": [
+      {
+        "seed": 2026,
+        "task": "mark",
+        "checkpoint_selection": "minimum train objective across fixed 20 epochs",
+        "train": {
+          "ce_per_event": 0.44135037064552307,
+          "accuracy": 0.8450759896440642,
+          "macro_f1": 0.6120325820547805,
+          "per_class_recall": {
+            "like": 0.9597635035715241,
+            "dislike": 0.3429329291398257,
+            "unlike": 0.5790464862721776,
+            "undislike": 0.2804878048780488
+          },
+          "per_class_precision": {
+            "like": 0.8562461215332474,
+            "dislike": 0.6131436314363143,
+            "unlike": 0.8271272830242107,
+            "undislike": 0.8518518518518519
+          },
+          "predicted_argmax_distribution": [
+            0.878015731376826,
+            0.031132262542137617,
+            0.0901249256395003,
+            0.0007270804415361227
+          ],
+          "event_weighted_predicted_probability": [
+            0.7294466495513916,
+            0.05769794434309006,
+            0.20354963839054108,
+            0.009305065497756004
+          ],
+          "confusion_matrix": [
+            [
+              35875,
+              408,
+              1087,
+              9
+            ],
+            [
+              1618,
+              905,
+              112,
+              4
+            ],
+            [
+              4163,
+              73,
+              5842,
+              11
+            ],
+            [
+              242,
+              90,
+              22,
+              138
+            ]
+          ],
+          "collapsed": false
+        },
+        "validation": {
+          "ce_per_event": 0.6879247426986694,
+          "accuracy": 0.7723198896932092,
+          "macro_f1": 0.42580198116784723,
+          "per_class_recall": {
+            "like": 0.9371935559187485,
+            "dislike": 0.24390243902439024,
+            "unlike": 0.3383128295254833,
+            "undislike": 0.03773584905660377
+          },
+          "per_class_precision": {
+            "like": 0.7980119284294235,
+            "dislike": 0.5161290322580645,
+            "unlike": 0.6280587275693311,
+            "undislike": 0.5
+          },
+          "predicted_argmax_distribution": [
+            0.880814626243925,
+            0.031011339967600093,
+            0.08771117796806295,
+            0.0004628558204119417
+          ],
+          "event_weighted_predicted_probability": [
+            0.7499611973762512,
+            0.06261572241783142,
+            0.18000528216362,
+            0.0074174548499286175
+          ],
+          "confusion_matrix": [
+            [
+              4014,
+              66,
+              203,
+              0
+            ],
+            [
+              227,
+              80,
+              19,
+              2
+            ],
+            [
+              750,
+              3,
+              385,
+              0
+            ],
+            [
+              39,
+              6,
+              6,
+              2
+            ]
+          ],
+          "collapsed": false
+        },
+        "train_to_validation_gap": {
+          "ce_per_event": 0.24657437205314636,
+          "macro_f1": -0.18623060088693327
+        },
+        "gradient_clip_frequency": 0.0007399577167019028,
+        "nonfinite_steps": 0,
+        "parameter_count": 9168
+      },
+      {
+        "seed": 2027,
+        "task": "mark",
+        "checkpoint_selection": "minimum train objective across fixed 20 epochs",
+        "train": {
+          "ce_per_event": 0.44684532284736633,
+          "accuracy": 0.8431984821834424,
+          "macro_f1": 0.5978927529588479,
+          "per_class_recall": {
+            "like": 0.966799539848578,
+            "dislike": 0.3008715422508526,
+            "unlike": 0.5553573198533056,
+            "undislike": 0.26422764227642276
+          },
+          "per_class_precision": {
+            "like": 0.8485289628777384,
+            "dislike": 0.6102997694081476,
+            "unlike": 0.8528158295281583,
+            "undislike": 0.935251798561151
+          },
+          "predicted_argmax_distribution": [
+            0.8914997686562232,
+            0.028025646110119637,
+            0.07994579945799458,
+            0.0005287857756626346
+          ],
+          "event_weighted_predicted_probability": [
+            0.7486569285392761,
+            0.050521496683359146,
+            0.19209493696689606,
+            0.008727001026272774
+          ],
+          "confusion_matrix": [
+            [
+              36138,
+              382,
+              857,
+              2
+            ],
+            [
+              1747,
+              794,
+              92,
+              6
+            ],
+            [
+              4426,
+              59,
+              5603,
+              1
+            ],
+            [
+              278,
+              66,
+              18,
+              130
+            ]
+          ],
+          "collapsed": false
+        },
+        "validation": {
+          "ce_per_event": 0.6826095581054688,
+          "accuracy": 0.771113409169252,
+          "macro_f1": 0.40048429936828284,
+          "per_class_recall": {
+            "like": 0.9505019845902405,
+            "dislike": 0.2530487804878049,
+            "unlike": 0.281195079086116,
+            "undislike": 0.0
+          },
+          "per_class_precision": {
+            "like": 0.789412449098313,
+            "dislike": 0.5533333333333333,
+            "unlike": 0.6477732793522267,
+            "undislike": 0.0
+          },
+          "predicted_argmax_distribution": [
+            0.8984031474195788,
+            0.03031705623698218,
+            0.07104836843323305,
+            0.00023142791020597085
+          ],
+          "event_weighted_predicted_probability": [
+            0.7757222652435303,
+            0.05389317125082016,
+            0.16382639110088348,
+            0.006559235043823719
+          ],
+          "confusion_matrix": [
+            [
+              4071,
+              60,
+              152,
+              0
+            ],
+            [
+              227,
+              83,
+              17,
+              1
+            ],
+            [
+              815,
+              3,
+              320,
+              0
+            ],
+            [
+              44,
+              4,
+              5,
+              0
+            ]
+          ],
+          "collapsed": false
+        },
+        "train_to_validation_gap": {
+          "ce_per_event": 0.23576423525810242,
+          "macro_f1": -0.19740845359056508
+        },
+        "gradient_clip_frequency": 0.0007399577167019028,
+        "nonfinite_steps": 0,
+        "parameter_count": 9168
+      },
+      {
+        "seed": 2028,
+        "task": "mark",
+        "checkpoint_selection": "minimum train objective across fixed 20 epochs",
+        "train": {
+          "ce_per_event": 0.4437287449836731,
+          "accuracy": 0.8432577718927251,
+          "macro_f1": 0.6129425466764287,
+          "per_class_recall": {
+            "like": 0.9615559538778459,
+            "dislike": 0.33004926108374383,
+            "unlike": 0.5657646942214293,
+            "undislike": 0.29878048780487804
+          },
+          "per_class_precision": {
+            "like": 0.8521504101664374,
+            "dislike": 0.6357664233576642,
+            "unlike": 0.8301337987201861,
+            "undislike": 0.84
+          },
+          "predicted_argmax_distribution": [
+            0.8829400489126843,
+            0.02938065966025514,
+            0.08701830920748233,
+            0.0006609822195782933
+          ],
+          "event_weighted_predicted_probability": [
+            0.7325799465179443,
+            0.05307156220078468,
+            0.2045246809720993,
+            0.009820106439292431
+          ],
+          "confusion_matrix": [
+            [
+              35942,
+              390,
+              1040,
+              7
+            ],
+            [
+              1640,
+              871,
+              108,
+              20
+            ],
+            [
+              4338,
+              42,
+              5708,
+              1
+            ],
+            [
+              258,
+              67,
+              20,
+              147
+            ]
+          ],
+          "collapsed": false
+        },
+        "validation": {
+          "ce_per_event": 0.6769922971725464,
+          "accuracy": 0.7755946225439504,
+          "macro_f1": 0.40864796197646985,
+          "per_class_recall": {
+            "like": 0.9427971048330609,
+            "dislike": 0.24085365853658536,
+            "unlike": 0.3365553602811951,
+            "undislike": 0.0
+          },
+          "per_class_precision": {
+            "like": 0.7986550632911392,
+            "dislike": 0.5031847133757962,
+            "unlike": 0.6524701873935264,
+            "undislike": 0.0
+          },
+          "predicted_argmax_distribution": [
+            0.8863688960888683,
+            0.031011339967600093,
+            0.08215690812311965,
+            0.0004628558204119417
+          ],
+          "event_weighted_predicted_probability": [
+            0.7586391568183899,
+            0.05616849288344383,
+            0.17762692272663116,
+            0.00756478076800704
+          ],
+          "confusion_matrix": [
+            [
+              4038,
+              65,
+              180,
+              0
+            ],
+            [
+              227,
+              79,
+              20,
+              2
+            ],
+            [
+              749,
+              6,
+              383,
+              0
+            ],
+            [
+              42,
+              7,
+              4,
+              0
+            ]
+          ],
+          "collapsed": false
+        },
+        "train_to_validation_gap": {
+          "ce_per_event": 0.2332635521888733,
+          "macro_f1": -0.20429458469995881
+        },
+        "gradient_clip_frequency": 0.0009513742071881607,
+        "nonfinite_steps": 0,
+        "parameter_count": 9168
+      }
+    ],
+    "full_history_mark": [
+      {
+        "seed": 2026,
+        "task": "mark",
+        "checkpoint_selection": "minimum train objective across fixed 20 epochs",
+        "train": {
+          "ce_per_event": 0.26825615763664246,
+          "accuracy": 0.9054131504575189,
+          "macro_f1": 0.7661193796317791,
+          "per_class_recall": {
+            "like": 0.9693143208753578,
+            "dislike": 0.49526335733232285,
+            "unlike": 0.7903657448706513,
+            "undislike": 0.6097560975609756
+          },
+          "per_class_precision": {
+            "like": 0.9170104527853002,
+            "dislike": 0.7729154346540509,
+            "unlike": 0.8849184330263011,
+            "undislike": 0.7772020725388601
+          },
+          "predicted_argmax_distribution": [
+            0.8568312512393417,
+            0.03413973164121885,
+            0.10605459713133716,
+            0.00297441998810232
+          ],
+          "event_weighted_predicted_probability": [
+            0.7346116900444031,
+            0.05000279098749161,
+            0.20486807823181152,
+            0.01051367912441492
+          ],
+          "confusion_matrix": [
+            [
+              36232,
+              244,
+              868,
+              35
+            ],
+            [
+              1143,
+              1307,
+              145,
+              44
+            ],
+            [
+              2017,
+              91,
+              7974,
+              7
+            ],
+            [
+              119,
+              49,
+              24,
+              300
+            ]
+          ],
+          "collapsed": false
+        },
+        "validation": {
+          "ce_per_event": 0.7869696617126465,
+          "accuracy": 0.755084453636677,
+          "macro_f1": 0.38464966155654545,
+          "per_class_recall": {
+            "like": 0.9264534204996497,
+            "dislike": 0.21951219512195122,
+            "unlike": 0.29964850615114236,
+            "undislike": 0.0
+          },
+          "per_class_precision": {
+            "like": 0.7888667992047713,
+            "dislike": 0.45569620253164556,
+            "unlike": 0.559016393442623,
+            "undislike": 0.0
+          },
+          "predicted_argmax_distribution": [
+            0.8752603563989817,
+            0.02962277250636427,
+            0.09419115945383014,
+            0.0009257116408238834
+          ],
+          "event_weighted_predicted_probability": [
+            0.7895617485046387,
+            0.0492485910654068,
+            0.15678498148918152,
+            0.004405044484883547
+          ],
+          "confusion_matrix": [
+            [
+              3968,
+              58,
+              256,
+              1
+            ],
+            [
+              240,
+              72,
+              13,
+              3
+            ],
+            [
+              779,
+              18,
+              341,
+              0
+            ],
+            [
+              43,
+              10,
+              0,
+              0
+            ]
+          ],
+          "collapsed": false
+        },
+        "train_to_validation_gap": {
+          "ce_per_event": 0.518713504076004,
+          "macro_f1": -0.38146971807523367
+        },
+        "gradient_clip_frequency": 0.00021141649048625792,
+        "nonfinite_steps": 0,
+        "parameter_count": 34128
+      },
+      {
+        "seed": 2027,
+        "task": "mark",
+        "checkpoint_selection": "minimum train objective across fixed 20 epochs",
+        "train": {
+          "ce_per_event": 0.29031866788864136,
+          "accuracy": 0.8990098618549773,
+          "macro_f1": 0.7550327970930142,
+          "per_class_recall": {
+            "like": 0.9631076272773482,
+            "dislike": 0.5365668813944676,
+            "unlike": 0.7730201209237784,
+            "undislike": 0.556910569105691
+          },
+          "per_class_precision": {
+            "like": 0.9144018288036576,
+            "dislike": 0.7072927072927073,
+            "unlike": 0.8787605633802817,
+            "undislike": 0.7784090909090909
+          },
+          "predicted_argmax_distribution": [
+            0.8512129023729261,
+            0.04220371472007403,
+            0.10413774869456012,
+            0.0024456342124396856
+          ],
+          "event_weighted_predicted_probability": [
+            0.7214698195457458,
+            0.06012652441859245,
+            0.2082550823688507,
+            0.010148365050554276
+          ],
+          "confusion_matrix": [
+            [
+              36000,
+              379,
+              967,
+              33
+            ],
+            [
+              1103,
+              1416,
+              89,
+              31
+            ],
+            [
+              2133,
+              143,
+              7799,
+              14
+            ],
+            [
+              134,
+              64,
+              20,
+              274
+            ]
+          ],
+          "collapsed": false
+        },
+        "validation": {
+          "ce_per_event": 0.7282988429069519,
+          "accuracy": 0.7642192347466391,
+          "macro_f1": 0.40969927375522963,
+          "per_class_recall": {
+            "like": 0.9271538641139389,
+            "dislike": 0.3048780487804878,
+            "unlike": 0.3189806678383128,
+            "undislike": 0.0
+          },
+          "per_class_precision": {
+            "like": 0.7993156199677939,
+            "dislike": 0.45454545454545453,
+            "unlike": 0.5950819672131148,
+            "undislike": 0.0
+          },
+          "predicted_argmax_distribution": [
+            0.8666975237213608,
+            0.041194168016662806,
+            0.09118259662115251,
+            0.0009257116408238834
+          ],
+          "event_weighted_predicted_probability": [
+            0.767625093460083,
+            0.06754932552576065,
+            0.15940120816230774,
+            0.0054247439838945866
+          ],
+          "confusion_matrix": [
+            [
+              3971,
+              87,
+              222,
+              3
+            ],
+            [
+              208,
+              100,
+              19,
+              1
+            ],
+            [
+              747,
+              28,
+              363,
+              0
+            ],
+            [
+              42,
+              5,
+              6,
+              0
+            ]
+          ],
+          "collapsed": false
+        },
+        "train_to_validation_gap": {
+          "ce_per_event": 0.43798017501831055,
+          "macro_f1": -0.34533352333778455
+        },
+        "gradient_clip_frequency": 0.00021141649048625792,
+        "nonfinite_steps": 0,
+        "parameter_count": 34128
+      },
+      {
+        "seed": 2028,
+        "task": "mark",
+        "checkpoint_selection": "minimum train objective across fixed 20 epochs",
+        "train": {
+          "ce_per_event": 0.27417999505996704,
+          "accuracy": 0.9037530385976007,
+          "macro_f1": 0.7567285619665669,
+          "per_class_recall": {
+            "like": 0.9698493806682896,
+            "dislike": 0.5225464190981433,
+            "unlike": 0.776092774308653,
+            "undislike": 0.5447154471544715
+          },
+          "per_class_precision": {
+            "like": 0.914092639753902,
+            "dislike": 0.7277044854881266,
+            "unlike": 0.8994830557151062,
+            "undislike": 0.788235294117647
+          },
+          "predicted_argmax_distribution": [
+            0.8605327516689801,
+            0.03932844206490845,
+            0.09759402472073501,
+            0.002544781545376429
+          ],
+          "event_weighted_predicted_probability": [
+            0.7360945343971252,
+            0.05481225997209549,
+            0.19903649389743805,
+            0.010055290535092354
+          ],
+          "confusion_matrix": [
+            [
+              36252,
+              349,
+              742,
+              36
+            ],
+            [
+              1123,
+              1379,
+              106,
+              31
+            ],
+            [
+              2151,
+              103,
+              7830,
+              5
+            ],
+            [
+              133,
+              64,
+              27,
+              268
+            ]
+          ],
+          "collapsed": false
+        },
+        "validation": {
+          "ce_per_event": 0.751447319984436,
+          "accuracy": 0.765253360910031,
+          "macro_f1": 0.422816579849466,
+          "per_class_recall": {
+            "like": 0.929255194956806,
+            "dislike": 0.3018292682926829,
+            "unlike": 0.3163444639718805,
+            "undislike": 0.018867924528301886
+          },
+          "per_class_precision": {
+            "like": 0.7947284345047924,
+            "dislike": 0.5351351351351351,
+            "unlike": 0.594059405940594,
+            "undislike": 0.3333333333333333
+          },
+          "predicted_argmax_distribution": [
+            0.8782689192316593,
+            0.035177042351307565,
+            0.08609118259662116,
+            0.0004628558204119417
+          ],
+          "event_weighted_predicted_probability": [
+            0.7814202308654785,
+            0.059535808861255646,
+            0.15287330746650696,
+            0.0061709401197731495
+          ],
+          "confusion_matrix": [
+            [
+              3980,
+              78,
+              223,
+              2
+            ],
+            [
+              207,
+              99,
+              22,
+              0
+            ],
+            [
+              774,
+              4,
+              360,
+              0
+            ],
+            [
+              47,
+              4,
+              1,
+              1
+            ]
+          ],
+          "collapsed": false
+        },
+        "train_to_validation_gap": {
+          "ce_per_event": 0.477267324924469,
+          "macro_f1": -0.3339119821171009
+        },
+        "gradient_clip_frequency": 0.00021141649048625792,
+        "nonfinite_steps": 0,
+        "parameter_count": 34128
+      }
+    ],
+    "full_history_time": [
+      {
+        "seed": 2026,
+        "task": "time",
+        "checkpoint_selection": "minimum train objective across fixed 20 epochs",
+        "train": {
+          "nll_per_group": 2.1187055860263393,
+          "mae_hours": 39.881561279296875,
+          "median_ae_hours": 2.436979293823242,
+          "prediction_median_hours": 1.2581713199615479,
+          "prediction_p95_hours": 16.343116760253906,
+          "finite": true
+        },
+        "validation": {
+          "nll_per_group": 2.1403010964032863,
+          "mae_hours": 37.7180290222168,
+          "median_ae_hours": 1.982157826423645,
+          "prediction_median_hours": 1.091676115989685,
+          "prediction_p95_hours": 12.563934326171875,
+          "finite": true
+        },
+        "train_to_validation_gap": {
+          "nll_per_group": 0.021595510376946958,
+          "mae_hours": -2.163532257080078,
+          "median_ae_hours": -0.45482146739959717
+        },
+        "gradient_clip_frequency": 0.009936575052854123,
+        "nonfinite_steps": 0,
+        "parameter_count": 33998
+      },
+      {
+        "seed": 2027,
+        "task": "time",
+        "checkpoint_selection": "minimum train objective across fixed 20 epochs",
+        "train": {
+          "nll_per_group": 2.1117662044098173,
+          "mae_hours": 39.6884765625,
+          "median_ae_hours": 2.533740997314453,
+          "prediction_median_hours": 1.3480411767959595,
+          "prediction_p95_hours": 18.372936248779297,
+          "finite": true
+        },
+        "validation": {
+          "nll_per_group": 2.151877975910618,
+          "mae_hours": 37.593353271484375,
+          "median_ae_hours": 2.0415921211242676,
+          "prediction_median_hours": 1.1660617589950562,
+          "prediction_p95_hours": 13.275099754333496,
+          "finite": true
+        },
+        "train_to_validation_gap": {
+          "nll_per_group": 0.040111771500800586,
+          "mae_hours": -2.095123291015625,
+          "median_ae_hours": -0.49214887619018555
+        },
+        "gradient_clip_frequency": 0.012050739957716702,
+        "nonfinite_steps": 0,
+        "parameter_count": 33998
+      },
+      {
+        "seed": 2028,
+        "task": "time",
+        "checkpoint_selection": "minimum train objective across fixed 20 epochs",
+        "train": {
+          "nll_per_group": 2.1261787540797448,
+          "mae_hours": 39.640682220458984,
+          "median_ae_hours": 2.52138090133667,
+          "prediction_median_hours": 1.3433852195739746,
+          "prediction_p95_hours": 17.650789260864258,
+          "finite": true
+        },
+        "validation": {
+          "nll_per_group": 2.1703842811843765,
+          "mae_hours": 37.61347579956055,
+          "median_ae_hours": 2.1203384399414062,
+          "prediction_median_hours": 1.2531615495681763,
+          "prediction_p95_hours": 12.702134132385254,
+          "finite": true
+        },
+        "train_to_validation_gap": {
+          "nll_per_group": 0.04420552710463177,
+          "mae_hours": -2.0272064208984375,
+          "median_ae_hours": -0.40104246139526367
+        },
+        "gradient_clip_frequency": 0.011733615221987315,
+        "nonfinite_steps": 0,
+        "parameter_count": 33998
+      }
+    ]
+  },
+  "validation_previous_group_size_slices_seed2026": {
+    "1": {
+      "groups": 3658,
+      "events": 4625,
+      "mark": {
+        "ce_per_event": 0.766243577003479,
+        "accuracy": 0.7582702702702703,
+        "macro_f1": 0.3663165507410037,
+        "per_class_recall": {
+          "like": 0.9292842885657256,
+          "dislike": 0.22900763358778625,
+          "unlike": 0.22815533980582525,
+          "undislike": 0.0
+        },
+        "per_class_precision": {
+          "like": 0.7974064105701003,
+          "dislike": 0.42857142857142855,
+          "unlike": 0.4759493670886076,
+          "undislike": 0.0
+        },
+        "predicted_argmax_distribution": [
+          0.8917441224712958,
+          0.0306178239475123,
+          0.07681793329688354,
+          0.0008201202843083652
+        ],
+        "event_weighted_predicted_probability": [
+          0.8076564073562622,
+          0.05110476166009903,
+          0.13676771521568298,
+          0.004470903892070055
+        ],
+        "confusion_matrix": [
+          [
+            3259,
+            52,
+            195,
+            1
+          ],
+          [
+            188,
+            60,
+            12,
+            2
+          ],
+          [
+            618,
+            18,
+            188,
+            0
+          ],
+          [
+            22,
+            10,
+            0,
+            0
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.0849762198358817,
+        "mae_hours": 37.56727600097656,
+        "median_ae_hours": 1.9042381048202515,
+        "prediction_median_hours": 1.0863502025604248,
+        "prediction_p95_hours": 12.458890914916992,
+        "finite": true
+      },
+      "outputs_finite": true
+    },
+    "2-5": {
+      "groups": 602,
+      "events": 1010,
+      "mark": {
+        "ce_per_event": 0.9374371767044067,
+        "accuracy": 0.7237623762376237,
+        "macro_f1": 0.42484824215728206,
+        "per_class_recall": {
+          "like": 0.9040880503144654,
+          "dislike": 0.2,
+          "unlike": 0.4897959183673469,
+          "undislike": 0.0
+        },
+        "per_class_precision": {
+          "like": 0.7269279393173198,
+          "dislike": 0.7058823529411765,
+          "unlike": 0.7164179104477612,
+          "undislike": 0.0
+        },
+        "predicted_argmax_distribution": [
+          0.7774086378737541,
+          0.024916943521594685,
+          0.19601328903654486,
+          0.0016611295681063123
+        ],
+        "event_weighted_predicted_probability": [
+          0.6979565024375916,
+          0.04501958563923836,
+          0.2525043189525604,
+          0.004519339185208082
+        ],
+        "confusion_matrix": [
+          [
+            575,
+            5,
+            56,
+            0
+          ],
+          [
+            46,
+            12,
+            1,
+            1
+          ],
+          [
+            150,
+            0,
+            144,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 2.3958185442173376,
+        "mae_hours": 36.451759338378906,
+        "median_ae_hours": 2.238950729370117,
+        "prediction_median_hours": 1.0217382907867432,
+        "prediction_p95_hours": 12.814739227294922,
+        "finite": true
+      },
+      "outputs_finite": true
+    },
+    "6-20": {
+      "groups": 58,
+      "events": 156,
+      "mark": {
+        "ce_per_event": 0.44722306728363037,
+        "accuracy": 0.8461538461538461,
+        "macro_f1": 0.3601307189542484,
+        "per_class_recall": {
+          "like": 0.9534883720930233,
+          "dislike": 0.0,
+          "unlike": 0.45,
+          "undislike": 0.0
+        },
+        "per_class_precision": {
+          "like": 0.8723404255319149,
+          "dislike": 0.0,
+          "unlike": 0.6428571428571429,
+          "undislike": 0.0
+        },
+        "predicted_argmax_distribution": [
+          0.8448275862068966,
+          0.017241379310344827,
+          0.13793103448275862,
+          0.0
+        ],
+        "event_weighted_predicted_probability": [
+          0.8580554127693176,
+          0.01918978802859783,
+          0.12076788395643234,
+          0.0019869208335876465
+        ],
+        "confusion_matrix": [
+          [
+            123,
+            1,
+            5,
+            0
+          ],
+          [
+            6,
+            0,
+            0,
+            0
+          ],
+          [
+            11,
+            0,
+            9,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0
+          ]
+        ],
+        "collapsed": false
+      },
+      "time": {
+        "nll_per_group": 3.0007227353438553,
+        "mae_hours": 61.96762466430664,
+        "median_ae_hours": 5.370950698852539,
+        "prediction_median_hours": 1.8514466285705566,
+        "prediction_p95_hours": 7.40260648727417,
+        "finite": true
+      },
+      "outputs_finite": true
+    },
+    "21-100": {
+      "groups": 3,
+      "events": 11,
+      "mark": {
+        "ce_per_event": 0.5039560198783875,
+        "accuracy": 1.0,
+        "macro_f1": 0.25,
+        "per_class_recall": {
+          "like": 1.0,
+          "dislike": 0.0,
+          "unlike": 0.0,
+          "undislike": 0.0
+        },
+        "per_class_precision": {
+          "like": 1.0,
+          "dislike": 0.0,
+          "unlike": 0.0,
+          "undislike": 0.0
+        },
+        "predicted_argmax_distribution": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "event_weighted_predicted_probability": [
+          0.6209115982055664,
+          0.08342697471380234,
+          0.29514944553375244,
+          0.0005120374844409525
+        ],
+        "confusion_matrix": [
+          [
+            11,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "collapsed": true
+      },
+      "time": {
+        "nll_per_group": 1.691114376721658,
+        "mae_hours": 6.815399169921875,
+        "median_ae_hours": 5.970134735107422,
+        "prediction_median_hours": 1.1924673318862915,
+        "prediction_p95_hours": 5.49486780166626,
+        "finite": true
+      },
+      "outputs_finite": true
+    },
+    "101-500": {
+      "groups": 0
+    },
+    ">500": {
+      "groups": 0
+    }
+  },
+  "status": {
+    "group_level_mark_generalizes": false,
+    "group_level_time_generalizes": true,
+    "full_history_generalization_supported": true,
+    "group_snmpp_design_gate_approved": true,
+    "ordinary_group_models_numerically_stable": true,
+    "mark_overfit_detected": true,
+    "time_overfit_detected": true,
+    "validation_previous_group_over_500_count": 0,
+    "burst_over_500_validation_evaluable": false,
+    "design_gate_approval_scope": "time-history signal only; mark-history generalization and >500 validation stability are not supported",
+    "test_used": false,
+    "group_snmpp_designed_or_trained": false,
+    "decision_thresholds": {
+      "mark": "validation CE >=1% better and Macro-F1 >=0.01 higher than strongest simple baseline, with zero collapsed seeds",
+      "time": "validation NLL and MAE each >=1% better than strongest respective baseline",
+      "approval": "at least one full-history task generalizes and all runs/slices are finite"
+    },
+    "mark_validation_relative_CE_gain": -0.15100524453222544,
+    "mark_validation_absolute_MacroF1_gain": -0.08301992673779274,
+    "time_validation_relative_NLL_gain": 0.05501055160435807,
+    "time_validation_relative_MAE_gain": 0.026455088954181374,
+    "stop_reason": "Group-Level Generalization Pilot complete; Group-SNMPP Design Gate not started."
+  }
+}

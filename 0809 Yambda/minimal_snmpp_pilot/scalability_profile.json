@@ -1,0 +1,7 @@
+{
+  "status": "not_run_because_stage_a_failed_or_stage_b_incomplete",
+  "protocol": {
+    "integration_Q": 64,
+    "full_history": true
+  }
+}

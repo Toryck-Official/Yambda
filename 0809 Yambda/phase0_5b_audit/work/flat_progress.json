@@ -1,0 +1,11 @@
+{
+  "status": "complete",
+  "events_completed": [
+    "like",
+    "dislike",
+    "unlike",
+    "undislike"
+  ],
+  "elapsed_seconds": 30.095269918441772,
+  "manifest": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/manifest.json"
+}

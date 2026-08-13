@@ -1,0 +1,40 @@
+{
+  "seed": 2026,
+  "paths": {
+    "sample": "/root/autodl-tmp/0809 Yambda/phase1_gates/artifacts/proxy_validation_sample.npz",
+    "support": "/root/autodl-tmp/0809 Yambda/phase1_gates/artifacts/metadata_loo_support.npz",
+    "support_report": "/root/autodl-tmp/0809 Yambda/phase1_gates/artifacts/metadata_support_sample_report.json",
+    "gate1a_metrics": "/root/autodl-tmp/0809 Yambda/phase1_gates/artifacts/gate1_proxy_metrics.json",
+    "gate1a_proxy_dir": "/root/autodl-tmp/0809 Yambda/phase1_gates/work/proxy_vectors",
+    "codebooks": "/root/autodl-tmp/0809 Yambda/phase1_gates/artifacts/gate1_candidate_rq/codebooks.npy",
+    "dense_features": "/root/autodl-tmp/0626/0626 Predictor/01_data/processed/raw_rqkmeans/dense_item_features.npy",
+    "orig2dense": "/root/autodl-tmp/0626/0626 Predictor/01_data/processed/raw_rqkmeans/orig2dense_item_id.npy",
+    "item_frequency": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/artifacts/item_explicit_frequency.npz",
+    "artist_mapping": "/root/autodl-tmp/0804 Yambda/dataprocess/data/official_metadata/artist_item_mapping.parquet",
+    "album_mapping": "/root/autodl-tmp/0804 Yambda/dataprocess/data/official_metadata/album_item_mapping.parquet",
+    "metadata_manifest": "/root/autodl-tmp/0804 Yambda/dataprocess/data/official_metadata/manifest.json",
+    "historical_sid": "/root/autodl-tmp/0804 Yambda/data/item_tokens.json"
+  },
+  "stability": {
+    "target_cosines": [0.99, 0.95, 0.90, 0.85, 0.80, 0.70],
+    "sample_size": 100000,
+    "margin_bins": 10
+  },
+  "learning": {
+    "train_items": 300000,
+    "validation_items": 50000,
+    "test_items": 50000,
+    "batch_size": 2048,
+    "hidden_dim": 256,
+    "dropout": 0.1,
+    "epochs": 30,
+    "patience": 5,
+    "learning_rate": 0.001,
+    "weight_decay": 0.00001,
+    "seeds": [2026, 2027, 2028],
+    "neighbor_reference_items": 50000,
+    "neighbor_query_items": 10000,
+    "bootstrap_repeats": 1000
+  }
+}
+

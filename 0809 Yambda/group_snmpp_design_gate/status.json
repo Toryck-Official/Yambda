@@ -1,0 +1,49 @@
+{
+  "group_time_snmpp_passed": false,
+  "group_mark_snmpp_passed": false,
+  "signed_influence_learned": true,
+  "joint_group_snmpp_approved": false,
+  "time_training_protocol": "Q64 stratified-random train, Q64 deterministic-midpoint validation, max 30 epochs",
+  "group_time_validation_Q64_nll_values": [
+    2.267441511154175,
+    2.2763381004333496,
+    2.2690885066986084
+  ],
+  "group_time_validation_Q64_nll_mean": 2.270956039428711,
+  "history_free_time_validation_nll": 2.2893543022526837,
+  "matched_GRU_time_validation_nll": 2.154187784499427,
+  "time_beats_history_free_nll_all_seeds": true,
+  "time_not_worse_than_GRU_on_mean_NLL_and_MAE": false,
+  "group_mark_validation_CE_values": [
+    0.7982520461082458,
+    0.7895388603210449,
+    0.7718410491943359
+  ],
+  "group_mark_validation_CE_mean": 0.7865439852078756,
+  "previous_group_composition_validation_CE": 0.7285210446016175,
+  "last_group_MLP_validation_CE": 0.6926779747009277,
+  "last5_GRU_validation_CE": 0.5958909591039022,
+  "matched_full_history_GRU_mark_validation_CE": 0.5576634804407755,
+  "mark_gap_vs_full_history_GRU": 0.2288805047671001,
+  "mark_psi_unanimous_sign_fraction": 0.875,
+  "mark_psi_pairwise_pearson": [
+    0.7038372321151933,
+    0.6800248491051223,
+    0.9657679551757858
+  ],
+  "mark_both_positive_and_negative_all_seeds": true,
+  "time_psi_all_positive_all_seeds": true,
+  "mark_over_500_source_groups_observed": true,
+  "mark_over_500_vs_101_500_mean_abs_influence_ratio": [
+    0.9258877009095826,
+    0.7454486342560147,
+    0.8141264617468232
+  ],
+  "mark_group_size_amplitude_explosion_detected": false,
+  "time_over_500_source_groups_observed": false,
+  "time_over_500_burst_conclusion": "not_evaluable_in_matched_303_user_subset",
+  "test_used": false,
+  "joint_model_started": false,
+  "hierarchical_sid_head_used": false,
+  "stop_reason": "Group-SNMPP Design & Minimal Validation Gate complete; both single-task gates did not jointly pass, so Joint was not started."
+}

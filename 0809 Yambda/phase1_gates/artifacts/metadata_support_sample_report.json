@@ -1,0 +1,115 @@
+{
+  "status": "complete_read_only_support_and_sample",
+  "data_contract": {
+    "target_universe": "full explicit-feedback item universe",
+    "leave_one_out": true,
+    "target_embedding_used_in_proxy": false,
+    "event_rows_modified": false,
+    "proxy_vectors_constructed": false,
+    "sample_targets_have_real_audio_embedding": true
+  },
+  "counts": {
+    "explicit_items": 2875071,
+    "explicit_events": 136292476,
+    "real_embedding_items": 2367341,
+    "missing_embedding_items": 507730
+  },
+  "artist": {
+    "path": "/root/autodl-tmp/0804 Yambda/dataprocess/data/official_metadata/artist_item_mapping.parquet",
+    "group_column": "artist_id",
+    "mapping_rows": 9271906,
+    "row_groups_streamed": 35,
+    "groups": 1293394,
+    "explicit_items_with_mapping": 2875071,
+    "explicit_items_with_strict_loo_support": 2749197,
+    "strict_loo_definition": "at least one other source-audio item remains after removing the target from each official metadata group",
+    "items_with_multiple_usable_relations": 1214,
+    "maximum_usable_relations": 2
+  },
+  "album": {
+    "path": "/root/autodl-tmp/0804 Yambda/dataprocess/data/official_metadata/album_item_mapping.parquet",
+    "group_column": "album_id",
+    "mapping_rows": 9651644,
+    "row_groups_streamed": 36,
+    "groups": 3367691,
+    "explicit_items_with_mapping": 2228573,
+    "explicit_items_with_strict_loo_support": 1785408,
+    "strict_loo_definition": "at least one other source-audio item remains after removing the target from each official metadata group",
+    "items_with_multiple_usable_relations": 288296,
+    "maximum_usable_relations": 210
+  },
+  "real_reconstructable": {
+    "artist_only": 598684,
+    "album_only": 14427,
+    "both": 1702224
+  },
+  "missing_item_coverage": {
+    "artist_proxy": {
+      "items": 448289,
+      "events": 12234686
+    },
+    "album_proxy": {
+      "items": 68757,
+      "events": 3719259
+    },
+    "combined_rule": {
+      "items": 450594,
+      "events": 12450538
+    },
+    "cold_unknown": {
+      "items": 57136,
+      "events": 983183
+    }
+  },
+  "stratification": {
+    "sample_requested": 100000,
+    "sample_actual": 100000,
+    "availability_allocation": {
+      "artist_only": 32293,
+      "album_only": 10128,
+      "both": 57579
+    },
+    "availability_observed": {
+      "none": 0,
+      "artist_only": 32293,
+      "album_only": 10128,
+      "both": 57579
+    },
+    "artist_size_tier": {
+      "unavailable": 10128,
+      "small": 3876,
+      "medium": 8684,
+      "large": 77312
+    },
+    "album_size_tier": {
+      "unavailable": 32293,
+      "small": 7715,
+      "medium": 20469,
+      "large": 39523
+    },
+    "frequency_tier": {
+      "tail": 58479,
+      "mid": 32535,
+      "head": 8986
+    },
+    "split": {
+      "validation": 50000,
+      "test": 50000
+    },
+    "group_size_tier_definition": {
+      "small": "1..2 other real items",
+      "medium": "3..9 other real items",
+      "large": ">=10 other real items"
+    },
+    "frequency_tier_definition": {
+      "tail": "event_count <= empirical P50 = 2",
+      "mid": "empirical P50 < event_count <= empirical P90 = 37",
+      "head": "event_count > empirical P90 = 37"
+    },
+    "split_selection": "seeded 50/50 split inside availability x artist-size x album-size x frequency strata"
+  },
+  "outputs": {
+    "support": "/root/autodl-tmp/0809 Yambda/phase1_gates/artifacts/metadata_loo_support.npz",
+    "sample": "/root/autodl-tmp/0809 Yambda/phase1_gates/artifacts/proxy_validation_sample.npz"
+  }
+}

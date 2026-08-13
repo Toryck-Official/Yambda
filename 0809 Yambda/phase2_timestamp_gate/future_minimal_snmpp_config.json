@@ -1,0 +1,40 @@
+{
+  "status": "frozen_for_future_pilot_not_started",
+  "protocol_version": "v1.1",
+  "timestamp_protocol": "B_grouped_shared_history_conditional_pseudolikelihood",
+  "raw_timestamp_unit": "second",
+  "timestamp_quantum_seconds": 5,
+  "model_time_unit": "hour",
+  "model_time_unit_seconds": 3600,
+  "prediction_horizon_hours": 696,
+  "prediction_horizon_days": 29,
+  "integration": {
+    "segments_Q": 64,
+    "train_point_rule": "one_stratified_random_point_per_segment",
+    "validation_test_point_rule": "deterministic_segment_midpoint",
+    "selection_source": "train-only numerical integration accuracy audit",
+    "full_sample_reference_Q": 128,
+    "small_subset_reference_sanity_Q": 256
+  },
+  "group_history": {
+    "shared_pre_group_history": true,
+    "delayed_whole_group_update": true,
+    "within_group_order_used": false,
+    "cardinality_model_p_M_given_H": false
+  },
+  "codebook": {
+    "frozen": true,
+    "levels": 4,
+    "codes_per_level": 256,
+    "input_dimension": 128
+  },
+  "boundaries": {
+    "minimal_snmpp_pilot_approved": true,
+    "minimal_snmpp_training_started": false,
+    "hierarchical_sid_head_enabled": false,
+    "listen_used": false,
+    "burst_over_500_deleted": false,
+    "burst_normalization_used": false,
+    "split_modified": false
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "status": "complete_gate2_materialized_all_checks_passed",
+  "protocol_version": "v1.1",
+  "method": "full_fit_audio_only_RQKMeans",
+  "fit_contract": {
+    "items": 2367341,
+    "levels": 4,
+    "codes_per_level": 256,
+    "input_dimension": 128,
+    "normalized_input": true,
+    "seed": 2026,
+    "iterations_per_level": 25
+  },
+  "data_contract": {
+    "dataset": "D_SID real-audio events from exact-deduplicated D_all",
+    "listen_used": false,
+    "missing_audio_used": false,
+    "event_table_partitioning": "four homogeneous feedback parquet files; group_id defines membership; row order has no chronology semantics",
+    "embedding_repeated_in_event_table": false
+  },
+  "cutoffs": {
+    "train_inclusive": 22172245,
+    "validation_inclusive": 24154245
+  },
+  "before_join": {
+    "events": 121819651,
+    "users": 854649,
+    "items": 2367341,
+    "groups": 77565283,
+    "feedback_counts": [
+      85325332,
+      11061046,
+      23667107,
+      1766166
+    ],
+    "split_position_mismatch_events": 0
+  },
+  "after_materialized_validation": {
+    "events": 121819651,
+    "users": 854649,
+    "items": 2367341,
+    "feedback_counts": [
+      85325332,
+      11061046,
+      23667107,
+      1766166
+    ],
+    "mapping_mismatch_events": 0,
+    "group_membership_mismatch_events": 0,
+    "split_mismatch_events": 0,
+    "group_size_mismatch_groups": 0,
+    "group_count": 77565283,
+    "files": {
+      "like": {
+        "rows": 85325332,
+        "sha256": "1482482dcec19adf762a61fcf667450ab5c55e59f81521e20dd799ca7a7c69e8",
+        "bytes": 1007807494
+      },
+      "dislike": {
+        "rows": 11061046,
+        "sha256": "d64d6ceec5c27248bd08e4b55ad91a4e9dd2c67d7adb13f10841c1e0cacd55e1",
+        "bytes": 129701550
+      },
+      "unlike": {
+        "rows": 23667107,
+        "sha256": "5ac56af6e62ffadabf7cf50a5a66b518e984ede0d54082498e15663bc436061a",
+        "bytes": 238416094
+      },
+      "undislike": {
+        "rows": 1766166,
+        "sha256": "9b2a032483ed6ea30dc4f19b67b43a51737617ba16a1323184186f3e1fcbd27c",
+        "bytes": 18772919
+      }
+    }
+  },
+  "catalog": {
+    "rows": 2367341,
+    "invalid_embeddings": 0,
+    "norm_min": 0.9999998807907104,
+    "norm_max": 1.0000001192092896,
+    "schema": "item_id: uint32\nsid_1: uint8\nsid_2: uint8\nsid_3: uint8\nsid_4: uint8\naudio_embedding: fixed_size_list<item: float>[128]\n  child 0, item: float",
+    "path": "/root/autodl-tmp/0809 Yambda/phase2_gate2_sid/materialized_v1_1/item_catalog.parquet"
+  },
+  "checks": {
+    "item_catalog_rows": true,
+    "one_sid_per_D_SID_item": true,
+    "sid_range_0_255": true,
+    "event_count_conserved": true,
+    "feedback_counts_conserved": true,
+    "users_conserved": true,
+    "items_conserved": true,
+    "global_cutoffs_unchanged": true,
+    "split_assignment_unchanged": true,
+    "group_membership_size_count_unchanged": true,
+    "no_within_group_order_created": true,
+    "codebook_requires_grad_false": true,
+    "full_item_to_sid_mapping_matches_frozen_codes": true
+  },
+  "all_checks_passed": true,
+  "freeze": {
+    "requires_grad": false,
+    "file_mode": "0444",
+    "codebook_path": "/root/autodl-tmp/0809 Yambda/phase2_gate2_sid/materialized_v1_1/frozen_sid/codebooks.npy",
+    "codes_path": "/root/autodl-tmp/0809 Yambda/phase2_gate2_sid/materialized_v1_1/frozen_sid/codes.uint8.npy"
+  },
+  "hashes": {
+    "source_codebook_sha256": "c39da5c43f874150847dd6a0b59750e2f12ceb1114943b597fd2e09129a6756b",
+    "frozen_codebook_sha256": "c39da5c43f874150847dd6a0b59750e2f12ceb1114943b597fd2e09129a6756b",
+    "source_codes_sha256": "7a8334c2aca658abdf76f591774d9358a3768b0022e7cc025edcad1e9fbcf66d",
+    "frozen_codes_sha256": "7a8334c2aca658abdf76f591774d9358a3768b0022e7cc025edcad1e9fbcf66d",
+    "source_dense_embedding_file_sha256": "006d3179145ac000e4a57f7b9468eb0e70dd632d47348fdbbae5615cdda850cd",
+    "selected_explicit_real_embedding_rows_sha256": "f18aac80fc7c7a3c2d2be8dc899ee6841c5f77bae0c740079a1e4a893b921957",
+    "item_universe_values_sha256": "1eacd859b210a82dfb16c03f060d531ff4cb96e5d0fa57b26b461ce66c659825",
+    "item_universe_npy_sha256": "2acd19e14045b3cee52661d9139c748dd9db9d2091247e0fcbc043e9ba54cfdb",
+    "dense_ids_npy_sha256": "5da1d6dee3b85442a6a49360fe91ea41cd976f34f638f9aed64e31ccb168fe37",
+    "item_catalog_sha256": "e21abb9109a763ed19002eb09dec5273285191f8e2545efa9732cea1ecff2b5e",
+    "item_sid_pairs_sha256": "c28c2adc536e2da0b8bf8381e97534b1675ff16d03c7d03f8d2b19c6ab2bfe0c"
+  },
+  "elapsed_seconds": 279.4480860233307,
+  "boundaries": {
+    "minimal_snmpp_training_started": false,
+    "hierarchical_sid_head_added": false,
+    "timestamp_gate_started": false
+  }
+}

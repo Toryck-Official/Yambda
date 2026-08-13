@@ -1,0 +1,67 @@
+{
+  "title": "SNMPP Phase 2 数学协议与实现设计",
+  "version": "v1.1",
+  "date": "2026-08-11",
+  "status": "all_phase2_pretraining_gates_complete_stopped_before_minimal_snmpp_pilot",
+  "next_authorized_action": "await_user_confirmation_before_minimal_snmpp_pilot",
+  "timestamp_protocol_selected": true,
+  "timestamp_protocol": "B_grouped_shared_history_conditional_pseudolikelihood",
+  "timestamp_implementation_validated": true,
+  "timestamp_B_approved_for_minimal_snmpp": true,
+  "gate2_materialized": true,
+  "numerical_integration_validated": true,
+  "recommended_integration_Q": 64,
+  "minimal_snmpp_pilot_approved": true,
+  "minimal_snmpp_training_started": false,
+  "snmpp_or_hpn_training_started": false,
+  "missing_audio_processed": false,
+  "suffix_generated": false,
+  "open_decisions": [
+    "frozen codeword sum plus trainable projection for SID history",
+    "SNMPP signed-influence weighted context for hierarchical SID heads",
+    "whether raw-history burst sensitivity requires a later model ablation"
+  ],
+  "timestamp_order_audit": {
+    "row_order": "engineering_stable_without_business_chronology",
+    "fully_order_recoverable_tied_event_fraction": 0.01961101754719015,
+    "mixed_protocol_selected": false,
+    "grouped_shared_history_selected": true,
+    "extreme_burst_over_500": "sensitivity_candidate_only_not_deleted"
+  },
+  "gate2": {
+    "manifest": "phase2_gate2_sid/gate2_manifest.json",
+    "all_12_conservation_checks_passed": true,
+    "events": 121819651,
+    "users": 854649,
+    "items": 2367341,
+    "timestamp_groups": 77565283
+  },
+  "train_only_time_decision": {
+    "raw_timestamp_unit": "second",
+    "timestamp_quantum_seconds": 5,
+    "model_time_unit": "hour",
+    "prediction_horizon_seconds": 2505600,
+    "prediction_horizon_days": 29,
+    "train_gap_mass_covered": 0.9901031673518234,
+    "validation_or_test_used": false
+  },
+  "timestamp_gate": {
+    "report": "phase2_timestamp_gate/artifacts/timestamp_likelihood_gate_metrics.json",
+    "all_hard_checks_passed": true,
+    "timestamp_B_approved_for_minimal_snmpp": true,
+    "previous_group_over_500_nan_or_inf_cases": 0,
+    "previous_group_over_500_scale_risk": "material_but_finite; must remain a later sensitivity slice"
+  },
+  "numerical_integration_gate": {
+    "manifest": "phase2_timestamp_gate/numerical_integration_manifest.json",
+    "metrics": "phase2_timestamp_gate/artifacts/numerical_integration_metrics.json",
+    "sample_records": 338,
+    "stratification_cells": 30,
+    "validation_or_test_used": false,
+    "reference_Q_full_sample": 128,
+    "reference_sanity_Q_small_subset": 256,
+    "recommended_integration_Q": 64,
+    "q4_rejected": true,
+    "minimal_snmpp_training_started": false
+  }
+}

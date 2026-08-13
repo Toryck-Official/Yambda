@@ -1,0 +1,7 @@
+{
+  "status": "partial_smoke",
+  "users": 100,
+  "events": 12957,
+  "elapsed_seconds": 28.29905390739441,
+  "output": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/profile_audit.json"
+}

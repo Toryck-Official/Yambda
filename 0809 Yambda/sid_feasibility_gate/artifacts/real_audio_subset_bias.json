@@ -1,0 +1,164 @@
+{
+  "status": "complete_real_audio_only_bias_audit",
+  "data_contract": {
+    "source": "/root/autodl-tmp/0809 Yambda/phase1_canonical/artifacts/dall_manifest.json",
+    "dataset": "deduplicated D_all",
+    "filter": "retain event iff item has a real source audio embedding",
+    "listen_used": false,
+    "same_timestamp_policy": "shared group; no invented order",
+    "strict_revision_policy": "same user/item; active prerequisite at strictly earlier timestamp; ambiguous same-item same-time feedback groups do not update state",
+    "events_deleted_or_output_dataset_written": false
+  },
+  "events": {
+    "all": 135078748,
+    "real_audio_only": 121819651,
+    "retention_rate": 0.9018417242066827,
+    "by_feedback": {
+      "like": {
+        "all": 88713630,
+        "real_audio_only": 85325332,
+        "retention_rate": 0.961806342497765
+      },
+      "dislike": {
+        "all": 11540959,
+        "real_audio_only": 11061046,
+        "retention_rate": 0.9584165406011753
+      },
+      "unlike": {
+        "all": 32435484,
+        "real_audio_only": 23667107,
+        "retention_rate": 0.7296671447850138
+      },
+      "undislike": {
+        "all": 2388675,
+        "real_audio_only": 1766166,
+        "retention_rate": 0.7393915036578856
+      }
+    }
+  },
+  "strict_revision_pairs": {
+    "like_to_unlike": {
+      "all": 6364678,
+      "real_item": 5993072,
+      "retention_rate": 0.941614328328943
+    },
+    "dislike_to_undislike": {
+      "all": 308204,
+      "real_item": 293608,
+      "retention_rate": 0.9526417567585106
+    },
+    "ambiguous_same_item_timestamp_groups": 3612417
+  },
+  "user_sequences": {
+    "all_users": 857499,
+    "retained_users": 854649,
+    "users_lost_all_events": 2850,
+    "user_retention_rate": 0.9966763809637096,
+    "length_before_all_users": {
+      "count": 857499,
+      "min": 1,
+      "mean": 157.52642043897427,
+      "median": 62,
+      "p75": 178,
+      "p90": 390,
+      "p95": 601,
+      "p99": 1339,
+      "max": 24590,
+      "quantile_rule": "numpy higher empirical quantile"
+    },
+    "length_after_same_original_users_including_zero": {
+      "count": 857499,
+      "min": 0,
+      "mean": 142.0638986167914,
+      "median": 56,
+      "p75": 162,
+      "p90": 352,
+      "p95": 541,
+      "p99": 1194,
+      "max": 20343,
+      "quantile_rule": "numpy higher empirical quantile"
+    },
+    "length_after_retained_users": {
+      "count": 854649,
+      "min": 1,
+      "mean": 142.53763942858413,
+      "median": 57,
+      "p75": 163,
+      "p90": 353,
+      "p95": 541,
+      "p99": 1195,
+      "max": 20343,
+      "quantile_rule": "numpy higher empirical quantile"
+    },
+    "events_removed_per_original_user": {
+      "count": 857499,
+      "min": 0,
+      "mean": 15.462521822182882,
+      "median": 4,
+      "p75": 14,
+      "p90": 37,
+      "p95": 63,
+      "p99": 170,
+      "max": 7757,
+      "quantile_rule": "numpy higher empirical quantile"
+    },
+    "users_with_unchanged_length": 217570
+  },
+  "same_timestamp_groups": {
+    "before": {
+      "groups": 80259999,
+      "group_size": {
+        "count": 80259999,
+        "min": 1,
+        "mean": 1.683014573673244,
+        "median": 1,
+        "p75": 1,
+        "p90": 3,
+        "p95": 5,
+        "p99": 10,
+        "p99_9": 40,
+        "max": 10000,
+        "quantile_rule": "nearest observed histogram value at ceil(q*n)"
+      },
+      "events_in_multi_groups": 70431501,
+      "events_in_multi_groups_fraction": 0.5214106737204879
+    },
+    "after_real_audio_only": {
+      "groups": 77565283,
+      "group_size": {
+        "count": 77565283,
+        "min": 1,
+        "mean": 1.57054349946741,
+        "median": 1,
+        "p75": 1,
+        "p90": 2,
+        "p95": 4,
+        "p99": 9,
+        "p99_9": 36,
+        "max": 8646,
+        "quantile_rule": "nearest observed histogram value at ceil(q*n)"
+      },
+      "events_in_multi_groups": 58618274,
+      "events_in_multi_groups_fraction": 0.48118898321256887
+    },
+    "changes": {
+      "groups_original": 80259999,
+      "groups_retained": 77565283,
+      "groups_removed_entirely": 2694716,
+      "groups_unchanged": 73257806,
+      "groups_shrunk": 4307477,
+      "original_multi_groups": 15612752,
+      "original_multi_to_singleton": 1053445,
+      "events_in_original_multi_groups": 70431501,
+      "events_in_real_multi_groups": 58618274,
+      "group_retention_rate": 0.9664251677850133,
+      "removed_group_rate": 0.033574832214986694,
+      "shrunken_group_rate": 0.05366903879477995
+    }
+  },
+  "elapsed_seconds": 237.88682055473328,
+  "boundaries": {
+    "gate2_started": false,
+    "snmpp_or_hpn_trained": false
+  }
+}

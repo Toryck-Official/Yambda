@@ -1,0 +1,596 @@
+{
+  "time": {
+    "evaluation_reference": "deterministic midpoint Q=64 on complete matched validation",
+    "seeds": [
+      {
+        "seed": 2026,
+        "validation_targets": 4321,
+        "Q16_nll_per_group": 2.7861344814300537,
+        "Q64_nll_per_group": 2.8793962001800537,
+        "Q16_minus_Q64_mean": -0.09326204657554626,
+        "absolute_difference_mean": 0.09330030530691147,
+        "absolute_difference_p95": 0.16951417922973633,
+        "absolute_difference_p99": 0.9752422571182251,
+        "absolute_difference_max": 164.65786743164062,
+        "source_group_size_influence": {
+          "1": {
+            "source_occurrences": 905247,
+            "absolute_sum": 1170223.3078613281,
+            "positive_sum": 1170223.3078613281,
+            "negative_sum": 0.0,
+            "max_absolute": 2.2134625911712646,
+            "absolute_mean_per_source_occurrence": 1.2927116111528987,
+            "positive_mean_per_source_occurrence": 1.2927116111528987,
+            "negative_mean_per_source_occurrence": 0.0
+          },
+          "2-5": {
+            "source_occurrences": 158933,
+            "absolute_sum": 162686.76051330566,
+            "positive_sum": 162686.76051330566,
+            "negative_sum": 0.0,
+            "max_absolute": 2.192248821258545,
+            "absolute_mean_per_source_occurrence": 1.0236185091409944,
+            "positive_mean_per_source_occurrence": 1.0236185091409944,
+            "negative_mean_per_source_occurrence": 0.0
+          },
+          "6-20": {
+            "source_occurrences": 20657,
+            "absolute_sum": 21036.360822677612,
+            "positive_sum": 21036.360822677612,
+            "negative_sum": 0.0,
+            "max_absolute": 2.1752567291259766,
+            "absolute_mean_per_source_occurrence": 1.0183647588070683,
+            "positive_mean_per_source_occurrence": 1.0183647588070683,
+            "negative_mean_per_source_occurrence": 0.0
+          },
+          "21-100": {
+            "source_occurrences": 1022,
+            "absolute_sum": 1240.141731262207,
+            "positive_sum": 1240.141731262207,
+            "negative_sum": 0.0,
+            "max_absolute": 2.1305105686187744,
+            "absolute_mean_per_source_occurrence": 1.2134459210002027,
+            "positive_mean_per_source_occurrence": 1.2134459210002027,
+            "negative_mean_per_source_occurrence": 0.0
+          },
+          "101-500": {
+            "source_occurrences": 143,
+            "absolute_sum": 147.4481782913208,
+            "positive_sum": 147.4481782913208,
+            "negative_sum": 0.0,
+            "max_absolute": 2.0065245628356934,
+            "absolute_mean_per_source_occurrence": 1.0311061418973482,
+            "positive_mean_per_source_occurrence": 1.0311061418973482,
+            "negative_mean_per_source_occurrence": 0.0
+          },
+          ">500": {
+            "source_occurrences": 0,
+            "absolute_sum": 0.0,
+            "positive_sum": 0.0,
+            "negative_sum": 0.0,
+            "max_absolute": 0.0,
+            "absolute_mean_per_source_occurrence": 0.0,
+            "positive_mean_per_source_occurrence": 0.0,
+            "negative_mean_per_source_occurrence": 0.0
+          }
+        }
+      },
+      {
+        "seed": 2027,
+        "validation_targets": 4321,
+        "Q16_nll_per_group": 2.8219943046569824,
+        "Q64_nll_per_group": 2.9118969440460205,
+        "Q16_minus_Q64_mean": -0.08990254998207092,
+        "absolute_difference_mean": 0.08993873745203018,
+        "absolute_difference_p95": 0.1575007438659668,
+        "absolute_difference_p99": 0.9187677502632141,
+        "absolute_difference_max": 159.2567138671875,
+        "source_group_size_influence": {
+          "1": {
+            "source_occurrences": 905247,
+            "absolute_sum": 1129189.4299316406,
+            "positive_sum": 1129189.4299316406,
+            "negative_sum": 0.0,
+            "max_absolute": 2.106736421585083,
+            "absolute_mean_per_source_occurrence": 1.2473826811153648,
+            "positive_mean_per_source_occurrence": 1.2473826811153648,
+            "negative_mean_per_source_occurrence": 0.0
+          },
+          "2-5": {
+            "source_occurrences": 158933,
+            "absolute_sum": 158708.17306518555,
+            "positive_sum": 158708.17306518555,
+            "negative_sum": 0.0,
+            "max_absolute": 2.0872528553009033,
+            "absolute_mean_per_source_occurrence": 0.9985853980305257,
+            "positive_mean_per_source_occurrence": 0.9985853980305257,
+            "negative_mean_per_source_occurrence": 0.0
+          },
+          "6-20": {
+            "source_occurrences": 20657,
+            "absolute_sum": 20706.65309524536,
+            "positive_sum": 20706.65309524536,
+            "negative_sum": 0.0,
+            "max_absolute": 2.0732877254486084,
+            "absolute_mean_per_source_occurrence": 1.0024036934329943,
+            "positive_mean_per_source_occurrence": 1.0024036934329943,
+            "negative_mean_per_source_occurrence": 0.0
+          },
+          "21-100": {
+            "source_occurrences": 1022,
+            "absolute_sum": 1239.4483950138092,
+            "positive_sum": 1239.4483950138092,
+            "negative_sum": 0.0,
+            "max_absolute": 2.032398223876953,
+            "absolute_mean_per_source_occurrence": 1.2127675097982478,
+            "positive_mean_per_source_occurrence": 1.2127675097982478,
+            "negative_mean_per_source_occurrence": 0.0
+          },
+          "101-500": {
+            "source_occurrences": 143,
+            "absolute_sum": 153.86521458625793,
+            "positive_sum": 153.86521458625793,
+            "negative_sum": 0.0,
+            "max_absolute": 1.922149896621704,
+            "absolute_mean_per_source_occurrence": 1.0759805215822233,
+            "positive_mean_per_source_occurrence": 1.0759805215822233,
+            "negative_mean_per_source_occurrence": 0.0
+          },
+          ">500": {
+            "source_occurrences": 0,
+            "absolute_sum": 0.0,
+            "positive_sum": 0.0,
+            "negative_sum": 0.0,
+            "max_absolute": 0.0,
+            "absolute_mean_per_source_occurrence": 0.0,
+            "positive_mean_per_source_occurrence": 0.0,
+            "negative_mean_per_source_occurrence": 0.0
+          }
+        }
+      },
+      {
+        "seed": 2028,
+        "validation_targets": 4321,
+        "Q16_nll_per_group": 2.787187099456787,
+        "Q64_nll_per_group": 2.8824462890625,
+        "Q16_minus_Q64_mean": -0.0952591821551323,
+        "absolute_difference_mean": 0.09529823064804077,
+        "absolute_difference_p95": 0.1757798194885254,
+        "absolute_difference_p99": 1.0235437154769897,
+        "absolute_difference_max": 166.37698364257812,
+        "source_group_size_influence": {
+          "1": {
+            "source_occurrences": 905247,
+            "absolute_sum": 1183888.4055175781,
+            "positive_sum": 1183888.4055175781,
+            "negative_sum": 0.0,
+            "max_absolute": 2.2352657318115234,
+            "absolute_mean_per_source_occurrence": 1.3078070466044938,
+            "positive_mean_per_source_occurrence": 1.3078070466044938,
+            "negative_mean_per_source_occurrence": 0.0
+          },
+          "2-5": {
+            "source_occurrences": 158933,
+            "absolute_sum": 164479.9524383545,
+            "positive_sum": 164479.9524383545,
+            "negative_sum": 0.0,
+            "max_absolute": 2.2140376567840576,
+            "absolute_mean_per_source_occurrence": 1.0349012001180025,
+            "positive_mean_per_source_occurrence": 1.0349012001180025,
+            "negative_mean_per_source_occurrence": 0.0
+          },
+          "6-20": {
+            "source_occurrences": 20657,
+            "absolute_sum": 21333.919260025024,
+            "positive_sum": 21333.919260025024,
+            "negative_sum": 0.0,
+            "max_absolute": 2.1986353397369385,
+            "absolute_mean_per_source_occurrence": 1.0327694854056748,
+            "positive_mean_per_source_occurrence": 1.0327694854056748,
+            "negative_mean_per_source_occurrence": 0.0
+          },
+          "21-100": {
+            "source_occurrences": 1022,
+            "absolute_sum": 1261.6031985282898,
+            "positive_sum": 1261.6031985282898,
+            "negative_sum": 0.0,
+            "max_absolute": 2.1539993286132812,
+            "absolute_mean_per_source_occurrence": 1.2344453997341387,
+            "positive_mean_per_source_occurrence": 1.2344453997341387,
+            "negative_mean_per_source_occurrence": 0.0
+          },
+          "101-500": {
+            "source_occurrences": 143,
+            "absolute_sum": 150.3151478767395,
+            "positive_sum": 150.3151478767395,
+            "negative_sum": 0.0,
+            "max_absolute": 2.032726287841797,
+            "absolute_mean_per_source_occurrence": 1.0511548802569195,
+            "positive_mean_per_source_occurrence": 1.0511548802569195,
+            "negative_mean_per_source_occurrence": 0.0
+          },
+          ">500": {
+            "source_occurrences": 0,
+            "absolute_sum": 0.0,
+            "positive_sum": 0.0,
+            "negative_sum": 0.0,
+            "max_absolute": 0.0,
+            "absolute_mean_per_source_occurrence": 0.0,
+            "positive_mean_per_source_occurrence": 0.0,
+            "negative_mean_per_source_occurrence": 0.0
+          }
+        }
+      }
+    ]
+  },
+  "mark": {
+    "seeds": [
+      {
+        "seed": 2026,
+        "source_group_size_influence": {
+          "1": {
+            "source_occurrences": 30863321,
+            "absolute_sum": 307847.45941734314,
+            "positive_sum": 131328.8057155609,
+            "negative_sum": -176518.65335130692,
+            "max_absolute": 1.3879547119140625,
+            "absolute_mean_per_source_occurrence": 0.009974540958095312,
+            "positive_mean_per_source_occurrence": 0.004255174150427976,
+            "negative_mean_per_source_occurrence": -0.005719366796311612
+          },
+          "2-5": {
+            "source_occurrences": 6312145,
+            "absolute_sum": 88630.38643061677,
+            "positive_sum": 34899.188254668305,
+            "negative_sum": -53731.19831572234,
+            "max_absolute": 1.385878562927246,
+            "absolute_mean_per_source_occurrence": 0.014041246902695799,
+            "positive_mean_per_source_occurrence": 0.005528895209895892,
+            "negative_mean_per_source_occurrence": -0.008512351714943547
+          },
+          "6-20": {
+            "source_occurrences": 859811,
+            "absolute_sum": 14024.58032980807,
+            "positive_sum": 4492.565263792234,
+            "negative_sum": -9532.015086205589,
+            "max_absolute": 1.3589437007904053,
+            "absolute_mean_per_source_occurrence": 0.016311236224947193,
+            "positive_mean_per_source_occurrence": 0.005225061395809351,
+            "negative_mean_per_source_occurrence": -0.011086174852619458
+          },
+          "21-100": {
+            "source_occurrences": 82776,
+            "absolute_sum": 393.1883732431776,
+            "positive_sum": 157.32246561363075,
+            "negative_sum": -235.86591080228186,
+            "max_absolute": 1.3422913551330566,
+            "absolute_mean_per_source_occurrence": 0.004750028670667555,
+            "positive_mean_per_source_occurrence": 0.0019005806708904847,
+            "negative_mean_per_source_occurrence": -0.002849448038106237
+          },
+          "101-500": {
+            "source_occurrences": 4145,
+            "absolute_sum": 134.4987155354235,
+            "positive_sum": 33.23350235609738,
+            "negative_sum": -101.26521484175237,
+            "max_absolute": 0.7098932266235352,
+            "absolute_mean_per_source_occurrence": 0.03244842353086212,
+            "positive_mean_per_source_occurrence": 0.008017732775898042,
+            "negative_mean_per_source_occurrence": -0.024430691156031935
+          },
+          ">500": {
+            "source_occurrences": 352,
+            "absolute_sum": 10.575345883917876,
+            "positive_sum": 2.375568433344836,
+            "negative_sum": -8.199777331354388,
+            "max_absolute": 0.6306456327438354,
+            "absolute_mean_per_source_occurrence": 0.03004359626113033,
+            "positive_mean_per_source_occurrence": 0.006748773958366011,
+            "negative_mean_per_source_occurrence": -0.023294821964074966
+          }
+        }
+      },
+      {
+        "seed": 2027,
+        "source_group_size_influence": {
+          "1": {
+            "source_occurrences": 30863321,
+            "absolute_sum": 281665.1453704834,
+            "positive_sum": 154316.28857135773,
+            "negative_sum": -127348.8565735817,
+            "max_absolute": 3.2503514289855957,
+            "absolute_mean_per_source_occurrence": 0.009126209890714075,
+            "positive_mean_per_source_occurrence": 0.004999989747420821,
+            "negative_mean_per_source_occurrence": -0.004126220135985421
+          },
+          "2-5": {
+            "source_occurrences": 6312145,
+            "absolute_sum": 83684.54922409465,
+            "positive_sum": 36411.007993456755,
+            "negative_sum": -47273.54124775188,
+            "max_absolute": 3.2653284072875977,
+            "absolute_mean_per_source_occurrence": 0.013257703874688342,
+            "positive_mean_per_source_occurrence": 0.005768404875594073,
+            "negative_mean_per_source_occurrence": -0.0074892990018055475
+          },
+          "6-20": {
+            "source_occurrences": 859811,
+            "absolute_sum": 12536.713907192761,
+            "positive_sum": 4532.734069511887,
+            "negative_sum": -8003.979826154048,
+            "max_absolute": 3.257164716720581,
+            "absolute_mean_per_source_occurrence": 0.014580778691122539,
+            "positive_mean_per_source_occurrence": 0.00527177957657193,
+            "negative_mean_per_source_occurrence": -0.009308999101144378
+          },
+          "21-100": {
+            "source_occurrences": 82776,
+            "absolute_sum": 361.7219671275806,
+            "positive_sum": 147.52881849205068,
+            "negative_sum": -214.1931489367975,
+            "max_absolute": 1.476222038269043,
+            "absolute_mean_per_source_occurrence": 0.004369889426012137,
+            "positive_mean_per_source_occurrence": 0.001782265614333269,
+            "negative_mean_per_source_occurrence": -0.00258762381531842
+          },
+          "101-500": {
+            "source_occurrences": 4145,
+            "absolute_sum": 99.20351815576402,
+            "positive_sum": 57.323947420517236,
+            "negative_sum": -41.879570919173354,
+            "max_absolute": 0.6502838134765625,
+            "absolute_mean_per_source_occurrence": 0.023933297504406276,
+            "positive_mean_per_source_occurrence": 0.013829661621355184,
+            "negative_mean_per_source_occurrence": -0.01010363592742421
+          },
+          ">500": {
+            "source_occurrences": 352,
+            "absolute_sum": 6.280047466141696,
+            "positive_sum": 3.8730261191947166,
+            "negative_sum": -2.407021376755438,
+            "max_absolute": 0.3759923577308655,
+            "absolute_mean_per_source_occurrence": 0.017841043937902545,
+            "positive_mean_per_source_occurrence": 0.011002915111348627,
+            "negative_mean_per_source_occurrence": -0.0068381289112370396
+          }
+        }
+      },
+      {
+        "seed": 2028,
+        "source_group_size_influence": {
+          "1": {
+            "source_occurrences": 30863321,
+            "absolute_sum": 280283.1852731705,
+            "positive_sum": 127537.1288933754,
+            "negative_sum": -152746.0558605194,
+            "max_absolute": 3.138922691345215,
+            "absolute_mean_per_source_occurrence": 0.009081433111918528,
+            "positive_mean_per_source_occurrence": 0.004132320332389874,
+            "negative_mean_per_source_occurrence": -0.0049491127627036445
+          },
+          "2-5": {
+            "source_occurrences": 6312145,
+            "absolute_sum": 82561.03075672236,
+            "positive_sum": 40869.84221292266,
+            "negative_sum": -41691.1879186047,
+            "max_absolute": 3.1653051376342773,
+            "absolute_mean_per_source_occurrence": 0.013079710741233347,
+            "positive_mean_per_source_occurrence": 0.006474794576633246,
+            "negative_mean_per_source_occurrence": -0.006604916065553738
+          },
+          "6-20": {
+            "source_occurrences": 859811,
+            "absolute_sum": 12293.8057734402,
+            "positive_sum": 7275.274940559212,
+            "negative_sum": -5018.530784726168,
+            "max_absolute": 3.140432834625244,
+            "absolute_mean_per_source_occurrence": 0.014298265285557174,
+            "positive_mean_per_source_occurrence": 0.008461481582067701,
+            "negative_mean_per_source_occurrence": -0.005836783647483189
+          },
+          "21-100": {
+            "source_occurrences": 82776,
+            "absolute_sum": 343.10260215065256,
+            "positive_sum": 183.79493041671967,
+            "negative_sum": -159.30767409424115,
+            "max_absolute": 1.4143153429031372,
+            "absolute_mean_per_source_occurrence": 0.004144952669259841,
+            "positive_mean_per_source_occurrence": 0.0022203891274852573,
+            "negative_mean_per_source_occurrence": -0.0019245635702889866
+          },
+          "101-500": {
+            "source_occurrences": 4145,
+            "absolute_sum": 105.41800525598558,
+            "positive_sum": 51.25970287433997,
+            "negative_sum": -54.158302666389794,
+            "max_absolute": 0.6561671495437622,
+            "absolute_mean_per_source_occurrence": 0.025432570628705808,
+            "positive_mean_per_source_occurrence": 0.012366635192844384,
+            "negative_mean_per_source_occurrence": -0.013065935504557247
+          },
+          ">500": {
+            "source_occurrences": 352,
+            "absolute_sum": 7.288275716154203,
+            "positive_sum": 3.317891763341788,
+            "negative_sum": -3.970383863449115,
+            "max_absolute": 0.43531933426856995,
+            "absolute_mean_per_source_occurrence": 0.02070532873907444,
+            "positive_mean_per_source_occurrence": 0.00942582887313008,
+            "negative_mean_per_source_occurrence": -0.011279499612071349
+          }
+        }
+      }
+    ]
+  },
+  "interaction_stability": {
+    "feedback_order": [
+      "like",
+      "dislike",
+      "unlike",
+      "undislike"
+    ],
+    "psi_mean": [
+      [
+        0.1326872929930687,
+        -0.11414544781049092,
+        0.09140094928443432,
+        -0.12069710592428844
+      ],
+      [
+        -0.13263878474632898,
+        0.17113499840100607,
+        -0.15060226122538248,
+        0.12360334644714992
+      ],
+      [
+        0.012937494864066442,
+        -0.15383140494426092,
+        0.1469504510362943,
+        -0.09377145456771056
+      ],
+      [
+        -0.40729943414529163,
+        0.010727078964312872,
+        -0.3748428374528885,
+        0.17794300119082132
+      ]
+    ],
+    "psi_std": [
+      [
+        0.04058964652547707,
+        0.010364413631937928,
+        0.05374165402986751,
+        0.04826669200915763
+      ],
+      [
+        0.012189817274961835,
+        0.03643962679086215,
+        0.02991737633041542,
+        0.03792723493221792
+      ],
+      [
+        0.07451512728950808,
+        0.02721801583859337,
+        0.043869021228699415,
+        0.05927242889181228
+      ],
+      [
+        0.21726606491069334,
+        0.04353317735191041,
+        0.16308548935786268,
+        0.021370844282577007
+      ]
+    ],
+    "delay_mean_hours": [
+      [
+        0.35159563024838764,
+        0.32765741149584454,
+        0.5203682780265808,
+        0.4296925167242686
+      ],
+      [
+        0.37792577346165973,
+        0.33615275224049884,
+        0.25150108834107715,
+        0.5936923027038574
+      ],
+      [
+        0.4952993392944336,
+        0.2273466239372889,
+        0.3849918842315674,
+        0.48953617612520856
+      ],
+      [
+        0.5129737059275309,
+        0.5067911942799886,
+        0.3854450186093648,
+        0.47148364782333374
+      ]
+    ],
+    "delay_std_hours": [
+      [
+        0.016896573185771476,
+        0.03173491481454652,
+        0.0322991101330688,
+        0.029152041585643575
+      ],
+      [
+        0.02295024485825663,
+        0.021468918864938284,
+        0.029016753419195577,
+        0.04577726523677737
+      ],
+      [
+        0.04784493625139297,
+        0.041110013311886205,
+        0.03448699787256345,
+        0.011576878346384817
+      ],
+      [
+        0.01620557732712006,
+        0.01868664187167431,
+        0.022695884872593067,
+        0.032925332487041915
+      ]
+    ],
+    "unanimous_sign_mask": [
+      [
+        true,
+        true,
+        true,
+        true
+      ],
+      [
+        true,
+        true,
+        true,
+        true
+      ],
+      [
+        false,
+        true,
+        true,
+        true
+      ],
+      [
+        true,
+        false,
+        true,
+        true
+      ]
+    ],
+    "unanimous_sign_fraction": 0.875,
+    "pairwise": [
+      {
+        "seeds": [
+          2026,
+          2027
+        ],
+        "psi_pearson": 0.7038372321151933,
+        "psi_sign_agreement": 0.9375,
+        "delay_pearson": 0.9202677539826507,
+        "delay_MAE_hours": 0.057289368472993374
+      },
+      {
+        "seeds": [
+          2026,
+          2028
+        ],
+        "psi_pearson": 0.6800248491051223,
+        "psi_sign_agreement": 0.9375,
+        "delay_pearson": 0.8900683724211498,
+        "delay_MAE_hours": 0.050493630580604076
+      },
+      {
+        "seeds": [
+          2027,
+          2028
+        ],
+        "psi_pearson": 0.9657679551757858,
+        "psi_sign_agreement": 0.875,
+        "delay_pearson": 0.9693811341678792,
+        "delay_MAE_hours": 0.025402002036571503
+      }
+    ]
+  }
+}

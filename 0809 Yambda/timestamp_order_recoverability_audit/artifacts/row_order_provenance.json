@@ -1,0 +1,171 @@
+{
+  "status": "complete",
+  "evidence_hierarchy": {
+    "A_semantic_provenance": "No event_id/original_row_id/ingestion/source-sequence field in the four local explicit sequential files. Official documentation promises chronological timestamp order, but does not define a business order inside equal 5-second timestamps.",
+    "B_engineering_stability": "Repeated local reads with different Arrow batch sizes reproduce the same list order. The official multi-event builder concatenates fixed event-type files and stable-sorts only by uid,timestamp, so its equal-timestamp order is an engineering type-block order. The local flattening script copies within-stream list values in source order, and exact dedup preserves surviving within-stream order.",
+    "critical_non_equivalence": "Engineering stability is not semantic provenance and cannot establish ground-truth chronology."
+  },
+  "official_sources": {
+    "dataset_card": "https://huggingface.co/datasets/yandex/yambda/blob/main/README.md",
+    "transform_script": "https://huggingface.co/datasets/yandex/yambda/blob/main/benchmarks/scripts/transform2sequential.py",
+    "multi_event_builder": "https://huggingface.co/datasets/yandex/yambda/blob/main/benchmarks/scripts/make_multievent.py",
+    "documented_fact": "files sorted by (uid,timestamp); sequential lists maintain chronological order",
+    "missing_fact": "no documented tie-break rule or sub-5-second event sequence for equal timestamps",
+    "decisive_engineering_fact": "make_multievent.py concatenates homogeneous files in fixed type-block order [listen, dislike, like, undislike, unlike], then performs a stable sort only by uid,timestamp; equal-timestamp type order is therefore inherited from file concatenation, not demonstrated user chronology"
+  },
+  "local_files": {
+    "likes.parquet": {
+      "schema": "uid: uint32\ntimestamp: large_list<element: uint32>\n  child 0, element: uint32\nitem_id: large_list<element: uint32>\n  child 0, element: uint32\nis_organic: large_list<element: uint8>\n  child 0, element: uint8",
+      "columns": [
+        "uid",
+        "timestamp",
+        "item_id",
+        "is_organic"
+      ],
+      "row_groups": 4,
+      "user_rows": 827246,
+      "prefix_signatures_by_batch_size": {
+        "7": {
+          "sha256": "da4e9789e3f75a472e27e278c46000da1abcbf7dab2526e87d42da292146d9a4",
+          "users": 10000,
+          "events": 1076672
+        },
+        "128": {
+          "sha256": "da4e9789e3f75a472e27e278c46000da1abcbf7dab2526e87d42da292146d9a4",
+          "users": 10000,
+          "events": 1076672
+        },
+        "1000": {
+          "sha256": "da4e9789e3f75a472e27e278c46000da1abcbf7dab2526e87d42da292146d9a4",
+          "users": 10000,
+          "events": 1076672
+        }
+      },
+      "same_signature_across_batch_sizes": true,
+      "ordering_fields_present": []
+    },
+    "dislikes.parquet": {
+      "schema": "uid: uint32\ntimestamp: large_list<element: uint32>\n  child 0, element: uint32\nitem_id: large_list<element: uint32>\n  child 0, element: uint32\nis_organic: large_list<element: uint8>\n  child 0, element: uint8",
+      "columns": [
+        "uid",
+        "timestamp",
+        "item_id",
+        "is_organic"
+      ],
+      "row_groups": 3,
+      "user_rows": 593011,
+      "prefix_signatures_by_batch_size": {
+        "7": {
+          "sha256": "0c4644fc2f61facba669a83f2f4bfb77b112efd9407c06bf3f44348dff302faf",
+          "users": 10000,
+          "events": 193522
+        },
+        "128": {
+          "sha256": "0c4644fc2f61facba669a83f2f4bfb77b112efd9407c06bf3f44348dff302faf",
+          "users": 10000,
+          "events": 193522
+        },
+        "1000": {
+          "sha256": "0c4644fc2f61facba669a83f2f4bfb77b112efd9407c06bf3f44348dff302faf",
+          "users": 10000,
+          "events": 193522
+        }
+      },
+      "same_signature_across_batch_sizes": true,
+      "ordering_fields_present": []
+    },
+    "unlikes.parquet": {
+      "schema": "uid: uint32\ntimestamp: large_list<element: uint32>\n  child 0, element: uint32\nitem_id: large_list<element: uint32>\n  child 0, element: uint32\nis_organic: large_list<element: uint8>\n  child 0, element: uint8",
+      "columns": [
+        "uid",
+        "timestamp",
+        "item_id",
+        "is_organic"
+      ],
+      "row_groups": 3,
+      "user_rows": 638130,
+      "prefix_signatures_by_batch_size": {
+        "7": {
+          "sha256": "96bdeb5deb0e599b0dade9da2deac788f93a3fe32e39a80c53b3aef255dac74a",
+          "users": 10000,
+          "events": 539725
+        },
+        "128": {
+          "sha256": "96bdeb5deb0e599b0dade9da2deac788f93a3fe32e39a80c53b3aef255dac74a",
+          "users": 10000,
+          "events": 539725
+        },
+        "1000": {
+          "sha256": "96bdeb5deb0e599b0dade9da2deac788f93a3fe32e39a80c53b3aef255dac74a",
+          "users": 10000,
+          "events": 539725
+        }
+      },
+      "same_signature_across_batch_sizes": true,
+      "ordering_fields_present": []
+    },
+    "undislikes.parquet": {
+      "schema": "uid: uint32\ntimestamp: large_list<element: uint32>\n  child 0, element: uint32\nitem_id: large_list<element: uint32>\n  child 0, element: uint32\nis_organic: large_list<element: uint8>\n  child 0, element: uint8",
+      "columns": [
+        "uid",
+        "timestamp",
+        "item_id",
+        "is_organic"
+      ],
+      "row_groups": 2,
+      "user_rows": 288764,
+      "prefix_signatures_by_batch_size": {
+        "7": {
+          "sha256": "fc46e63a8dc657397750806437c84064423d5b4736aa4a93f79bbbdd8d4aca0d",
+          "users": 10000,
+          "events": 85726
+        },
+        "128": {
+          "sha256": "fc46e63a8dc657397750806437c84064423d5b4736aa4a93f79bbbdd8d4aca0d",
+          "users": 10000,
+          "events": 85726
+        },
+        "1000": {
+          "sha256": "fc46e63a8dc657397750806437c84064423d5b4736aa4a93f79bbbdd8d4aca0d",
+          "users": 10000,
+          "events": 85726
+        }
+      },
+      "same_signature_across_batch_sizes": true,
+      "ordering_fields_present": []
+    }
+  },
+  "pipeline": {
+    "four_feedbacks_are_separate_files": true,
+    "cross_feedback_row_order_available_in_current_D_all_or_D_SID": false,
+    "official_multi_event_equal_timestamp_order": "fixed input-file/type-block concatenation retained by stable uid,timestamp sort",
+    "flattening": "lossless within each separate feedback stream",
+    "D_all_merge_rule": "downstream audits merge per user and sort by timestamp,item,feedback; this is a canonical engineering order, not source chronology",
+    "exact_dedup": {
+      "like": {
+        "sampled_users": 2000,
+        "relative_survivor_order_mismatches": 0,
+        "relative_survivor_order_preserved": true
+      },
+      "dislike": {
+        "sampled_users": 2000,
+        "relative_survivor_order_mismatches": 0,
+        "relative_survivor_order_preserved": true
+      },
+      "unlike": {
+        "sampled_users": 2000,
+        "relative_survivor_order_mismatches": 0,
+        "relative_survivor_order_preserved": true
+      },
+      "undislike": {
+        "sampled_users": 2000,
+        "relative_survivor_order_mismatches": 0,
+        "relative_survivor_order_preserved": true
+      }
+    },
+    "dedup_effect": "removes duplicate multiplicity; preserves relative order among surviving events within each homogeneous stream; cannot preserve a cross-feedback order that is not present"
+  },
+  "classification": "B",
+  "classification_text": "row order is engineering-stable but has no defensible cross-feedback business chronology for tied timestamps",
+  "may_use_as_ground_truth_chronology": false
+}

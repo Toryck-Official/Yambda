@@ -1,0 +1,120 @@
+{
+  "status": "gate1_complete_stop_before_gate2",
+  "decision": "C",
+  "decision_text": "Metadata proxy is not reliable enough to serve as the source of a four-level semantic SID under the current protocol.",
+  "sample": {
+    "items": 100000,
+    "validation": 50000,
+    "test": 50000,
+    "targets_have_real_audio_embedding": true,
+    "strict_leave_one_out": true,
+    "availability": {
+      "artist_only": 32293,
+      "album_only": 10128,
+      "both": 57579
+    }
+  },
+  "primary_candidate_codebook": {
+    "fit_items": 100000,
+    "fit_items_disjoint_from_proxy_targets": true,
+    "real_audio_embedding_only": true,
+    "levels": 4,
+    "codebook_size": 256,
+    "iterations": 25,
+    "seed": 2026,
+    "final_reconstruction_mse": 0.001185772125609219,
+    "resource_note": "A 200000-item provisional fit was attempted but exceeded the 2-GiB runtime memory boundary; the Gate-1 candidate was reduced to 100000 without changing the 100000-item proxy validation sample or Gate-2 full-fit requirement."
+  },
+  "selected_conditional_rule_for_evaluation_only": {
+    "both_available": "album centroid",
+    "artist_only": "artist centroid",
+    "album_only": "album centroid",
+    "selected_album_weight_on_validation": 1.0,
+    "authorization_boundary": "This is the best evaluated proxy rule, not an approved semantic-SID materialization rule."
+  },
+  "primary_test_metrics": {
+    "conditional_rule": {
+      "count": 50000,
+      "cosine_mean": 0.834337055683136,
+      "cosine_median": 0.8785662651062012,
+      "cosine_p10": 0.6366714239120483,
+      "cosine_p25": 0.7783176302909851,
+      "cosine_p75": 0.9370276927947998,
+      "cosine_p90": 0.9665634632110596,
+      "mse": 0.0025884839706122875,
+      "prefix_acc_at_1": 0.52694,
+      "prefix_acc_at_2": 0.17036,
+      "prefix_acc_at_3": 0.0551,
+      "prefix_acc_at_4": 0.02008,
+      "neighbor_overlap_at_10": 0.24827001988887787,
+      "neighbor_overlap_at_50": 0.3787200152873993
+    },
+    "artist_centroid": {
+      "count": 44935,
+      "cosine_mean": 0.8276524543762207,
+      "mse": 0.002692931331694126,
+      "prefix_acc_at_1": 0.5072215422276621,
+      "prefix_acc_at_2": 0.14745743852231,
+      "prefix_acc_at_3": 0.04312896405919662,
+      "prefix_acc_at_4": 0.014932680538555692,
+      "neighbor_overlap_at_10": 0.21674999594688416,
+      "neighbor_overlap_at_50": 0.35068997740745544
+    },
+    "album_centroid": {
+      "count": 33854,
+      "cosine_mean": 0.8465854525566101,
+      "mse": 0.0023971027694642544,
+      "prefix_acc_at_1": 0.5474980799905477,
+      "prefix_acc_at_2": 0.1848821409582324,
+      "prefix_acc_at_3": 0.061765227151887515,
+      "prefix_acc_at_4": 0.02236072546818692,
+      "neighbor_overlap_at_10": 0.26402997970581055,
+      "neighbor_overlap_at_50": 0.39893198013305664
+    }
+  },
+  "codebook_sensitivity": {
+    "historical_real_only_fit_items": 210985,
+    "conditional_prefix_acc_at_1": 0.53736,
+    "conditional_prefix_acc_at_2": 0.18888,
+    "conditional_prefix_acc_at_3": 0.0684,
+    "conditional_prefix_acc_at_4": 0.02542,
+    "conclusion": "The coarse-to-fine collapse is stable across two independently fitted real-only codebooks."
+  },
+  "missing_item_coverage_if_proxy_were_authorized": {
+    "artist": {
+      "items": 448289,
+      "events": 12234686
+    },
+    "album": {
+      "items": 68757,
+      "events": 3719259
+    },
+    "combined": {
+      "items": 450594,
+      "missing_item_fraction": 0.8874677486065429,
+      "events": 12450538,
+      "missing_event_fraction": 0.9268123106025501
+    },
+    "cold_unknown": {
+      "items": 57136,
+      "events": 983183
+    }
+  },
+  "reasoning": [
+    "Cosine similarity is moderately high, but the task-priority four-level PrefixAcc is only 2.01% under the best conditional rule.",
+    "Exact nearest-neighbor overlap is only 24.83% at 10 and 37.87% at 50.",
+    "The best both-available validation alpha collapses to album-only rather than a genuine artist-album blend.",
+    "Album-only targets are especially weak: PrefixAcc@1 39.05% and PrefixAcc@4 0.65%.",
+    "No availability, group-size, or frequency stratum demonstrates reliable four-level path recovery."
+  ],
+  "gate2_block": {
+    "blocked": true,
+    "reason": "Gate 2 requires a Gate-1-confirmed proxy rule to quantize 450594 metadata-available items. Gate 1 rejected metadata proxies as a four-level semantic-SID source.",
+    "unauthorized_alternatives": [
+      "Force the failed proxy rule into the frozen quantizer",
+      "Silently relabel all 450594 metadata-available items as cold_unknown",
+      "Remove those items from the explicit item universe"
+    ],
+    "additional_resource_issue": "No GPU is visible and the runtime memory limit is 2 GiB; the existing non-streaming full 2367341-item RQ implementation cannot fit."
+  }
+}

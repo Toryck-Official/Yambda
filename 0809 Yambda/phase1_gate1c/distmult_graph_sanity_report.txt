@@ -1,0 +1,46 @@
+Gate 1C 最后一个 sanity check：DistMult 自身图任务
+
+目的
+确认 collaborative→audio 的失败是否只是因为 DistMult 连用户—四类反馈—物品图都没有学好。
+
+协议
+- 数据仅来自 global train period。
+- 不使用 listen、audio embedding、validation/test period interactions。
+- 四种关系 like/dislike/unlike/undislike 分开保留。
+- 每类反馈独立 holdout 500 条，共 2,000 条；holdout 不参与训练。
+- 每条测试关系使用 1 个真实 item + 1,000 个过滤后的候选 item。
+- 候选过滤掉同一 user-feedback 下已经观测过的其他 item。
+- 这是 sampled-1001-candidate 指标，不是 full-catalog 指标。
+- 三个随机种子：2026/2027/2028。
+
+三种子总体均值
+- Hits@1: 23.250%
+- Hits@5: 53.333%
+- Hits@10: 67.083%
+- MRR: 0.37327
+- Median rank: 5
+
+随机期望
+- Hits@1: 0.100%
+- Hits@5: 0.500%
+- Hits@10: 0.999%
+- MRR: 0.00748
+
+关系物品流行度基线
+- Hits@1: 22.150%
+- Hits@5: 50.500%
+- Hits@10: 64.850%
+- MRR: 0.35539
+
+分关系 DistMult 三种子均值
+- like: Hits@10=74.867%, MRR=0.45398
+- dislike: Hits@10=69.067%, MRR=0.38815
+- unlike: Hits@10=60.867%, MRR=0.30024
+- undislike: Hits@10=63.533%, MRR=0.35070
+
+结论
+1. DistMult 自身的 relation-aware link prediction 明显高于随机，因此 collaborative encoder 不是完全没有学到图结构。
+2. DistMult 只比关系物品流行度基线小幅更好，说明图任务中相当一部分可预测性来自物品在对应反馈关系下的流行度；不能夸大为很强的个性化协同建模。
+3. 结合此前 collaborative→audio 的 Prefix@1=4.45%、Prefix@2=0.20%、NN@10=0.45%、NN@50=1.66%，主要失败不能再简单归因于 encoder 接近随机。
+4. 当前证据支持正式关闭 collaborative→audio 路线：协同表示可以预测交互图关系，但不能可靠恢复 audio semantic space。
+5. 不继续 LightGCN/GNN/Transformer，不进入 Gate 2，不给 missing items 分配最终 SID，不训练 SNMPP/HPN。

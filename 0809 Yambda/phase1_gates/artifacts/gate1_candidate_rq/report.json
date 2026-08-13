@@ -1,0 +1,72 @@
+{
+  "status": "complete_gate1_candidate_only",
+  "provisional_not_gate2": true,
+  "data_contract": {
+    "fit_items": 100000,
+    "real_audio_embedding_only": true,
+    "proxy_validation_targets_excluded": true,
+    "normalized": true,
+    "feature_dimension": 128
+  },
+  "algorithm": {
+    "name": "FAISS global residual KMeans candidate",
+    "levels": 4,
+    "codebook_size": 256,
+    "iterations": 25,
+    "restarts": 1,
+    "seed": 2026,
+    "device": "cpu",
+    "faiss_threads": 2
+  },
+  "level_trace": [
+    {
+      "level": 1,
+      "training_mode": "residual_kmeans",
+      "mse": 0.00250602955929935,
+      "mean_residual_l2": 0.5538651347160339,
+      "mean_cosine_similarity": 0.8230733871459961,
+      "used_codes": 256,
+      "assignment_mean_squared_l2": 0.3207717835903168,
+      "training_final_objective": 32082.328125,
+      "elapsed_seconds": 15.470808550715446
+    },
+    {
+      "level": 2,
+      "training_mode": "residual_kmeans",
+      "mse": 0.0017947002779692411,
+      "mean_residual_l2": 0.468150794506073,
+      "mean_cosine_similarity": 0.8786782622337341,
+      "used_codes": 256,
+      "assignment_mean_squared_l2": 0.22972163558006287,
+      "training_final_objective": 22976.16015625,
+      "elapsed_seconds": 16.50560111552477
+    },
+    {
+      "level": 3,
+      "training_mode": "residual_kmeans",
+      "mse": 0.00143135036341846,
+      "mean_residual_l2": 0.41818320751190186,
+      "mean_cosine_similarity": 0.904948890209198,
+      "used_codes": 256,
+      "assignment_mean_squared_l2": 0.18321284651756287,
+      "training_final_objective": 18324.595703125,
+      "elapsed_seconds": 17.316798456013203
+    },
+    {
+      "level": 4,
+      "training_mode": "residual_kmeans",
+      "mse": 0.001185772125609219,
+      "mean_residual_l2": 0.38095760345458984,
+      "mean_cosine_similarity": 0.9220871925354004,
+      "used_codes": 256,
+      "assignment_mean_squared_l2": 0.15177883207798004,
+      "training_final_objective": 15180.1591796875,
+      "elapsed_seconds": 15.218416549265385
+    }
+  ],
+  "elapsed_seconds": 64.67627201974392,
+  "outputs": {
+    "codebooks": "/root/autodl-tmp/0809 Yambda/phase1_gates/artifacts/gate1_candidate_rq/codebooks.npy",
+    "fit_item_ids": "/root/autodl-tmp/0809 Yambda/phase1_gates/artifacts/gate1_candidate_rq/fit_item_ids.npy"
+  }
+}

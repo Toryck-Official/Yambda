@@ -1,0 +1,21 @@
+Timestamp Order Recoverability Audit
+====================================
+
+Scope: audit only; no model training, event deletion, Gate 2, or protocol modification.
+
+D_SID: 854,649 users, 121,819,651 events, 77,565,283 timestamp groups.
+Row order: evidence class B (engineering-stable, not business chronology).
+Tied events: 58,618,274 (48.1189% of D_SID).
+Locally unique same-item order: 2,804,692 events (4.7847% of tied events).
+Fully unique whole timestamp group: 1,149,564 events (1.9611% of tied events).
+Decision: do not adopt a mixed protocol as the main protocol; retain grouped shared pre-history.
+
+Extreme burst:
+A natural batch-like composition shift appears above group size 500. Treat >500 only as an independent sensitivity/exclusion candidate, not as approved cleaning.
+Hypothetical <=500 retention: events 98.8081%, groups 99.9983%, users 99.9989%.
+Strict pair retention: like->unlike 97.9140%; dislike->undislike 99.1203%.
+
+Order sensitivity:
+Sample: 3,196 users, 66,278 multi-event groups.
+Like->unlike adjacent counts: engineering order 8714, reversed 4026, random seeds 6900/7018/6874.
+Ordered variants create 201575 zero-delta transitions; grouped creates 0.

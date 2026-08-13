@@ -1,0 +1,25 @@
+{
+  "status": "gate1b_complete_stop_before_gate2",
+  "classification": "C",
+  "scope": "current pinned Yambda artist/album-only metadata context and the frozen Gate-1 candidate RQKMeans; not a universal claim that metadata can never recover SID",
+  "answers": {
+    "1_rqkmeans_sensitive": {
+      "answer": true,
+      "summary": "Even random unit-vector perturbations at cosine 0.85 retain only 2.843% exact four-level SID, although level-1 prefix remains 85.607%. Greedy residual levels amplify earlier boundary changes."
+    },
+    "2_learned_embedding_significantly_better": {
+      "answer": false,
+      "summary": "The MLP improves cosine by 0.002824 and Prefix@1 by 0.423 percentage points with bootstrap CIs excluding zero, but significantly worsens Prefix@2/3/4 by 0.339/0.620/0.585 percentage points and worsens NN@10. It is not a task-level improvement over the centroid."
+    },
+    "3_direct_sid_further_better": {
+      "answer": false,
+      "summary": "Direct SID is statistically indistinguishable from the centroid at Prefix@1/2 and significantly worse at Prefix@3/4. Against learned embedding, only Prefix@2 improves slightly; Prefix@3/4 are indistinguishable."
+    }
+  },
+  "decision": {
+    "gate2_started": false,
+    "missing_items_assigned_final_sid": false,
+    "snmpp_or_hpn_trained": false,
+    "next_action_requires_user_confirmation": true
+  }
+}

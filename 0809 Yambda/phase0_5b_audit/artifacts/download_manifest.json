@@ -1,0 +1,29 @@
+{
+  "format_version": 1,
+  "repository": "yandex/yambda",
+  "revision": "dd6f3a19eef5866e346c3270e098baa641a44948",
+  "scope": "four full Yambda-5B sequential explicit-feedback files only",
+  "files": {
+    "sequential/5b/likes.parquet": {
+      "path": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/raw/sequential/5b/likes.parquet",
+      "size_bytes": 693712976,
+      "sha256": "b9190588c72713ee4eee129c3f290633a7314067f8e39e1c84962aac390e300a"
+    },
+    "sequential/5b/dislikes.parquet": {
+      "path": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/raw/sequential/5b/dislikes.parquet",
+      "size_bytes": 89065045,
+      "sha256": "b068dfb567f4335388706933709c3fb26fb5058496127e813d93b8485b36a96a"
+    },
+    "sequential/5b/unlikes.parquet": {
+      "path": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/raw/sequential/5b/unlikes.parquet",
+      "size_bytes": 193012360,
+      "sha256": "2f971c757090c17cd027badd82af5df8304484e1742602b92ad92ac53c845c04"
+    },
+    "sequential/5b/undislikes.parquet": {
+      "path": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/raw/sequential/5b/undislikes.parquet",
+      "size_bytes": 16248355,
+      "sha256": "e05922d5ca39139ebb3c1cc9479b306f498868dce1e45194d93bf81d1ac8bb89"
+    }
+  },
+  "elapsed_seconds": 145.42683625221252
+}

@@ -1,0 +1,126 @@
+{
+  "status": "complete_strict_leave_one_out_proxy_vectors",
+  "data_contract": {
+    "targets": "/root/autodl-tmp/0809 Yambda/phase1_gate1b/artifacts/learning_sample.npz",
+    "targets_have_real_embedding": true,
+    "target_embedding_removed_from_each_metadata_group": true,
+    "target_embedding_used_only_as_evaluation_truth": true,
+    "vectors_normalized": true,
+    "collaborative_information_used": false,
+    "event_rows_modified": false
+  },
+  "truth": {
+    "rows": 400000,
+    "available": 400000,
+    "finite": true,
+    "available_norm_min": 0.9999999403953552,
+    "available_norm_mean": 1.0,
+    "available_norm_max": 1.0
+  },
+  "artist": {
+    "norm_audit": {
+      "rows": 400000,
+      "available": 389290,
+      "finite": true,
+      "available_norm_min": 0.9999998807907104,
+      "available_norm_mean": 1.0,
+      "available_norm_max": 1.0000001192092896
+    },
+    "builder_report": {
+      "mapping_path": "/root/autodl-tmp/0804 Yambda/dataprocess/data/official_metadata/artist_item_mapping.parquet",
+      "group_column": "artist_id",
+      "mapping_rows": 9271906,
+      "row_groups_streamed": 35,
+      "groups_processed": 1293394,
+      "relevant_groups": 125506,
+      "target_items": 400000,
+      "predicted_items": 389290,
+      "prediction_coverage": 0.973225,
+      "leave_one_out_for_source_covered_targets": true,
+      "centroid_per_relation_then_relation_average": true
+    }
+  },
+  "album": {
+    "norm_audit": {
+      "rows": 400000,
+      "available": 291007,
+      "finite": true,
+      "available_norm_min": 0.9999998807907104,
+      "available_norm_mean": 1.0,
+      "available_norm_max": 1.0000001192092896
+    },
+    "builder_report": {
+      "mapping_path": "/root/autodl-tmp/0804 Yambda/dataprocess/data/official_metadata/album_item_mapping.parquet",
+      "group_column": "album_id",
+      "mapping_rows": 9651644,
+      "row_groups_streamed": 36,
+      "groups_processed": 3367691,
+      "relevant_groups": 297146,
+      "target_items": 400000,
+      "predicted_items": 291007,
+      "prediction_coverage": 0.7275175,
+      "leave_one_out_for_source_covered_targets": true,
+      "centroid_per_relation_then_relation_average": true
+    }
+  },
+  "outputs": {
+    "artist_proxy.npy": {
+      "path": "/root/autodl-tmp/0809 Yambda/phase1_gate1b/work/learning_proxy_vectors/artist_proxy.npy",
+      "shape": [
+        400000,
+        128
+      ],
+      "dtype": "float32"
+    },
+    "artist_available.npy": {
+      "path": "/root/autodl-tmp/0809 Yambda/phase1_gate1b/work/learning_proxy_vectors/artist_available.npy",
+      "shape": [
+        400000
+      ],
+      "dtype": "bool"
+    },
+    "artist_source_count.npy": {
+      "path": "/root/autodl-tmp/0809 Yambda/phase1_gate1b/work/learning_proxy_vectors/artist_source_count.npy",
+      "shape": [
+        400000
+      ],
+      "dtype": "uint64"
+    },
+    "artist_relation_count.npy": {
+      "path": "/root/autodl-tmp/0809 Yambda/phase1_gate1b/work/learning_proxy_vectors/artist_relation_count.npy",
+      "shape": [
+        400000
+      ],
+      "dtype": "uint32"
+    },
+    "album_proxy.npy": {
+      "path": "/root/autodl-tmp/0809 Yambda/phase1_gate1b/work/learning_proxy_vectors/album_proxy.npy",
+      "shape": [
+        400000,
+        128
+      ],
+      "dtype": "float32"
+    },
+    "album_available.npy": {
+      "path": "/root/autodl-tmp/0809 Yambda/phase1_gate1b/work/learning_proxy_vectors/album_available.npy",
+      "shape": [
+        400000
+      ],
+      "dtype": "bool"
+    },
+    "album_source_count.npy": {
+      "path": "/root/autodl-tmp/0809 Yambda/phase1_gate1b/work/learning_proxy_vectors/album_source_count.npy",
+      "shape": [
+        400000
+      ],
+      "dtype": "uint64"
+    },
+    "album_relation_count.npy": {
+      "path": "/root/autodl-tmp/0809 Yambda/phase1_gate1b/work/learning_proxy_vectors/album_relation_count.npy",
+      "shape": [
+        400000
+      ],
+      "dtype": "uint32"
+    }
+  }
+}

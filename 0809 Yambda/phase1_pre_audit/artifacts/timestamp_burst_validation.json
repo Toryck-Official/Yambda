@@ -1,0 +1,122 @@
+{
+  "status": "passed",
+  "source": "/root/autodl-tmp/0809 Yambda/phase1_pre_audit/artifacts/timestamp_burst_sensitivity.json",
+  "checks": {
+    "audit_status_complete": true,
+    "no_filtering_performed": true,
+    "no_same_time_order_invented": true,
+    "users_match_phase0": true,
+    "events_match_phase0": true,
+    "groups_match_phase0": true,
+    "feedback_match_phase0": true,
+    "strict_pairs_match_phase0": true,
+    "ambiguity_groups_match_phase0": true,
+    "group_histogram_conserves_groups": true,
+    "event_histogram_conserves_events": true,
+    "feedback_histograms_conserve_events": true,
+    "user_max_histogram_conserves_users": true,
+    "like_pair_histogram_conserves_pairs": true,
+    "dislike_pair_histogram_conserves_pairs": true
+  },
+  "counts": {
+    "users": 857499,
+    "events": 136292476,
+    "timestamp_groups": 80259999,
+    "feedback_events": {
+      "like": 89334605,
+      "dislike": 11579143,
+      "unlike": 32944520,
+      "undislike": 2434208
+    },
+    "strict_revision_pairs": {
+      "like_to_unlike": 6364678,
+      "dislike_to_undislike": 308204
+    },
+    "ambiguous_same_item_time_groups": 3612417
+  },
+  "group_size_quantiles": {
+    "p50": 1,
+    "p75": 1,
+    "p90": 3,
+    "p95": 5,
+    "p99": 11,
+    "p99_9": 42,
+    "p99_99": 197
+  },
+  "group_size_max": 10000,
+  "threshold_effects": {
+    "p99": {
+      "threshold_keep_group_size_leq": 11,
+      "excluded": {
+        "groups": 694447,
+        "group_fraction": 0.008652467090112971,
+        "events": 20407012,
+        "event_fraction": 0.1497295566044306,
+        "users_with_at_least_one_excluded_group": 192789,
+        "user_fraction": 0.22482708434645404,
+        "feedback_events": {
+          "like": 8984436,
+          "dislike": 1848123,
+          "unlike": 8725730,
+          "undislike": 848723
+        }
+      },
+      "strict_revision_pairs_touched_at_either_endpoint": {
+        "like_to_unlike": 1530370,
+        "like_to_unlike_fraction": 0.24044735648841936,
+        "dislike_to_undislike": 145737,
+        "dislike_to_undislike_fraction": 0.4728588856731256,
+        "definition": "existing strict pair has origin or revision in an excluded group; no hypothetical post-filter re-pairing"
+      }
+    },
+    "p99_9": {
+      "threshold_keep_group_size_leq": 42,
+      "excluded": {
+        "groups": 77377,
+        "group_fraction": 0.0009640792544739503,
+        "events": 9088974,
+        "event_fraction": 0.06668727626607943,
+        "users_with_at_least_one_excluded_group": 40392,
+        "user_fraction": 0.04710442811012024,
+        "feedback_events": {
+          "like": 4232910,
+          "dislike": 694904,
+          "unlike": 3693224,
+          "undislike": 467936
+        }
+      },
+      "strict_revision_pairs_touched_at_either_endpoint": {
+        "like_to_unlike": 723323,
+        "like_to_unlike_fraction": 0.11364644055834404,
+        "dislike_to_undislike": 104147,
+        "dislike_to_undislike_fraction": 0.3379157960312001,
+        "definition": "existing strict pair has origin or revision in an excluded group; no hypothetical post-filter re-pairing"
+      }
+    },
+    "p99_99": {
+      "threshold_keep_group_size_leq": 197,
+      "excluded": {
+        "groups": 8000,
+        "group_fraction": 9.967605407022245e-05,
+        "events": 3879401,
+        "event_fraction": 0.02846379428898188,
+        "users_with_at_least_one_excluded_group": 5937,
+        "user_fraction": 0.006923623234546046,
+        "feedback_events": {
+          "like": 2198397,
+          "dislike": 102368,
+          "unlike": 1434160,
+          "undislike": 144476
+        }
+      },
+      "strict_revision_pairs_touched_at_either_endpoint": {
+        "like_to_unlike": 285872,
+        "like_to_unlike_fraction": 0.04491539084930927,
+        "dislike_to_undislike": 27375,
+        "dislike_to_undislike_fraction": 0.08882104060946645,
+        "definition": "existing strict pair has origin or revision in an excluded group; no hypothetical post-filter re-pairing"
+      }
+    }
+  },
+  "important_boundary": "The audit is over raw explicit rows before the deterministic exact-duplicate removal. Phase 1 must recompute group sizes and selected-threshold effects after deduplication before materializing batch_event_flag."
+}

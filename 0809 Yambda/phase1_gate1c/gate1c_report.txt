@@ -1,0 +1,27 @@
+Gate 1C 正式结果（STOP before Gate 2）
+
+Phase 1：136,292,476 条显式事件删除 1,213,728 条完全重复副本，D_all=135,078,748。
+
+总体语义恢复（三种子均值）
+方法 | Cosine | MSE | Prefix@1 | Prefix@2 | Prefix@3 | Prefix@4 | NN@10 | NN@50
+Metadata centroid | 0.8353 | 0.002573 | 52.803% | 17.095% | 5.542% | 2.025% | 24.756% | 38.205%
+Metadata MLP | 0.8383 | 0.002527 | 53.206% | 16.772% | 4.892% | 1.423% | 24.250% | 38.343%
+Collaborative -> audio | 0.4511 | 0.008577 | 4.449% | 0.201% | 0.027% | 0.004% | 0.447% | 1.657%
+
+按 train unique-user count 的 Collaborative -> audio 曲线
+users | test n | Cosine | Prefix@1 | Prefix@2 | NN@10 | NN@50
+1 | 22,372 | 0.4209 | 1.876% | 0.055% | 0.104% | 0.506%
+2-4 | 10,191 | 0.4223 | 2.793% | 0.108% | 0.204% | 0.817%
+5-9 | 4,001 | 0.4692 | 6.423% | 0.367% | 0.852% | 2.554%
+10-19 | 2,524 | 0.5100 | 9.020% | 0.251% | 0.767% | 2.769%
+20-49 | 2,198 | 0.5559 | 11.920% | 0.773% | 1.208% | 4.776%
+50+ | 3,049 | 0.6205 | 17.109% | 0.918% | 2.322% | 7.968%
+
+决策
+1. Collaborative -> audio 没有超过 metadata-only；所有四个主指标均显著更差。
+2. Cosine 和 Prefix@1 随用户数总体提高，但 Prefix@2 与 NN 指标仍很低，不能据此认定可用。
+3. 本实验没有找到可用的 unique-user threshold。
+4. Revision-heavy 不是干净的单调难度因素；高 revision/pure revision 与 dislike/undislike 主导组通常较弱，但受到活跃度混杂。
+5. 507,730 个 missing item：可靠补全 0；有 train 协同证据但仅能标为弱证据 457,228；真正 train cold-start 50,502。
+
+严格停止：未进入 Gate 2，未分配最终 SID，未训练 SNMPP/HPN。

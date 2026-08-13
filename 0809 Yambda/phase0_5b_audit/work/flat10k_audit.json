@@ -1,0 +1,2441 @@
+{
+  "format_version": 1,
+  "status": "partial_smoke",
+  "scope": {
+    "repository": "yandex/yambda",
+    "revision": "dd6f3a19eef5866e346c3270e098baa641a44948",
+    "explicit_dir": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/raw/sequential/5b",
+    "included_events": [
+      "like",
+      "dislike",
+      "unlike",
+      "undislike"
+    ],
+    "listen_removed_from_explicit_analysis": true,
+    "is_organic_filtering": false,
+    "sessionization": false,
+    "cleaning_or_row_deletion": false,
+    "same_timestamp_policy": "shared group; no invented within-group order",
+    "revision_policy": "state must be active at a strictly earlier timestamp; conflicting user-item-timestamp groups are counted but not applied",
+    "streaming": true,
+    "staging_contract": "lossless NumPy memory maps from /root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/manifest.json; no row filtering or value transformation",
+    "batch_users": 4096,
+    "max_users": 10000,
+    "item_count_work_path": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat10k_items.counts.uint32.mmap"
+  },
+  "remote_dataset": {
+    "files": {
+      "listens": {
+        "path": "hf://datasets/yandex/yambda@dd6f3a19eef5866e346c3270e098baa641a44948/sequential/5b/listens.parquet",
+        "size_bytes": 42545451000,
+        "sha256": "2436ae6a08febc7cbdf40f1ee4508dcbad5576f27836c8e2f752fc417c43d642",
+        "user_rows": 921023,
+        "row_groups": 4,
+        "schema": "uid: uint32\ntimestamp: large_list<element: uint32>\n  child 0, element: uint32\nitem_id: large_list<element: uint32>\n  child 0, element: uint32\nis_organic: large_list<element: uint8>\n  child 0, element: uint8\nplayed_ratio_pct: large_list<element: uint16>\n  child 0, element: uint16\ntrack_length_seconds: large_list<element: uint32>\n  child 0, element: uint32",
+        "nested_value_counts": {
+          "uid": 921023,
+          "timestamp.list.element": 4649567411,
+          "item_id.list.element": 4649567411,
+          "is_organic.list.element": 4649567411,
+          "played_ratio_pct.list.element": 4649567411,
+          "track_length_seconds.list.element": 4649567411
+        },
+        "compressed_column_bytes": {
+          "uid": 3698868,
+          "timestamp.list.element": 16154856128,
+          "item_id.list.element": 14039281312,
+          "is_organic.list.element": 570605351,
+          "played_ratio_pct.list.element": 4894897639,
+          "track_length_seconds.list.element": 6880237467
+        }
+      },
+      "likes": {
+        "path": "hf://datasets/yandex/yambda@dd6f3a19eef5866e346c3270e098baa641a44948/sequential/5b/likes.parquet",
+        "size_bytes": 693712976,
+        "sha256": "b9190588c72713ee4eee129c3f290633a7314067f8e39e1c84962aac390e300a",
+        "user_rows": 827246,
+        "row_groups": 4,
+        "schema": "uid: uint32\ntimestamp: large_list<element: uint32>\n  child 0, element: uint32\nitem_id: large_list<element: uint32>\n  child 0, element: uint32\nis_organic: large_list<element: uint8>\n  child 0, element: uint8",
+        "nested_value_counts": {
+          "uid": 827246,
+          "timestamp.list.element": 89334605,
+          "item_id.list.element": 89334605,
+          "is_organic.list.element": 89334605
+        },
+        "compressed_column_bytes": {
+          "uid": 3322289,
+          "timestamp.list.element": 286198733,
+          "item_id.list.element": 357376045,
+          "is_organic.list.element": 46790940
+        }
+      },
+      "dislikes": {
+        "path": "hf://datasets/yandex/yambda@dd6f3a19eef5866e346c3270e098baa641a44948/sequential/5b/dislikes.parquet",
+        "size_bytes": 89065045,
+        "sha256": "b068dfb567f4335388706933709c3fb26fb5058496127e813d93b8485b36a96a",
+        "user_rows": 593011,
+        "row_groups": 3,
+        "schema": "uid: uint32\ntimestamp: large_list<element: uint32>\n  child 0, element: uint32\nitem_id: large_list<element: uint32>\n  child 0, element: uint32\nis_organic: large_list<element: uint8>\n  child 0, element: uint8",
+        "nested_value_counts": {
+          "uid": 593011,
+          "timestamp.list.element": 11579143,
+          "item_id.list.element": 11579143,
+          "is_organic.list.element": 11579143
+        },
+        "compressed_column_bytes": {
+          "uid": 2381587,
+          "timestamp.list.element": 34282628,
+          "item_id.list.element": 46745645,
+          "is_organic.list.element": 5649260
+        }
+      },
+      "unlikes": {
+        "path": "hf://datasets/yandex/yambda@dd6f3a19eef5866e346c3270e098baa641a44948/sequential/5b/unlikes.parquet",
+        "size_bytes": 193012360,
+        "sha256": "2f971c757090c17cd027badd82af5df8304484e1742602b92ad92ac53c845c04",
+        "user_rows": 638130,
+        "row_groups": 3,
+        "schema": "uid: uint32\ntimestamp: large_list<element: uint32>\n  child 0, element: uint32\nitem_id: large_list<element: uint32>\n  child 0, element: uint32\nis_organic: large_list<element: uint8>\n  child 0, element: uint8",
+        "nested_value_counts": {
+          "uid": 638130,
+          "timestamp.list.element": 32944520,
+          "item_id.list.element": 32944520,
+          "is_organic.list.element": 32944520
+        },
+        "compressed_column_bytes": {
+          "uid": 2562771,
+          "timestamp.list.element": 51557721,
+          "item_id.list.element": 130153204,
+          "is_organic.list.element": 8727795
+        }
+      },
+      "undislikes": {
+        "path": "hf://datasets/yandex/yambda@dd6f3a19eef5866e346c3270e098baa641a44948/sequential/5b/undislikes.parquet",
+        "size_bytes": 16248355,
+        "sha256": "e05922d5ca39139ebb3c1cc9479b306f498868dce1e45194d93bf81d1ac8bb89",
+        "user_rows": 288764,
+        "row_groups": 2,
+        "schema": "uid: uint32\ntimestamp: large_list<element: uint32>\n  child 0, element: uint32\nitem_id: large_list<element: uint32>\n  child 0, element: uint32\nis_organic: large_list<element: uint8>\n  child 0, element: uint8",
+        "nested_value_counts": {
+          "uid": 288764,
+          "timestamp.list.element": 2434208,
+          "item_id.list.element": 2434208,
+          "is_organic.list.element": 2434208
+        },
+        "compressed_column_bytes": {
+          "uid": 1159728,
+          "timestamp.list.element": 4434471,
+          "item_id.list.element": 9462609,
+          "is_organic.list.element": 1188547
+        }
+      },
+      "multi_event": {
+        "path": "hf://datasets/yandex/yambda@dd6f3a19eef5866e346c3270e098baa641a44948/sequential/5b/multi_event.parquet",
+        "size_bytes": 43682305922,
+        "sha256": "606cf6040c73751ec55b6f50baba598b6d2d663ba12e6b33d48d4d8f26811606",
+        "user_rows": 1000000,
+        "row_groups": 4,
+        "schema": "uid: uint32\ntimestamp: large_list<element: uint32>\n  child 0, element: uint32\nitem_id: large_list<element: uint32>\n  child 0, element: uint32\nis_organic: large_list<element: uint8>\n  child 0, element: uint8\nplayed_ratio_pct: large_list<element: uint16>\n  child 0, element: uint16\ntrack_length_seconds: large_list<element: uint32>\n  child 0, element: uint32\nevent_type: large_list<element: dictionary<values=string, indices=uint32, ordered=0>>\n  child 0, element: dictionary<values=string, indices=uint32, ordered=0>\n    -- field metadata --\n    _PL_ENUM_VALUES: '6;listen7;dislike4;like9;undislike6;unlike'",
+        "nested_value_counts": {
+          "uid": 1000000,
+          "timestamp.list.element": 4785859887,
+          "item_id.list.element": 4785859887,
+          "is_organic.list.element": 4785859887,
+          "played_ratio_pct.list.element": 4785859887,
+          "track_length_seconds.list.element": 4785859887,
+          "event_type.list.element": 4785859887
+        },
+        "compressed_column_bytes": {
+          "uid": 4016049,
+          "timestamp.list.element": 16350093440,
+          "item_id.list.element": 14451374165,
+          "is_organic.list.element": 615181902,
+          "played_ratio_pct.list.element": 5047521638,
+          "track_length_seconds.list.element": 7037034140,
+          "event_type.list.element": 175091910
+        }
+      }
+    },
+    "raw_event_count": 4785859887,
+    "raw_unique_users": 1000000,
+    "raw_unique_items_official_reference": 9390623,
+    "raw_unique_items_provenance": "Yambda paper Table 3; independent listen-item scan is a separate Phase 0 artifact because the item_id column alone is 14,039,281,312 compressed bytes",
+    "listen_count": 4649567411,
+    "explicit_count_after_removing_listen": 136292476,
+    "event_counts": {
+      "listen": 4649567411,
+      "like": 89334605,
+      "dislike": 11579143,
+      "unlike": 32944520,
+      "undislike": 2434208
+    },
+    "count_reconciliation": true
+  },
+  "explicit_scan": {
+    "users": 10000,
+    "events": 1582117,
+    "items": 296826,
+    "event_counts": {
+      "like": 1035742,
+      "dislike": 126926,
+      "unlike": 391580,
+      "undislike": 27869
+    },
+    "users_by_feedback": {
+      "like": 9611,
+      "dislike": 6915,
+      "unlike": 7441,
+      "undislike": 3332
+    },
+    "organic_counts": {
+      "like": 603772,
+      "dislike": 63354,
+      "unlike": 372592,
+      "undislike": 24934
+    },
+    "recommendation_driven_counts": {
+      "like": 431970,
+      "dislike": 63572,
+      "unlike": 18988,
+      "undislike": 2935
+    },
+    "explicit_item_fraction_of_raw_catalog": 0.031608765467424256,
+    "sequence_length": {
+      "count": 10000,
+      "min": 1.0,
+      "mean": 158.2117,
+      "median": 62.0,
+      "p75": 178.0,
+      "p90": 387.0,
+      "p95": 609.0,
+      "p99": 1389.0,
+      "max": 11390.0,
+      "unit": 1,
+      "scale": 1.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "active_span_seconds": {
+      "count": 10000,
+      "min": 0.0,
+      "mean": 15516663.6605,
+      "median": 18513995.0,
+      "p75": 24561110.0,
+      "p90": 25581890.0,
+      "p95": 25783555.0,
+      "p99": 25934080.0,
+      "max": 25985340.0,
+      "unit": 5,
+      "scale": 1.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "active_span_days": {
+      "count": 10000,
+      "min": 0.0,
+      "mean": 179.59101458912036,
+      "median": 214.28234953703705,
+      "p75": 284.2721064814815,
+      "p90": 296.0866898148148,
+      "p95": 298.420775462963,
+      "p99": 300.162962962963,
+      "max": 300.75625,
+      "unit": 5,
+      "scale": 86400.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "strict_positive_inter_group_gap_seconds": {
+      "count": 924775,
+      "min": 5.0,
+      "mean": 167788.52867454247,
+      "median": 2435.0,
+      "p75": 90550.0,
+      "p90": 366690.0,
+      "p95": 723660.0,
+      "p99": 2529180.0,
+      "max": 25460890.0,
+      "unit": 5,
+      "scale": 1.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "strict_positive_inter_group_gap_hours": {
+      "count": 924775,
+      "min": 0.001388888888888889,
+      "mean": 46.607924631817355,
+      "median": 0.6763888888888889,
+      "p75": 25.15277777777778,
+      "p90": 101.85833333333333,
+      "p95": 201.01666666666668,
+      "p99": 702.55,
+      "max": 7072.469444444445,
+      "unit": 5,
+      "scale": 3600.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "raw_adjacent_inter_event_gap_seconds_including_ties": {
+      "count": 1572117,
+      "min": 0.0,
+      "mean": 98699.1659049549,
+      "median": 60.0,
+      "p75": 10075.0,
+      "p90": 183190.0,
+      "p95": 438355.0,
+      "p99": 1743375.0,
+      "max": 25460890.0,
+      "unit": 5,
+      "scale": 1.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "raw_adjacent_inter_event_gap_hours_including_ties": {
+      "count": 1572117,
+      "min": 0.0,
+      "mean": 27.416434973598584,
+      "median": 0.016666666666666666,
+      "p75": 2.798611111111111,
+      "p90": 50.88611111111111,
+      "p95": 121.76527777777778,
+      "p99": 484.2708333333333,
+      "max": 7072.469444444445,
+      "unit": 5,
+      "scale": 3600.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "timestamp_groups": 934775,
+    "timestamp_group_size": {
+      "count": 934775,
+      "min": 1.0,
+      "mean": 1.69251103206654,
+      "median": 1.0,
+      "p75": 1.0,
+      "p90": 3.0,
+      "p95": 5.0,
+      "p99": 11.0,
+      "max": 2196.0,
+      "unit": 1,
+      "scale": 1.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "timestamp_group_size_histogram": {
+      "1": 750848,
+      "2": 86496,
+      "3": 32602,
+      "4": 16893,
+      "5": 10480,
+      "6": 13882,
+      "7": 6704,
+      "8": 3315,
+      "9": 2328,
+      "10": 1681,
+      "11": 1347,
+      "12": 1361,
+      "13": 902,
+      "14": 709,
+      "15": 593,
+      "16": 504,
+      "17": 371,
+      "18": 409,
+      "19": 326,
+      "20": 254,
+      "21": 203,
+      "22": 161,
+      "23": 171,
+      "24": 164,
+      "25": 154,
+      "26": 142,
+      "27": 106,
+      "28": 121,
+      "29": 82,
+      "30": 85,
+      "31": 77,
+      "32": 73,
+      "33": 49,
+      "34": 65,
+      "35": 50,
+      "36": 56,
+      "37": 49,
+      "38": 28,
+      "39": 46,
+      "40": 31,
+      "41": 28,
+      "42": 28,
+      "43": 29,
+      "44": 21,
+      "45": 23,
+      "46": 18,
+      "47": 17,
+      "48": 22,
+      "49": 26,
+      "50": 30,
+      "51": 15,
+      "52": 16,
+      "53": 20,
+      "54": 25,
+      "55": 12,
+      "56": 14,
+      "57": 10,
+      "58": 14,
+      "59": 18,
+      "60": 21,
+      "61": 13,
+      "62": 6,
+      "63": 9,
+      "64": 6,
+      "65": 8,
+      "66": 7,
+      "67": 6,
+      "68": 8,
+      "69": 12,
+      "70": 8,
+      "71": 6,
+      "72": 10,
+      "73": 17,
+      "74": 7,
+      "75": 9,
+      "76": 4,
+      "77": 5,
+      "78": 3,
+      "79": 8,
+      "80": 8,
+      "81": 1,
+      "82": 4,
+      "83": 3,
+      "84": 10,
+      "85": 6,
+      "86": 2,
+      "87": 3,
+      "88": 5,
+      "89": 4,
+      "90": 2,
+      "91": 3,
+      "92": 4,
+      "93": 3,
+      "94": 7,
+      "95": 3,
+      "96": 3,
+      "97": 4,
+      "98": 6,
+      "99": 3,
+      "100": 13,
+      "101": 1,
+      "102": 1,
+      "103": 1,
+      "104": 1,
+      "105": 2,
+      "106": 2,
+      "108": 3,
+      "109": 1,
+      "110": 2,
+      "111": 1,
+      "114": 1,
+      "115": 3,
+      "117": 3,
+      "118": 3,
+      "119": 3,
+      "121": 4,
+      "123": 2,
+      "125": 1,
+      "126": 1,
+      "127": 2,
+      "128": 1,
+      "129": 2,
+      "130": 2,
+      "132": 1,
+      "134": 2,
+      "137": 1,
+      "138": 1,
+      "139": 2,
+      "140": 5,
+      "142": 1,
+      "144": 1,
+      "145": 2,
+      "146": 2,
+      "147": 1,
+      "148": 1,
+      "149": 4,
+      "150": 3,
+      "151": 1,
+      "155": 4,
+      "156": 1,
+      "158": 3,
+      "159": 2,
+      "160": 1,
+      "162": 1,
+      "163": 1,
+      "164": 1,
+      "166": 2,
+      "167": 1,
+      "169": 2,
+      "173": 2,
+      "174": 1,
+      "176": 1,
+      "177": 2,
+      "180": 1,
+      "181": 1,
+      "188": 1,
+      "192": 1,
+      "193": 2,
+      "195": 1,
+      "196": 1,
+      "197": 1,
+      "198": 2,
+      "201": 1,
+      "207": 1,
+      "208": 1,
+      "213": 1,
+      "215": 2,
+      "218": 1,
+      "219": 1,
+      "223": 1,
+      "233": 1,
+      "237": 1,
+      "239": 2,
+      "240": 1,
+      "242": 1,
+      "243": 1,
+      "244": 1,
+      "249": 1,
+      "250": 1,
+      "251": 1,
+      "258": 2,
+      "259": 1,
+      "263": 1,
+      "264": 1,
+      "265": 1,
+      "266": 1,
+      "272": 1,
+      "279": 1,
+      "281": 1,
+      "286": 1,
+      "298": 1,
+      "300": 1,
+      "301": 6,
+      "302": 1,
+      "303": 1,
+      "305": 1,
+      "313": 1,
+      "314": 1,
+      "318": 1,
+      "330": 1,
+      "333": 1,
+      "347": 1,
+      "355": 2,
+      "360": 2,
+      "361": 1,
+      "365": 1,
+      "372": 1,
+      "373": 1,
+      "375": 2,
+      "378": 1,
+      "395": 1,
+      "409": 1,
+      "417": 1,
+      "418": 1,
+      "428": 1,
+      "431": 1,
+      "442": 1,
+      "445": 1,
+      "450": 2,
+      "460": 1,
+      "472": 1,
+      "489": 1,
+      "511": 1,
+      "538": 1,
+      "551": 1,
+      "574": 1,
+      "578": 1,
+      "581": 1,
+      "593": 1,
+      "606": 1,
+      "711": 1,
+      "725": 1,
+      "833": 1,
+      "838": 1,
+      "849": 1,
+      "850": 1,
+      "1056": 1,
+      "1140": 1,
+      "1471": 4,
+      "1802": 1,
+      "2196": 1
+    },
+    "events_in_multi_event_groups": 831269,
+    "events_in_multi_event_groups_fraction": 0.5254156298175167,
+    "same_timestamp_feedback_combinations": {
+      "like": 733342,
+      "dislike": 74077,
+      "like+dislike+unlike": 895,
+      "like+dislike": 5132,
+      "unlike": 79825,
+      "like+unlike": 27013,
+      "like+undislike": 2138,
+      "dislike+undislike": 2216,
+      "like+dislike+undislike": 490,
+      "dislike+unlike": 5550,
+      "undislike": 2788,
+      "dislike+unlike+undislike": 272,
+      "like+dislike+unlike+undislike": 190,
+      "unlike+undislike": 262,
+      "like+unlike+undislike": 585
+    },
+    "large_timestamp_groups": {
+      "2": {
+        "groups": 183927,
+        "event_rows": 831269
+      },
+      "5": {
+        "groups": 47936,
+        "event_rows": 492899
+      },
+      "10": {
+        "groups": 11227,
+        "event_rows": 262807
+      },
+      "20": {
+        "groups": 3024,
+        "event_rows": 156374
+      },
+      "50": {
+        "groups": 645,
+        "event_rows": 89186
+      },
+      "100": {
+        "groups": 214,
+        "event_rows": 60483
+      },
+      "500": {
+        "groups": 22,
+        "event_rows": 21416
+      },
+      "1000": {
+        "groups": 8,
+        "event_rows": 12078
+      },
+      "5000": {
+        "groups": 0,
+        "event_rows": 0
+      }
+    },
+    "largest_timestamp_groups": [
+      {
+        "size": 2196,
+        "uid": 7116,
+        "timestamp": 4967520,
+        "distinct_items": 2196,
+        "feedback_counts": {
+          "like": 2196,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 1802,
+        "uid": 449,
+        "timestamp": 16612385,
+        "distinct_items": 1626,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 1802,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 1471,
+        "uid": 7429,
+        "timestamp": 7455605,
+        "distinct_items": 1471,
+        "feedback_counts": {
+          "like": 1471,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 1471,
+        "uid": 7429,
+        "timestamp": 7455600,
+        "distinct_items": 1471,
+        "feedback_counts": {
+          "like": 1471,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 1471,
+        "uid": 7429,
+        "timestamp": 7455595,
+        "distinct_items": 1471,
+        "feedback_counts": {
+          "like": 1471,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 1471,
+        "uid": 7429,
+        "timestamp": 7455590,
+        "distinct_items": 1471,
+        "feedback_counts": {
+          "like": 1471,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 1140,
+        "uid": 8562,
+        "timestamp": 19416565,
+        "distinct_items": 1137,
+        "feedback_counts": {
+          "like": 1140,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 1056,
+        "uid": 757,
+        "timestamp": 22671670,
+        "distinct_items": 528,
+        "feedback_counts": {
+          "like": 1056,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 850,
+        "uid": 5298,
+        "timestamp": 15044095,
+        "distinct_items": 850,
+        "feedback_counts": {
+          "like": 850,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 849,
+        "uid": 11618,
+        "timestamp": 20541990,
+        "distinct_items": 822,
+        "feedback_counts": {
+          "like": 23,
+          "dislike": 0,
+          "unlike": 826,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 838,
+        "uid": 83,
+        "timestamp": 12412070,
+        "distinct_items": 838,
+        "feedback_counts": {
+          "like": 838,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 833,
+        "uid": 449,
+        "timestamp": 16607745,
+        "distinct_items": 823,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 2,
+          "unlike": 830,
+          "undislike": 1
+        }
+      },
+      {
+        "size": 725,
+        "uid": 4707,
+        "timestamp": 12952995,
+        "distinct_items": 724,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 725,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 711,
+        "uid": 7465,
+        "timestamp": 21114280,
+        "distinct_items": 711,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 711
+        }
+      },
+      {
+        "size": 606,
+        "uid": 10092,
+        "timestamp": 6101255,
+        "distinct_items": 604,
+        "feedback_counts": {
+          "like": 606,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 593,
+        "uid": 6420,
+        "timestamp": 21167760,
+        "distinct_items": 565,
+        "feedback_counts": {
+          "like": 21,
+          "dislike": 0,
+          "unlike": 572,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 581,
+        "uid": 3751,
+        "timestamp": 13533795,
+        "distinct_items": 571,
+        "feedback_counts": {
+          "like": 540,
+          "dislike": 0,
+          "unlike": 37,
+          "undislike": 4
+        }
+      },
+      {
+        "size": 578,
+        "uid": 3630,
+        "timestamp": 23032410,
+        "distinct_items": 578,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 578,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 574,
+        "uid": 1753,
+        "timestamp": 3691655,
+        "distinct_items": 560,
+        "feedback_counts": {
+          "like": 501,
+          "dislike": 0,
+          "unlike": 73,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 551,
+        "uid": 449,
+        "timestamp": 16608840,
+        "distinct_items": 549,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 551,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 538,
+        "uid": 10010,
+        "timestamp": 6996290,
+        "distinct_items": 538,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 538,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 511,
+        "uid": 7847,
+        "timestamp": 10182200,
+        "distinct_items": 511,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 511,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 489,
+        "uid": 9097,
+        "timestamp": 4399345,
+        "distinct_items": 475,
+        "feedback_counts": {
+          "like": 398,
+          "dislike": 0,
+          "unlike": 91,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 472,
+        "uid": 3874,
+        "timestamp": 12743995,
+        "distinct_items": 469,
+        "feedback_counts": {
+          "like": 3,
+          "dislike": 0,
+          "unlike": 469,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 460,
+        "uid": 10187,
+        "timestamp": 7394465,
+        "distinct_items": 454,
+        "feedback_counts": {
+          "like": 446,
+          "dislike": 0,
+          "unlike": 14,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 450,
+        "uid": 4497,
+        "timestamp": 12217045,
+        "distinct_items": 450,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 450,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 450,
+        "uid": 449,
+        "timestamp": 16560265,
+        "distinct_items": 449,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 1,
+          "unlike": 449,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 445,
+        "uid": 449,
+        "timestamp": 16552210,
+        "distinct_items": 445,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 445,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 442,
+        "uid": 7465,
+        "timestamp": 7062445,
+        "distinct_items": 177,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 88,
+          "unlike": 0,
+          "undislike": 354
+        }
+      },
+      {
+        "size": 431,
+        "uid": 2055,
+        "timestamp": 15471980,
+        "distinct_items": 431,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 431,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 428,
+        "uid": 8415,
+        "timestamp": 23522565,
+        "distinct_items": 428,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 428,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 418,
+        "uid": 7847,
+        "timestamp": 19000535,
+        "distinct_items": 399,
+        "feedback_counts": {
+          "like": 18,
+          "dislike": 0,
+          "unlike": 400,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 417,
+        "uid": 6569,
+        "timestamp": 17625285,
+        "distinct_items": 414,
+        "feedback_counts": {
+          "like": 7,
+          "dislike": 0,
+          "unlike": 410,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 409,
+        "uid": 2382,
+        "timestamp": 3914100,
+        "distinct_items": 404,
+        "feedback_counts": {
+          "like": 5,
+          "dislike": 0,
+          "unlike": 404,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 395,
+        "uid": 7842,
+        "timestamp": 17702785,
+        "distinct_items": 395,
+        "feedback_counts": {
+          "like": 395,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 378,
+        "uid": 684,
+        "timestamp": 9215785,
+        "distinct_items": 370,
+        "feedback_counts": {
+          "like": 6,
+          "dislike": 0,
+          "unlike": 372,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 375,
+        "uid": 2045,
+        "timestamp": 12170665,
+        "distinct_items": 372,
+        "feedback_counts": {
+          "like": 375,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 375,
+        "uid": 2045,
+        "timestamp": 12170610,
+        "distinct_items": 372,
+        "feedback_counts": {
+          "like": 375,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 373,
+        "uid": 2045,
+        "timestamp": 12170795,
+        "distinct_items": 370,
+        "feedback_counts": {
+          "like": 373,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 372,
+        "uid": 6114,
+        "timestamp": 3883235,
+        "distinct_items": 372,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 372,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 365,
+        "uid": 8049,
+        "timestamp": 16938860,
+        "distinct_items": 365,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 365,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 361,
+        "uid": 7726,
+        "timestamp": 25507705,
+        "distinct_items": 361,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 361,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 360,
+        "uid": 11342,
+        "timestamp": 21880410,
+        "distinct_items": 360,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 360,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 360,
+        "uid": 3037,
+        "timestamp": 12258125,
+        "distinct_items": 358,
+        "feedback_counts": {
+          "like": 2,
+          "dislike": 0,
+          "unlike": 358,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 355,
+        "uid": 10010,
+        "timestamp": 5228915,
+        "distinct_items": 355,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 355,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 355,
+        "uid": 5445,
+        "timestamp": 15243040,
+        "distinct_items": 354,
+        "feedback_counts": {
+          "like": 355,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 347,
+        "uid": 10266,
+        "timestamp": 1288405,
+        "distinct_items": 347,
+        "feedback_counts": {
+          "like": 347,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 333,
+        "uid": 3651,
+        "timestamp": 7286470,
+        "distinct_items": 333,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 333,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 330,
+        "uid": 5122,
+        "timestamp": 10075135,
+        "distinct_items": 330,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 330,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 318,
+        "uid": 6937,
+        "timestamp": 19986640,
+        "distinct_items": 318,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 318,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 314,
+        "uid": 6227,
+        "timestamp": 25554050,
+        "distinct_items": 251,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 61,
+          "unlike": 251,
+          "undislike": 2
+        }
+      },
+      {
+        "size": 313,
+        "uid": 11342,
+        "timestamp": 17408725,
+        "distinct_items": 312,
+        "feedback_counts": {
+          "like": 1,
+          "dislike": 0,
+          "unlike": 312,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 305,
+        "uid": 7908,
+        "timestamp": 24251440,
+        "distinct_items": 301,
+        "feedback_counts": {
+          "like": 292,
+          "dislike": 2,
+          "unlike": 11,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 303,
+        "uid": 11174,
+        "timestamp": 21014845,
+        "distinct_items": 301,
+        "feedback_counts": {
+          "like": 2,
+          "dislike": 0,
+          "unlike": 301,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 302,
+        "uid": 9456,
+        "timestamp": 16005005,
+        "distinct_items": 299,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 1,
+          "unlike": 298,
+          "undislike": 3
+        }
+      },
+      {
+        "size": 301,
+        "uid": 11642,
+        "timestamp": 17744440,
+        "distinct_items": 301,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 301,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 301,
+        "uid": 11394,
+        "timestamp": 23383220,
+        "distinct_items": 301,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 301,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 301,
+        "uid": 11174,
+        "timestamp": 21014850,
+        "distinct_items": 301,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 301,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 301,
+        "uid": 7207,
+        "timestamp": 21397075,
+        "distinct_items": 301,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 301,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 301,
+        "uid": 7196,
+        "timestamp": 21289705,
+        "distinct_items": 301,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 301,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 301,
+        "uid": 5667,
+        "timestamp": 1596065,
+        "distinct_items": 301,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 301,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 300,
+        "uid": 56,
+        "timestamp": 4437530,
+        "distinct_items": 237,
+        "feedback_counts": {
+          "like": 1,
+          "dislike": 63,
+          "unlike": 236,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 298,
+        "uid": 7266,
+        "timestamp": 19062540,
+        "distinct_items": 298,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 298,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 286,
+        "uid": 8415,
+        "timestamp": 23522605,
+        "distinct_items": 285,
+        "feedback_counts": {
+          "like": 1,
+          "dislike": 0,
+          "unlike": 285,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 281,
+        "uid": 7266,
+        "timestamp": 18822010,
+        "distinct_items": 275,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 281,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 279,
+        "uid": 9096,
+        "timestamp": 19046290,
+        "distinct_items": 274,
+        "feedback_counts": {
+          "like": 7,
+          "dislike": 0,
+          "unlike": 272,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 272,
+        "uid": 8049,
+        "timestamp": 16940285,
+        "distinct_items": 272,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 272,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 266,
+        "uid": 11342,
+        "timestamp": 25549915,
+        "distinct_items": 266,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 266,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 265,
+        "uid": 9812,
+        "timestamp": 4979155,
+        "distinct_items": 264,
+        "feedback_counts": {
+          "like": 265,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 264,
+        "uid": 979,
+        "timestamp": 5171205,
+        "distinct_items": 264,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 264,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 263,
+        "uid": 11153,
+        "timestamp": 9626260,
+        "distinct_items": 263,
+        "feedback_counts": {
+          "like": 263,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 259,
+        "uid": 2382,
+        "timestamp": 19468395,
+        "distinct_items": 259,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 259,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 258,
+        "uid": 8049,
+        "timestamp": 16941275,
+        "distinct_items": 258,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 258,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 258,
+        "uid": 1622,
+        "timestamp": 3631235,
+        "distinct_items": 258,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 258,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 251,
+        "uid": 4497,
+        "timestamp": 12025585,
+        "distinct_items": 251,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 251,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 250,
+        "uid": 56,
+        "timestamp": 926925,
+        "distinct_items": 3,
+        "feedback_counts": {
+          "like": 64,
+          "dislike": 0,
+          "unlike": 186,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 249,
+        "uid": 480,
+        "timestamp": 4932480,
+        "distinct_items": 249,
+        "feedback_counts": {
+          "like": 249,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 244,
+        "uid": 9792,
+        "timestamp": 13017595,
+        "distinct_items": 244,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 244,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 243,
+        "uid": 2055,
+        "timestamp": 15472220,
+        "distinct_items": 243,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 243,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 242,
+        "uid": 5122,
+        "timestamp": 10075140,
+        "distinct_items": 242,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 242,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 240,
+        "uid": 3684,
+        "timestamp": 4779010,
+        "distinct_items": 240,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 240,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 239,
+        "uid": 7105,
+        "timestamp": 1260415,
+        "distinct_items": 239,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 239,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 239,
+        "uid": 6569,
+        "timestamp": 3404570,
+        "distinct_items": 236,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 239,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 237,
+        "uid": 11675,
+        "timestamp": 71425,
+        "distinct_items": 237,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 237,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 233,
+        "uid": 4627,
+        "timestamp": 12339770,
+        "distinct_items": 233,
+        "feedback_counts": {
+          "like": 233,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 223,
+        "uid": 5893,
+        "timestamp": 5509265,
+        "distinct_items": 223,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 223,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 219,
+        "uid": 9097,
+        "timestamp": 4401655,
+        "distinct_items": 217,
+        "feedback_counts": {
+          "like": 214,
+          "dislike": 0,
+          "unlike": 5,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 218,
+        "uid": 8919,
+        "timestamp": 9195920,
+        "distinct_items": 218,
+        "feedback_counts": {
+          "like": 218,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 215,
+        "uid": 8813,
+        "timestamp": 7417880,
+        "distinct_items": 213,
+        "feedback_counts": {
+          "like": 215,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 215,
+        "uid": 2964,
+        "timestamp": 21650285,
+        "distinct_items": 215,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 215,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 213,
+        "uid": 4497,
+        "timestamp": 12113750,
+        "distinct_items": 213,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 213,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 208,
+        "uid": 6269,
+        "timestamp": 12344615,
+        "distinct_items": 207,
+        "feedback_counts": {
+          "like": 1,
+          "dislike": 0,
+          "unlike": 207,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 207,
+        "uid": 1133,
+        "timestamp": 22792985,
+        "distinct_items": 202,
+        "feedback_counts": {
+          "like": 5,
+          "dislike": 0,
+          "unlike": 202,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 201,
+        "uid": 4760,
+        "timestamp": 9801715,
+        "distinct_items": 201,
+        "feedback_counts": {
+          "like": 201,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 198,
+        "uid": 5229,
+        "timestamp": 18207575,
+        "distinct_items": 197,
+        "feedback_counts": {
+          "like": 1,
+          "dislike": 0,
+          "unlike": 197,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 198,
+        "uid": 3085,
+        "timestamp": 24141780,
+        "distinct_items": 198,
+        "feedback_counts": {
+          "like": 198,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 197,
+        "uid": 11257,
+        "timestamp": 23611230,
+        "distinct_items": 194,
+        "feedback_counts": {
+          "like": 3,
+          "dislike": 0,
+          "unlike": 194,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 196,
+        "uid": 1622,
+        "timestamp": 3631110,
+        "distinct_items": 196,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 196,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 195,
+        "uid": 741,
+        "timestamp": 10517965,
+        "distinct_items": 195,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 195,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 193,
+        "uid": 7459,
+        "timestamp": 11285435,
+        "distinct_items": 187,
+        "feedback_counts": {
+          "like": 6,
+          "dislike": 0,
+          "unlike": 187,
+          "undislike": 0
+        }
+      }
+    ],
+    "timestamps_not_multiple_of_five": 0,
+    "exact_duplicate_excess_rows": 10519,
+    "exact_duplicate_excess_by_feedback": {
+      "like": 5340,
+      "dislike": 333,
+      "unlike": 4343,
+      "undislike": 503
+    },
+    "conflicting_user_item_timestamp_groups": 40112,
+    "conflicting_event_rows": 86330,
+    "transition_counts": {
+      "unlike_without_active_prior_like_groups": 278635,
+      "unlike_without_active_prior_like_rows": 281155,
+      "like_to_unlike_pairs": 74194,
+      "like_to_unlike_revision_rows": 74402,
+      "undislike_without_active_prior_dislike_groups": 15925,
+      "undislike_without_active_prior_dislike_rows": 16240,
+      "dislike_while_liked_groups": 4380,
+      "repeated_like_groups": 15787,
+      "repeated_like_rows": 16045,
+      "like_while_disliked_groups": 995,
+      "dislike_to_undislike_pairs": 3979,
+      "dislike_to_undislike_revision_rows": 3983,
+      "repeated_dislike_groups": 688,
+      "repeated_dislike_rows": 698
+    },
+    "transition_anomalies": {
+      "ambiguous_state_groups_not_applied": 40112
+    },
+    "like_to_unlike_delay_seconds": {
+      "count": 74194,
+      "min": 5.0,
+      "mean": 3071451.3149985173,
+      "median": 1026610.0,
+      "p75": 4562755.0,
+      "p90": 9153335.0,
+      "p95": 13075100.0,
+      "p99": 19519500.0,
+      "max": 25642045.0,
+      "unit": 5,
+      "scale": 1.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "like_to_unlike_delay_days": {
+      "count": 74194,
+      "min": 5.787037037037037e-05,
+      "mean": 35.54920503470506,
+      "median": 11.882060185185185,
+      "p75": 52.80966435185185,
+      "p90": 105.94137731481482,
+      "p95": 151.33217592592592,
+      "p99": 225.92013888888889,
+      "max": 296.7829282407407,
+      "unit": 5,
+      "scale": 86400.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "dislike_to_undislike_delay_seconds": {
+      "count": 3979,
+      "min": 5.0,
+      "mean": 1959312.5207338526,
+      "median": 260.0,
+      "p75": 316145.0,
+      "p90": 12195045.0,
+      "p95": 14377650.0,
+      "p99": 14499165.0,
+      "max": 25241215.0,
+      "unit": 5,
+      "scale": 1.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "dislike_to_undislike_delay_days": {
+      "count": 3979,
+      "min": 5.787037037037037e-05,
+      "mean": 22.677228249234407,
+      "median": 0.0030092592592592593,
+      "p75": 3.659085648148148,
+      "p90": 141.14635416666667,
+      "p95": 166.40798611111111,
+      "p99": 167.81440972222222,
+      "max": 292.14369212962964,
+      "unit": 5,
+      "scale": 86400.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "item_explicit_frequency": {
+      "count": 296826,
+      "min": 1.0,
+      "mean": 5.330115960192167,
+      "median": 1.0,
+      "p75": 4.0,
+      "p90": 10.0,
+      "p95": 19.0,
+      "p99": 68.0,
+      "max": 1293.0,
+      "unit": 1,
+      "scale": 1.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "top_items": [
+      {
+        "item_id": 3542184,
+        "total": 1293,
+        "sid_covered": true
+      },
+      {
+        "item_id": 9378983,
+        "total": 1258,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5862961,
+        "total": 1223,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5463340,
+        "total": 1199,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6901374,
+        "total": 1179,
+        "sid_covered": true
+      },
+      {
+        "item_id": 906358,
+        "total": 1113,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5252571,
+        "total": 1057,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5635052,
+        "total": 943,
+        "sid_covered": true
+      },
+      {
+        "item_id": 8213481,
+        "total": 940,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1846252,
+        "total": 908,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5436843,
+        "total": 894,
+        "sid_covered": true
+      },
+      {
+        "item_id": 8823268,
+        "total": 827,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6853370,
+        "total": 824,
+        "sid_covered": true
+      },
+      {
+        "item_id": 3033749,
+        "total": 765,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2651314,
+        "total": 759,
+        "sid_covered": true
+      },
+      {
+        "item_id": 3385274,
+        "total": 733,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2859641,
+        "total": 679,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2710484,
+        "total": 672,
+        "sid_covered": true
+      },
+      {
+        "item_id": 645242,
+        "total": 644,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2185191,
+        "total": 639,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6006390,
+        "total": 636,
+        "sid_covered": true
+      },
+      {
+        "item_id": 8538001,
+        "total": 620,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5927996,
+        "total": 616,
+        "sid_covered": true
+      },
+      {
+        "item_id": 8743390,
+        "total": 611,
+        "sid_covered": true
+      },
+      {
+        "item_id": 3061013,
+        "total": 603,
+        "sid_covered": true
+      },
+      {
+        "item_id": 937917,
+        "total": 585,
+        "sid_covered": true
+      },
+      {
+        "item_id": 290137,
+        "total": 571,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1051073,
+        "total": 570,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2621516,
+        "total": 564,
+        "sid_covered": true
+      },
+      {
+        "item_id": 159001,
+        "total": 557,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2766576,
+        "total": 547,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6155741,
+        "total": 544,
+        "sid_covered": true
+      },
+      {
+        "item_id": 8420846,
+        "total": 523,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2118649,
+        "total": 522,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6210247,
+        "total": 517,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1307501,
+        "total": 513,
+        "sid_covered": true
+      },
+      {
+        "item_id": 8351511,
+        "total": 505,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6861837,
+        "total": 497,
+        "sid_covered": true
+      },
+      {
+        "item_id": 838166,
+        "total": 496,
+        "sid_covered": true
+      },
+      {
+        "item_id": 8902934,
+        "total": 493,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5974516,
+        "total": 492,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4242661,
+        "total": 489,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5056470,
+        "total": 489,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4557096,
+        "total": 487,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1464852,
+        "total": 482,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1497917,
+        "total": 475,
+        "sid_covered": true
+      },
+      {
+        "item_id": 7537006,
+        "total": 472,
+        "sid_covered": true
+      },
+      {
+        "item_id": 611344,
+        "total": 470,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5734320,
+        "total": 470,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6666566,
+        "total": 465,
+        "sid_covered": true
+      },
+      {
+        "item_id": 3791672,
+        "total": 461,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2338988,
+        "total": 461,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4608338,
+        "total": 453,
+        "sid_covered": true
+      },
+      {
+        "item_id": 956298,
+        "total": 449,
+        "sid_covered": true
+      },
+      {
+        "item_id": 797426,
+        "total": 444,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4889759,
+        "total": 443,
+        "sid_covered": true
+      },
+      {
+        "item_id": 3418493,
+        "total": 434,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5134208,
+        "total": 432,
+        "sid_covered": true
+      },
+      {
+        "item_id": 7427984,
+        "total": 430,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4954011,
+        "total": 427,
+        "sid_covered": true
+      },
+      {
+        "item_id": 8647463,
+        "total": 426,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4046807,
+        "total": 425,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6051292,
+        "total": 425,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2408923,
+        "total": 424,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4423556,
+        "total": 422,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2895480,
+        "total": 421,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6901050,
+        "total": 419,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1383853,
+        "total": 418,
+        "sid_covered": true
+      },
+      {
+        "item_id": 781438,
+        "total": 416,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6518788,
+        "total": 415,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6625048,
+        "total": 411,
+        "sid_covered": true
+      },
+      {
+        "item_id": 826189,
+        "total": 411,
+        "sid_covered": true
+      },
+      {
+        "item_id": 7848896,
+        "total": 410,
+        "sid_covered": true
+      },
+      {
+        "item_id": 7703591,
+        "total": 408,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5248829,
+        "total": 403,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5598338,
+        "total": 402,
+        "sid_covered": true
+      },
+      {
+        "item_id": 7708302,
+        "total": 401,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1525699,
+        "total": 400,
+        "sid_covered": true
+      },
+      {
+        "item_id": 3021818,
+        "total": 400,
+        "sid_covered": true
+      },
+      {
+        "item_id": 7930756,
+        "total": 395,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6813373,
+        "total": 389,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1164357,
+        "total": 388,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1432819,
+        "total": 387,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5672520,
+        "total": 386,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1034521,
+        "total": 386,
+        "sid_covered": true
+      },
+      {
+        "item_id": 3136627,
+        "total": 383,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1173379,
+        "total": 383,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1540155,
+        "total": 379,
+        "sid_covered": true
+      },
+      {
+        "item_id": 999732,
+        "total": 378,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2596176,
+        "total": 378,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2308492,
+        "total": 378,
+        "sid_covered": true
+      },
+      {
+        "item_id": 971988,
+        "total": 376,
+        "sid_covered": true
+      },
+      {
+        "item_id": 304180,
+        "total": 371,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2317630,
+        "total": 371,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6107633,
+        "total": 370,
+        "sid_covered": true
+      },
+      {
+        "item_id": 7460324,
+        "total": 369,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2168365,
+        "total": 368,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1795075,
+        "total": 367,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2572752,
+        "total": 366,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6275528,
+        "total": 365,
+        "sid_covered": true
+      }
+    ]
+  },
+  "sid_coverage": {
+    "mapping_path": "/root/autodl-tmp/0804 Yambda/dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/orig2catalog_row.npy",
+    "mapping_sha256": "15edf3efe87fe55e30c6743c24915bb0f336700970bf15e04e2d5b46c79a7ab1",
+    "current_sid_catalog_items": 244553,
+    "covered_explicit_items": 144752,
+    "uncovered_explicit_items": 152074,
+    "item_coverage_fraction": 0.48766617479600843,
+    "covered_explicit_events": 1361080,
+    "uncovered_explicit_events": 221037,
+    "event_coverage_fraction": 0.8602903577927549,
+    "users_with_at_least_one_uncovered_event": 7240,
+    "user_coverage_fraction": 0.276,
+    "important_scope_note": "This is coverage of the existing 50M-derived frozen SID mapping over the full 5B explicit-feedback item universe."
+  },
+  "supporting_artifacts": {
+    "item_frequency_npz": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat10k_items.npz",
+    "item_frequency_npz_sha256": "af60a924ad67e7b88baec2fba39d54cd7d8e4b4d023679c506ba93ba6a5beb6a"
+  },
+  "runtime": {
+    "elapsed_seconds": 23.992432594299316
+  }
+}

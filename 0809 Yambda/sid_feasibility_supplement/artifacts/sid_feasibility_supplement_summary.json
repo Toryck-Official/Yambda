@@ -1,0 +1,215 @@
+{
+  "status": "complete_and_stopped_before_gate2",
+  "fit_scale": {
+    "old_fit_items": 100000,
+    "full_fit_items": 2367341,
+    "old_collision_ratio": 0.4266985618041507,
+    "full_collision_ratio": 0.43120446103877724,
+    "collision_ratio_change_percentage_points": 0.45058992346265203,
+    "old_full_population_reconstruction_mse": 0.001243150145444498,
+    "full_fit_reconstruction_mse": 0.0012061544694006443,
+    "reconstruction_mse_relative_change": -0.02975962009048036,
+    "conclusion": "full fit improves reconstruction modestly but does not reduce collision; 100k fit scale is not the main cause"
+  },
+  "methods": {
+    "B0_audio_only": {
+      "unique_sid": 1629842,
+      "singleton_ratio": 0.5687955389612227,
+      "collision_ratio": 0.43120446103877724,
+      "collision_buckets": 283309,
+      "bucket_p90": 2,
+      "bucket_p99": 7,
+      "bucket_p99_9": 32,
+      "bucket_max": 1293,
+      "rq_input_reconstruction_mse": 0.0012061544694006443,
+      "reconstruction_vs_audio_mse": 0.0012061544694006443,
+      "input_nn_overlap_10": 1.0,
+      "input_nn_overlap_50": 1.0,
+      "rq_nn_overlap_10": 0.2831999957561493,
+      "rq_nn_overlap_50": 0.43456006050109863,
+      "aligned_prefix_accuracy": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "B1_audio_artist": {
+      "unique_sid": 1566764,
+      "singleton_ratio": 0.539698759071887,
+      "collision_ratio": 0.46030124092811303,
+      "collision_buckets": 289113,
+      "bucket_p90": 2,
+      "bucket_p99": 8,
+      "bucket_p99_9": 38,
+      "bucket_max": 2246,
+      "rq_input_reconstruction_mse": 0.001068662735633552,
+      "reconstruction_vs_audio_mse": 0.0012748377630487084,
+      "input_nn_overlap_10": 0.7179999947547913,
+      "input_nn_overlap_50": 0.7881666421890259,
+      "rq_nn_overlap_10": 0.26863333582878113,
+      "rq_nn_overlap_50": 0.41164663434028625,
+      "aligned_prefix_accuracy": [
+        0.7215753877451537,
+        0.26729820503256607,
+        0.0468318674833917,
+        0.0049169088863835
+      ]
+    },
+    "B2_audio_album": {
+      "unique_sid": 1616047,
+      "singleton_ratio": 0.5656320741287377,
+      "collision_ratio": 0.43436792587126233,
+      "collision_buckets": 277003,
+      "bucket_p90": 2,
+      "bucket_p99": 8,
+      "bucket_p99_9": 35,
+      "bucket_max": 1311,
+      "rq_input_reconstruction_mse": 0.001123536261729896,
+      "reconstruction_vs_audio_mse": 0.0012465076288208365,
+      "input_nn_overlap_10": 0.7651333212852478,
+      "input_nn_overlap_50": 0.8265866637229919,
+      "rq_nn_overlap_10": 0.27106666564941406,
+      "rq_nn_overlap_50": 0.4171600043773651,
+      "aligned_prefix_accuracy": [
+        0.7672785627419118,
+        0.32534941100585,
+        0.0654641642247568,
+        0.007995890748312137
+      ]
+    },
+    "B3_audio_artist_album": {
+      "unique_sid": 1582894,
+      "singleton_ratio": 0.5490413083708684,
+      "collision_ratio": 0.4509586916291316,
+      "collision_buckets": 283126,
+      "bucket_p90": 2,
+      "bucket_p99": 8,
+      "bucket_p99_9": 37,
+      "bucket_max": 1248,
+      "rq_input_reconstruction_mse": 0.001072882441803813,
+      "reconstruction_vs_audio_mse": 0.0012657372280955315,
+      "input_nn_overlap_10": 0.7325666546821594,
+      "input_nn_overlap_50": 0.8011733293533325,
+      "rq_nn_overlap_10": 0.2696666717529297,
+      "rq_nn_overlap_50": 0.41488662362098694,
+      "aligned_prefix_accuracy": [
+        0.7237487121627176,
+        0.26966710752696804,
+        0.04636340941165637,
+        0.004745408456153972
+      ]
+    }
+  },
+  "embedding_duplicates": {
+    "raw": {
+      "unique_vectors": 2289632,
+      "duplicate_buckets": 44647,
+      "duplicate_items": 122356,
+      "duplicate_item_ratio": 0.05168499172700511,
+      "duplicate_surplus": 77709,
+      "maximum_duplicate_bucket": 274,
+      "candidate_hash_groups_verified_by_exact_float32_comparison": 44647,
+      "hash_collision_groups_without_exact_equality": 0
+    },
+    "normalized": {
+      "unique_vectors": 2289632,
+      "duplicate_buckets": 44647,
+      "duplicate_items": 122356,
+      "duplicate_item_ratio": 0.05168499172700511,
+      "duplicate_surplus": 77709,
+      "maximum_duplicate_bucket": 274,
+      "candidate_hash_groups_verified_by_exact_float32_comparison": 44647,
+      "hash_collision_groups_without_exact_equality": 0
+    },
+    "conclusion": "the source contains material exact item-level duplicate audio vectors"
+  },
+  "near_duplicates": {
+    "method": "sampled IVF-Flat approximate nearest-other audit",
+    "sample_items": 100000,
+    "reference_items": 2367341,
+    "nlist": 4096,
+    "nprobe": 64,
+    "search_k": 8,
+    "not_an_exhaustive_pair_count": true,
+    "nearest_other_cosine": {
+      "p01": 0.8486545085906982,
+      "p10": 0.9050390124320984,
+      "p25": 0.9337056875228882,
+      "p50": 0.9632513523101807,
+      "p90": 0.9998064041137695,
+      "p99": 1.0,
+      "p99_9": 1.0000001192092896,
+      "max": 1.0000001192092896
+    },
+    "thresholds": {
+      "0.99": {
+        "sample_items_with_neighbor": 25835,
+        "sample_item_ratio": 0.25835,
+        "estimated_population_items": 611602.54735
+      },
+      "0.999": {
+        "sample_items_with_neighbor": 14936,
+        "sample_item_ratio": 0.14936,
+        "estimated_population_items": 353586.05176
+      },
+      "0.9999": {
+        "sample_items_with_neighbor": 9145,
+        "sample_item_ratio": 0.09145,
+        "estimated_population_items": 216493.33445
+      }
+    }
+  },
+  "residual": {
+    "residual_exact_duplicates_within_sid": {
+      "unique_vectors": 2289632,
+      "duplicate_buckets": 44647,
+      "duplicate_items": 122356,
+      "duplicate_item_ratio": 0.05168499172700511,
+      "duplicate_surplus": 77709,
+      "maximum_duplicate_bucket": 274,
+      "candidate_hash_groups_verified_by_exact_float32_comparison": 44647,
+      "hash_collision_groups_without_exact_equality": 0
+    },
+    "sid_plus_float32_residual_unique_rate": 0.9671745642051568,
+    "sampled_within_collision_bucket_pairs": 250000,
+    "sampling": "collision buckets sampled uniformly with replacement, then two distinct items uniformly",
+    "residual_pair_l2": {
+      "p01": 0.0,
+      "p10": 0.003845661412924528,
+      "p25": 0.0517004132270813,
+      "p50": 0.28228437900543213,
+      "p90": 0.49452316761016846,
+      "p99": 0.6449101567268372,
+      "p99_9": 0.7466459274291992,
+      "max": 0.9367311596870422
+    },
+    "original_audio_pair_cosine": {
+      "p01": 0.7920454144477844,
+      "p10": 0.8777233958244324,
+      "p25": 0.9190859198570251,
+      "p50": 0.9601577520370483,
+      "p90": 0.9999926090240479,
+      "p99": 1.0,
+      "p99_9": 1.0,
+      "max": 1.0000001192092896
+    },
+    "identity_note": "within a fixed SID reconstruction is constant, so residual pair differences equal original audio pair differences"
+  },
+  "decisions": {
+    "metadata_fusion_approved": false,
+    "metadata_reason": "all tested fusions increase collision and materially reduce original-audio neighbor overlap",
+    "audio_only_full_fit_preferred": true,
+    "audio_only_reason": "best identity/semantic tradeoff among tested methods, although four semantic levels are not exact identity",
+    "sid_plus_residual_solves_audio_distinguishable_items": true,
+    "sid_plus_residual_is_globally_exact_item_unique": false,
+    "residual_reason": "96.7175% unique SID+float32-residual representations; remaining ambiguity exactly matches source-vector duplicates",
+    "proceed_gate2": false
+  },
+  "boundaries": {
+    "missing_audio_processed": false,
+    "suffix_generated": false,
+    "snmpp_or_hpn_trained": false,
+    "gate2_started": false
+  }
+}

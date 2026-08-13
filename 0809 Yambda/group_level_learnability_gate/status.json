@@ -1,0 +1,18 @@
+{
+  "group_level_mark_learnable": true,
+  "group_level_time_learnable": true,
+  "history_signal_supported": true,
+  "group_snmpp_design_approved": true,
+  "ordinary_group_model_stably_trainable": true,
+  "joint_model_executed": true,
+  "stage_after_gate_started": false,
+  "decision_thresholds": {
+    "mark": "recurrent CE >=1% below strongest simple baseline and no seed collapses",
+    "time": "recurrent NLL and MAE each >=1% below strongest respective baseline",
+    "approval": "at least one task learnable and all recurrent/burst outputs finite"
+  },
+  "mark_relative_CE_gain_vs_strongest_simple": 0.27179772656903306,
+  "time_relative_NLL_gain_vs_strongest_simple": 0.14838005764951576,
+  "time_relative_MAE_gain_vs_strongest_simple": 0.05688817883063567,
+  "stop_reason": "Group-Level Learnability Gate complete; Group-SNMPP design/training is outside this round."
+}

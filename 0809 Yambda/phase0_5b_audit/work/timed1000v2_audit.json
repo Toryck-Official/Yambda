@@ -1,0 +1,2686 @@
+{
+  "format_version": 1,
+  "status": "partial_smoke",
+  "scope": {
+    "repository": "yandex/yambda",
+    "revision": "dd6f3a19eef5866e346c3270e098baa641a44948",
+    "explicit_dir": "/root/autodl-tmp/0804 Yambda/data/sequential-50m",
+    "included_events": [
+      "like",
+      "dislike",
+      "unlike",
+      "undislike"
+    ],
+    "listen_removed_from_explicit_analysis": true,
+    "is_organic_filtering": false,
+    "sessionization": false,
+    "cleaning_or_row_deletion": false,
+    "same_timestamp_policy": "shared group; no invented within-group order",
+    "revision_policy": "state must be active at a strictly earlier timestamp; conflicting user-item-timestamp groups are counted but not applied",
+    "streaming": true,
+    "batch_users": 4096,
+    "max_users": 1000,
+    "item_count_work_path": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/timed1000v2_items.counts.uint32.mmap"
+  },
+  "remote_dataset": {
+    "files": {
+      "listens": {
+        "path": "hf://datasets/yandex/yambda@dd6f3a19eef5866e346c3270e098baa641a44948/sequential/5b/listens.parquet",
+        "size_bytes": 42545451000,
+        "sha256": "2436ae6a08febc7cbdf40f1ee4508dcbad5576f27836c8e2f752fc417c43d642",
+        "user_rows": 921023,
+        "row_groups": 4,
+        "schema": "uid: uint32\ntimestamp: large_list<element: uint32>\n  child 0, element: uint32\nitem_id: large_list<element: uint32>\n  child 0, element: uint32\nis_organic: large_list<element: uint8>\n  child 0, element: uint8\nplayed_ratio_pct: large_list<element: uint16>\n  child 0, element: uint16\ntrack_length_seconds: large_list<element: uint32>\n  child 0, element: uint32",
+        "nested_value_counts": {
+          "uid": 921023,
+          "timestamp.list.element": 4649567411,
+          "item_id.list.element": 4649567411,
+          "is_organic.list.element": 4649567411,
+          "played_ratio_pct.list.element": 4649567411,
+          "track_length_seconds.list.element": 4649567411
+        },
+        "compressed_column_bytes": {
+          "uid": 3698868,
+          "timestamp.list.element": 16154856128,
+          "item_id.list.element": 14039281312,
+          "is_organic.list.element": 570605351,
+          "played_ratio_pct.list.element": 4894897639,
+          "track_length_seconds.list.element": 6880237467
+        }
+      },
+      "likes": {
+        "path": "hf://datasets/yandex/yambda@dd6f3a19eef5866e346c3270e098baa641a44948/sequential/5b/likes.parquet",
+        "size_bytes": 693712976,
+        "sha256": "b9190588c72713ee4eee129c3f290633a7314067f8e39e1c84962aac390e300a",
+        "user_rows": 827246,
+        "row_groups": 4,
+        "schema": "uid: uint32\ntimestamp: large_list<element: uint32>\n  child 0, element: uint32\nitem_id: large_list<element: uint32>\n  child 0, element: uint32\nis_organic: large_list<element: uint8>\n  child 0, element: uint8",
+        "nested_value_counts": {
+          "uid": 827246,
+          "timestamp.list.element": 89334605,
+          "item_id.list.element": 89334605,
+          "is_organic.list.element": 89334605
+        },
+        "compressed_column_bytes": {
+          "uid": 3322289,
+          "timestamp.list.element": 286198733,
+          "item_id.list.element": 357376045,
+          "is_organic.list.element": 46790940
+        }
+      },
+      "dislikes": {
+        "path": "hf://datasets/yandex/yambda@dd6f3a19eef5866e346c3270e098baa641a44948/sequential/5b/dislikes.parquet",
+        "size_bytes": 89065045,
+        "sha256": "b068dfb567f4335388706933709c3fb26fb5058496127e813d93b8485b36a96a",
+        "user_rows": 593011,
+        "row_groups": 3,
+        "schema": "uid: uint32\ntimestamp: large_list<element: uint32>\n  child 0, element: uint32\nitem_id: large_list<element: uint32>\n  child 0, element: uint32\nis_organic: large_list<element: uint8>\n  child 0, element: uint8",
+        "nested_value_counts": {
+          "uid": 593011,
+          "timestamp.list.element": 11579143,
+          "item_id.list.element": 11579143,
+          "is_organic.list.element": 11579143
+        },
+        "compressed_column_bytes": {
+          "uid": 2381587,
+          "timestamp.list.element": 34282628,
+          "item_id.list.element": 46745645,
+          "is_organic.list.element": 5649260
+        }
+      },
+      "unlikes": {
+        "path": "hf://datasets/yandex/yambda@dd6f3a19eef5866e346c3270e098baa641a44948/sequential/5b/unlikes.parquet",
+        "size_bytes": 193012360,
+        "sha256": "2f971c757090c17cd027badd82af5df8304484e1742602b92ad92ac53c845c04",
+        "user_rows": 638130,
+        "row_groups": 3,
+        "schema": "uid: uint32\ntimestamp: large_list<element: uint32>\n  child 0, element: uint32\nitem_id: large_list<element: uint32>\n  child 0, element: uint32\nis_organic: large_list<element: uint8>\n  child 0, element: uint8",
+        "nested_value_counts": {
+          "uid": 638130,
+          "timestamp.list.element": 32944520,
+          "item_id.list.element": 32944520,
+          "is_organic.list.element": 32944520
+        },
+        "compressed_column_bytes": {
+          "uid": 2562771,
+          "timestamp.list.element": 51557721,
+          "item_id.list.element": 130153204,
+          "is_organic.list.element": 8727795
+        }
+      },
+      "undislikes": {
+        "path": "hf://datasets/yandex/yambda@dd6f3a19eef5866e346c3270e098baa641a44948/sequential/5b/undislikes.parquet",
+        "size_bytes": 16248355,
+        "sha256": "e05922d5ca39139ebb3c1cc9479b306f498868dce1e45194d93bf81d1ac8bb89",
+        "user_rows": 288764,
+        "row_groups": 2,
+        "schema": "uid: uint32\ntimestamp: large_list<element: uint32>\n  child 0, element: uint32\nitem_id: large_list<element: uint32>\n  child 0, element: uint32\nis_organic: large_list<element: uint8>\n  child 0, element: uint8",
+        "nested_value_counts": {
+          "uid": 288764,
+          "timestamp.list.element": 2434208,
+          "item_id.list.element": 2434208,
+          "is_organic.list.element": 2434208
+        },
+        "compressed_column_bytes": {
+          "uid": 1159728,
+          "timestamp.list.element": 4434471,
+          "item_id.list.element": 9462609,
+          "is_organic.list.element": 1188547
+        }
+      },
+      "multi_event": {
+        "path": "hf://datasets/yandex/yambda@dd6f3a19eef5866e346c3270e098baa641a44948/sequential/5b/multi_event.parquet",
+        "size_bytes": 43682305922,
+        "sha256": "606cf6040c73751ec55b6f50baba598b6d2d663ba12e6b33d48d4d8f26811606",
+        "user_rows": 1000000,
+        "row_groups": 4,
+        "schema": "uid: uint32\ntimestamp: large_list<element: uint32>\n  child 0, element: uint32\nitem_id: large_list<element: uint32>\n  child 0, element: uint32\nis_organic: large_list<element: uint8>\n  child 0, element: uint8\nplayed_ratio_pct: large_list<element: uint16>\n  child 0, element: uint16\ntrack_length_seconds: large_list<element: uint32>\n  child 0, element: uint32\nevent_type: large_list<element: dictionary<values=string, indices=uint32, ordered=0>>\n  child 0, element: dictionary<values=string, indices=uint32, ordered=0>\n    -- field metadata --\n    _PL_ENUM_VALUES: '6;listen7;dislike4;like9;undislike6;unlike'",
+        "nested_value_counts": {
+          "uid": 1000000,
+          "timestamp.list.element": 4785859887,
+          "item_id.list.element": 4785859887,
+          "is_organic.list.element": 4785859887,
+          "played_ratio_pct.list.element": 4785859887,
+          "track_length_seconds.list.element": 4785859887,
+          "event_type.list.element": 4785859887
+        },
+        "compressed_column_bytes": {
+          "uid": 4016049,
+          "timestamp.list.element": 16350093440,
+          "item_id.list.element": 14451374165,
+          "is_organic.list.element": 615181902,
+          "played_ratio_pct.list.element": 5047521638,
+          "track_length_seconds.list.element": 7037034140,
+          "event_type.list.element": 175091910
+        }
+      }
+    },
+    "raw_event_count": 4785859887,
+    "raw_unique_users": 1000000,
+    "raw_unique_items_official_reference": 9390623,
+    "raw_unique_items_provenance": "Yambda paper Table 3; independent listen-item scan is a separate Phase 0 artifact because the item_id column alone is 14,039,281,312 compressed bytes",
+    "listen_count": 4649567411,
+    "explicit_count_after_removing_listen": 136292476,
+    "event_counts": {
+      "listen": 4649567411,
+      "like": 89334605,
+      "dislike": 11579143,
+      "unlike": 32944520,
+      "undislike": 2434208
+    },
+    "count_reconciliation": true
+  },
+  "explicit_scan": {
+    "users": 1000,
+    "events": 153655,
+    "items": 69462,
+    "event_counts": {
+      "like": 101936,
+      "dislike": 14313,
+      "unlike": 35414,
+      "undislike": 1992
+    },
+    "users_by_feedback": {
+      "like": 952,
+      "dislike": 691,
+      "unlike": 728,
+      "undislike": 326
+    },
+    "organic_counts": {
+      "like": 59723,
+      "dislike": 8706,
+      "unlike": 33538,
+      "undislike": 1792
+    },
+    "recommendation_driven_counts": {
+      "like": 42213,
+      "dislike": 5607,
+      "unlike": 1876,
+      "undislike": 200
+    },
+    "explicit_item_fraction_of_raw_catalog": 0.007396953322479243,
+    "sequence_length": {
+      "count": 1000,
+      "min": 1.0,
+      "mean": 153.655,
+      "median": 60.0,
+      "p75": 174.0,
+      "p90": 387.0,
+      "p95": 604.0,
+      "p99": 1164.0,
+      "max": 3295.0,
+      "unit": 1,
+      "scale": 1.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "active_span_seconds": {
+      "count": 1000,
+      "min": 0.0,
+      "mean": 14813599.895,
+      "median": 17187375.0,
+      "p75": 24472465.0,
+      "p90": 25586545.0,
+      "p95": 25813340.0,
+      "p99": 25932140.0,
+      "max": 25964500.0,
+      "unit": 5,
+      "scale": 1.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "active_span_days": {
+      "count": 1000,
+      "min": 0.0,
+      "mean": 171.45370248842593,
+      "median": 198.92795138888889,
+      "p75": 283.2461226851852,
+      "p90": 296.14056712962963,
+      "p95": 298.76550925925926,
+      "p99": 300.14050925925926,
+      "max": 300.5150462962963,
+      "unit": 5,
+      "scale": 86400.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "strict_positive_inter_group_gap_seconds": {
+      "count": 91446,
+      "min": 5.0,
+      "mean": 161992.86896091682,
+      "median": 2920.0,
+      "p75": 93320.0,
+      "p90": 359005.0,
+      "p95": 695310.0,
+      "p99": 2408745.0,
+      "max": 23004730.0,
+      "unit": 5,
+      "scale": 1.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "strict_positive_inter_group_gap_hours": {
+      "count": 91446,
+      "min": 0.001388888888888889,
+      "mean": 44.998019155810226,
+      "median": 0.8111111111111111,
+      "p75": 25.92222222222222,
+      "p90": 99.72361111111111,
+      "p95": 193.14166666666668,
+      "p99": 669.0958333333333,
+      "max": 6390.202777777778,
+      "unit": 5,
+      "scale": 3600.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "raw_adjacent_inter_event_gap_seconds_including_ties": {
+      "count": 152655,
+      "min": 0.0,
+      "mean": 97039.72942255413,
+      "median": 90.0,
+      "p75": 15100.0,
+      "p90": 191480.0,
+      "p95": 434535.0,
+      "p99": 1662155.0,
+      "max": 23004730.0,
+      "unit": 5,
+      "scale": 1.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "raw_adjacent_inter_event_gap_hours_including_ties": {
+      "count": 152655,
+      "min": 0.0,
+      "mean": 26.955480395153923,
+      "median": 0.025,
+      "p75": 4.194444444444445,
+      "p90": 53.18888888888889,
+      "p95": 120.70416666666667,
+      "p99": 461.70972222222224,
+      "max": 6390.202777777778,
+      "unit": 5,
+      "scale": 3600.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "timestamp_groups": 92446,
+    "timestamp_group_size": {
+      "count": 92446,
+      "min": 1.0,
+      "mean": 1.662105445341064,
+      "median": 1.0,
+      "p75": 1.0,
+      "p90": 3.0,
+      "p95": 4.0,
+      "p99": 11.0,
+      "max": 831.0,
+      "unit": 1,
+      "scale": 1.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "timestamp_group_size_histogram": {
+      "1": 74466,
+      "2": 8499,
+      "3": 3261,
+      "4": 1609,
+      "5": 1056,
+      "6": 1298,
+      "7": 623,
+      "8": 363,
+      "9": 178,
+      "10": 158,
+      "11": 100,
+      "12": 131,
+      "13": 82,
+      "14": 67,
+      "15": 50,
+      "16": 49,
+      "17": 32,
+      "18": 44,
+      "19": 32,
+      "20": 34,
+      "21": 22,
+      "22": 22,
+      "23": 14,
+      "24": 14,
+      "25": 19,
+      "26": 14,
+      "27": 9,
+      "28": 10,
+      "29": 13,
+      "30": 14,
+      "31": 11,
+      "32": 14,
+      "33": 8,
+      "34": 6,
+      "35": 15,
+      "36": 1,
+      "37": 3,
+      "38": 6,
+      "39": 7,
+      "40": 5,
+      "41": 2,
+      "42": 4,
+      "43": 2,
+      "44": 3,
+      "45": 3,
+      "46": 3,
+      "47": 3,
+      "48": 3,
+      "49": 1,
+      "50": 3,
+      "51": 2,
+      "52": 2,
+      "54": 2,
+      "55": 2,
+      "56": 4,
+      "57": 2,
+      "58": 5,
+      "59": 4,
+      "61": 3,
+      "62": 2,
+      "63": 1,
+      "64": 1,
+      "68": 2,
+      "72": 1,
+      "73": 1,
+      "77": 1,
+      "78": 2,
+      "80": 1,
+      "81": 1,
+      "82": 1,
+      "84": 1,
+      "87": 1,
+      "88": 1,
+      "89": 3,
+      "90": 1,
+      "91": 1,
+      "92": 1,
+      "93": 1,
+      "100": 1,
+      "105": 1,
+      "106": 1,
+      "110": 1,
+      "117": 1,
+      "121": 2,
+      "303": 1,
+      "720": 1,
+      "831": 1
+    },
+    "events_in_multi_event_groups": 79189,
+    "events_in_multi_event_groups_fraction": 0.5153688457908951,
+    "same_timestamp_feedback_combinations": {
+      "like": 72371,
+      "dislike": 7794,
+      "unlike": 7590,
+      "undislike": 235,
+      "like+unlike": 2563,
+      "dislike+undislike": 177,
+      "dislike+unlike": 534,
+      "like+undislike": 218,
+      "like+dislike": 707,
+      "like+dislike+unlike": 101,
+      "unlike+undislike": 29,
+      "like+unlike+undislike": 55,
+      "like+dislike+undislike": 48,
+      "dislike+unlike+undislike": 13,
+      "like+dislike+unlike+undislike": 11
+    },
+    "large_timestamp_groups": {
+      "2": {
+        "groups": 17980,
+        "event_rows": 79189
+      },
+      "5": {
+        "groups": 4611,
+        "event_rows": 45972
+      },
+      "10": {
+        "groups": 1093,
+        "event_rows": 24037
+      },
+      "20": {
+        "groups": 348,
+        "event_rows": 14303
+      },
+      "50": {
+        "groups": 63,
+        "event_rows": 6155
+      },
+      "100": {
+        "groups": 10,
+        "event_rows": 2634
+      },
+      "500": {
+        "groups": 2,
+        "event_rows": 1551
+      },
+      "1000": {
+        "groups": 0,
+        "event_rows": 0
+      },
+      "5000": {
+        "groups": 0,
+        "event_rows": 0
+      }
+    },
+    "largest_timestamp_groups": [
+      {
+        "size": 831,
+        "uid": 66700,
+        "timestamp": 5386520,
+        "distinct_items": 831,
+        "feedback_counts": {
+          "like": 831,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 720,
+        "uid": 87100,
+        "timestamp": 24052205,
+        "distinct_items": 720,
+        "feedback_counts": {
+          "like": 720,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 303,
+        "uid": 92300,
+        "timestamp": 7717115,
+        "distinct_items": 301,
+        "feedback_counts": {
+          "like": 2,
+          "dislike": 0,
+          "unlike": 301,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 121,
+        "uid": 103400,
+        "timestamp": 15430105,
+        "distinct_items": 121,
+        "feedback_counts": {
+          "like": 116,
+          "dislike": 0,
+          "unlike": 5,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 121,
+        "uid": 2700,
+        "timestamp": 18304990,
+        "distinct_items": 121,
+        "feedback_counts": {
+          "like": 1,
+          "dislike": 0,
+          "unlike": 120,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 117,
+        "uid": 61800,
+        "timestamp": 5174835,
+        "distinct_items": 117,
+        "feedback_counts": {
+          "like": 117,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 110,
+        "uid": 26500,
+        "timestamp": 10698810,
+        "distinct_items": 110,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 110,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 106,
+        "uid": 84300,
+        "timestamp": 22737040,
+        "distinct_items": 74,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 32,
+          "unlike": 74,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 105,
+        "uid": 49200,
+        "timestamp": 8140445,
+        "distinct_items": 73,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 32,
+          "unlike": 0,
+          "undislike": 73
+        }
+      },
+      {
+        "size": 100,
+        "uid": 41200,
+        "timestamp": 16357180,
+        "distinct_items": 100,
+        "feedback_counts": {
+          "like": 100,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 93,
+        "uid": 42600,
+        "timestamp": 13101715,
+        "distinct_items": 93,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 93,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 92,
+        "uid": 97800,
+        "timestamp": 17320025,
+        "distinct_items": 57,
+        "feedback_counts": {
+          "like": 35,
+          "dislike": 0,
+          "unlike": 57,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 91,
+        "uid": 54400,
+        "timestamp": 2275265,
+        "distinct_items": 91,
+        "feedback_counts": {
+          "like": 91,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 90,
+        "uid": 97800,
+        "timestamp": 21211095,
+        "distinct_items": 51,
+        "feedback_counts": {
+          "like": 10,
+          "dislike": 26,
+          "unlike": 51,
+          "undislike": 3
+        }
+      },
+      {
+        "size": 89,
+        "uid": 98700,
+        "timestamp": 24169615,
+        "distinct_items": 86,
+        "feedback_counts": {
+          "like": 75,
+          "dislike": 0,
+          "unlike": 14,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 89,
+        "uid": 97800,
+        "timestamp": 16711545,
+        "distinct_items": 53,
+        "feedback_counts": {
+          "like": 36,
+          "dislike": 0,
+          "unlike": 53,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 89,
+        "uid": 6900,
+        "timestamp": 25257540,
+        "distinct_items": 88,
+        "feedback_counts": {
+          "like": 3,
+          "dislike": 0,
+          "unlike": 86,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 88,
+        "uid": 84200,
+        "timestamp": 25346930,
+        "distinct_items": 88,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 88,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 87,
+        "uid": 41100,
+        "timestamp": 5447820,
+        "distinct_items": 87,
+        "feedback_counts": {
+          "like": 2,
+          "dislike": 85,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 84,
+        "uid": 97800,
+        "timestamp": 16623320,
+        "distinct_items": 54,
+        "feedback_counts": {
+          "like": 36,
+          "dislike": 0,
+          "unlike": 47,
+          "undislike": 1
+        }
+      },
+      {
+        "size": 82,
+        "uid": 50400,
+        "timestamp": 16948290,
+        "distinct_items": 82,
+        "feedback_counts": {
+          "like": 82,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 81,
+        "uid": 87100,
+        "timestamp": 24103160,
+        "distinct_items": 55,
+        "feedback_counts": {
+          "like": 26,
+          "dislike": 0,
+          "unlike": 55,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 80,
+        "uid": 92100,
+        "timestamp": 2906115,
+        "distinct_items": 80,
+        "feedback_counts": {
+          "like": 80,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 78,
+        "uid": 47100,
+        "timestamp": 937130,
+        "distinct_items": 78,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 78,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 78,
+        "uid": 41100,
+        "timestamp": 9111785,
+        "distinct_items": 78,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 78,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 77,
+        "uid": 98700,
+        "timestamp": 4195015,
+        "distinct_items": 77,
+        "feedback_counts": {
+          "like": 77,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 73,
+        "uid": 26500,
+        "timestamp": 7398035,
+        "distinct_items": 73,
+        "feedback_counts": {
+          "like": 72,
+          "dislike": 0,
+          "unlike": 1,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 72,
+        "uid": 47100,
+        "timestamp": 935980,
+        "distinct_items": 72,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 72,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 68,
+        "uid": 75800,
+        "timestamp": 24949395,
+        "distinct_items": 55,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 13,
+          "unlike": 55,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 68,
+        "uid": 57500,
+        "timestamp": 4469790,
+        "distinct_items": 68,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 68,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 64,
+        "uid": 105300,
+        "timestamp": 15793520,
+        "distinct_items": 64,
+        "feedback_counts": {
+          "like": 64,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 63,
+        "uid": 13500,
+        "timestamp": 6487140,
+        "distinct_items": 63,
+        "feedback_counts": {
+          "like": 5,
+          "dislike": 58,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 62,
+        "uid": 74900,
+        "timestamp": 20810970,
+        "distinct_items": 60,
+        "feedback_counts": {
+          "like": 52,
+          "dislike": 0,
+          "unlike": 10,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 62,
+        "uid": 56400,
+        "timestamp": 25993290,
+        "distinct_items": 62,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 62,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 61,
+        "uid": 85100,
+        "timestamp": 23225985,
+        "distinct_items": 61,
+        "feedback_counts": {
+          "like": 61,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 61,
+        "uid": 69000,
+        "timestamp": 8403120,
+        "distinct_items": 60,
+        "feedback_counts": {
+          "like": 43,
+          "dislike": 0,
+          "unlike": 18,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 61,
+        "uid": 20800,
+        "timestamp": 7127330,
+        "distinct_items": 45,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 17,
+          "unlike": 0,
+          "undislike": 44
+        }
+      },
+      {
+        "size": 59,
+        "uid": 105300,
+        "timestamp": 15793765,
+        "distinct_items": 59,
+        "feedback_counts": {
+          "like": 59,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 59,
+        "uid": 84200,
+        "timestamp": 25346870,
+        "distinct_items": 59,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 59,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 59,
+        "uid": 26500,
+        "timestamp": 10698035,
+        "distinct_items": 59,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 59,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 59,
+        "uid": 17400,
+        "timestamp": 4891175,
+        "distinct_items": 59,
+        "feedback_counts": {
+          "like": 59,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 58,
+        "uid": 112500,
+        "timestamp": 4385380,
+        "distinct_items": 58,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 58,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 58,
+        "uid": 95000,
+        "timestamp": 7961650,
+        "distinct_items": 53,
+        "feedback_counts": {
+          "like": 38,
+          "dislike": 0,
+          "unlike": 20,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 58,
+        "uid": 85100,
+        "timestamp": 23226580,
+        "distinct_items": 58,
+        "feedback_counts": {
+          "like": 58,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 58,
+        "uid": 61800,
+        "timestamp": 5173050,
+        "distinct_items": 58,
+        "feedback_counts": {
+          "like": 58,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 58,
+        "uid": 58400,
+        "timestamp": 2690675,
+        "distinct_items": 58,
+        "feedback_counts": {
+          "like": 58,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 57,
+        "uid": 103800,
+        "timestamp": 16204325,
+        "distinct_items": 56,
+        "feedback_counts": {
+          "like": 1,
+          "dislike": 0,
+          "unlike": 56,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 57,
+        "uid": 84300,
+        "timestamp": 24691690,
+        "distinct_items": 57,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 57,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 56,
+        "uid": 113400,
+        "timestamp": 8861380,
+        "distinct_items": 55,
+        "feedback_counts": {
+          "like": 1,
+          "dislike": 0,
+          "unlike": 55,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 56,
+        "uid": 104400,
+        "timestamp": 19839855,
+        "distinct_items": 56,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 56,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 56,
+        "uid": 13500,
+        "timestamp": 738435,
+        "distinct_items": 56,
+        "feedback_counts": {
+          "like": 7,
+          "dislike": 49,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 56,
+        "uid": 6900,
+        "timestamp": 17398825,
+        "distinct_items": 54,
+        "feedback_counts": {
+          "like": 52,
+          "dislike": 0,
+          "unlike": 4,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 55,
+        "uid": 74600,
+        "timestamp": 57820,
+        "distinct_items": 55,
+        "feedback_counts": {
+          "like": 55,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 55,
+        "uid": 13500,
+        "timestamp": 1267205,
+        "distinct_items": 54,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 54,
+          "unlike": 0,
+          "undislike": 1
+        }
+      },
+      {
+        "size": 54,
+        "uid": 45900,
+        "timestamp": 8214695,
+        "distinct_items": 54,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 54,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 54,
+        "uid": 6900,
+        "timestamp": 17398390,
+        "distinct_items": 52,
+        "feedback_counts": {
+          "like": 51,
+          "dislike": 0,
+          "unlike": 3,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 52,
+        "uid": 104400,
+        "timestamp": 19839885,
+        "distinct_items": 50,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 52,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 52,
+        "uid": 13500,
+        "timestamp": 5818955,
+        "distinct_items": 52,
+        "feedback_counts": {
+          "like": 2,
+          "dislike": 50,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 51,
+        "uid": 95000,
+        "timestamp": 7937615,
+        "distinct_items": 50,
+        "feedback_counts": {
+          "like": 44,
+          "dislike": 0,
+          "unlike": 7,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 51,
+        "uid": 93100,
+        "timestamp": 18965015,
+        "distinct_items": 51,
+        "feedback_counts": {
+          "like": 51,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 50,
+        "uid": 104400,
+        "timestamp": 19839860,
+        "distinct_items": 49,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 50,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 50,
+        "uid": 94900,
+        "timestamp": 20282550,
+        "distinct_items": 50,
+        "feedback_counts": {
+          "like": 48,
+          "dislike": 0,
+          "unlike": 2,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 50,
+        "uid": 44300,
+        "timestamp": 23018070,
+        "distinct_items": 50,
+        "feedback_counts": {
+          "like": 50,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 49,
+        "uid": 96100,
+        "timestamp": 15251665,
+        "distinct_items": 47,
+        "feedback_counts": {
+          "like": 37,
+          "dislike": 0,
+          "unlike": 12,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 48,
+        "uid": 104400,
+        "timestamp": 19839880,
+        "distinct_items": 41,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 48,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 48,
+        "uid": 2700,
+        "timestamp": 11813040,
+        "distinct_items": 48,
+        "feedback_counts": {
+          "like": 39,
+          "dislike": 0,
+          "unlike": 9,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 48,
+        "uid": 900,
+        "timestamp": 25457490,
+        "distinct_items": 2,
+        "feedback_counts": {
+          "like": 16,
+          "dislike": 0,
+          "unlike": 32,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 47,
+        "uid": 104400,
+        "timestamp": 19839145,
+        "distinct_items": 47,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 47,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 47,
+        "uid": 63600,
+        "timestamp": 22054585,
+        "distinct_items": 47,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 45,
+          "unlike": 0,
+          "undislike": 2
+        }
+      },
+      {
+        "size": 47,
+        "uid": 13500,
+        "timestamp": 7089520,
+        "distinct_items": 47,
+        "feedback_counts": {
+          "like": 7,
+          "dislike": 40,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 46,
+        "uid": 104400,
+        "timestamp": 19839920,
+        "distinct_items": 46,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 46,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 46,
+        "uid": 75800,
+        "timestamp": 25619610,
+        "distinct_items": 46,
+        "feedback_counts": {
+          "like": 11,
+          "dislike": 29,
+          "unlike": 6,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 46,
+        "uid": 13500,
+        "timestamp": 1159420,
+        "distinct_items": 46,
+        "feedback_counts": {
+          "like": 13,
+          "dislike": 33,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 45,
+        "uid": 104400,
+        "timestamp": 19839930,
+        "distinct_items": 35,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 45,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 45,
+        "uid": 104400,
+        "timestamp": 19839915,
+        "distinct_items": 45,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 45,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 45,
+        "uid": 3500,
+        "timestamp": 1830080,
+        "distinct_items": 33,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 12,
+          "unlike": 33,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 44,
+        "uid": 104400,
+        "timestamp": 19839165,
+        "distinct_items": 44,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 44,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 44,
+        "uid": 75800,
+        "timestamp": 24925720,
+        "distinct_items": 43,
+        "feedback_counts": {
+          "like": 12,
+          "dislike": 26,
+          "unlike": 6,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 44,
+        "uid": 32600,
+        "timestamp": 19643990,
+        "distinct_items": 43,
+        "feedback_counts": {
+          "like": 2,
+          "dislike": 0,
+          "unlike": 42,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 43,
+        "uid": 104400,
+        "timestamp": 19839155,
+        "distinct_items": 34,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 43,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 43,
+        "uid": 13500,
+        "timestamp": 1122920,
+        "distinct_items": 43,
+        "feedback_counts": {
+          "like": 2,
+          "dislike": 41,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 42,
+        "uid": 104400,
+        "timestamp": 19839905,
+        "distinct_items": 42,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 42,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 42,
+        "uid": 80100,
+        "timestamp": 5760260,
+        "distinct_items": 42,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 42,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 42,
+        "uid": 13500,
+        "timestamp": 20487695,
+        "distinct_items": 42,
+        "feedback_counts": {
+          "like": 1,
+          "dislike": 41,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 42,
+        "uid": 13500,
+        "timestamp": 396300,
+        "distinct_items": 42,
+        "feedback_counts": {
+          "like": 3,
+          "dislike": 39,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 41,
+        "uid": 92700,
+        "timestamp": 19840020,
+        "distinct_items": 41,
+        "feedback_counts": {
+          "like": 41,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 41,
+        "uid": 57400,
+        "timestamp": 8463780,
+        "distinct_items": 41,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 41,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 40,
+        "uid": 104400,
+        "timestamp": 19839865,
+        "distinct_items": 25,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 40,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 40,
+        "uid": 75800,
+        "timestamp": 24954810,
+        "distinct_items": 28,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 12,
+          "unlike": 28,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 40,
+        "uid": 30000,
+        "timestamp": 24138040,
+        "distinct_items": 40,
+        "feedback_counts": {
+          "like": 39,
+          "dislike": 0,
+          "unlike": 1,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 40,
+        "uid": 26500,
+        "timestamp": 10697285,
+        "distinct_items": 40,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 40,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 40,
+        "uid": 13500,
+        "timestamp": 5720875,
+        "distinct_items": 39,
+        "feedback_counts": {
+          "like": 4,
+          "dislike": 30,
+          "unlike": 0,
+          "undislike": 6
+        }
+      },
+      {
+        "size": 39,
+        "uid": 105300,
+        "timestamp": 15793920,
+        "distinct_items": 39,
+        "feedback_counts": {
+          "like": 39,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 39,
+        "uid": 104400,
+        "timestamp": 19839755,
+        "distinct_items": 39,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 39,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 39,
+        "uid": 93100,
+        "timestamp": 18996540,
+        "distinct_items": 39,
+        "feedback_counts": {
+          "like": 39,
+          "dislike": 0,
+          "unlike": 0,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 39,
+        "uid": 69300,
+        "timestamp": 23215630,
+        "distinct_items": 39,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 39,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 39,
+        "uid": 59800,
+        "timestamp": 5558255,
+        "distinct_items": 39,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 39,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 39,
+        "uid": 57400,
+        "timestamp": 22006720,
+        "distinct_items": 38,
+        "feedback_counts": {
+          "like": 1,
+          "dislike": 0,
+          "unlike": 38,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 39,
+        "uid": 26500,
+        "timestamp": 10698195,
+        "distinct_items": 39,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 39,
+          "undislike": 0
+        }
+      },
+      {
+        "size": 38,
+        "uid": 104400,
+        "timestamp": 19839910,
+        "distinct_items": 38,
+        "feedback_counts": {
+          "like": 0,
+          "dislike": 0,
+          "unlike": 38,
+          "undislike": 0
+        }
+      }
+    ],
+    "timestamps_not_multiple_of_five": 0,
+    "exact_duplicate_excess_rows": 1067,
+    "exact_duplicate_excess_by_feedback": {
+      "like": 467,
+      "dislike": 32,
+      "unlike": 566,
+      "undislike": 2
+    },
+    "conflicting_user_item_timestamp_groups": 3889,
+    "conflicting_event_rows": 8142,
+    "transition_counts": {
+      "unlike_without_active_prior_like_groups": 25003,
+      "unlike_without_active_prior_like_rows": 25476,
+      "undislike_without_active_prior_dislike_groups": 1140,
+      "undislike_without_active_prior_dislike_rows": 1141,
+      "dislike_to_undislike_pairs": 174,
+      "dislike_to_undislike_revision_rows": 174,
+      "like_to_unlike_pairs": 6480,
+      "like_to_unlike_revision_rows": 6512,
+      "like_while_disliked_groups": 103,
+      "dislike_while_liked_groups": 412,
+      "repeated_like_groups": 925,
+      "repeated_like_rows": 964,
+      "repeated_dislike_groups": 71,
+      "repeated_dislike_rows": 71
+    },
+    "transition_anomalies": {
+      "ambiguous_state_groups_not_applied": 3889
+    },
+    "like_to_unlike_delay_seconds": {
+      "count": 6480,
+      "min": 5.0,
+      "mean": 3400556.9328703703,
+      "median": 1007375.0,
+      "p75": 4599270.0,
+      "p90": 10610095.0,
+      "p95": 15748020.0,
+      "p99": 21070480.0,
+      "max": 25256820.0,
+      "unit": 5,
+      "scale": 1.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "like_to_unlike_delay_days": {
+      "count": 6480,
+      "min": 5.787037037037037e-05,
+      "mean": 39.358297834147805,
+      "median": 11.65943287037037,
+      "p75": 53.23229166666667,
+      "p90": 122.80202546296296,
+      "p95": 182.26875,
+      "p99": 243.8712962962963,
+      "max": 292.32430555555555,
+      "unit": 5,
+      "scale": 86400.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "dislike_to_undislike_delay_seconds": {
+      "count": 174,
+      "min": 5.0,
+      "mean": 1756608.3620689656,
+      "median": 565.0,
+      "p75": 1059090.0,
+      "p90": 5848820.0,
+      "p95": 13824825.0,
+      "p99": 14442330.0,
+      "max": 18519470.0,
+      "unit": 5,
+      "scale": 1.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "dislike_to_undislike_delay_days": {
+      "count": 174,
+      "min": 5.787037037037037e-05,
+      "mean": 20.33111530172414,
+      "median": 0.006539351851851852,
+      "p75": 12.25798611111111,
+      "p90": 67.69467592592592,
+      "p95": 160.00954861111111,
+      "p99": 167.15659722222222,
+      "max": 214.3457175925926,
+      "unit": 5,
+      "scale": 86400.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "item_explicit_frequency": {
+      "count": 69462,
+      "min": 1.0,
+      "mean": 2.212072787999194,
+      "median": 1.0,
+      "p75": 2.0,
+      "p90": 4.0,
+      "p95": 7.0,
+      "p99": 17.0,
+      "max": 127.0,
+      "unit": 1,
+      "scale": 1.0,
+      "quantile_rule": "nearest observed grid value at ceil(q*n)"
+    },
+    "top_items": [
+      {
+        "item_id": 9378983,
+        "total": 127,
+        "like": 102,
+        "dislike": 16,
+        "unlike": 6,
+        "undislike": 3,
+        "sid_covered": true
+      },
+      {
+        "item_id": 3542184,
+        "total": 120,
+        "like": 88,
+        "dislike": 18,
+        "unlike": 11,
+        "undislike": 3,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5463340,
+        "total": 107,
+        "like": 85,
+        "dislike": 9,
+        "unlike": 11,
+        "undislike": 2,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1846252,
+        "total": 101,
+        "like": 74,
+        "dislike": 13,
+        "unlike": 12,
+        "undislike": 2,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6901374,
+        "total": 100,
+        "like": 82,
+        "dislike": 11,
+        "unlike": 7,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 3385274,
+        "total": 100,
+        "like": 67,
+        "dislike": 6,
+        "unlike": 26,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5252571,
+        "total": 98,
+        "like": 87,
+        "dislike": 8,
+        "unlike": 3,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5436843,
+        "total": 93,
+        "like": 80,
+        "dislike": 6,
+        "unlike": 7,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 906358,
+        "total": 93,
+        "like": 74,
+        "dislike": 14,
+        "unlike": 5,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5862961,
+        "total": 92,
+        "like": 77,
+        "dislike": 11,
+        "unlike": 3,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2651314,
+        "total": 90,
+        "like": 70,
+        "dislike": 9,
+        "unlike": 10,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 8538001,
+        "total": 90,
+        "like": 71,
+        "dislike": 8,
+        "unlike": 10,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6853370,
+        "total": 87,
+        "like": 67,
+        "dislike": 9,
+        "unlike": 11,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5635052,
+        "total": 85,
+        "like": 64,
+        "dislike": 11,
+        "unlike": 8,
+        "undislike": 2,
+        "sid_covered": true
+      },
+      {
+        "item_id": 8213481,
+        "total": 84,
+        "like": 50,
+        "dislike": 23,
+        "unlike": 9,
+        "undislike": 2,
+        "sid_covered": true
+      },
+      {
+        "item_id": 3033749,
+        "total": 76,
+        "like": 44,
+        "dislike": 12,
+        "unlike": 17,
+        "undislike": 3,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2185191,
+        "total": 76,
+        "like": 62,
+        "dislike": 6,
+        "unlike": 6,
+        "undislike": 2,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1051073,
+        "total": 74,
+        "like": 57,
+        "dislike": 6,
+        "unlike": 9,
+        "undislike": 2,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4767032,
+        "total": 73,
+        "like": 38,
+        "dislike": 1,
+        "unlike": 33,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 8823268,
+        "total": 71,
+        "like": 57,
+        "dislike": 6,
+        "unlike": 7,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5927996,
+        "total": 70,
+        "like": 57,
+        "dislike": 5,
+        "unlike": 8,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 3061013,
+        "total": 66,
+        "like": 52,
+        "dislike": 10,
+        "unlike": 4,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2710484,
+        "total": 66,
+        "like": 55,
+        "dislike": 5,
+        "unlike": 5,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2859641,
+        "total": 65,
+        "like": 48,
+        "dislike": 8,
+        "unlike": 8,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2621516,
+        "total": 62,
+        "like": 48,
+        "dislike": 9,
+        "unlike": 5,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1307501,
+        "total": 62,
+        "like": 47,
+        "dislike": 5,
+        "unlike": 9,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 8743390,
+        "total": 61,
+        "like": 49,
+        "dislike": 7,
+        "unlike": 5,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 645242,
+        "total": 58,
+        "like": 47,
+        "dislike": 7,
+        "unlike": 3,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 159001,
+        "total": 58,
+        "like": 48,
+        "dislike": 4,
+        "unlike": 6,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 3418493,
+        "total": 56,
+        "like": 41,
+        "dislike": 4,
+        "unlike": 11,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4423556,
+        "total": 56,
+        "like": 47,
+        "dislike": 6,
+        "unlike": 2,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1525699,
+        "total": 54,
+        "like": 33,
+        "dislike": 11,
+        "unlike": 10,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6051292,
+        "total": 54,
+        "like": 35,
+        "dislike": 4,
+        "unlike": 12,
+        "undislike": 3,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6155741,
+        "total": 54,
+        "like": 47,
+        "dislike": 3,
+        "unlike": 4,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6006390,
+        "total": 54,
+        "like": 47,
+        "dislike": 2,
+        "unlike": 5,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6518788,
+        "total": 54,
+        "like": 41,
+        "dislike": 7,
+        "unlike": 6,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 8902934,
+        "total": 52,
+        "like": 30,
+        "dislike": 11,
+        "unlike": 11,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6210247,
+        "total": 51,
+        "like": 41,
+        "dislike": 1,
+        "unlike": 9,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2118649,
+        "total": 51,
+        "like": 43,
+        "dislike": 5,
+        "unlike": 3,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 956298,
+        "total": 51,
+        "like": 33,
+        "dislike": 7,
+        "unlike": 11,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5056470,
+        "total": 51,
+        "like": 40,
+        "dislike": 5,
+        "unlike": 6,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 838166,
+        "total": 51,
+        "like": 42,
+        "dislike": 8,
+        "unlike": 1,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4668316,
+        "total": 50,
+        "like": 29,
+        "dislike": 6,
+        "unlike": 13,
+        "undislike": 2,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2317630,
+        "total": 50,
+        "like": 39,
+        "dislike": 3,
+        "unlike": 8,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1432819,
+        "total": 48,
+        "like": 35,
+        "dislike": 7,
+        "unlike": 6,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 611344,
+        "total": 48,
+        "like": 40,
+        "dislike": 4,
+        "unlike": 3,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 3791672,
+        "total": 48,
+        "like": 35,
+        "dislike": 4,
+        "unlike": 8,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 797426,
+        "total": 48,
+        "like": 40,
+        "dislike": 6,
+        "unlike": 2,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 8200811,
+        "total": 47,
+        "like": 41,
+        "dislike": 3,
+        "unlike": 2,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6666566,
+        "total": 46,
+        "like": 33,
+        "dislike": 7,
+        "unlike": 5,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1383991,
+        "total": 45,
+        "like": 36,
+        "dislike": 3,
+        "unlike": 5,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4954011,
+        "total": 45,
+        "like": 29,
+        "dislike": 9,
+        "unlike": 7,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4456240,
+        "total": 45,
+        "like": 31,
+        "dislike": 2,
+        "unlike": 12,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6815075,
+        "total": 44,
+        "like": 35,
+        "dislike": 3,
+        "unlike": 6,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 8647463,
+        "total": 44,
+        "like": 36,
+        "dislike": 6,
+        "unlike": 2,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 509030,
+        "total": 44,
+        "like": 27,
+        "dislike": 7,
+        "unlike": 9,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4046807,
+        "total": 43,
+        "like": 32,
+        "dislike": 1,
+        "unlike": 10,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 304180,
+        "total": 43,
+        "like": 38,
+        "dislike": 2,
+        "unlike": 3,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4045238,
+        "total": 42,
+        "like": 20,
+        "dislike": 10,
+        "unlike": 11,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2766576,
+        "total": 42,
+        "like": 32,
+        "dislike": 4,
+        "unlike": 5,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 290137,
+        "total": 42,
+        "like": 35,
+        "dislike": 3,
+        "unlike": 4,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 971988,
+        "total": 42,
+        "like": 31,
+        "dislike": 5,
+        "unlike": 6,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 9027607,
+        "total": 42,
+        "like": 35,
+        "dislike": 2,
+        "unlike": 4,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5974516,
+        "total": 42,
+        "like": 30,
+        "dislike": 4,
+        "unlike": 7,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4557096,
+        "total": 42,
+        "like": 35,
+        "dislike": 4,
+        "unlike": 3,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4889759,
+        "total": 41,
+        "like": 31,
+        "dislike": 4,
+        "unlike": 6,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6107633,
+        "total": 40,
+        "like": 31,
+        "dislike": 3,
+        "unlike": 5,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 7460324,
+        "total": 40,
+        "like": 28,
+        "dislike": 5,
+        "unlike": 7,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4608338,
+        "total": 40,
+        "like": 33,
+        "dislike": 2,
+        "unlike": 4,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5734320,
+        "total": 40,
+        "like": 35,
+        "dislike": 3,
+        "unlike": 2,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 3375935,
+        "total": 40,
+        "like": 32,
+        "dislike": 3,
+        "unlike": 3,
+        "undislike": 2,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6899778,
+        "total": 40,
+        "like": 34,
+        "dislike": 1,
+        "unlike": 5,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5973886,
+        "total": 40,
+        "like": 31,
+        "dislike": 4,
+        "unlike": 5,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1214011,
+        "total": 39,
+        "like": 30,
+        "dislike": 6,
+        "unlike": 3,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5442982,
+        "total": 38,
+        "like": 24,
+        "dislike": 10,
+        "unlike": 3,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6901050,
+        "total": 38,
+        "like": 26,
+        "dislike": 2,
+        "unlike": 9,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2096035,
+        "total": 38,
+        "like": 33,
+        "dislike": 3,
+        "unlike": 2,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1464852,
+        "total": 38,
+        "like": 34,
+        "dislike": 2,
+        "unlike": 2,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 3795884,
+        "total": 38,
+        "like": 30,
+        "dislike": 3,
+        "unlike": 5,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 3136627,
+        "total": 38,
+        "like": 30,
+        "dislike": 2,
+        "unlike": 6,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6246145,
+        "total": 38,
+        "like": 25,
+        "dislike": 5,
+        "unlike": 8,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4046840,
+        "total": 38,
+        "like": 28,
+        "dislike": 6,
+        "unlike": 4,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2308492,
+        "total": 38,
+        "like": 31,
+        "dislike": 1,
+        "unlike": 5,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4212961,
+        "total": 38,
+        "like": 24,
+        "dislike": 6,
+        "unlike": 8,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2572752,
+        "total": 37,
+        "like": 31,
+        "dislike": 2,
+        "unlike": 4,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4242661,
+        "total": 37,
+        "like": 29,
+        "dislike": 4,
+        "unlike": 4,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2338988,
+        "total": 37,
+        "like": 32,
+        "dislike": 2,
+        "unlike": 3,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2375890,
+        "total": 37,
+        "like": 30,
+        "dislike": 3,
+        "unlike": 4,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 3335443,
+        "total": 37,
+        "like": 25,
+        "dislike": 6,
+        "unlike": 5,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 4938298,
+        "total": 37,
+        "like": 28,
+        "dislike": 3,
+        "unlike": 6,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2393038,
+        "total": 37,
+        "like": 27,
+        "dislike": 4,
+        "unlike": 5,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 1497917,
+        "total": 37,
+        "like": 28,
+        "dislike": 3,
+        "unlike": 6,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 8077497,
+        "total": 36,
+        "like": 29,
+        "dislike": 2,
+        "unlike": 5,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5598338,
+        "total": 36,
+        "like": 31,
+        "dislike": 2,
+        "unlike": 2,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 9366917,
+        "total": 36,
+        "like": 31,
+        "dislike": 2,
+        "unlike": 3,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 2408923,
+        "total": 36,
+        "like": 30,
+        "dislike": 5,
+        "unlike": 1,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5773949,
+        "total": 36,
+        "like": 23,
+        "dislike": 5,
+        "unlike": 7,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 781438,
+        "total": 36,
+        "like": 32,
+        "dislike": 2,
+        "unlike": 2,
+        "undislike": 0,
+        "sid_covered": true
+      },
+      {
+        "item_id": 6399259,
+        "total": 36,
+        "like": 29,
+        "dislike": 3,
+        "unlike": 3,
+        "undislike": 1,
+        "sid_covered": true
+      },
+      {
+        "item_id": 5672520,
+        "total": 36,
+        "like": 25,
+        "dislike": 2,
+        "unlike": 9,
+        "undislike": 0,
+        "sid_covered": true
+      }
+    ]
+  },
+  "sid_coverage": {
+    "mapping_path": "/root/autodl-tmp/0804 Yambda/dataprocess/artifacts/metadata_imputation_fixed_codebook_seed2026/orig2catalog_row.npy",
+    "mapping_sha256": "15edf3efe87fe55e30c6743c24915bb0f336700970bf15e04e2d5b46c79a7ab1",
+    "current_sid_catalog_items": 244553,
+    "covered_explicit_items": 67731,
+    "uncovered_explicit_items": 1731,
+    "item_coverage_fraction": 0.9750798998013303,
+    "covered_explicit_events": 151916,
+    "uncovered_explicit_events": 1739,
+    "event_coverage_fraction": 0.9886824379291269,
+    "users_with_at_least_one_uncovered_event": 47,
+    "user_coverage_fraction": 0.953,
+    "important_scope_note": "This is coverage of the existing 50M-derived frozen SID mapping over the full 5B explicit-feedback item universe."
+  },
+  "supporting_artifacts": {
+    "item_frequency_npz": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/timed1000v2_items.npz",
+    "item_frequency_npz_sha256": "a9ee19b7c91c4775798bb0addbdad4c48e5da658112aa7abd6d007e87ce3db7d"
+  },
+  "runtime": {
+    "elapsed_seconds": 23.107632637023926
+  }
+}

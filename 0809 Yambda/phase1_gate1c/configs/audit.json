@@ -1,0 +1,12 @@
+{
+  "candidate_global_train_event_fractions": [0.6, 0.7, 0.8, 0.9],
+  "timestamp_resolution_seconds": 5,
+  "event_count_thresholds": [1, 2, 5, 10, 20, 50, 100],
+  "unique_user_thresholds": [1, 2, 5, 10, 20, 50],
+  "paths": {
+    "flat_manifest": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/manifest.json",
+    "orig2dense": "/root/autodl-tmp/0626/0626 Predictor/01_data/processed/raw_rqkmeans/orig2dense_item_id.npy",
+    "item_frequency": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/artifacts/item_explicit_frequency.npz"
+  }
+}
+

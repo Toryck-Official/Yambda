@@ -1,0 +1,552 @@
+[
+  {
+    "epoch": 1,
+    "train": {
+      "optimization_loss": 6.121203607756805,
+      "time_loss_per_group": 4.736354376993517,
+      "feedback_loss_per_event": 1.3848492307632885,
+      "gradient_norm_mean": 2.5360243059230267,
+      "gradient_norm_max": 63.221435546875,
+      "gradient_clip_frequency": 0.05361596009975062,
+      "nonfinite_steps": 0,
+      "step_loss_change_median_abs": 0.6013493537902832,
+      "seconds": 46.802719220519066,
+      "groups_per_second": 137.02195314302244
+    },
+    "evaluation": {
+      "optimization_loss": 6.097468778152046,
+      "time_loss_per_group": 4.718978518984646,
+      "feedback_loss_per_event": 1.3784902591674,
+      "accuracy": 0.4104997002319944,
+      "macro_f1": 0.14551569921088134,
+      "per_class_recall": {
+        "like": 0.0,
+        "dislike": 0.0,
+        "unlike": 1.0,
+        "undislike": 0.0
+      },
+      "per_class_precision": {
+        "like": 0.0,
+        "dislike": 0.0,
+        "unlike": 0.4104997002319944,
+        "undislike": 0.0
+      },
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          11253,
+          0
+        ],
+        [
+          0,
+          0,
+          6391,
+          0
+        ],
+        [
+          0,
+          0,
+          15748,
+          0
+        ],
+        [
+          0,
+          0,
+          4971,
+          0
+        ]
+      ],
+      "predicted_feedback_distribution": [
+        0.2501789629459381,
+        0.2506161332130432,
+        0.2537664473056793,
+        0.24543777108192444
+      ],
+      "lambda_k": {
+        "mean": 0.005584909580647945,
+        "p50": 0.005447896663099527,
+        "p95": 0.006143543869256973,
+        "max": 0.03925684094429016
+      },
+      "total_lambda": {
+        "mean": 0.02233964018523693,
+        "p50": 0.02179918810725212,
+        "p95": 0.024589931592345238,
+        "max": 0.09870421886444092
+      },
+      "signed_influence": {
+        "mean": 1.8613195419311523,
+        "p50": 0.7226133346557617,
+        "p95": 7.152297496795654,
+        "max": 83.62828063964844
+      },
+      "absolute_influence_mass": {
+        "mean": 1.8613195419311523,
+        "p50": 0.7226133346557617,
+        "p95": 7.152297496795654,
+        "max": 83.62828063964844
+      },
+      "positive_influence_mass": {
+        "mean": 1.8613195419311523,
+        "p50": 0.7226133346557617,
+        "p95": 7.152297496795654,
+        "max": 83.62828063964844
+      },
+      "negative_influence_mass": {
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "feedback_oracle_loss_per_event": 0.24528991409727754,
+      "feedback_excess_loss": 1.1332003450701225,
+      "predicted_argmax_class_distribution": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    }
+  },
+  {
+    "epoch": 2,
+    "train": {
+      "optimization_loss": 6.053785253789611,
+      "time_loss_per_group": 4.681735098538562,
+      "feedback_loss_per_event": 1.3720501552510491,
+      "gradient_norm_mean": 7.632351067372391,
+      "gradient_norm_max": 232.7859649658203,
+      "gradient_clip_frequency": 0.1708229426433915,
+      "nonfinite_steps": 0,
+      "step_loss_change_median_abs": 0.6930427551269531,
+      "seconds": 47.14226480573416,
+      "groups_per_second": 136.0350425764855
+    },
+    "evaluation": {
+      "optimization_loss": 6.01066636357624,
+      "time_loss_per_group": 4.6451274346732765,
+      "feedback_loss_per_event": 1.3655389289029636,
+      "accuracy": 0.4104997002319944,
+      "macro_f1": 0.14551569921088134,
+      "per_class_recall": {
+        "like": 0.0,
+        "dislike": 0.0,
+        "unlike": 1.0,
+        "undislike": 0.0
+      },
+      "per_class_precision": {
+        "like": 0.0,
+        "dislike": 0.0,
+        "unlike": 0.4104997002319944,
+        "undislike": 0.0
+      },
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          11253,
+          0
+        ],
+        [
+          0,
+          0,
+          6391,
+          0
+        ],
+        [
+          0,
+          0,
+          15748,
+          0
+        ],
+        [
+          0,
+          0,
+          4971,
+          0
+        ]
+      ],
+      "predicted_feedback_distribution": [
+        0.25135570764541626,
+        0.24933338165283203,
+        0.2670382261276245,
+        0.23227213323116302
+      ],
+      "lambda_k": {
+        "mean": 0.0072466363199055195,
+        "p50": 0.005711768753826618,
+        "p95": 0.009888491593301296,
+        "max": 3.021728038787842
+      },
+      "total_lambda": {
+        "mean": 0.028986545279622078,
+        "p50": 0.022912224754691124,
+        "p95": 0.04018184170126915,
+        "max": 3.542275905609131
+      },
+      "signed_influence": {
+        "mean": 4.195886135101318,
+        "p50": 1.6291038990020752,
+        "p95": 16.130809783935547,
+        "max": 189.22634887695312
+      },
+      "absolute_influence_mass": {
+        "mean": 4.195886135101318,
+        "p50": 1.6291038990020752,
+        "p95": 16.130809783935547,
+        "max": 189.22634887695312
+      },
+      "positive_influence_mass": {
+        "mean": 4.195886135101318,
+        "p50": 1.6291038990020752,
+        "p95": 16.130809783935547,
+        "max": 189.22634887695312
+      },
+      "negative_influence_mass": {
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "feedback_oracle_loss_per_event": 0.24528991409727754,
+      "feedback_excess_loss": 1.120249014805686,
+      "predicted_argmax_class_distribution": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    }
+  },
+  {
+    "epoch": 3,
+    "train": {
+      "optimization_loss": 5.999688597616029,
+      "time_loss_per_group": 4.634456887996905,
+      "feedback_loss_per_event": 1.3652317096191244,
+      "gradient_norm_mean": 17.02803211101793,
+      "gradient_norm_max": 3497.155029296875,
+      "gradient_clip_frequency": 0.2655860349127182,
+      "nonfinite_steps": 0,
+      "step_loss_change_median_abs": 0.8745613098144531,
+      "seconds": 46.0529568195343,
+      "groups_per_second": 139.25273083181915
+    },
+    "evaluation": {
+      "optimization_loss": 5.9829692033323765,
+      "time_loss_per_group": 4.61049891592615,
+      "feedback_loss_per_event": 1.3724702874062267,
+      "accuracy": 0.4104997002319944,
+      "macro_f1": 0.14551569921088134,
+      "per_class_recall": {
+        "like": 0.0,
+        "dislike": 0.0,
+        "unlike": 1.0,
+        "undislike": 0.0
+      },
+      "per_class_precision": {
+        "like": 0.0,
+        "dislike": 0.0,
+        "unlike": 0.4104997002319944,
+        "undislike": 0.0
+      },
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          11253,
+          0
+        ],
+        [
+          0,
+          0,
+          6391,
+          0
+        ],
+        [
+          0,
+          0,
+          15748,
+          0
+        ],
+        [
+          0,
+          0,
+          4971,
+          0
+        ]
+      ],
+      "predicted_feedback_distribution": [
+        0.2535478174686432,
+        0.24514414370059967,
+        0.2835793197154999,
+        0.2177276611328125
+      ],
+      "lambda_k": {
+        "mean": 0.01439574547111988,
+        "p50": 0.00613948330283165,
+        "p95": 0.019077852368354797,
+        "max": 12.190497398376465
+      },
+      "total_lambda": {
+        "mean": 0.05758298188447952,
+        "p50": 0.024719946086406708,
+        "p95": 0.08442942053079605,
+        "max": 12.39419937133789
+      },
+      "signed_influence": {
+        "mean": 6.428163528442383,
+        "p50": 2.4955430030822754,
+        "p95": 24.7056884765625,
+        "max": 291.0242614746094
+      },
+      "absolute_influence_mass": {
+        "mean": 6.428163528442383,
+        "p50": 2.4955430030822754,
+        "p95": 24.7056884765625,
+        "max": 291.0242614746094
+      },
+      "positive_influence_mass": {
+        "mean": 6.428163528442383,
+        "p50": 2.4955430030822754,
+        "p95": 24.7056884765625,
+        "max": 291.0242614746094
+      },
+      "negative_influence_mass": {
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "feedback_oracle_loss_per_event": 0.24528991409727754,
+      "feedback_excess_loss": 1.1271803733089492,
+      "predicted_argmax_class_distribution": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    }
+  },
+  {
+    "epoch": 4,
+    "train": {
+      "optimization_loss": 6.043415337628247,
+      "time_loss_per_group": 4.661980224523792,
+      "feedback_loss_per_event": 1.3814351131044544,
+      "gradient_norm_mean": 27.028739720137043,
+      "gradient_norm_max": 6128.9658203125,
+      "gradient_clip_frequency": 0.3204488778054863,
+      "nonfinite_steps": 0,
+      "step_loss_change_median_abs": 0.9791560173034668,
+      "seconds": 47.021684899926186,
+      "groups_per_second": 136.3838835985664
+    },
+    "evaluation": {
+      "optimization_loss": 6.0609693649562315,
+      "time_loss_per_group": 4.672661419463533,
+      "feedback_loss_per_event": 1.3883079454926988,
+      "accuracy": 0.4104997002319944,
+      "macro_f1": 0.14551569921088134,
+      "per_class_recall": {
+        "like": 0.0,
+        "dislike": 0.0,
+        "unlike": 1.0,
+        "undislike": 0.0
+      },
+      "per_class_precision": {
+        "like": 0.0,
+        "dislike": 0.0,
+        "unlike": 0.4104997002319944,
+        "undislike": 0.0
+      },
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          11253,
+          0
+        ],
+        [
+          0,
+          0,
+          6391,
+          0
+        ],
+        [
+          0,
+          0,
+          15748,
+          0
+        ],
+        [
+          0,
+          0,
+          4971,
+          0
+        ]
+      ],
+      "predicted_feedback_distribution": [
+        0.2579856514930725,
+        0.24059082567691803,
+        0.29431408643722534,
+        0.2071099430322647
+      ],
+      "lambda_k": {
+        "mean": 0.025366250425577164,
+        "p50": 0.006547018885612488,
+        "p95": 0.03225022181868553,
+        "max": 20.35015869140625
+      },
+      "total_lambda": {
+        "mean": 0.10146500170230865,
+        "p50": 0.02647359110414982,
+        "p95": 0.16269506514072418,
+        "max": 20.489816665649414
+      },
+      "signed_influence": {
+        "mean": 8.01303482055664,
+        "p50": 3.1102404594421387,
+        "p95": 30.779830932617188,
+        "max": 363.5552978515625
+      },
+      "absolute_influence_mass": {
+        "mean": 8.01303482055664,
+        "p50": 3.1102404594421387,
+        "p95": 30.779830932617188,
+        "max": 363.5552978515625
+      },
+      "positive_influence_mass": {
+        "mean": 8.01303482055664,
+        "p50": 3.1102404594421387,
+        "p95": 30.779830932617188,
+        "max": 363.5552978515625
+      },
+      "negative_influence_mass": {
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "feedback_oracle_loss_per_event": 0.24528991409727754,
+      "feedback_excess_loss": 1.1430180313954212,
+      "predicted_argmax_class_distribution": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    }
+  },
+  {
+    "epoch": 5,
+    "train": {
+      "optimization_loss": 6.140683672747183,
+      "time_loss_per_group": 4.736185335060856,
+      "feedback_loss_per_event": 1.4044983376863276,
+      "gradient_norm_mean": 33.89328315008682,
+      "gradient_norm_max": 7336.61279296875,
+      "gradient_clip_frequency": 0.3553615960099751,
+      "nonfinite_steps": 0,
+      "step_loss_change_median_abs": 1.0029654502868652,
+      "seconds": 46.09966550022364,
+      "groups_per_second": 139.11163845579074
+    },
+    "evaluation": {
+      "optimization_loss": 6.167570078647323,
+      "time_loss_per_group": 4.762732319837053,
+      "feedback_loss_per_event": 1.4048377588102705,
+      "accuracy": 0.4104997002319944,
+      "macro_f1": 0.14551569921088134,
+      "per_class_recall": {
+        "like": 0.0,
+        "dislike": 0.0,
+        "unlike": 1.0,
+        "undislike": 0.0
+      },
+      "per_class_precision": {
+        "like": 0.0,
+        "dislike": 0.0,
+        "unlike": 0.4104997002319944,
+        "undislike": 0.0
+      },
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          11253,
+          0
+        ],
+        [
+          0,
+          0,
+          6391,
+          0
+        ],
+        [
+          0,
+          0,
+          15748,
+          0
+        ],
+        [
+          0,
+          0,
+          4971,
+          0
+        ]
+      ],
+      "predicted_feedback_distribution": [
+        0.2613544464111328,
+        0.23689530789852142,
+        0.3020579218864441,
+        0.1996922641992569
+      ],
+      "lambda_k": {
+        "mean": 0.0358109176158905,
+        "p50": 0.006862693466246128,
+        "p95": 0.04810729995369911,
+        "max": 26.45805549621582
+      },
+      "total_lambda": {
+        "mean": 0.143243670463562,
+        "p50": 0.027851982042193413,
+        "p95": 0.2603010833263397,
+        "max": 26.56806182861328
+      },
+      "signed_influence": {
+        "mean": 9.056427955627441,
+        "p50": 3.5153355598449707,
+        "p95": 34.785945892333984,
+        "max": 411.54962158203125
+      },
+      "absolute_influence_mass": {
+        "mean": 9.056427955627441,
+        "p50": 3.5153355598449707,
+        "p95": 34.785945892333984,
+        "max": 411.54962158203125
+      },
+      "positive_influence_mass": {
+        "mean": 9.056427955627441,
+        "p50": 3.5153355598449707,
+        "p95": 34.785945892333984,
+        "max": 411.54962158203125
+      },
+      "negative_influence_mass": {
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "feedback_oracle_loss_per_event": 0.24528991409727754,
+      "feedback_excess_loss": 1.159547844712993,
+      "predicted_argmax_class_distribution": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    }
+  }
+]

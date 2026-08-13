@@ -1,0 +1,7 @@
+{
+  "status": "partial_smoke",
+  "users": 10000,
+  "events": 1582117,
+  "elapsed_seconds": 23.995401859283447,
+  "output": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat10k_audit.json"
+}

@@ -1,0 +1,24 @@
+{
+  "protocol_version": "Phase_2_v1.1",
+  "minimal_snmpp_training_started": true,
+  "stage_a_tiny_overfit_passed": false,
+  "stage_b_pilot_completed": false,
+  "baseline_comparison_completed": false,
+  "scalability_profile_completed": false,
+  "minimal_snmpp_pilot_passed": false,
+  "hierarchical_sid_head_approved": false,
+  "full_scale_snmpp_approved": false,
+  "forbidden_branches_started": {
+    "hierarchical_sid": false,
+    "residual": false,
+    "hpn": false,
+    "bola": false,
+    "full_scale": false
+  },
+  "stop_reason": "At the exact matched LR, factorization reduced intensity explosion and briefly improved loss, but final Tiny time loss and feedback excess worsened, majority collapse remained, signed influence stayed all-positive, and >500 burst amplification persisted.",
+  "failure_diagnosis_gate_completed": true,
+  "factorized_snmpp_tiny_passed": false,
+  "time_mark_coupling_failure_supported": false,
+  "history_aggregation_gate_needed": true,
+  "minimal_snmpp_stageB_approved": false
+}

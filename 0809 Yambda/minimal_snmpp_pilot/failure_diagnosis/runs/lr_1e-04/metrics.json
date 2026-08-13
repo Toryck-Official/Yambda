@@ -1,0 +1,1107 @@
+{
+  "learning_rate": 0.0001,
+  "epochs": 5,
+  "passed": false,
+  "obvious_numerical_instability": false,
+  "initial": {
+    "optimization_loss": 6.128555572791029,
+    "time_loss_per_group": 4.742261531180866,
+    "feedback_loss_per_event": 1.3862940416101637,
+    "accuracy": 0.2933295102051456,
+    "macro_f1": 0.11340091905836826,
+    "per_class_recall": {
+      "like": 1.0,
+      "dislike": 0.0,
+      "unlike": 0.0,
+      "undislike": 0.0
+    },
+    "per_class_precision": {
+      "like": 0.2933295102051456,
+      "dislike": 0.0,
+      "unlike": 0.0,
+      "undislike": 0.0
+    },
+    "confusion_matrix": [
+      [
+        11253,
+        0,
+        0,
+        0
+      ],
+      [
+        6391,
+        0,
+        0,
+        0
+      ],
+      [
+        15748,
+        0,
+        0,
+        0
+      ],
+      [
+        4971,
+        0,
+        0,
+        0
+      ]
+    ],
+    "predicted_feedback_distribution": [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "lambda_k": {
+      "mean": 0.0053724986501038074,
+      "p50": 0.005372500978410244,
+      "p95": 0.005372502841055393,
+      "max": 0.005372564308345318
+    },
+    "total_lambda": {
+      "mean": 0.02148999460041523,
+      "p50": 0.021489998325705528,
+      "p95": 0.021490003913640976,
+      "max": 0.021490003913640976
+    },
+    "signed_influence": {
+      "mean": -0.0033259110059589148,
+      "p50": -0.001283290097489953,
+      "p95": -0.00012552295811474323,
+      "max": -4.195296060061082e-05
+    },
+    "absolute_influence_mass": {
+      "mean": 0.0033259110059589148,
+      "p50": 0.001283290097489953,
+      "p95": 0.012618022039532661,
+      "max": 0.15543217957019806
+    },
+    "positive_influence_mass": {
+      "mean": 0.0,
+      "p50": 0.0,
+      "p95": 0.0,
+      "max": 0.0
+    },
+    "negative_influence_mass": {
+      "mean": 0.0033259110059589148,
+      "p50": 0.001283290097489953,
+      "p95": 0.012618022039532661,
+      "max": 0.15543217957019806
+    },
+    "feedback_oracle_loss_per_event": 0.24528991409727754,
+    "feedback_excess_loss": 1.1410041275128862,
+    "predicted_argmax_class_distribution": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "final": {
+    "optimization_loss": 6.299704763762376,
+    "time_loss_per_group": 4.905213862615723,
+    "feedback_loss_per_event": 1.394490901146654,
+    "accuracy": 0.41448791804603397,
+    "macro_f1": 0.18898904821117254,
+    "per_class_recall": {
+      "like": 0.11819070470096862,
+      "dislike": 0.0,
+      "unlike": 0.925260350520701,
+      "undislike": 0.0
+    },
+    "per_class_precision": {
+      "like": 0.32718327183271834,
+      "dislike": 0.0,
+      "unlike": 0.4248352673625284,
+      "undislike": 0.0
+    },
+    "confusion_matrix": [
+      [
+        1330,
+        0,
+        9923,
+        0
+      ],
+      [
+        795,
+        0,
+        5596,
+        0
+      ],
+      [
+        1177,
+        0,
+        14571,
+        0
+      ],
+      [
+        763,
+        0,
+        4208,
+        0
+      ]
+    ],
+    "predicted_feedback_distribution": [
+      0.2784346044063568,
+      0.22715282440185547,
+      0.3054408133029938,
+      0.18897247314453125
+    ],
+    "lambda_k": {
+      "mean": 0.0511108934879303,
+      "p50": 0.006963498890399933,
+      "p95": 0.07678680121898651,
+      "max": 37.16292190551758
+    },
+    "total_lambda": {
+      "mean": 0.2044435739517212,
+      "p50": 0.028229299932718277,
+      "p95": 0.43786299228668213,
+      "max": 37.72793960571289
+    },
+    "signed_influence": {
+      "mean": 9.810961723327637,
+      "p50": 3.8127522468566895,
+      "p95": 37.61846923828125,
+      "max": 483.9037170410156
+    },
+    "absolute_influence_mass": {
+      "mean": 9.810961723327637,
+      "p50": 3.8127522468566895,
+      "p95": 37.61846923828125,
+      "max": 483.9037170410156
+    },
+    "positive_influence_mass": {
+      "mean": 9.810961723327637,
+      "p50": 3.8127522468566895,
+      "p95": 37.61846923828125,
+      "max": 483.9037170410156
+    },
+    "negative_influence_mass": {
+      "mean": 0.0,
+      "p50": 0.0,
+      "p95": 0.0,
+      "max": 0.0
+    },
+    "feedback_oracle_loss_per_event": 0.24528991409727754,
+    "feedback_excess_loss": 1.1492009870493765,
+    "predicted_argmax_class_distribution": [
+      0.10596147329458072,
+      0.0,
+      0.8940385267054193,
+      0.0
+    ]
+  },
+  "initial_diagnostics": {
+    "Lambda": {
+      "mean": 0.021489995230978557,
+      "median": 0.021489998325705528,
+      "p95": 0.021490003913640976,
+      "p99": 0.021490003913640976,
+      "max": 0.021490003913640976,
+      "finite": true
+    },
+    "q_entropy": {
+      "mean": 1.3862943676989146,
+      "median": 1.3862943649291992,
+      "p95": 1.3862943649291992,
+      "p99": 1.3862944841384888,
+      "max": 1.3862944841384888,
+      "finite": true
+    },
+    "phi": {
+      "mean": 0.5572804071737604,
+      "median": 0.5505436956882477,
+      "p95": 0.5981051623821259,
+      "p99": 0.6446590924262999,
+      "max": 0.6494064331054688,
+      "finite": true
+    },
+    "psi_signed_mass": {
+      "mean": -0.0033259109567527413,
+      "median": -0.001283290097489953,
+      "p95": -0.00012552295665955199,
+      "p99": -6.707147316774432e-05,
+      "max": -4.195296060061082e-05,
+      "finite": true
+    },
+    "psi_absolute_mass": {
+      "mean": 0.0033259109567527413,
+      "median": 0.001283290097489953,
+      "p95": 0.012618021667003628,
+      "p99": 0.034047266282141206,
+      "max": 0.15543217957019806,
+      "finite": true
+    },
+    "psi_positive_mass": {
+      "mean": 0.0,
+      "median": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "max": 0.0,
+      "finite": true
+    },
+    "psi_negative_mass": {
+      "mean": 0.0033259109567527413,
+      "median": 0.001283290097489953,
+      "p95": 0.012618021667003628,
+      "p99": 0.034047266282141206,
+      "max": 0.15543217957019806,
+      "finite": true
+    }
+  },
+  "final_diagnostics": {
+    "Lambda": {
+      "mean": 0.20444356576775854,
+      "median": 0.028229299932718277,
+      "p95": 0.4378629982471454,
+      "p99": 4.6810684013366775,
+      "max": 37.72793960571289,
+      "finite": true
+    },
+    "q_entropy": {
+      "mean": 1.3495443332670223,
+      "median": 1.3795933723449707,
+      "p95": 1.3846642255783081,
+      "p99": 1.3848178100585937,
+      "max": 1.3848720788955688,
+      "finite": true
+    },
+    "phi": {
+      "mean": 0.5764521363162407,
+      "median": 0.5643196702003479,
+      "p95": 0.6503000706434248,
+      "p99": 0.7292102324962614,
+      "max": 0.7426769137382507,
+      "finite": true
+    },
+    "psi_signed_mass": {
+      "mean": 9.810962365424668,
+      "median": 3.8127522468566895,
+      "p95": 37.6184694290161,
+      "p99": 97.61218170165996,
+      "max": 483.9037170410156,
+      "finite": true
+    },
+    "psi_absolute_mass": {
+      "mean": 9.810962365424668,
+      "median": 3.8127522468566895,
+      "p95": 37.6184694290161,
+      "p99": 97.61218170165996,
+      "max": 483.9037170410156,
+      "finite": true
+    },
+    "psi_positive_mass": {
+      "mean": 9.810962365424668,
+      "median": 3.8127522468566895,
+      "p95": 37.6184694290161,
+      "p99": 97.61218170165996,
+      "max": 483.9037170410156,
+      "finite": true
+    },
+    "psi_negative_mass": {
+      "mean": 0.0,
+      "median": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "max": 0.0,
+      "finite": true
+    }
+  },
+  "gradient_conflict": {
+    "initial": {
+      "feedback_embedding": {
+        "gradient_norm_time": 7.063711393584526e-08,
+        "gradient_norm_feedback": 1.253293788749943e-07,
+        "cosine_similarity": -0.5302573676015138,
+        "combined_gradient_norm": 1.0634104086193474e-07,
+        "finite": true
+      },
+      "P_SID": {
+        "gradient_norm_time": 4.4766636619897326e-08,
+        "gradient_norm_feedback": 3.1726408167287445e-08,
+        "cosine_similarity": -0.9080440986457038,
+        "combined_gradient_norm": 2.076667016126521e-08,
+        "finite": true
+      },
+      "psi": {
+        "gradient_norm_time": 0.0017036509234458208,
+        "gradient_norm_feedback": 0.00018547102808952332,
+        "cosine_similarity": -0.7916081842073956,
+        "combined_gradient_norm": 0.0015609500696882606,
+        "finite": true
+      },
+      "phi": {
+        "gradient_norm_time": 8.460187217451676e-09,
+        "gradient_norm_feedback": 4.798839103870023e-09,
+        "cosine_similarity": 0.9721808205421474,
+        "combined_gradient_norm": 1.3173568014224202e-08,
+        "finite": true
+      },
+      "delay": {
+        "gradient_norm_time": 5.890191806523504e-11,
+        "gradient_norm_feedback": 5.14404274384872e-12,
+        "cosine_similarity": -0.6890419312374405,
+        "combined_gradient_norm": 5.5482840544129886e-11,
+        "finite": true
+      },
+      "all_shared": {
+        "gradient_norm_time": 0.0017036510398611426,
+        "gradient_norm_feedback": 0.000185471071745269,
+        "cosine_similarity": -0.7916079437876923,
+        "combined_gradient_norm": 0.0015609500696882606,
+        "finite": true
+      },
+      "negative_cosine_parameter_group_count": 4
+    },
+    "final": {
+      "feedback_embedding": {
+        "gradient_norm_time": 0.04949115216732025,
+        "gradient_norm_feedback": 0.0012035972904413939,
+        "cosine_similarity": 0.9722321188576428,
+        "combined_gradient_norm": 0.05066210776567459,
+        "finite": true
+      },
+      "P_SID": {
+        "gradient_norm_time": 0.04298841580748558,
+        "gradient_norm_feedback": 0.0012071498204022646,
+        "cosine_similarity": 0.9726171316759076,
+        "combined_gradient_norm": 0.04416339844465256,
+        "finite": true
+      },
+      "psi": {
+        "gradient_norm_time": 3.6927452087402344,
+        "gradient_norm_feedback": 0.18973740935325623,
+        "cosine_similarity": 0.9989166792161297,
+        "combined_gradient_norm": 3.88228702545166,
+        "finite": true
+      },
+      "phi": {
+        "gradient_norm_time": 0.08458097279071808,
+        "gradient_norm_feedback": 0.004103688523173332,
+        "cosine_similarity": 0.9991706474756586,
+        "combined_gradient_norm": 0.0886814147233963,
+        "finite": true
+      },
+      "delay": {
+        "gradient_norm_time": 8.986220927909017e-05,
+        "gradient_norm_feedback": 1.2082119837941718e-06,
+        "cosine_similarity": 0.8956162501120178,
+        "combined_gradient_norm": 9.094589040614665e-05,
+        "finite": true
+      },
+      "all_shared": {
+        "gradient_norm_time": 3.6942954063415527,
+        "gradient_norm_feedback": 0.18978942930698395,
+        "cosine_similarity": 0.9988730643439266,
+        "combined_gradient_norm": 3.883881092071533,
+        "finite": true
+      },
+      "negative_cosine_parameter_group_count": 0
+    }
+  },
+  "burst": {
+    ">500": {
+      "groups": 17,
+      "Lambda": {
+        "mean": 2.017036831992514,
+        "median": 0.673394501209259,
+        "p99": 9.564599151611327,
+        "max": 9.58102798461914,
+        "finite": true
+      },
+      "time_loss": {
+        "mean": 12.191665677463307,
+        "median": 1.7807836532592773,
+        "p99": 110.40304290771483,
+        "max": 124.22112274169922,
+        "finite": true
+      },
+      "absolute_influence_mass": {
+        "mean": 56.665863654192755,
+        "median": 43.936405181884766,
+        "p99": 155.9125978088379,
+        "max": 156.62411499023438,
+        "finite": true
+      },
+      "gradient_norm": {
+        "mean": 837.1137557983399,
+        "median": 216.4586944580078,
+        "p99": 3014.916796875,
+        "max": 3113.118896484375,
+        "finite": true
+      }
+    },
+    "<=500_reference": {
+      "groups": 17,
+      "Lambda": {
+        "mean": 0.03703109514625633,
+        "median": 0.02989114448428154,
+        "p99": 0.09572977423667907,
+        "max": 0.10019296407699585,
+        "finite": true
+      },
+      "time_loss": {
+        "mean": 3.9329112137065216,
+        "median": 3.6643338203430176,
+        "p99": 7.034800872802735,
+        "max": 7.064155578613281,
+        "finite": true
+      },
+      "absolute_influence_mass": {
+        "mean": 5.630046337842941,
+        "median": 4.487679958343506,
+        "p99": 18.98305341720581,
+        "max": 18.99182891845703,
+        "finite": true
+      },
+      "gradient_norm": {
+        "mean": 15.050009632110596,
+        "median": 14.85719108581543,
+        "p99": 23.122866973876953,
+        "max": 23.19072723388672,
+        "finite": true
+      }
+    }
+  },
+  "parameter_change_l2": {
+    "raw_delays": 0.26788395643234253,
+    "feedback_embedding.weight": 0.18209514021873474,
+    "sid_projection.weight": 1.0009571313858032,
+    "interaction_network.hidden.0.weight": 0.2372867912054062,
+    "interaction_network.hidden.0.bias": 0.08902181684970856,
+    "interaction_network.hidden.2.weight": 0.3954191207885742,
+    "interaction_network.hidden.2.bias": 0.10358159989118576,
+    "interaction_network.output.weight": 0.08692722022533417,
+    "interaction_network.output.bias": 0.019244754686951637,
+    "temporal_network.layers.0.raw_weight": 2.681182622909546,
+    "temporal_network.layers.0.bias": 0.9817753434181213,
+    "temporal_network.layers.1.raw_weight": 3.962509870529175,
+    "temporal_network.layers.1.bias": 0.10218603909015656,
+    "temporal_network.layers.2.raw_weight": 0.14655502140522003,
+    "temporal_network.layers.2.bias": 0.01244056224822998,
+    "time_head.weight": 0.043793778866529465,
+    "time_head.bias": 0.05875420570373535,
+    "mark_head.weight": 0.019752137362957,
+    "mark_head.bias": 0.10379943996667862
+  },
+  "delay_matrix_hours": [
+    [
+      0.11095963418483734,
+      0.1109415590763092,
+      0.11101754009723663,
+      0.11094526201486588
+    ],
+    [
+      0.10753656923770905,
+      0.10753671824932098,
+      0.10753574222326279,
+      0.10754933953285217
+    ],
+    [
+      0.10076616704463959,
+      0.10075923055410385,
+      0.10078718513250351,
+      0.10076266527175903
+    ],
+    [
+      0.10002035647630692,
+      0.09998675435781479,
+      0.09999848902225494,
+      0.09990391135215759
+    ]
+  ],
+  "gradient_norms": {
+    "mean_by_epoch": [
+      29.873332899407554,
+      52.98253168704504,
+      60.100196991719656,
+      62.6217055220222,
+      61.88825515450496
+    ],
+    "max_by_epoch": [
+      6355.91015625,
+      8807.1259765625,
+      9106.919921875,
+      9814.4931640625,
+      9987.2431640625
+    ],
+    "clip_frequency_by_epoch": [
+      0.3104738154613466,
+      0.38902743142144636,
+      0.40399002493765584,
+      0.415211970074813,
+      0.40523690773067333
+    ]
+  },
+  "NaN_or_Inf": false,
+  "curves": [
+    {
+      "epoch": 1,
+      "train": {
+        "optimization_loss": 6.133171127267389,
+        "time_loss_per_group": 4.733006213359336,
+        "feedback_loss_per_event": 1.400164913908053,
+        "gradient_norm_mean": 29.873332899407554,
+        "gradient_norm_max": 6355.91015625,
+        "gradient_clip_frequency": 0.3104738154613466,
+        "nonfinite_steps": 0,
+        "step_loss_change_median_abs": 0.9745960235595703,
+        "seconds": 44.489380434155464,
+        "groups_per_second": 144.1467590112044
+      },
+      "evaluation": {
+        "optimization_loss": 6.360082809329238,
+        "time_loss_per_group": 4.930490296539085,
+        "feedback_loss_per_event": 1.429592512790153,
+        "accuracy": 0.4104997002319944,
+        "macro_f1": 0.14551569921088134,
+        "per_class_recall": {
+          "like": 0.0,
+          "dislike": 0.0,
+          "unlike": 1.0,
+          "undislike": 0.0
+        },
+        "per_class_precision": {
+          "like": 0.0,
+          "dislike": 0.0,
+          "unlike": 0.4104997002319944,
+          "undislike": 0.0
+        },
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            11253,
+            0
+          ],
+          [
+            0,
+            0,
+            6391,
+            0
+          ],
+          [
+            0,
+            0,
+            15748,
+            0
+          ],
+          [
+            0,
+            0,
+            4971,
+            0
+          ]
+        ],
+        "predicted_feedback_distribution": [
+          0.26716965436935425,
+          0.23071901500225067,
+          0.3115571439266205,
+          0.1905529797077179
+        ],
+        "lambda_k": {
+          "mean": 0.051568806171417236,
+          "p50": 0.0072531551122665405,
+          "p95": 0.07568840682506561,
+          "max": 34.771018981933594
+        },
+        "total_lambda": {
+          "mean": 0.20627523958683014,
+          "p50": 0.02963205613195896,
+          "p95": 0.4555565416812897,
+          "max": 34.867645263671875
+        },
+        "signed_influence": {
+          "mean": 10.08542251586914,
+          "p50": 3.9139580726623535,
+          "p95": 38.68918228149414,
+          "max": 465.2239990234375
+        },
+        "absolute_influence_mass": {
+          "mean": 10.08542251586914,
+          "p50": 3.9139580726623535,
+          "p95": 38.68918228149414,
+          "max": 465.2239990234375
+        },
+        "positive_influence_mass": {
+          "mean": 10.08542251586914,
+          "p50": 3.9139580726623535,
+          "p95": 38.68918228149414,
+          "max": 465.2239990234375
+        },
+        "negative_influence_mass": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "feedback_oracle_loss_per_event": 0.24528991409727754,
+        "feedback_excess_loss": 1.1843025986928755,
+        "predicted_argmax_class_distribution": [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "epoch": 2,
+      "train": {
+        "optimization_loss": 6.476015541714683,
+        "time_loss_per_group": 5.016766660097849,
+        "feedback_loss_per_event": 1.4592488816168343,
+        "gradient_norm_mean": 52.98253168704504,
+        "gradient_norm_max": 8807.1259765625,
+        "gradient_clip_frequency": 0.38902743142144636,
+        "nonfinite_steps": 0,
+        "step_loss_change_median_abs": 1.1436576843261719,
+        "seconds": 43.666135996580124,
+        "groups_per_second": 146.8643802259549
+      },
+      "evaluation": {
+        "optimization_loss": 6.747304945492701,
+        "time_loss_per_group": 5.273127512070795,
+        "feedback_loss_per_event": 1.4741774334219055,
+        "accuracy": 0.4104997002319944,
+        "macro_f1": 0.14551569921088134,
+        "per_class_recall": {
+          "like": 0.0,
+          "dislike": 0.0,
+          "unlike": 1.0,
+          "undislike": 0.0
+        },
+        "per_class_precision": {
+          "like": 0.0,
+          "dislike": 0.0,
+          "unlike": 0.4104997002319944,
+          "undislike": 0.0
+        },
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            11253,
+            0
+          ],
+          [
+            0,
+            0,
+            6391,
+            0
+          ],
+          [
+            0,
+            0,
+            15748,
+            0
+          ],
+          [
+            0,
+            0,
+            4971,
+            0
+          ]
+        ],
+        "predicted_feedback_distribution": [
+          0.2700330913066864,
+          0.22203679382801056,
+          0.32877975702285767,
+          0.17914995551109314
+        ],
+        "lambda_k": {
+          "mean": 0.07764073461294174,
+          "p50": 0.007810472510755062,
+          "p95": 0.1300361603498459,
+          "max": 46.95388412475586
+        },
+        "total_lambda": {
+          "mean": 0.31056296825408936,
+          "p50": 0.032224979251623154,
+          "p95": 0.907089114189148,
+          "max": 46.970855712890625
+        },
+        "signed_influence": {
+          "mean": 11.601548194885254,
+          "p50": 4.500099182128906,
+          "p95": 44.46340560913086,
+          "max": 544.4063110351562
+        },
+        "absolute_influence_mass": {
+          "mean": 11.601548194885254,
+          "p50": 4.500099182128906,
+          "p95": 44.46340560913086,
+          "max": 544.4063110351562
+        },
+        "positive_influence_mass": {
+          "mean": 11.601548194885254,
+          "p50": 4.500099182128906,
+          "p95": 44.46340560913086,
+          "max": 544.4063110351562
+        },
+        "negative_influence_mass": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "feedback_oracle_loss_per_event": 0.24528991409727754,
+        "feedback_excess_loss": 1.228887519324628,
+        "predicted_argmax_class_distribution": [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "epoch": 3,
+      "train": {
+        "optimization_loss": 6.600564090881339,
+        "time_loss_per_group": 5.130305727906891,
+        "feedback_loss_per_event": 1.4702583629744481,
+        "gradient_norm_mean": 60.100196991719656,
+        "gradient_norm_max": 9106.919921875,
+        "gradient_clip_frequency": 0.40399002493765584,
+        "nonfinite_steps": 0,
+        "step_loss_change_median_abs": 1.2112126350402832,
+        "seconds": 43.43076249957085,
+        "groups_per_second": 147.66031335653776
+      },
+      "evaluation": {
+        "optimization_loss": 6.633499832001305,
+        "time_loss_per_group": 5.1353707948875895,
+        "feedback_loss_per_event": 1.4981290371137153,
+        "accuracy": 0.4105779005812893,
+        "macro_f1": 0.1459477458662846,
+        "per_class_recall": {
+          "like": 0.0007997867235403892,
+          "dislike": 0.0,
+          "unlike": 0.9996189992379985,
+          "undislike": 0.0
+        },
+        "per_class_precision": {
+          "like": 0.2727272727272727,
+          "dislike": 0.0,
+          "unlike": 0.41069658231150535,
+          "undislike": 0.0
+        },
+        "confusion_matrix": [
+          [
+            9,
+            0,
+            11244,
+            0
+          ],
+          [
+            9,
+            0,
+            6382,
+            0
+          ],
+          [
+            6,
+            0,
+            15742,
+            0
+          ],
+          [
+            9,
+            0,
+            4962,
+            0
+          ]
+        ],
+        "predicted_feedback_distribution": [
+          0.2605334222316742,
+          0.2196906954050064,
+          0.3427290916442871,
+          0.1770464926958084
+        ],
+        "lambda_k": {
+          "mean": 0.06850279867649078,
+          "p50": 0.007460646331310272,
+          "p95": 0.09904251992702484,
+          "max": 44.05303955078125
+        },
+        "total_lambda": {
+          "mean": 0.27401119470596313,
+          "p50": 0.030846426263451576,
+          "p95": 0.7260375618934631,
+          "max": 44.05330276489258
+        },
+        "signed_influence": {
+          "mean": 11.123244285583496,
+          "p50": 4.319286346435547,
+          "p95": 42.66136932373047,
+          "max": 530.2630004882812
+        },
+        "absolute_influence_mass": {
+          "mean": 11.123244285583496,
+          "p50": 4.319286346435547,
+          "p95": 42.66136932373047,
+          "max": 530.2630004882812
+        },
+        "positive_influence_mass": {
+          "mean": 11.123244285583496,
+          "p50": 4.319286346435547,
+          "p95": 42.66136932373047,
+          "max": 530.2630004882812
+        },
+        "negative_influence_mass": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "feedback_oracle_loss_per_event": 0.24528991409727754,
+        "feedback_excess_loss": 1.2528391230164377,
+        "predicted_argmax_class_distribution": [
+          0.0008602038422438286,
+          0.0,
+          0.9991397961577562,
+          0.0
+        ]
+      }
+    },
+    {
+      "epoch": 4,
+      "train": {
+        "optimization_loss": 6.654132263179263,
+        "time_loss_per_group": 5.182444135028896,
+        "feedback_loss_per_event": 1.4716881281503673,
+        "gradient_norm_mean": 62.6217055220222,
+        "gradient_norm_max": 9814.4931640625,
+        "gradient_clip_frequency": 0.415211970074813,
+        "nonfinite_steps": 0,
+        "step_loss_change_median_abs": 1.210071086883545,
+        "seconds": 43.45970147848129,
+        "groups_per_second": 147.56198919533176
+      },
+      "evaluation": {
+        "optimization_loss": 6.262444299021107,
+        "time_loss_per_group": 4.839392939874949,
+        "feedback_loss_per_event": 1.4230513591461584,
+        "accuracy": 0.41370591455308503,
+        "macro_f1": 0.17240610294685307,
+        "per_class_recall": {
+          "like": 0.06336088154269973,
+          "dislike": 0.0,
+          "unlike": 0.9625349250698502,
+          "undislike": 0.0
+        },
+        "per_class_precision": {
+          "like": 0.3418024928092042,
+          "dislike": 0.0,
+          "unlike": 0.41784050500317005,
+          "undislike": 0.0
+        },
+        "confusion_matrix": [
+          [
+            713,
+            0,
+            10540,
+            0
+          ],
+          [
+            401,
+            0,
+            5990,
+            0
+          ],
+          [
+            590,
+            0,
+            15158,
+            0
+          ],
+          [
+            382,
+            0,
+            4589,
+            0
+          ]
+        ],
+        "predicted_feedback_distribution": [
+          0.27667269110679626,
+          0.21811145544052124,
+          0.31680214405059814,
+          0.18841388821601868
+        ],
+        "lambda_k": {
+          "mean": 0.04471290111541748,
+          "p50": 0.006819386966526508,
+          "p95": 0.05952317640185356,
+          "max": 33.5501708984375
+        },
+        "total_lambda": {
+          "mean": 0.1788516491651535,
+          "p50": 0.02782152034342289,
+          "p95": 0.3554643392562866,
+          "max": 33.65946578979492
+        },
+        "signed_influence": {
+          "mean": 9.477498054504395,
+          "p50": 3.679447650909424,
+          "p95": 36.35773468017578,
+          "max": 458.9269104003906
+        },
+        "absolute_influence_mass": {
+          "mean": 9.477498054504395,
+          "p50": 3.679447650909424,
+          "p95": 36.35773468017578,
+          "max": 458.9269104003906
+        },
+        "positive_influence_mass": {
+          "mean": 9.477498054504395,
+          "p50": 3.679447650909424,
+          "p95": 36.35773468017578,
+          "max": 458.9269104003906
+        },
+        "negative_influence_mass": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "feedback_oracle_loss_per_event": 0.24528991409727754,
+        "feedback_excess_loss": 1.177761445048881,
+        "predicted_argmax_class_distribution": [
+          0.05437530954304929,
+          0.0,
+          0.9456246904569507,
+          0.0
+        ]
+      }
+    },
+    {
+      "epoch": 5,
+      "train": {
+        "optimization_loss": 6.715414417150186,
+        "time_loss_per_group": 5.222009569448334,
+        "feedback_loss_per_event": 1.4934048477018524,
+        "gradient_norm_mean": 61.88825515450496,
+        "gradient_norm_max": 9987.2431640625,
+        "gradient_clip_frequency": 0.40523690773067333,
+        "nonfinite_steps": 0,
+        "step_loss_change_median_abs": 1.1755609512329102,
+        "seconds": 42.173330061137676,
+        "groups_per_second": 152.06292675259994
+      },
+      "evaluation": {
+        "optimization_loss": 6.299704763762376,
+        "time_loss_per_group": 4.905213862615723,
+        "feedback_loss_per_event": 1.394490901146654,
+        "accuracy": 0.41448791804603397,
+        "macro_f1": 0.18898904821117254,
+        "per_class_recall": {
+          "like": 0.11819070470096862,
+          "dislike": 0.0,
+          "unlike": 0.925260350520701,
+          "undislike": 0.0
+        },
+        "per_class_precision": {
+          "like": 0.32718327183271834,
+          "dislike": 0.0,
+          "unlike": 0.4248352673625284,
+          "undislike": 0.0
+        },
+        "confusion_matrix": [
+          [
+            1330,
+            0,
+            9923,
+            0
+          ],
+          [
+            795,
+            0,
+            5596,
+            0
+          ],
+          [
+            1177,
+            0,
+            14571,
+            0
+          ],
+          [
+            763,
+            0,
+            4208,
+            0
+          ]
+        ],
+        "predicted_feedback_distribution": [
+          0.2784346044063568,
+          0.22715282440185547,
+          0.3054408133029938,
+          0.18897247314453125
+        ],
+        "lambda_k": {
+          "mean": 0.0511108934879303,
+          "p50": 0.006963498890399933,
+          "p95": 0.07678680121898651,
+          "max": 37.16292190551758
+        },
+        "total_lambda": {
+          "mean": 0.2044435739517212,
+          "p50": 0.028229299932718277,
+          "p95": 0.43786299228668213,
+          "max": 37.72793960571289
+        },
+        "signed_influence": {
+          "mean": 9.810961723327637,
+          "p50": 3.8127522468566895,
+          "p95": 37.61846923828125,
+          "max": 483.9037170410156
+        },
+        "absolute_influence_mass": {
+          "mean": 9.810961723327637,
+          "p50": 3.8127522468566895,
+          "p95": 37.61846923828125,
+          "max": 483.9037170410156
+        },
+        "positive_influence_mass": {
+          "mean": 9.810961723327637,
+          "p50": 3.8127522468566895,
+          "p95": 37.61846923828125,
+          "max": 483.9037170410156
+        },
+        "negative_influence_mass": {
+          "mean": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "feedback_oracle_loss_per_event": 0.24528991409727754,
+        "feedback_excess_loss": 1.1492009870493765,
+        "predicted_argmax_class_distribution": [
+          0.10596147329458072,
+          0.0,
+          0.8940385267054193,
+          0.0
+        ]
+      }
+    }
+  ],
+  "parameter_count": {
+    "old_trainable": 1430,
+    "new_trainable": 1451,
+    "new_head_parameters": 25,
+    "net_added": 21
+  },
+  "pass_criteria": {
+    "total_loss_down": false,
+    "time_loss_down": false,
+    "feedback_excess_down": false,
+    "all_four_recalls_nonzero": false,
+    "no_99pct_single_class": true,
+    "Lambda_below_100": true,
+    "positive_and_negative_influence": false,
+    "finite": true
+  }
+}

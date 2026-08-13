@@ -1,0 +1,169 @@
+{
+  "status": "complete_missing_embedding_source_audit",
+  "source_embedding": {
+    "path": "/root/autodl-tmp/0804 Yambda/data/embeddings.parquet",
+    "sha256": "c8959a584257473ab9f5dab7e88b05ea3d03b4daf7c16e9a617e8e216d811c83",
+    "schema": "item_id: uint32\nembed: large_list<element: double>\n  child 0, element: double\nnormalized_embed: large_list<element: double>\n  child 0, element: double",
+    "rows": 7721749,
+    "row_groups": 30,
+    "item_id_min": 2,
+    "item_id_max": 9390623,
+    "duplicate_item_rows_during_explicit_domain_membership_scan": 0
+  },
+  "explicit_membership_cross_check": {
+    "explicit_items": 2875071,
+    "covered_by_source_parquet": 2367341,
+    "missing_from_source_parquet": 507730,
+    "mismatch_vs_existing_support_real_flag": 0,
+    "conclusion": "existing 507,730 missing flags exactly match absence from the source parquet"
+  },
+  "dense_mapping_cross_check": {
+    "mapping_meta": {
+      "variant": "raw_rqkmeans",
+      "variant_dir": "/root/autodl-tmp/0408Yambda/Repersentation/artifacts_full_train/rawRQKmeans",
+      "n_item": 7721749,
+      "max_orig_item_id": 9390623,
+      "sid_levels": 4,
+      "sid_vocab_size": 256,
+      "outputs": {
+        "dense2orig_item_id": "artifacts/mappings/raw_rqkmeans/dense2orig_item_id.npy",
+        "orig2dense_item_id": "artifacts/mappings/raw_rqkmeans/orig2dense_item_id.npy",
+        "dense_item2sid": "artifacts/mappings/raw_rqkmeans/dense_item2sid.npy",
+        "dense_item_features": "artifacts/mappings/raw_rqkmeans/dense_item_features.npy"
+      },
+      "feature_stats": {
+        "filled": 7721749,
+        "skipped": 0,
+        "path": "artifacts/mappings/raw_rqkmeans/dense_item_features.npy"
+      }
+    },
+    "orig2dense_shape": [
+      9390624
+    ],
+    "dense2orig_shape": [
+      7721750
+    ],
+    "dense_features_shape": [
+      7721750,
+      128
+    ],
+    "explicit_real_items_with_valid_dense_mapping": 2367341,
+    "explicit_missing_items_with_valid_dense_mapping": 0,
+    "real_item_roundtrip_passed": 2367341,
+    "real_item_roundtrip_total": 2367341,
+    "support_dense_id_mismatch": 0,
+    "missing_dense_id_values": {
+      "0": 507730
+    }
+  },
+  "other_local_artifacts": {
+    "item_tokens": {
+      "path": "/root/autodl-tmp/0804 Yambda/data/item_tokens.json",
+      "size_bytes": 595721959,
+      "last_expected_dense_key_seen_in_tail": true,
+      "role": "four discrete tokens for the same 7,721,749 source-embedding rows; no additional continuous item embedding coverage"
+    },
+    "historical_dense_store": {
+      "role": "float32 conversion of normalized_embed from the same embeddings parquet",
+      "source": {
+        "variant": "raw_rqkmeans",
+        "variant_dir": "/root/autodl-tmp/0408Yambda/Repersentation/artifacts_full_train/rawRQKmeans",
+        "n_item": 7721749,
+        "max_orig_item_id": 9390623,
+        "sid_levels": 4,
+        "sid_vocab_size": 256,
+        "outputs": {
+          "dense2orig_item_id": "artifacts/mappings/raw_rqkmeans/dense2orig_item_id.npy",
+          "orig2dense_item_id": "artifacts/mappings/raw_rqkmeans/orig2dense_item_id.npy",
+          "dense_item2sid": "artifacts/mappings/raw_rqkmeans/dense_item2sid.npy",
+          "dense_item_features": "artifacts/mappings/raw_rqkmeans/dense_item_features.npy"
+        },
+        "feature_stats": {
+          "filled": 7721749,
+          "skipped": 0,
+          "path": "artifacts/mappings/raw_rqkmeans/dense_item_features.npy"
+        }
+      }
+    },
+    "old_0408_mapping": {
+      "role": "mapping generated from the same-size 7,721,749-row embeddings parquet, not an alternate source",
+      "metadata": {
+        "embeddings_parquet": "/root/autodl-tmp/0408Yambda/../0330Yambda/data/embeddings.parquet",
+        "embedding_column": "normalized_embed",
+        "codebook_npz": "artifacts/codebook/yambda_rq_codebook.npz",
+        "rqvae_ckpt": "/root/autodl-tmp/0330Yambda/pure_rqvae/checkpoints/Mar-30-2026_23-12-08/best_entropy_e20.pth",
+        "encoding_mode": "rqvae",
+        "num_rows_total": 7721749,
+        "num_rows_effective": 7721749,
+        "min_item_id": 2,
+        "max_item_id": 9390623,
+        "monotonic_non_decreasing_item_ids": true,
+        "n_levels": 4,
+        "vocab_sizes": [
+          256,
+          256,
+          256,
+          256
+        ],
+        "embedding_dim": 128,
+        "outputs": {
+          "dense_item2sid_npy": "artifacts/mappings/yambda_dense_item2sid.npy",
+          "dense2orig_item_id_npy": "artifacts/mappings/yambda_dense2orig_item_id.npy",
+          "orig2dense_item_id_npy": "artifacts/mappings/yambda_orig2dense_item_id.npy"
+        }
+      }
+    },
+    "0408_feature_cache": {
+      "shapes": {
+        "dense_ids": [
+          144482
+        ],
+        "features": [
+          144482,
+          128
+        ]
+      },
+      "role": "144,482-row task subset indexed by existing dense IDs; not additional catalog coverage"
+    },
+    "metadata_imputation_artifact": {
+      "catalog_items": 244553,
+      "feature_source_labels": {
+        "0": "source_audio_embedding",
+        "1": "artist_centroid",
+        "2": "album_centroid",
+        "3": "artist_album_centroid",
+        "4": "train_explicit_collaborative",
+        "5": "metadata_plus_train_explicit_collaborative"
+      },
+      "role": "derived real/metadata/collaborative proxy features for an older 244,553-item protocol; not a new source embedding"
+    },
+    "old_rq_artifact": {
+      "catalog_items": 210985,
+      "fit_scope": "all_feature_covered_explicit_items",
+      "missing_feature_policy": "do not fabricate codes; retain original item ids in missing_item_ids.npy",
+      "role": "RQ codes/features derived from the same embeddings parquet for an older filtered item universe"
+    },
+    "0330_data_directory": {
+      "exists": false,
+      "note": "historical manifests point there, but the current directory is absent; current embeddings.parquet has the identical recorded byte size"
+    },
+    "llama_embedding_generator": {
+      "script": "/root/autodl-tmp/0626/0626 Predictor/0525DIGER/scripts/generate_llama_item_embeddings.py",
+      "item_embedding_output_found_in_workspace": false,
+      "role": "generator script only; no produced item-specific embedding artifact found"
+    }
+  },
+  "conclusion": {
+    "missing_is_current_mapping_bug": false,
+    "missing_is_absent_from_local_source_embedding_parquet": true,
+    "alternate_item_specific_embedding_covering_missing_items_found": false,
+    "missing_items": 507730
+  },
+  "boundaries": {
+    "proxy_training_performed": false,
+    "unk_sid_generated": false,
+    "suffix_designed": false,
+    "gate2_started": false,
+    "snmpp_or_hpn_trained": false
+  }
+}

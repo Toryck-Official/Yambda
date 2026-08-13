@@ -1,0 +1,104 @@
+{
+  "format_version": 1,
+  "status": "complete",
+  "created_for": "Yambda explicit-feedback Phase 0 memory-safe exact audit",
+  "cleaning_or_filtering": false,
+  "source_dir": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/raw/sequential/5b",
+  "output_dir": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b",
+  "batch_users": 128,
+  "records": {
+    "like": {
+      "event": "like",
+      "source": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/raw/sequential/5b/likes.parquet",
+      "source_size_bytes": 693712976,
+      "users": 827246,
+      "events": 89334605,
+      "organic_events": 51545029,
+      "recommendation_driven_events": 37789576,
+      "uid_min": 1,
+      "uid_max": 1000000,
+      "item_id_min": 7,
+      "item_id_max": 9390619,
+      "timestamp_min": 0,
+      "timestamp_max": 26000000,
+      "output_files": {
+        "uid.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/like/uid.npy",
+        "offsets.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/like/offsets.npy",
+        "timestamp.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/like/timestamp.npy",
+        "item_id.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/like/item_id.npy",
+        "is_organic.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/like/is_organic.npy"
+      },
+      "lossless_contract": "all source rows and nested values retained; only Parquet encoding replaced by NumPy memory-mapped arrays"
+    },
+    "dislike": {
+      "event": "dislike",
+      "source": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/raw/sequential/5b/dislikes.parquet",
+      "source_size_bytes": 89065045,
+      "users": 593011,
+      "events": 11579143,
+      "organic_events": 5966709,
+      "recommendation_driven_events": 5612434,
+      "uid_min": 1,
+      "uid_max": 1000000,
+      "item_id_min": 17,
+      "item_id_max": 9390623,
+      "timestamp_min": 15,
+      "timestamp_max": 25999995,
+      "output_files": {
+        "uid.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/dislike/uid.npy",
+        "offsets.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/dislike/offsets.npy",
+        "timestamp.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/dislike/timestamp.npy",
+        "item_id.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/dislike/item_id.npy",
+        "is_organic.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/dislike/is_organic.npy"
+      },
+      "lossless_contract": "all source rows and nested values retained; only Parquet encoding replaced by NumPy memory-mapped arrays"
+    },
+    "unlike": {
+      "event": "unlike",
+      "source": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/raw/sequential/5b/unlikes.parquet",
+      "source_size_bytes": 193012360,
+      "users": 638130,
+      "events": 32944520,
+      "organic_events": 31293403,
+      "recommendation_driven_events": 1651117,
+      "uid_min": 1,
+      "uid_max": 1000000,
+      "item_id_min": 4,
+      "item_id_max": 9390612,
+      "timestamp_min": 30,
+      "timestamp_max": 26000000,
+      "output_files": {
+        "uid.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/unlike/uid.npy",
+        "offsets.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/unlike/offsets.npy",
+        "timestamp.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/unlike/timestamp.npy",
+        "item_id.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/unlike/item_id.npy",
+        "is_organic.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/unlike/is_organic.npy"
+      },
+      "lossless_contract": "all source rows and nested values retained; only Parquet encoding replaced by NumPy memory-mapped arrays"
+    },
+    "undislike": {
+      "event": "undislike",
+      "source": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/raw/sequential/5b/undislikes.parquet",
+      "source_size_bytes": 16248355,
+      "users": 288764,
+      "events": 2434208,
+      "organic_events": 2195073,
+      "recommendation_driven_events": 239135,
+      "uid_min": 4,
+      "uid_max": 999991,
+      "item_id_min": 26,
+      "item_id_max": 9390612,
+      "timestamp_min": 40,
+      "timestamp_max": 25999920,
+      "output_files": {
+        "uid.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/undislike/uid.npy",
+        "offsets.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/undislike/offsets.npy",
+        "timestamp.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/undislike/timestamp.npy",
+        "item_id.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/undislike/item_id.npy",
+        "is_organic.npy": "/root/autodl-tmp/0809 Yambda/phase0_5b_audit/work/flat_explicit_5b/undislike/is_organic.npy"
+      },
+      "lossless_contract": "all source rows and nested values retained; only Parquet encoding replaced by NumPy memory-mapped arrays"
+    }
+  },
+  "elapsed_seconds": 30.095269918441772
+}
